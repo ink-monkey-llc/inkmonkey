@@ -1,0 +1,2 @@
+1. Hover effects on links and buttons
+2. replace all scrollbars with custom scrollbars
