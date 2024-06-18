@@ -1,16 +1,43 @@
-import React from 'react'
+import { use } from 'react'
+
 import { storeApi } from '@/lib/shopify/storefront-api'
 import ProductGrid from '@/app/grid/product-grid'
+import PageBtn from './page-btn'
 
-async function ProductType({ params }: { params: { slug: string } }) {
+function ProductType({ params, searchParams }: { params: { slug: string }; searchParams: { [key: string]: string | string[] | undefined } }) {
  const query = decodeURIComponent(params.slug)
- const products = await storeApi.getProductsByType({ productType: query, sortKey: 'TITLE', reverse: false })
- console.log('products:', await products)
+ const dir = searchParams.dir ? searchParams.dir.toString() : ''
+ const cursor = searchParams.cursor ? searchParams.cursor.toString() : ''
+ const productData = storeApi.getProductsByType({ productType: query, sortKey: 'TITLE', reverse: false, numProducts: 25, cursor: cursor ?? '', dir })
+
+ const { products, pageInfo } = use(productData)
+
+ console.log('pageInfo:', pageInfo)
+
+ const nextText = `Next Page >`
+ const prevText = `< Previous Page`
 
  return (
-  <div>
+  <div className='pb-12'>
    <div>{query}</div>
    <ProductGrid products={products} />
+   <div className='flex justify-center gap-6 mt-6'>
+    {pageInfo.hasPreviousPage && (
+     <PageBtn
+      pageInfo={pageInfo}
+      id='prev'>
+      {prevText}
+     </PageBtn>
+    )}
+    <span>|</span>
+    {pageInfo.hasNextPage && (
+     <PageBtn
+      pageInfo={pageInfo}
+      id='next'>
+      {nextText}
+     </PageBtn>
+    )}
+   </div>
   </div>
  )
 }

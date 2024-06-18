@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import GridItem from './grid-item'
+import Spinner from '../spinner/spinner'
+
+const Loader = () => {
+ return (
+  <div className='w-[200px] h-[200px] flex justify-center items-center border-2 rounded-md border-accent-tr'>
+   <Spinner />
+  </div>
+ )
+}
 
 function ProductGrid({ products }: { products: ShopifyProduct[] }) {
- if (!products) {
-  return <p>Loading...</p>
- }
  return (
-  <div className='flex flex-wrap gap-8 p-4'>
+  <div className='flex flex-wrap gap-8 justify-center p-4'>
    {products.map((product) => (
-    <GridItem
-     key={product.id}
-     product={product}
-    />
+    <Suspense
+     fallback={<Loader />}
+     key={product.id}>
+     <GridItem product={product} />
+    </Suspense>
    ))}
   </div>
  )

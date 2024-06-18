@@ -1,21 +1,35 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import { reshapeImages } from '@/lib/shopify/storefront-api'
 import Image from 'next/image'
+import { getPlaiceholder } from 'plaiceholder'
 
-function GridItem({ product }: { product: ShopifyProduct }) {
- if (!product) {
-  return <p>Loading...</p>
+const getImage = async (src: string) => {
+ const buffer = await fetch(src).then(async (res) => Buffer.from(await res.arrayBuffer()))
+ const {
+  metadata: { height, width },
+  ...plaiceholder
+ } = await getPlaiceholder(buffer, { size: 10 })
+
+ return {
+  ...plaiceholder,
+  img: { src, height, width },
  }
- const imgs = reshapeImages(product.images, product.title)
+}
+
+async function GridItem({ product }: { product: ShopifyProduct }) {
+ const images = reshapeImages(product.images, product.title)
+ const { base64, img } = await getImage(images[0].url)
  return (
   <div className='max-w-[200px] relative'>
    <Image
     className='object-cover'
-    src={imgs[0].url}
-    alt={imgs[0].altText}
+    {...img}
+    alt={images[0].altText}
     width={300}
     height={300}
+    blurDataURL={base64}
+    placeholder='blur'
    />
    <h3>{product.title}</h3>
   </div>

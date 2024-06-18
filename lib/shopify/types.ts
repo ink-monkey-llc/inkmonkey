@@ -263,3 +263,15 @@ export type ShopifyProductsOperation = {
   sortKey?: string
  }
 }
+
+export type PageInfo = {
+ endCursor: Maybe<string>
+ hasNextPage: boolean
+ hasPreviousPage: boolean
+ startCursor: Maybe<string>
+}
+
+export type ProductQueryResult = {
+ pageInfo: PageInfo
+ products: ShopifyProduct[]
+}
