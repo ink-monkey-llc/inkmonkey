@@ -40,6 +40,11 @@ export type Image = {
  height: number
 }
 
+export interface FeaturedImage extends Image {
+ image: Image
+ title: string
+}
+
 export type Menu = {
  title: string
  path: string

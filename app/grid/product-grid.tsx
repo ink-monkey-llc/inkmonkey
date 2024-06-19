@@ -1,7 +1,10 @@
 import React, { Suspense } from 'react'
 import { ShopifyProduct } from '@/lib/shopify/types'
+import TempGridItem from './temp-grid-item'
+import TempImage from './temp-image'
 import GridItem from './grid-item'
 import Spinner from '../spinner/spinner'
+import img from '@/app/images/temp_main.webp'
 
 const Loader = () => {
  return (
@@ -13,12 +16,13 @@ const Loader = () => {
 
 function ProductGrid({ products }: { products: ShopifyProduct[] }) {
  return (
-  <div className='flex flex-wrap gap-8 justify-center p-4'>
+  <div className=' flex flex-wrap gap-8 justify-center p-4'>
    {products.map((product) => (
     <Suspense
      fallback={<Loader />}
      key={product.id}>
-     <GridItem product={product} />
+     {/* <GridItem product={product} /> */}
+     <TempGridItem product={product} />
     </Suspense>
    ))}
   </div>

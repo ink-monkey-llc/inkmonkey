@@ -63,31 +63,10 @@ export const storeApi = {
    console.log('errors:', errors)
    throw new Error(errors.message)
   }
-  console.log('data:', await data)
+  // console.log('data:', await data)
   const pageInfo = data.products.pageInfo as PageInfo
   const products = removeEdgesAndNodes(await data.products) as ShopifyProduct[]
   const productData = { pageInfo, products } as ProductQueryResult
   return productData
  },
-
- // getPreviousProductsByType: async (args: { productType: string; sortKey: string; reverse: boolean; numProducts: number }) => {
- //   const { data, errors, extensions } = await client.request(previousProductByTypeQuery, {
- //    variables: {
- //     query: `product_type:${args.productType}`,
- //     sortKey: args.sortKey,
- //     reverse: args.reverse,
- //     numProducts: args.numProducts,
- //    },
- //    apiVersion: API_VERSION,
- //   })
- //   if (errors) {
- //    console.log('errors:', errors)
- //    throw new Error(errors.message)
- //   }
- //   console.log('data:', await data)
- //   const pageInfo = data.products.pageInfo as PageInfo
- //   const products = removeEdgesAndNodes(await data.products) as ShopifyProduct[]
- //   const productData = { pageInfo, products } as ProductQueryResult
- //   return productData
- //  },
 }
