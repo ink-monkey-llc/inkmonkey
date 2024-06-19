@@ -27,7 +27,6 @@ function ProductCardImage({ product, featImgData, imgDataArr }: ProductCardImage
  }
  return (
   <div
-   style={{ position: 'static' }}
    onMouseLeave={() => handleMouse(false)}
    onMouseEnter={() => handleMouse(true)}>
    <SimpleImageSlider

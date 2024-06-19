@@ -1,10 +1,9 @@
 import React, { Suspense } from 'react'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import TempGridItem from './temp-grid-item'
-import TempImage from './temp-image'
+import TempSlider from './temp-slider'
 import GridItem from './grid-item'
 import Spinner from '../spinner/spinner'
-import img from '@/app/images/temp_main.webp'
 
 const Loader = () => {
  return (

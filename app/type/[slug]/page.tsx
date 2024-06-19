@@ -8,7 +8,7 @@ function ProductType({ params, searchParams }: { params: { slug: string }; searc
  const query = formatPathname(params.slug)
  const dir = searchParams.dir ? searchParams.dir.toString() : ''
  const cursor = searchParams.cursor ? searchParams.cursor.toString() : ''
- const productData = storeApi.getProductsByType({ productType: query, sortKey: 'TITLE', reverse: false, numProducts: 25, cursor: cursor ?? '', dir })
+ const productData = storeApi.getProductsByType({ productType: query, sortKey: 'TITLE', reverse: false, numProducts: 24, cursor: cursor ?? '', dir })
 
  const { products, pageInfo } = use(productData)
 
