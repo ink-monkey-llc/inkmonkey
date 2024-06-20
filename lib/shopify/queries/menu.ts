@@ -1,48 +1,77 @@
+import { menuItemFragment } from '../fragments/menu-item'
+
 export const menuQuery = /* GraphQL */ `
  query MenuQuery($handle: String!) {
   menu(handle: $handle) {
    id
    itemsCount
    title
+   handle
    items {
     id
-    title
-    url
-    resourceId
     items {
      id
      items {
-      items {
-       items {
-        id
-        resourceId
-        tags
-        type
-        url
-        title
-       }
-       id
-       resourceId
-       tags
-       title
-       type
-       url
-      }
       id
+      title
+      url
       resourceId
       tags
-      title
       type
-      url
+      resource {
+       ... on Collection {
+        id
+        handle
+       }
+       ... on Metaobject {
+        id
+        handle
+        fields {
+         value
+         key
+        }
+       }
+      }
      }
+     title
+     url
      resourceId
      tags
-     title
      type
-     url
+     resource {
+      ... on Collection {
+       id
+       handle
+      }
+      ... on Metaobject {
+       id
+       handle
+       fields {
+        value
+        key
+       }
+      }
+     }
     }
+    title
+    url
+    resourceId
     tags
     type
+    resource {
+     ... on Collection {
+      id
+      handle
+     }
+     ... on Metaobject {
+      id
+      handle
+      fields {
+       value
+       key
+      }
+     }
+    }
    }
   }
  }

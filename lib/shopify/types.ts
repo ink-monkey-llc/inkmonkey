@@ -217,16 +217,25 @@ export type ShopifyCollectionsOperation = {
  }
 }
 
+export type ShopifyResource = {
+ id: string
+ handle: string
+}
+
 export type MenuItem = {
  id: string
  items?: MenuItem[]
- resoureId: string
+ resourceId: string
+ tags?: string[]
+ type: string
+ resource?: ShopifyResource
  title: string
  url: string
 }
 
 export type ShopifyMenu = {
  id: string
+ handle: string
  itemsCount: number
  title: string
  items: MenuItem[]

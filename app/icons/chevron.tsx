@@ -1,9 +1,36 @@
 import React from 'react'
+import { cn } from '../utils/cn'
 
-function Chevron({ className = '', direction = 'left' }) {
+export enum Direction {
+ Left,
+ Right,
+ Up,
+ Down,
+}
+
+export type Props = {
+ className?: string
+ direction?: Direction
+}
+
+function Chevron({ className = '', direction }: Props) {
+ const rotate = () => {
+  switch (direction) {
+   case Direction.Left:
+    return 'rotate-0'
+   case Direction.Right:
+    return 'rotate-180'
+   case Direction.Up:
+    return 'rotate-90'
+   case Direction.Down:
+    return '-rotate-90'
+   default:
+    return ''
+  }
+ }
  return (
   <svg
-   className={className}
+   className={cn(className, rotate())}
    xmlns='http://www.w3.org/2000/svg'
    viewBox='0 0 48 48'>
    <path

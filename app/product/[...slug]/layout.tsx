@@ -2,7 +2,7 @@ import Categories from './categories'
 import Sidebar from '@/app/menu/sidebar'
 
 export type Params = {
- slug: string
+ slug: string[]
 }
 
 export default function GridLayout({

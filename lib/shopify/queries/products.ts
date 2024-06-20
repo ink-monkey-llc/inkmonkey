@@ -38,11 +38,11 @@ export const previousProductByTypeQuery = /* GraphQL */ `
  ${productFragment}
 `
 
-export const productByHandleQuery = `
-query ProductByHandle($handle: String!) {
+export const productByHandleQuery = /* GraphQL */ `
+ query ProductByHandle($handle: String!) {
   productByHandle(handle: $handle) {
-    ...product
+   ...product
   }
-}
-${productFragment}
+ }
+ ${productFragment}
 `

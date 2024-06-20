@@ -2,24 +2,27 @@ import React from 'react'
 import Level from './level'
 import { formatPathname } from '../utils/helpers'
 import { storeApi } from '@/lib/shopify/storefront-api'
-import type { Params } from '../product/[slug]/layout'
+import type { Params } from '../product/[...slug]/layout'
 
 type Props = {
- productType: Params
+ params: Params
 }
 
-async function ListTree({ productType }: Props) {
+async function ListTree({ params }: Props) {
  const menu = await storeApi.getMenu({ handle: 'concise-menu' })
  const { items } = menu
- const { slug } = productType
- console.log('menu items:', menu.items)
- const title = slug === 'Vinyl-Decal' ? 'Stickers & Decals' : formatPathname(slug)
+ const { slug } = params
+ const title = slug[0] === 'Vinyl-Decal' ? 'Stickers & Decals' : formatPathname(slug[0])
+ const thisUrl = `/product/${slug[0]}`
+
  return (
   <div>
    <p>{title}</p>
    {items &&
     items.map((item) => (
      <Level
+      parent={thisUrl}
+      params={params}
       key={item.id}
       obj={item}
      />
