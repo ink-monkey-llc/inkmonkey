@@ -217,18 +217,19 @@ export type ShopifyCollectionsOperation = {
  }
 }
 
-export type ShopifyMenuOperation = {
- data: {
-  menu?: {
-   items: {
-    title: string
-    url: string
-   }[]
-  }
- }
- variables: {
-  handle: string
- }
+export type MenuItem = {
+ id: string
+ items?: MenuItem[]
+ resoureId: string
+ title: string
+ url: string
+}
+
+export type ShopifyMenu = {
+ id: string
+ itemsCount: number
+ title: string
+ items: MenuItem[]
 }
 
 export type ShopifyPageOperation = {

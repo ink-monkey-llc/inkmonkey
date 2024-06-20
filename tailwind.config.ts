@@ -16,7 +16,7 @@ const config: Config = {
     'btn-border': '#D9D9D9',
     'txt-primary': '#fff',
     'txt-secondary': '#A6A6A6',
-    border: '#D2D2D2',
+    border: '#222222',
     divider: '#EAEAEA',
     'img-bg': '#EEEEEE',
     icon: '#898989',

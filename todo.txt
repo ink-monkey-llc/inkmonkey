@@ -1,6 +1,0 @@
-1. Hover effects on links and buttons
-2. replace all scrollbars with custom scrollbars
-3. filter and search for product grid
-4. display alternate images for product card
-5. error boundaries
-6. modify react-simple-image-slider package and use it instead
