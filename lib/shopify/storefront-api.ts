@@ -1,6 +1,12 @@
 import { createStorefrontApiClient } from '@shopify/storefront-api-client'
 import { productByHandleQuery, nextProductByTypeQuery, previousProductByTypeQuery } from './queries/products'
-import { previousCollectionByHandleQuery, nextCollectionByHandleQuery } from './queries/collections'
+import {
+ previousCollectionByHandleQuery,
+ nextCollectionByHandleQuery,
+ previousCollectionByIdQuery,
+ nextCollectionByIdQuery,
+ collectionHandleByIdQuery,
+} from './queries/collections'
 import { Connection, Image, ProductQueryResult, ShopifyProduct, PageInfo, ShopifyMenu } from './types'
 import { menuQuery } from './queries/menu'
 
@@ -107,5 +113,40 @@ export const storeApi = {
   }
   // console.log('data:', await data)
   return await data.collectionByHandle
+ },
+ getCollectionById: async (args: { id: string; sortKey: string; reverse: boolean; numProducts: number; cursor: string; dir: string }) => {
+  const variables: { id: string; sortKey: string; reverse: boolean; numProducts: number; cursor?: string } = {
+   id: args.id,
+   sortKey: args.sortKey,
+   reverse: args.reverse,
+   numProducts: args.numProducts,
+  }
+  if (args.cursor) {
+   variables.cursor = args.cursor
+  }
+  const { data, errors, extensions } = await client.request(args.dir === 'prev' ? previousCollectionByIdQuery : nextCollectionByIdQuery, {
+   variables: variables,
+   apiVersion: API_VERSION,
+  })
+  if (errors) {
+   console.log('errors:', errors)
+   throw new Error(errors.message)
+  }
+  // console.log('data:', await data)
+  return await data.collectionById
+ },
+ getCollectionHandleById: async (args: { id: string }) => {
+  const { data, errors, extensions } = await client.request(collectionHandleByIdQuery, {
+   variables: {
+    id: args.id,
+   },
+   apiVersion: API_VERSION,
+  })
+  if (errors) {
+   console.log('errors:', errors)
+   throw new Error(errors.message)
+  }
+  // console.log('data:', await data)
+  return await data
  },
 }

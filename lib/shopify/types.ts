@@ -220,6 +220,10 @@ export type ShopifyCollectionsOperation = {
 export type ShopifyResource = {
  id: string
  handle: string
+ fields?: {
+  value: string | string[]
+  key: string
+ }[]
 }
 
 export type MenuItem = {

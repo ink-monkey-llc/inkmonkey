@@ -11,10 +11,10 @@ function ProductType({ params, searchParams }: { params: { slug: string[] }; sea
  const cursor = searchParams.cursor ? searchParams.cursor.toString() : ''
 
  const productData = storeApi.getProductsByType({ productType: query, sortKey: 'TITLE', reverse: false, numProducts: 24, cursor: cursor ?? '', dir })
- const collectionData = storeApi.getCollectionByHandle({ handle: colName, sortKey: 'TITLE', reverse: false, numProducts: 24, cursor: cursor ?? '', dir })
+ //  const collectionData = storeApi.getCollectionByHandle({ handle: colName, sortKey: 'TITLE', reverse: false, numProducts: 24, cursor: cursor ?? '', dir })
 
- const coldata = use(collectionData)
- console.log('coldata:', coldata)
+ //  const coldata = use(collectionData)
+ //  console.log('coldata:', coldata)
  const { products, pageInfo } = use(productData)
 
  const nextText = `Next Page >`

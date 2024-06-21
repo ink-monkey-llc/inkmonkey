@@ -1,6 +1,7 @@
 import React from 'react'
 import { cn } from '../utils/cn'
 import type { MenuItem } from '@/lib/shopify/types'
+import { storeApi } from '@/lib/shopify/storefront-api'
 import Chevron from '../icons/chevron'
 import Link from 'next/link'
 import { Direction } from '../icons/chevron'
@@ -12,12 +13,25 @@ type Props = {
  parent?: string
 }
 
-function Level({ obj, params, parent }: Props) {
+async function Level({ obj, params, parent }: Props) {
  const { slug } = params
  const handle = obj.resource?.handle
- const newUrl = `${parent}/${handle}`
 
  const isUnfolded = handle && slug.includes(handle)
+ const isMetaObject = obj.type === 'METAOBJECT'
+ const isCollection = obj.type === 'COLLECTION'
+
+ const collectionHandle = async () => {
+  if (isMetaObject && !!obj.resource) {
+   const id = obj.resource?.fields?.find((field) => field.key === 'top_level_collection')?.value
+   const result = await storeApi.getCollectionHandleById({ id: id as string })
+   const handle = result?.collection?.handle
+   console.log('handle:', await handle, 'id:', id, 'obj:', handle === 'military' && obj)
+   return handle
+  }
+ }
+
+ const newUrl = isCollection ? `${parent}/${obj.resource?.handle}` : isMetaObject ? `${parent}/${await collectionHandle()}` : '/'
 
  const dir = {
   r: Direction.Right,

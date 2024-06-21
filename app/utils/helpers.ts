@@ -9,3 +9,5 @@ export function formatPrice(price: number): string {
  }).format(price)
  return dollars
 }
+
+// export function
