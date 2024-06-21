@@ -94,6 +94,7 @@ export const storeApi = {
  },
 
  getCollectionByHandle: async (args: { handle: string; sortKey: string; reverse: boolean; numProducts: number; cursor: string; dir: string }) => {
+  // console.log('getCollectionByHandle', args)
   const variables: { handle: string; sortKey: string; reverse: boolean; numProducts: number; cursor?: string } = {
    handle: args.handle,
    sortKey: args.sortKey,
@@ -112,7 +113,10 @@ export const storeApi = {
    throw new Error(errors.message)
   }
   // console.log('data:', await data)
-  return await data.collectionByHandle
+  const pageInfo = data.collectionByHandle.products.pageInfo as PageInfo
+  const products = removeEdgesAndNodes(await data.collectionByHandle.products) as ShopifyProduct[]
+  const productData = { pageInfo, products } as ProductQueryResult
+  return productData
  },
  getCollectionById: async (args: { id: string; sortKey: string; reverse: boolean; numProducts: number; cursor: string; dir: string }) => {
   const variables: { id: string; sortKey: string; reverse: boolean; numProducts: number; cursor?: string } = {
@@ -133,7 +137,10 @@ export const storeApi = {
    throw new Error(errors.message)
   }
   // console.log('data:', await data)
-  return await data.collectionById
+  const pageInfo = data.collectionById.products.pageInfo as PageInfo
+  const products = removeEdgesAndNodes(await data.collectionById.products) as ShopifyProduct[]
+  const productData = { pageInfo, products } as ProductQueryResult
+  return productData
  },
  getCollectionHandleById: async (args: { id: string }) => {
   const { data, errors, extensions } = await client.request(collectionHandleByIdQuery, {

@@ -22,16 +22,18 @@ async function ListTree({ params }: Props) {
 
  return (
   <div>
-   <p>{title}</p>
-   {items &&
-    items.map((item) => (
-     <Level
-      parent={thisUrl}
-      params={params}
-      key={item.id}
-      obj={item}
-     />
-    ))}
+   <p className='mb-4 px-2 py-2 w-full text-center bg-bg-secondary'>{title}</p>
+   <div className='px-4'>
+    {items &&
+     items.map((item) => (
+      <Level
+       parent={thisUrl}
+       params={params}
+       key={item.id}
+       obj={item}
+      />
+     ))}
+   </div>
   </div>
  )
 }

@@ -9,8 +9,8 @@ type Props = {
 
 function Sidebar({ params }: Props) {
  return (
-  <div className='px-4 border-r-2 border-border max-h-[var(--view-height)] overflow-y-scroll min-w-56'>
-   <ul className='flex flex-col gap-2 py-4'>
+  <div className='border-r-2 border-border h-[var(--view-height)] overflow-y-scroll min-w-[250px]'>
+   <ul className='flex flex-col gap-2 '>
     <ListTree params={params} />
    </ul>
   </div>

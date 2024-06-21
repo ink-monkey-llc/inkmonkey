@@ -3,19 +3,28 @@ import { formatPathname } from '@/app/utils/helpers'
 import { storeApi } from '@/lib/shopify/storefront-api'
 import ProductGrid from '@/app/grid/product-grid'
 import PageBtn from './page-btn'
+import { ProductQueryResult } from '@/lib/shopify/types'
 
-function ProductType({ params, searchParams }: { params: { slug: string[] }; searchParams: { [key: string]: string | string[] | undefined } }) {
+async function ProductType({ params, searchParams }: { params: { slug: string[] }; searchParams: { [key: string]: string | string[] | undefined } }) {
  const query = formatPathname(params.slug[0])
- const colName = params.slug.length > 1 ? params.slug[-1] : ''
+ const colName = params.slug.length > 1 ? params.slug.slice(-1)[0] : ''
  const dir = searchParams.dir ? searchParams.dir.toString() : ''
  const cursor = searchParams.cursor ? searchParams.cursor.toString() : ''
 
- const productData = storeApi.getProductsByType({ productType: query, sortKey: 'TITLE', reverse: false, numProducts: 24, cursor: cursor ?? '', dir })
- //  const collectionData = storeApi.getCollectionByHandle({ handle: colName, sortKey: 'TITLE', reverse: false, numProducts: 24, cursor: cursor ?? '', dir })
+ const dataObj =
+  params.slug.length === 1
+   ? storeApi.getProductsByType({ productType: query, sortKey: 'TITLE', reverse: false, numProducts: 24, cursor: cursor ?? '', dir })
+   : storeApi.getCollectionByHandle({ handle: colName, sortKey: 'TITLE', reverse: false, numProducts: 24, cursor: cursor ?? '', dir })
 
- //  const coldata = use(collectionData)
- //  console.log('coldata:', coldata)
- const { products, pageInfo } = use(productData)
+ //  let dataObj: Promise<any>
+ //  if (params.slug.length > 1) {
+ //   dataObj = collectionData
+ //  } else {
+ //   dataObj = productData
+ //  }
+ console.log('dataObj:', await dataObj)
+
+ const { products, pageInfo } = await dataObj
 
  const nextText = `Next Page >`
  const prevText = `< Previous Page`
