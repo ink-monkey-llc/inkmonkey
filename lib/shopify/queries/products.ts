@@ -46,3 +46,17 @@ export const productByHandleQuery = /* GraphQL */ `
  }
  ${productFragment}
 `
+export const productCursorsQuery = /* GraphQL */ `
+ query ProductsCursors($query: String) {
+  products(first: 240, query: $query) {
+   edges {
+    cursor
+    node {
+     handle
+     id
+     productType
+    }
+   }
+  }
+ }
+`

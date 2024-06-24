@@ -121,6 +121,7 @@ export type ShopifyProduct = {
  description: string
  descriptionHtml: string
  options: ProductOption[]
+ productType: string
  priceRange: {
   maxVariantPrice: Money
   minVariantPrice: Money

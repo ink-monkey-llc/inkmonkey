@@ -6,9 +6,11 @@ import {
  previousCollectionByIdQuery,
  nextCollectionByIdQuery,
  collectionHandleByIdQuery,
+ fullCollectionByHandleQuery,
 } from './queries/collections'
 import { Connection, Image, ProductQueryResult, ShopifyProduct, PageInfo, ShopifyMenu } from './types'
 import { menuQuery } from './queries/menu'
+import { filterByType } from '@/app/utils/helpers'
 
 const API_VERSION = process.env.NEXT_PUBLIC_API_VERSION ?? '2024-04'
 const STORE_DOMAIN = process.env.NEXT_PUBLIC_STORE_DOMAIN ?? '7c5018-3.myshopify.com'
@@ -34,6 +36,16 @@ export const reshapeImages = (images: Connection<Image>, productTitle: string) =
    altText: image.altText || `${productTitle} - ${filename}`,
   }
  })
+}
+
+type CollectionArgs = {
+ handle: string
+ sortKey: string
+ reverse: boolean
+ numProducts: number
+ cursor: string
+ dir: string
+ productType: string
 }
 
 export const storeApi = {
@@ -93,13 +105,14 @@ export const storeApi = {
   return menuData
  },
 
- getCollectionByHandle: async (args: { handle: string; sortKey: string; reverse: boolean; numProducts: number; cursor: string; dir: string }) => {
+ getCollectionByHandle: async (args: CollectionArgs) => {
   // console.log('getCollectionByHandle', args)
-  const variables: { handle: string; sortKey: string; reverse: boolean; numProducts: number; cursor?: string } = {
+  const variables: { handle: string; sortKey: string; reverse: boolean; numProducts: number; cursor?: string; productType: string } = {
    handle: args.handle,
    sortKey: args.sortKey,
    reverse: args.reverse,
    numProducts: args.numProducts,
+   productType: args.productType,
   }
   if (args.cursor) {
    variables.cursor = args.cursor
@@ -113,11 +126,15 @@ export const storeApi = {
    throw new Error(errors.message)
   }
   // console.log('data:', await data)
+  if (!data.collectionByHandle) {
+   return { products: [], pageInfo: { hasNextPage: false, hasPreviousPage: false, startCursor: null, endCursor: null } }
+  }
   const pageInfo = data.collectionByHandle.products.pageInfo as PageInfo
   const products = removeEdgesAndNodes(await data.collectionByHandle.products) as ShopifyProduct[]
   const productData = { pageInfo, products } as ProductQueryResult
   return productData
  },
+
  getCollectionById: async (args: { id: string; sortKey: string; reverse: boolean; numProducts: number; cursor: string; dir: string }) => {
   const variables: { id: string; sortKey: string; reverse: boolean; numProducts: number; cursor?: string } = {
    id: args.id,

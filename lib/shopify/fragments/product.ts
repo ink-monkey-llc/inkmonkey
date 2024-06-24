@@ -14,6 +14,7 @@ const productFragment = /* GraphQL */ `
    name
    values
   }
+  productType
   priceRange {
    maxVariantPrice {
     amount

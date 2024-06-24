@@ -1,3 +1,5 @@
+import { ShopifyProduct } from '@/lib/shopify/types'
+
 export function formatPathname(pathname: string): string {
  return pathname.replace(/-/g, ' ')
 }
@@ -10,4 +12,7 @@ export function formatPrice(price: number): string {
  return dollars
 }
 
-// export function
+export function filterByType(products: ShopifyProduct[], type: string): ShopifyProduct[] {
+ const filteredProducts = products.filter((product) => product.productType === type)
+ return filteredProducts
+}

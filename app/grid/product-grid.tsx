@@ -15,7 +15,8 @@ const Loader = () => {
 
 function ProductGrid({ products }: { products: ShopifyProduct[] }) {
  return (
-  <div className=' flex flex-wrap gap-8 justify-center p-4'>
+  // <div className='grid gap-8 p-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4'>
+  <div className='flex flex-wrap gap-8 justify-start p-4 pl-8'>
    {products.map((product) => (
     <Suspense
      fallback={<Loader />}
