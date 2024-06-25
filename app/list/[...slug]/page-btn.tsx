@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import type { PageInfo } from '@/lib/shopify/types'
 
 type PageBtnProps = {
- children: string
+ children: React.ReactNode
  pageInfo: PageInfo
  id: string
 }
@@ -25,6 +25,7 @@ function PageBtn({ children, id, pageInfo }: PageBtnProps) {
  return (
   <Link href={href}>
    <button
+    className='flex items-center gap-2 text-sm'
     name={id}
     id={id}>
     {children}

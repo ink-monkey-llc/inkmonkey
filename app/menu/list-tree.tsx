@@ -2,7 +2,7 @@ import React from 'react'
 import Level from './level'
 import { formatPathname } from '../utils/helpers'
 import { storeApi } from '@/lib/shopify/storefront-api'
-import type { Params } from '../product/[...slug]/layout'
+import type { Params } from '../list/[...slug]/layout'
 
 type Props = {
  params: Params
@@ -18,7 +18,7 @@ async function ListTree({ params }: Props) {
  const { items } = menu
  const { slug } = params
  const title = slug[0] === 'Vinyl-Decal' ? 'Stickers & Decals' : formatPathname(slug[0])
- const thisUrl = `/product/${slug[0]}`
+ const thisUrl = `/list/${slug[0]}`
 
  return (
   <div>

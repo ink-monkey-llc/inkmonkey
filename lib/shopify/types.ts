@@ -106,11 +106,20 @@ export type ShopifyCart = {
 }
 
 export type ShopifyCollection = {
+ id: string
  handle: string
  title: string
  description: string
  seo: SEO
  updatedAt: string
+ image: Image
+ products: Connection<ProductWithPageInfo>
+}
+
+export type CollectionQueryResult = {
+ pageInfo: PageInfo
+ products: ShopifyProduct[]
+ collectionInfo: ShopifyCollection
 }
 
 export type ShopifyProduct = {
@@ -132,6 +141,10 @@ export type ShopifyProduct = {
  seo: SEO
  tags: string[]
  updatedAt: string
+}
+
+export type ProductWithPageInfo = ShopifyProduct & {
+ pageInfo: PageInfo
 }
 
 export type ShopifyCartOperation = {
@@ -291,7 +304,8 @@ export type PageInfo = {
  startCursor: Maybe<string>
 }
 
-export type ProductQueryResult = {
+export type QueryResult = {
  pageInfo: PageInfo
  products: ShopifyProduct[]
+ collectionInfo?: ShopifyCollection
 }

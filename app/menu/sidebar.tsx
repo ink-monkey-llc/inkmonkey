@@ -1,7 +1,7 @@
 import React from 'react'
 import { tempCategories } from '../content/temp-categories'
 import ListTree from './list-tree'
-import type { Params } from '../product/[...slug]/layout'
+import type { Params } from '../list/[...slug]/layout'
 
 type Props = {
  params: Params

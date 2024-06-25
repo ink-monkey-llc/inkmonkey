@@ -6,9 +6,8 @@ import {
  previousCollectionByIdQuery,
  nextCollectionByIdQuery,
  collectionHandleByIdQuery,
- fullCollectionByHandleQuery,
 } from './queries/collections'
-import { Connection, Image, ProductQueryResult, ShopifyProduct, PageInfo, ShopifyMenu } from './types'
+import { Connection, Image, QueryResult, ShopifyProduct, PageInfo, ShopifyMenu, CollectionQueryResult } from './types'
 import { menuQuery } from './queries/menu'
 import { filterByType } from '@/app/utils/helpers'
 
@@ -85,7 +84,7 @@ export const storeApi = {
   // console.log('data:', await data)
   const pageInfo = data.products.pageInfo as PageInfo
   const products = removeEdgesAndNodes(await data.products) as ShopifyProduct[]
-  const productData = { pageInfo, products } as ProductQueryResult
+  const productData = { pageInfo, products } as QueryResult
   return productData
  },
 
@@ -129,9 +128,11 @@ export const storeApi = {
   if (!data.collectionByHandle) {
    return { products: [], pageInfo: { hasNextPage: false, hasPreviousPage: false, startCursor: null, endCursor: null } }
   }
+  const { handle, title, description, updatedAt, seo, image, id } = data.collectionByHandle
+  const collectionInfo = { handle, title, description, updatedAt, seo, image, id }
   const pageInfo = data.collectionByHandle.products.pageInfo as PageInfo
   const products = removeEdgesAndNodes(await data.collectionByHandle.products) as ShopifyProduct[]
-  const productData = { pageInfo, products } as ProductQueryResult
+  const productData = { pageInfo, products, collectionInfo } as QueryResult
   return productData
  },
 
@@ -156,7 +157,7 @@ export const storeApi = {
   // console.log('data:', await data)
   const pageInfo = data.collectionById.products.pageInfo as PageInfo
   const products = removeEdgesAndNodes(await data.collectionById.products) as ShopifyProduct[]
-  const productData = { pageInfo, products } as ProductQueryResult
+  const productData = { pageInfo, products } as QueryResult
   return productData
  },
  getCollectionHandleById: async (args: { id: string }) => {

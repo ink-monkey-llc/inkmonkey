@@ -1,0 +1,17 @@
+.fade-in {
+  transition: all 0.15s ease-in-out;
+  opacity: 1;
+
+  @starting-style {
+    opacity: 0;
+    display: hidden;
+    transform: translateY(-10px);
+  }
+}
+
+.fade-out {
+  display: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.15s ease-in-out;
+}

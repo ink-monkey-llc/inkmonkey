@@ -34,8 +34,20 @@ export const nextCollectionByHandleQuery = /* GraphQL */ `
   $productType: String
  ) {
   collectionByHandle(handle: $handle) {
-   description
    handle
+   title
+   updatedAt
+   description
+   seo {
+    description
+    title
+   }
+   image {
+    altText
+    height
+    url
+    width
+   }
    id
    products(first: $numProducts, after: $cursor, reverse: $reverse, sortKey: $sortKey, filters: { productType: $productType }) {
     edges {
@@ -64,8 +76,20 @@ export const previousCollectionByHandleQuery = /* GraphQL */ `
   $productType: String
  ) {
   collectionByHandle(handle: $handle) {
-   description
    handle
+   title
+   description
+   updatedAt
+   seo {
+    description
+    title
+   }
+   image {
+    altText
+    height
+    url
+    width
+   }
    id
    products(last: $numProducts, before: $cursor, reverse: $reverse, sortKey: $sortKey, filters: { productType: $productType }) {
     edges {
@@ -89,6 +113,19 @@ export const nextCollectionByIdQuery = /* GraphQL */ `
   collection(id: $id) {
    description
    handle
+   title
+   description
+   updatedAt
+   seo {
+    description
+    title
+   }
+   image {
+    altText
+    height
+    url
+    width
+   }
    id
    products(first: $numProducts, after: $cursor, reverse: $reverse, sortKey: $sortKey) {
     edges {
@@ -113,6 +150,19 @@ export const previousCollectionByIdQuery = /* GraphQL */ `
   collection(id: $id) {
    description
    handle
+   title
+   description
+   updatedAt
+   seo {
+    description
+    title
+   }
+   image {
+    altText
+    height
+    url
+    width
+   }
    id
    products(last: $numProducts, before: $cursor, reverse: $reverse, sortKey: $sortKey) {
     edges {

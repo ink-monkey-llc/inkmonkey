@@ -43,7 +43,7 @@ function ProductCardImage({ product, featImgData, imgDataArr }: ProductCardImage
     width={200}
     height={200}
     images={imgData}
-    startIndex={1}
+    startIndex={0}
     showBullets
     showNavs
    />
