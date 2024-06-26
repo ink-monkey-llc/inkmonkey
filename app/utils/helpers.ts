@@ -23,3 +23,11 @@ export function extractFirstValues(options: ProductOption[]): Record<string, str
   return acc
  }, {} as Record<string, string>)
 }
+
+export function convertToObjectArray(data: Record<string, string>): Array<{ name: string; value: string }> {
+ const result = Object.entries(data).map(([key, value]) => ({
+  name: key,
+  value: value,
+ }))
+ return result
+}

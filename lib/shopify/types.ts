@@ -52,7 +52,7 @@ export type Menu = {
 
 export type Money = {
  amount: string
- currencyCode: string
+ currencyCode?: string
 }
 
 export type Page = {
@@ -108,6 +108,11 @@ export type ShopifyCart = {
 export type SelectedOptionInput = {
  name: string
  value: string
+}
+
+export type VariantByOptions = {
+ id: string
+ price: { amount: string }
 }
 
 export type ShopifyCollection = {

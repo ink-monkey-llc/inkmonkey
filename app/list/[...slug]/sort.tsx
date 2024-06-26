@@ -32,7 +32,7 @@ function Sort() {
    Sort by:
    <button
     onClick={() => setOpen(!open)}
-    className='bg-bg-tertiary gap-2 flex justify-between items-center rounded-md  px-2 py-1 cursor-pointer w-full max-w-[164px]'>
+    className='bg-bg-tertiary gap-2 flex justify-between items-center rounded-md mb-1 px-2 py-1 cursor-pointer w-full max-w-[164px]'>
     <span className='pl-2'>{sort.label}</span> <SortIcon />
    </button>
    <div

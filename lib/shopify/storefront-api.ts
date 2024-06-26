@@ -1,5 +1,5 @@
 import { createStorefrontApiClient } from '@shopify/storefront-api-client'
-import { SelectedOptionInput } from './types'
+import { Cart, SelectedOptionInput, ShopifyCart } from './types'
 import { productByHandleQuery, nextProductByTypeQuery, previousProductByTypeQuery, variantByOptionsQuery } from './queries/products'
 import {
  previousCollectionByHandleQuery,
@@ -36,6 +36,20 @@ export const reshapeImages = (images: Connection<Image>, productTitle: string) =
    altText: image.altText || `${productTitle} - ${filename}`,
   }
  })
+}
+
+const reshapeCart = (cart: ShopifyCart): Cart => {
+ if (!cart.cost?.totalTaxAmount) {
+  cart.cost.totalTaxAmount = {
+   amount: '0.0',
+   currencyCode: 'USD',
+  }
+ }
+
+ return {
+  ...cart,
+  lines: removeEdgesAndNodes(cart.lines),
+ }
 }
 
 type CollectionArgs = {
