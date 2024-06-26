@@ -1,5 +1,6 @@
 import { createStorefrontApiClient } from '@shopify/storefront-api-client'
-import { productByHandleQuery, nextProductByTypeQuery, previousProductByTypeQuery } from './queries/products'
+import { SelectedOptionInput } from './types'
+import { productByHandleQuery, nextProductByTypeQuery, previousProductByTypeQuery, variantByOptionsQuery } from './queries/products'
 import {
  previousCollectionByHandleQuery,
  nextCollectionByHandleQuery,
@@ -173,5 +174,20 @@ export const storeApi = {
   }
   // console.log('data:', await data)
   return await data
+ },
+ getVariantByOptions: async (args: { handle: string; selectedOptions: SelectedOptionInput[] }) => {
+  const { data, errors, extensions } = await client.request(variantByOptionsQuery, {
+   variables: {
+    handle: args.handle,
+    selectedOptions: args.selectedOptions,
+   },
+   apiVersion: API_VERSION,
+  })
+  if (errors) {
+   console.log('errors:', errors)
+   throw new Error(errors.message)
+  }
+  // console.log('data:', await data)
+  return await data.product.variantBySelectedOptions
  },
 }

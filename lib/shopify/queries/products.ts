@@ -60,3 +60,15 @@ export const productCursorsQuery = /* GraphQL */ `
   }
  }
 `
+export const variantByOptionsQuery = /* GraphQL */ `
+ query VariantBySelectedOptions($handle: String, $selectedOptions: [SelectedOptionInput!]!) {
+  product(handle: $handle) {
+   variantBySelectedOptions(selectedOptions: $selectedOptions) {
+    id
+    price {
+     amount
+    }
+   }
+  }
+ }
+`

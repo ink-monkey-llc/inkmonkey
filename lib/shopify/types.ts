@@ -105,6 +105,11 @@ export type ShopifyCart = {
  totalQuantity: number
 }
 
+export type SelectedOptionInput = {
+ name: string
+ value: string
+}
+
 export type ShopifyCollection = {
  id: string
  handle: string
