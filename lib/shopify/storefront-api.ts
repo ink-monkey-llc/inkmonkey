@@ -11,6 +11,9 @@ import {
 import { Connection, Image, QueryResult, ShopifyProduct, PageInfo, ShopifyMenu, CollectionQueryResult } from './types'
 import { menuQuery } from './queries/menu'
 import { filterByType } from '@/app/utils/helpers'
+import { addToCartMutation, createCartMutation, removeFromCartMutation } from './mutations/cart'
+import { create } from 'domain'
+import { getCartQuery } from './queries/cart'
 
 const API_VERSION = process.env.NEXT_PUBLIC_API_VERSION ?? '2024-04'
 const STORE_DOMAIN = process.env.NEXT_PUBLIC_STORE_DOMAIN ?? '7c5018-3.myshopify.com'
@@ -203,5 +206,64 @@ export const storeApi = {
   }
   // console.log('data:', await data)
   return await data.product.variantBySelectedOptions
+ },
+
+ createCart: async () => {
+  const { data, errors, extensions } = await client.request(createCartMutation, {
+   variables: {
+    lineItems: [],
+   },
+   apiVersion: API_VERSION,
+  })
+  if (errors) {
+   console.log('errors:', errors)
+   throw new Error(errors.message)
+  }
+  return reshapeCart(data.cartCreate.cart)
+ },
+
+ addToCart: async (cartId: string, lines: { merchandiseId: string; quantity: number }[]) => {
+  const { data, errors, extensions } = await client.request(addToCartMutation, {
+   variables: {
+    cartId: cartId,
+    lines: lines,
+   },
+   apiVersion: API_VERSION,
+  })
+  if (errors) {
+   console.log('errors:', errors)
+   throw new Error(errors.message)
+  }
+
+  return reshapeCart(data.cartLinesAdd.cart)
+ },
+
+ getCart: async (cartId: string) => {
+  const { data, errors, extensions } = await client.request(getCartQuery, {
+   variables: {
+    cartId: cartId,
+   },
+   apiVersion: API_VERSION,
+  })
+  if (errors) {
+   console.log('errors:', errors)
+   throw new Error(errors.message)
+  }
+  return reshapeCart(data.cart)
+ },
+
+ removeFromCart: async (cartId: string, lineIds: string[]) => {
+  const { data, errors, extensions } = await client.request(removeFromCartMutation, {
+   variables: {
+    cartId: cartId,
+    lineIds: lineIds,
+   },
+   apiVersion: API_VERSION,
+  })
+  if (errors) {
+   console.log('errors:', errors)
+   throw new Error(errors.message)
+  }
+  return reshapeCart(data.cartLinesRemove.cart)
  },
 }
