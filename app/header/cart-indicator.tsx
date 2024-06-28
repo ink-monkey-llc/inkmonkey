@@ -6,18 +6,18 @@ import { storeApi } from '@/lib/shopify/storefront-api'
 import { Cart } from '@/lib/shopify/types'
 
 function CartIndicator() {
- const [userCartId, setUserCartId] = useLocalStorage('userCartId', '')
+ const [userCartId, setUserCartId] = useLocalStorage('userCartId', { id: '', count: 1 })
  const [cart, setCart] = useState<Cart>()
  const fetchCart = async () => {
-  if (!userCartId) {
+  if (!userCartId.id) {
    return
   }
-  return await storeApi.getCart(userCartId)
+  return await storeApi.getCart(userCartId.id)
  }
 
  useEffect(() => {
   fetchCart().then((cart) => setCart(cart))
- }, [userCartId])
+ }, [userCartId.count])
  console.log('cart:', cart)
 
  const cartCount = cart?.totalQuantity || 0

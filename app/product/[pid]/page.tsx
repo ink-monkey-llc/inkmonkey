@@ -10,8 +10,8 @@ async function ProductPage({ params }: { params: { pid: string } }) {
  const product: ShopifyProduct = await storeApi.getProductByHandle({ handle: pid })
 
  return (
-  <div className='flex items-center justify-center w-full h-[100vh]'>
-   <div className='w-1/2 h-full pt-12'>
+  <div className='flex flex-col md:flex-row items-center justify-center w-full max-w-[1400px] m-auto'>
+   <div className='w-full md:w-2/3 h-full '>
     {/* <Image
      className='max-w-[400px] max-h-[400px]'
      src={product.featuredImage.url}
@@ -21,8 +21,8 @@ async function ProductPage({ params }: { params: { pid: string } }) {
     /> */}
     <ProductImage product={product} />
    </div>
-   <div className='max-w-1/2 h-full flex flex-col gap-4 pt-12'>
-    <h1 className='text-3xl text-accent'>{product.title}</h1>
+   <div className='w-2/3 md:w-1/3 h-full flex flex-col gap-4 pt-6 md:pt-12'>
+    <h1 className='text-3xl text-accent px-4'>{product.title}</h1>
     <Variants product={product} />
    </div>
   </div>

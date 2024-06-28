@@ -1,9 +1,10 @@
 import React from 'react'
+import { cn } from '../utils/cn'
 import './spinner.css'
 
-function Spinner() {
+function Spinner({ small = false, bright = false }: { small?: boolean; bright?: boolean }) {
  return (
-  <div className='sk-fading-circle'>
+  <div className={cn('sk-fading-circle', small && 'small', bright && 'bright')}>
    <div className='sk-circle1 sk-circle'></div>
    <div className='sk-circle2 sk-circle'></div>
    <div className='sk-circle3 sk-circle'></div>

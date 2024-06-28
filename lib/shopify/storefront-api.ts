@@ -1,5 +1,5 @@
 import { createStorefrontApiClient } from '@shopify/storefront-api-client'
-import { Cart, SelectedOptionInput, ShopifyCart } from './types'
+import { Cart, SelectedOptionInput, ShopifyCart, VariantByOptions } from './types'
 import { productByHandleQuery, nextProductByTypeQuery, previousProductByTypeQuery, variantByOptionsQuery } from './queries/products'
 import {
  previousCollectionByHandleQuery,
@@ -222,7 +222,7 @@ export const storeApi = {
   return reshapeCart(data.cartCreate.cart)
  },
 
- addToCart: async (cartId: string, lines: { merchandiseId: string; quantity: number }[]) => {
+ addToCart: async (cartId: string, lines: { merchandiseId: string; quantity: number; attributes: { key: string; value: string }[] }[]) => {
   const { data, errors, extensions } = await client.request(addToCartMutation, {
    variables: {
     cartId: cartId,
