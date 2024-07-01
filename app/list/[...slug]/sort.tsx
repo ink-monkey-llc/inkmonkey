@@ -42,7 +42,7 @@ function Sort() {
      <div
       onClick={() => handleSort(option.id)}
       className=' hover:bg-bg-secondary cursor-pointer text-txt-primary px-4 py-1 text-sm rounded-md'
-      key={option.value}>
+      key={option.value + i}>
       <div>{option.label}</div>
      </div>
     ))}

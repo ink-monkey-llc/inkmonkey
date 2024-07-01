@@ -14,6 +14,7 @@ export type Cart = Omit<ShopifyCart, 'lines'> & {
 
 export type CartItem = {
  id: string
+ attributes: { key: string; value: string }[]
  quantity: number
  cost: {
   totalAmount: Money

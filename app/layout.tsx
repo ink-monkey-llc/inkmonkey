@@ -16,13 +16,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
  children,
+ cart,
 }: Readonly<{
  children: React.ReactNode
+ cart: React.ReactNode
 }>) {
  return (
   <html lang='en'>
-   <body className={cn('max-w-[1800px] m-auto', outfit.className)}>
+   <body className={cn('relative max-w-[1800px] m-auto', outfit.className)}>
+    <div id='modal-root' />
     <Header />
+    {cart}
     {children}
    </body>
   </html>
