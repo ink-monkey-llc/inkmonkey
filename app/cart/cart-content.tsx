@@ -12,7 +12,7 @@ import { format } from 'path'
 import { formatPrice } from '../utils/helpers'
 import Spinner from '../spinner/spinner'
 
-function CartContent({ smooch }: { smooch: Smooch }) {
+function CartContent({ smooch, isModal }: { smooch: Smooch; isModal: boolean }) {
  const [userCartId, setUserCartId] = useLocalStorage('userCartId', { id: '', count: 1 })
  const [cart, setCart] = useState<Cart>()
 
@@ -30,10 +30,10 @@ function CartContent({ smooch }: { smooch: Smooch }) {
  const cartId = cart?.id
  return (
   <div>
-   <h2 className={cn('text-accent text-5xl flex gap-4 items-center px-8 pt-4 pb-2 border-b border-border', smooch.className)}>
-    <CartIcon className='w-8 text-accent ' /> Cart
-   </h2>
-   <div className='flex flex-col gap-4 px-8 py-4 overflow-y-scroll h-[var(--cart-view)] '>
+   <div className={cn('flex flex-col gap-4 px-8 py-4 overflow-y-scroll h-[var(--cart-view)]', isModal && 'is-modal')}>
+    <h2 className={cn('text-accent text-5xl flex gap-4 items-center px-8 pt-4 pb-2 border-b border-border', smooch.className)}>
+     <CartIcon className='w-8 text-accent ' /> Cart
+    </h2>
     {lineItems?.map((lineItem) => (
      <LineItem
       cartId={cartId ?? ''}

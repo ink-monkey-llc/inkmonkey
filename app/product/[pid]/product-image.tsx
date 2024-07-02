@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { Suspense } from 'react'
 import { useWindowSize } from 'usehooks-ts'
 import Lightbox from 'yet-another-react-lightbox'
 import { Inline, Thumbnails } from 'yet-another-react-lightbox/plugins'
@@ -19,16 +19,18 @@ function ProductImage({ product }: { product: ShopifyProduct }) {
  })
  const isMd = width > 768
  return (
-  <div className='w-full h-[var(--view-height)] overflow-y-hidden'>
-   <Lightbox
-    plugins={[Inline, Thumbnails]}
-    thumbnails={{ position: isMd ? 'start' : 'bottom' }}
-    open={true}
-    slides={slides}
-    render={{ slide: NextImage }}
-    noScroll={{ disabled: true }}
-   />
-  </div>
+  <Suspense fallback={<div className='w-full h-[var(--view-height)] overflow-y-hidden'>Loading...</div>}>
+   <div className='w-full h-[var(--view-height)] overflow-y-hidden'>
+    <Lightbox
+     plugins={[Inline, Thumbnails]}
+     thumbnails={{ position: isMd ? 'start' : 'bottom' }}
+     open={true}
+     slides={slides}
+     render={{ slide: NextImage }}
+     noScroll={{ disabled: true }}
+    />
+   </div>
+  </Suspense>
  )
 }
 

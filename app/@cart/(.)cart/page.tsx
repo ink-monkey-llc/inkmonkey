@@ -10,7 +10,10 @@ export type Smooch = typeof smooch
 function Cart() {
  return (
   <Modal>
-   <CartContent smooch={smooch} />
+   <CartContent
+    isModal={true}
+    smooch={smooch}
+   />
   </Modal>
  )
 }

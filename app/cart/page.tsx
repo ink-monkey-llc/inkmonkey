@@ -8,7 +8,10 @@ export const smooch = Smooch({ weight: '400', subsets: ['latin'], display: 'swap
 function Cart() {
  return (
   <div>
-   <CartContent smooch={smooch} />
+   <CartContent
+    isModal={false}
+    smooch={smooch}
+   />
   </div>
  )
 }

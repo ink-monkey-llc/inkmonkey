@@ -14,8 +14,9 @@ async function TempGridItem({ product }: { product: ShopifyProduct }) {
  //  const featImgData = await imageWithPH(featImage.image)
  //  const imgDataArr = await Promise.all(imgs.map(async (img) => await imageWithPH(img)))
  const amount = Number(product.priceRange.minVariantPrice.amount)
+ const isWindow = product.productType === 'Truck Back Window Graphics'
  return (
-  <Link href={`/product/${product.handle}`}>
+  <Link href={!isWindow ? `/product/${product.handle}` : `/window/${product.handle}`}>
    <div className='w-[200px] h-full flex flex-col relative'>
     {/* <ProductCardImage
     imgDataArr={imgDataArr}

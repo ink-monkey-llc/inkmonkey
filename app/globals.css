@@ -9,12 +9,16 @@
   --drawer-width: 500px;
   --clr-quantity: #464646;
   --scrollbar: 17px;
-  --cart-padding: 212px;
+  --cart-padding: calc(var(--header-height) + 225px);
   --cart-view: calc(100vh - var(--cart-padding));
 }
 
 @media (prefers-color-scheme: dark) {
   :root {}
+}
+
+.is-modal {
+  height: calc(100vh - 225px);
 }
 
 body {
