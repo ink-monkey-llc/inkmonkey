@@ -11,7 +11,7 @@ import {
 import { Connection, Image, QueryResult, ShopifyProduct, PageInfo, ShopifyMenu, CollectionQueryResult } from './types'
 import { menuQuery } from './queries/menu'
 import { filterByType } from '@/app/utils/helpers'
-import { addToCartMutation, createCartMutation, removeFromCartMutation } from './mutations/cart'
+import { addToCartMutation, createCartMutation, editCartItemsMutation, removeFromCartMutation } from './mutations/cart'
 import { create } from 'domain'
 import { getCartQuery } from './queries/cart'
 
@@ -250,6 +250,21 @@ export const storeApi = {
    throw new Error(errors.message)
   }
   return reshapeCart(data.cart)
+ },
+
+ updateCart: async (cartId: string, lines: { id: string; merchandiseId: string; quantity: number }[]): Promise<Cart> => {
+  const { data, errors, extensions } = await client.request(editCartItemsMutation, {
+   variables: {
+    cartId,
+    lines,
+   },
+  })
+  if (errors) {
+   console.log('errors:', errors)
+   throw new Error(errors.message)
+  }
+  console.log('data:', await data)
+  return reshapeCart(data.cartLinesUpdate.cart)
  },
 
  removeFromCart: async (cartId: string, lineIds: string[]) => {

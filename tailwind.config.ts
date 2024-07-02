@@ -23,6 +23,10 @@ const config: Config = {
     backdrop: '#1a1a1a75',
     'backdrop-dark': '#1a1a1ad3',
     'slate-tr': '#94a3b849',
+    quant: '#464646',
+   },
+   fontFamily: {
+    smooch: ['var(--font-smooch)', 'sans-serif'],
    },
   },
  },

@@ -6,6 +6,11 @@
 :root {
   --header-height: 96px;
   --view-height: calc(100vh - var(--header-height));
+  --drawer-width: 500px;
+  --clr-quantity: #464646;
+  --scrollbar: 17px;
+  --cart-padding: 212px;
+  --cart-view: calc(100vh - var(--cart-padding));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,6 +20,11 @@
 body {
   color: rgb(255, 254, 250);
   background: black;
+}
+
+body:has(dialog[open]) {
+  overflow: hidden;
+  padding-right: var(--scrollbar);
 }
 
 

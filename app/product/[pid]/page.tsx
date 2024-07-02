@@ -11,7 +11,7 @@ async function ProductPage({ params }: { params: { pid: string } }) {
 
  return (
   <div className='flex flex-col md:flex-row items-center justify-center w-full max-w-[1400px] m-auto'>
-   <div className='w-full md:w-2/3 h-full '>
+   <div className='w-full md:w-2/3 h-full'>
     {/* <Image
      className='max-w-[400px] max-h-[400px]'
      src={product.featuredImage.url}

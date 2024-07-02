@@ -9,10 +9,10 @@ dialog {
   @apply bg-bg-secondary;
   position: fixed;
   top: 0;
-  left: calc(100% - 400px);
+  left: calc(100% - var(--drawer-width));
   transform: translateX(100%);
   width: 100%;
-  max-width: 400px;
+  max-width: var(--drawer-width);
   height: auto;
   max-height: 100vh;
   /* background-color: white; */
@@ -41,20 +41,24 @@ dialog.close {
 
 dialog::backdrop {
   background-color: rgb(0 0 0 / 0%);
+  backdrop-filter: blur(10px);
   transition:
     display 0.7s allow-discrete,
     overlay 0.7s allow-discrete,
     background-color 0.7s;
+  backdrop-filter: 0.7s;
   /* Equivalent to
   transition: all 0.7s allow-discrete; */
 }
 
 dialog[open]::backdrop {
   background-color: rgb(0 0 0 / 50%);
+  backdrop-filter: blur(10px);
 }
 
 dialog.close::backdrop {
   background-color: rgb(0 0 0 / 0%);
+  backdrop-filter: blur(0px);
 }
 
 /* This starting-style rule cannot be nested inside the above selector

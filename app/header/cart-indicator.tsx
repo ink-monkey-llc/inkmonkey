@@ -19,7 +19,7 @@ function CartIndicator() {
  useEffect(() => {
   fetchCart().then((cart) => setCart(cart))
  }, [userCartId.count])
- console.log('cart:', cart)
+ //  console.log('cart:', cart)
 
  const cartCount = cart?.totalQuantity || 0
 
