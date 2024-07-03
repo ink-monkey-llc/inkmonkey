@@ -5,14 +5,15 @@ import { Tooltip } from 'react-tooltip'
 import { InfoIcon } from '@/app/icons/info'
 import { Check } from '@/app/icons/check'
 import { ProductVariant } from '@/lib/shopify/types'
+import { useAtom } from 'jotai'
+import { selectedVariantAtom } from '@/app/providers/atoms'
 
 type NoneProps = {
  noneVariant: ProductVariant
- isSelected: boolean
- setSelectedVariant: (variant: ProductVariant) => void
 }
 
-function None({ noneVariant, isSelected, setSelectedVariant }: NoneProps) {
+function None({ noneVariant }: NoneProps) {
+ const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
  const [open, setOpen] = useState(false)
  const ref = useRef<HTMLDivElement>(null)
  useOnClickOutside(ref, () => setOpen(false))
@@ -20,6 +21,7 @@ function None({ noneVariant, isSelected, setSelectedVariant }: NoneProps) {
   setSelectedVariant(noneVariant)
   setOpen(false)
  }
+ const isSelected = selectedVariant?.id === noneVariant.id
  return (
   <div
    onClick={handleSelect}

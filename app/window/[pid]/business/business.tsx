@@ -1,32 +1,30 @@
 import { InfoIcon } from '@/app/icons/info'
 import { Check } from '@/app/icons/check'
-import { useOnClickOutside } from 'usehooks-ts'
 import { ProductVariant } from '@/lib/shopify/types'
-import React, { useRef, useState } from 'react'
+import React from 'react'
 import { Tooltip } from 'react-tooltip'
 import { cn } from '@/app/utils/cn'
 import BusinessForm from './business-form'
+import { containsId } from '@/app/utils/helpers'
+import { useAtom } from 'jotai'
+import { selectedVariantAtom } from '@/app/providers/atoms'
 
 type BusinessProps = {
  variants: ProductVariant[]
- isSelected: boolean
- setSelectedVariant: (variant: ProductVariant) => void
+ selectedLogoOption: string | null
+ setSelectedLogoOption: (option: string | null) => void
 }
 
-function Business({ variants, isSelected, setSelectedVariant }: BusinessProps) {
- const ref = useRef<HTMLDivElement>(null)
- const [open, setOpen] = useState(false)
-
- useOnClickOutside(ref, () => setOpen(false))
-
+function Business({ variants, selectedLogoOption, setSelectedLogoOption }: BusinessProps) {
+ const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
  const handleSelect = () => {
-  setOpen(!open)
-  setSelectedVariant(variants[0])
+  setSelectedVariant(isSelected ? null : variants[0])
  }
+
+ const isSelected = selectedVariant?.id ? containsId(selectedVariant?.id, variants) : false
 
  return (
   <div
-   ref={ref}
    className={cn('flex flex-col border-2 border-accent-tr rounded-md px-2 py-1 bg-bg-secondary cursor-pointer', isSelected && 'bg-bg-tertiary border-accent')}>
    <div
     onClick={handleSelect}
@@ -55,7 +53,12 @@ function Business({ variants, isSelected, setSelectedVariant }: BusinessProps) {
      </>
     </Tooltip>
    </div>
-   {open && <BusinessForm />}
+   {isSelected && (
+    <BusinessForm
+     selectedLogoOption={selectedLogoOption}
+     setSelectedLogoOption={setSelectedLogoOption}
+    />
+   )}
   </div>
  )
 }

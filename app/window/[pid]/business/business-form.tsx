@@ -1,7 +1,10 @@
 import React from 'react'
 import UploadLogo from './upload-logo'
+import { useAtom } from 'jotai'
 
-function BusinessForm() {
+type BusinessFormProps = {}
+
+function BusinessForm({}: BusinessFormProps) {
  return (
   <form className='flex flex-col mt-2 cursor-auto'>
    <div className='pb-2'>

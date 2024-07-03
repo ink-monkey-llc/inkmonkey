@@ -35,3 +35,11 @@ export function convertToObjectArray(data: Record<string, string>): Array<{ name
 export function containsId(targetString: string, array: ProductVariant[]): boolean {
  return array.some((obj) => obj.id === targetString)
 }
+
+export function sortWindowVariants(product: ShopifyProduct) {
+ const variants = product.variants.edges.map((edge) => edge.node)
+ const businessVariants = variants.filter((variant) => variant.title.includes('Business'))
+ const textVariant = variants.find((variant) => variant.title === 'Name / Text')
+ const noneVariant = variants.find((variant) => variant.title === 'None')
+ return { businessVariants, textVariant, noneVariant }
+}

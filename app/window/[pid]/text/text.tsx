@@ -6,21 +6,20 @@ import TextForm from './text-form'
 import { Check } from '@/app/icons/check'
 import { InfoIcon } from '@/app/icons/info'
 import { Tooltip } from 'react-tooltip'
+import { useAtom } from 'jotai'
+import { selectedVariantAtom } from '@/app/providers/atoms'
 
 type TextProps = {
  variant: ProductVariant
- isSelected: boolean
- setSelectedVariant: (variant: ProductVariant) => void
 }
 
-function Text({ variant, isSelected, setSelectedVariant }: TextProps) {
+function Text({ variant }: TextProps) {
+ const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
  const ref = useRef<HTMLDivElement>(null)
- const [open, setOpen] = useState(false)
+ const isSelected = selectedVariant?.id === variant.id
  const handleSelect = () => {
-  setSelectedVariant(variant)
-  setOpen(!open)
+  setSelectedVariant(isSelected ? null : variant)
  }
- useOnClickOutside(ref, () => setOpen(false))
  return (
   <div
    ref={ref}
@@ -50,7 +49,7 @@ function Text({ variant, isSelected, setSelectedVariant }: TextProps) {
      </>
     </Tooltip>
    </div>
-   {open && <TextForm />}
+   {isSelected && <TextForm />}
   </div>
  )
 }

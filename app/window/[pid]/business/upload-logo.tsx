@@ -1,18 +1,24 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { cn } from '@/app/utils/cn'
 import { Alert } from '@/app/icons/alert'
 import { Tooltip } from 'react-tooltip'
+import { useAtom } from 'jotai'
+import { selectedLogoOptionAtom } from '@/app/providers/atoms'
 
-function UploadLogo() {
- const ref = useRef<HTMLDivElement>(null)
+type UploadLogoProps = {}
+
+function UploadLogo({}: UploadLogoProps) {
+ const [selectedLogoOption, setSelectedLogoOption] = useAtom(selectedLogoOptionAtom)
+ const handleSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setSelectedLogoOption(e.target.checked ? e.target.name : null)
+ }
+
  return (
-  <div className='flex flex-col gap-1 pt-4'>
+  <div className='flex flex-col gap-1 mt-3 pt-1 border-t border-accent-tr'>
    <div className='flex justify-between w-full'>
-    <label
-     htmlFor='logo'
-     className='text-txt-secondary text-sm'>
-     Logo:
-    </label>
+    <p>
+     Logo <span className='text-sm'>(optional)</span>:
+    </p>
     <Alert
      id='logo-alert'
      className='w-6 h-6 text-accent-bright'
@@ -20,6 +26,8 @@ function UploadLogo() {
    </div>
    <div className='flex gap-2'>
     <input
+     onChange={(e) => handleSelect(e)}
+     checked={selectedLogoOption === 'ready'}
      type='checkbox'
      name='ready'
      id='ready'
@@ -33,6 +41,8 @@ function UploadLogo() {
    </div>
    <div className='flex gap-2'>
     <input
+     checked={selectedLogoOption === 'jpeg'}
+     onChange={(e) => handleSelect(e)}
      type='checkbox'
      id='jpeg'
      name='jpeg'
@@ -46,6 +56,8 @@ function UploadLogo() {
    </div>
    <div className='flex gap-2'>
     <input
+     checked={selectedLogoOption === 'design'}
+     onChange={(e) => handleSelect(e)}
      type='checkbox'
      name='design'
      id='design'
@@ -57,7 +69,11 @@ function UploadLogo() {
      I need a logo designed
     </label>
    </div>
-
+   <label
+    htmlFor='logo'
+    className='text-sm'>
+    Upload logo image:
+   </label>
    <input
     id='logo'
     className='w-full rounded-md border border-slate-tr p-1 bg-bg-tertiary text-txt-primary'
@@ -72,10 +88,15 @@ function UploadLogo() {
     place='top-end'>
     <>
      <span className='font-bold text-xl'>Logo Image Options:</span>
-     <p className='font-semibold text-lg'>
-      {/* TODO: Add logo image options */}
-      Design comes as shown <br /> with no customizations
-     </p>
+     <ul className='max-w-[70vw] list-outside list-disc flex flex-col gap-2 pl-4'>
+      <li className='font-semibold text-lg'>A print-ready logo must be a vector image (.svg, .eps, .ai, .pdf, etc.) and must be high resolution.</li>
+      <li className='font-semibold text-lg'>
+       If you have a logo that is not a vector image, we will remake it as a vector image for printing. This will take longer and cost more than a vector image.
+      </li>
+      <li className='font-semibold text-lg'>
+       If you would like a logo designed, choose that option and describe it below. We do charge an extra fee for logo design.
+      </li>
+     </ul>
     </>
    </Tooltip>
   </div>

@@ -1,3 +1,10 @@
+### currently working on
+
+1. window product page
+2. capture user selections for customization
+
+### todo
+
 1. Hover effects on links and buttons
 2. replace all scrollbars with custom scrollbars
 3. search for product grid
