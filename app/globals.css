@@ -4,6 +4,9 @@
 
 
 :root {
+  --bg-primary: #0D0E0F;
+  --bg-secondary: #1A1A1A;
+  --bg-tertiary: #222222;
   --header-height: 96px;
   --view-height: calc(100vh - var(--header-height));
   --drawer-width: 500px;

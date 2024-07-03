@@ -11,7 +11,7 @@ async function WindowProductPage({ params }: { params: { pid: string } }) {
 
  return (
   <div className='flex flex-col md:flex-row items-center justify-center w-full max-w-[1400px] m-auto'>
-   <div className='w-full md:w-2/3 h-full'>
+   <div className='w-full md:w-2/3 h-full mb-auto '>
     {/* <Image
      className='max-w-[400px] max-h-[400px]'
      src={product.featuredImage.url}
@@ -21,7 +21,7 @@ async function WindowProductPage({ params }: { params: { pid: string } }) {
     /> */}
     <ProductImage product={product} />
    </div>
-   <div className='w-2/3 md:w-1/3 h-full flex flex-col mb-auto gap-4 pt-6 md:pt-12'>
+   <div className='w-2/3 md:w-1/3 h-full flex flex-col mb-auto gap-4 pt-6 md:pt-12  pb-12'>
     <h1 className='text-3xl text-accent px-4'>{product.title}</h1>
     <WindowVariants product={product} />
    </div>

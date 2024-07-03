@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { cn } from './utils/cn'
 import { Open_Sans, Smooch, Outfit } from 'next/font/google'
 import Header from './header/header'
+import 'react-tooltip/dist/react-tooltip.css'
 import './globals.css'
 
 export const open_sans = Open_Sans({ subsets: ['latin'], display: 'swap', variable: '--font-open-sans' })

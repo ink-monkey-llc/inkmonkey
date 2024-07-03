@@ -7,6 +7,7 @@
 7. customization options for business info
 8. window product page
 9. integrate fonz
+10. make banner span the viewport
 
 ### done
 

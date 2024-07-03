@@ -1,4 +1,4 @@
-import { ShopifyProduct, ProductOption } from '@/lib/shopify/types'
+import { ShopifyProduct, ProductOption, ProductVariant } from '@/lib/shopify/types'
 
 export function formatPathname(pathname: string): string {
  return pathname.replace(/-/g, ' ')
@@ -30,4 +30,8 @@ export function convertToObjectArray(data: Record<string, string>): Array<{ name
   value: value,
  }))
  return result
+}
+
+export function containsId(targetString: string, array: ProductVariant[]): boolean {
+ return array.some((obj) => obj.id === targetString)
 }
