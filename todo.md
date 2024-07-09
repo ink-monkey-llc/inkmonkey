@@ -1,7 +1,9 @@
 ### currently working on
 
-1. window product page
-2. capture user selections for customization
+1. disallow save when no changes
+2. warn if image is not vector or large
+3. window product page
+4. capture user selections for customization
 
 ### todo
 

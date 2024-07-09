@@ -13,3 +13,5 @@ export const initialSelectedVariant = {
   currencyCode: 'USD',
  },
 }
+
+export const initialBusinessLogoData = { publicId: '', url: '', secure_url: '' }

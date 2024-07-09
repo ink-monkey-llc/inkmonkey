@@ -1,25 +1,35 @@
 import { InfoIcon } from '@/app/icons/info'
 import { Check } from '@/app/icons/check'
 import { ProductVariant } from '@/lib/shopify/types'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Tooltip } from 'react-tooltip'
 import { cn } from '@/app/utils/cn'
 import BusinessForm from './business-form'
 import { containsId } from '@/app/utils/helpers'
+import { initialSelectedVariant } from '@/app/content/initial-values'
 import { useAtom } from 'jotai'
-import { selectedVariantAtom } from '@/app/providers/atoms'
+import { selectedVariantAtom, selectedLogoOptionAtom } from '@/app/providers/atoms'
 
 type BusinessProps = {
  variants: ProductVariant[]
- selectedLogoOption: string | null
- setSelectedLogoOption: (option: string | null) => void
 }
 
-function Business({ variants, selectedLogoOption, setSelectedLogoOption }: BusinessProps) {
+function Business({ variants }: BusinessProps) {
  const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
+ const [selectedLogoOption, setSelectedLogoOption] = useAtom(selectedLogoOptionAtom)
  const handleSelect = () => {
-  setSelectedVariant(isSelected ? null : variants[0])
+  setSelectedVariant(isSelected ? initialSelectedVariant : variants[2])
  }
+
+ useEffect(() => {
+  if (selectedLogoOption === 'jpeg') {
+   setSelectedVariant(variants[1])
+  }
+  if (selectedLogoOption === 'design') {
+   setSelectedVariant(variants[0])
+  }
+  return
+ }, [selectedLogoOption])
 
  const isSelected = selectedVariant?.id ? containsId(selectedVariant?.id, variants) : false
 
@@ -53,18 +63,9 @@ function Business({ variants, selectedLogoOption, setSelectedLogoOption }: Busin
      </>
     </Tooltip>
    </div>
-   {isSelected && (
-    <BusinessForm
-     selectedLogoOption={selectedLogoOption}
-     setSelectedLogoOption={setSelectedLogoOption}
-    />
-   )}
+   {isSelected && <BusinessForm />}
   </div>
  )
 }
 
 export default Business
-
-// {variants.map((variant) => (
-//   <div key={variant.id}>{variant.title}</div>
-//  ))}

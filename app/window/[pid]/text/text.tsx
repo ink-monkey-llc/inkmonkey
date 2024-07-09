@@ -1,6 +1,5 @@
 import { ProductVariant } from '@/lib/shopify/types'
-import { useOnClickOutside } from 'usehooks-ts'
-import React, { useState, useRef } from 'react'
+import React from 'react'
 import { cn } from '@/app/utils/cn'
 import TextForm from './text-form'
 import { Check } from '@/app/icons/check'
@@ -8,6 +7,7 @@ import { InfoIcon } from '@/app/icons/info'
 import { Tooltip } from 'react-tooltip'
 import { useAtom } from 'jotai'
 import { selectedVariantAtom } from '@/app/providers/atoms'
+import { initialSelectedVariant } from '@/app/content/initial-values'
 
 type TextProps = {
  variant: ProductVariant
@@ -15,14 +15,13 @@ type TextProps = {
 
 function Text({ variant }: TextProps) {
  const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
- const ref = useRef<HTMLDivElement>(null)
+
  const isSelected = selectedVariant?.id === variant.id
  const handleSelect = () => {
-  setSelectedVariant(isSelected ? null : variant)
+  setSelectedVariant(isSelected ? initialSelectedVariant : variant)
  }
  return (
   <div
-   ref={ref}
    className={cn('flex flex-col border-2 border-accent-tr rounded-md px-2 py-1 bg-bg-secondary cursor-pointer', isSelected && 'bg-bg-tertiary border-accent')}>
    <div
     onClick={handleSelect}

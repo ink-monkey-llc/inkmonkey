@@ -5,12 +5,14 @@ import Price from '@/app/product/[pid]/price'
 import { convertToObjectArray, extractFirstValues } from '@/app/utils/helpers'
 import { storeApi } from '@/lib/shopify/storefront-api'
 import Customization from './customization'
+import { useAtom } from 'jotai'
+import { selectedVariantAtom } from '@/app/providers/atoms'
 
 function WindowVariants({ product }: { product: ShopifyProduct }) {
  const [quantity, setQuantity] = useState(1)
  const initialOptions = extractFirstValues(product.options)
  const [selectedOptions, setSelectedOptions] = useState(initialOptions)
- const [selectedVariant, setSelectedVariant] = useState<VariantByOptions | null>(null)
+ const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
  const fetchedVariant = async (variant: Record<string, string>) => {
   return await storeApi.getVariantByOptions({ handle: product.handle, selectedOptions: convertToObjectArray(variant) })
  }

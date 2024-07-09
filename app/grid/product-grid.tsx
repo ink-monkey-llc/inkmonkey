@@ -7,7 +7,7 @@ import Spinner from '../spinner/spinner'
 
 const Loader = () => {
  return (
-  <div className='w-[200px] h-[200px] flex justify-center items-center border-2 rounded-md border-accent-tr'>
+  <div className='w-[200px] h-[200px] flex justify-center items-center border-2 rounded-md border-accent-tr mb-4'>
    <Spinner />
   </div>
  )
@@ -16,7 +16,7 @@ const Loader = () => {
 function ProductGrid({ products }: { products: ShopifyProduct[] }) {
  return (
   // <div className='grid gap-8 p-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4'>
-  <div className='flex flex-wrap gap-8 justify-start p-4 pl-8 pt-8 m-auto w-11/12'>
+  <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 justify-start pl-4 pt-8 m-auto w-11/12'>
    {products.map((product) => (
     <Suspense
      fallback={<Loader />}

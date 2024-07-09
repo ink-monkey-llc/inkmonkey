@@ -13,6 +13,7 @@
  "dependencies": {
   "@plaiceholder/next": "^3.0.0",
   "@shopify/storefront-api-client": "^1.0.0",
+  "cloudinary": "^2.2.0",
   "clsx": "^2.1.1",
   "jotai": "^2.8.4",
   "next": "14.2.4",

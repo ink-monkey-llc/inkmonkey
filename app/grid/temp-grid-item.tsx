@@ -2,27 +2,15 @@ import React from 'react'
 import Link from 'next/link'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import TempImage from './temp-image'
-// import { reshapeImages } from '@/lib/shopify/storefront-api'
-// import ProductCardImage from './product-card-image'
-// import { imageWithPH } from '../actions/images'
 import { formatPrice } from '@/app/utils/helpers'
 import image from '@/app/images/temp_main.webp'
 
 async function TempGridItem({ product }: { product: ShopifyProduct }) {
- //  const featImage = { image: product.featuredImage, title: product.title }
- //  const imgs = reshapeImages(product.images, product.title)
- //  const featImgData = await imageWithPH(featImage.image)
- //  const imgDataArr = await Promise.all(imgs.map(async (img) => await imageWithPH(img)))
  const amount = Number(product.priceRange.minVariantPrice.amount)
  const isWindow = product.productType === 'Truck Back Window Graphics'
  return (
-  <Link href={!isWindow ? `/product/${product.handle}` : `/window/${product.handle}`}>
-   <div className='w-[200px] h-full flex flex-col relative'>
-    {/* <ProductCardImage
-    imgDataArr={imgDataArr}
-    featImgData={featImgData}
-    product={product}
-   />*/}
+  <div className='w-[200px] m-auto h-full flex flex-col relative'>
+   <Link href={!isWindow ? `/product/${product.handle}` : `/window/${product.handle}`}>
     <TempImage image={image} />
     <div className='px-1 py-2'>
      <p className='text-xs font-light'>{product.title}</p>
@@ -32,8 +20,8 @@ async function TempGridItem({ product }: { product: ShopifyProduct }) {
       In stock
      </div>
     </div>
-   </div>
-  </Link>
+   </Link>
+  </div>
  )
 }
 

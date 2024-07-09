@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { cn } from '@/app/utils/cn'
 import { Alert } from '@/app/icons/alert'
 import { Tooltip } from 'react-tooltip'
 import { useAtom } from 'jotai'
 import { selectedLogoOptionAtom } from '@/app/providers/atoms'
+import FileInput from './file-input'
 
 type UploadLogoProps = {}
 
@@ -14,7 +14,7 @@ function UploadLogo({}: UploadLogoProps) {
  }
 
  return (
-  <div className='flex flex-col gap-1 mt-3 pt-1 border-t border-accent-tr'>
+  <div className='flex flex-col gap-1 mt-3 pt-1 border-t border-accent-tr mb-2'>
    <div className='flex justify-between w-full'>
     <p>
      Logo <span className='text-sm'>(optional)</span>:
@@ -69,17 +69,7 @@ function UploadLogo({}: UploadLogoProps) {
      I need a logo designed
     </label>
    </div>
-   <label
-    htmlFor='logo'
-    className='text-sm'>
-    Upload logo image:
-   </label>
-   <input
-    id='logo'
-    className='w-full rounded-md border border-slate-tr p-1 bg-bg-tertiary text-txt-primary'
-    placeholder='Upload a logo'
-    type='file'
-   />
+   <FileInput />
    <Tooltip
     anchorSelect='#logo-alert'
     opacity={1}
@@ -89,7 +79,7 @@ function UploadLogo({}: UploadLogoProps) {
     <>
      <span className='font-bold text-xl'>Logo Image Options:</span>
      <ul className='max-w-[70vw] list-outside list-disc flex flex-col gap-2 pl-4'>
-      <li className='font-semibold text-lg'>A print-ready logo must be a vector image (.svg, .eps, .ai, .pdf, etc.) and must be high resolution.</li>
+      <li className='font-semibold text-lg'>A print-ready logo must be a vector image (.png, .svg, .ai, .pdf, etc.) and must be high resolution.</li>
       <li className='font-semibold text-lg'>
        If you have a logo that is not a vector image, we will remake it as a vector image for printing. This will take longer and cost more than a vector image.
       </li>

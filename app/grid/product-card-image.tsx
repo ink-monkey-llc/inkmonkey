@@ -3,10 +3,11 @@
 import React, { useState, useTransition } from 'react'
 import Image from 'next/image'
 import SimpleImageSlider from 'react-simple-image-slider'
+import ImageSlider from './image-slider'
 
 import type { ShopifyProduct, Image as ImageType } from '@/lib/shopify/types'
 
-type FeatImageData = {
+export type FeatImageData = {
  base64: string
  img: { src: string; height: number; width: number }
  image: ImageType
@@ -28,24 +29,11 @@ function ProductCardImage({ product, featImgData, imgDataArr }: ProductCardImage
  return (
   <div
    onMouseLeave={() => handleMouse(false)}
-   onMouseEnter={() => handleMouse(true)}>
-   <SimpleImageSlider
-    style={{
-     position: 'absolute',
-     width: '200px',
-     height: '200px',
-     left: 0,
-     top: 0,
-     opacity: showSlider ? '1' : '0',
-     transition: 'opacity 0.3s',
-     pointerEvents: showSlider ? 'auto' : 'none',
-    }}
-    width={200}
-    height={200}
+   onMouseEnter={() => handleMouse(true)}
+   className='relative w-max h-[200px]'>
+   <ImageSlider
     images={imgData}
-    startIndex={0}
-    showBullets
-    showNavs
+    showSlider={showSlider}
    />
    <Image
     className='object-cover'

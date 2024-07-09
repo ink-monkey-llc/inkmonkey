@@ -2,7 +2,6 @@ import React from 'react'
 import { storeApi } from '@/lib/shopify/storefront-api'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import { WindowProvider } from '@/app/providers/window-provider'
-import Image from 'next/image'
 import WindowVariants from './window-variants'
 import ProductImage from '@/app/product/[pid]/product-image'
 
