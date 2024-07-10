@@ -4,7 +4,7 @@ function FormButton({ children, onClick }: { children: React.ReactNode; onClick:
  return (
   <div
    onClick={onClick}
-   className='bg-accent flex justify-center p-2 text-bg-primary font-semibold rounded-md w-4/5 m-auto my-1'>
+   className='cursor-pointer bg-accent flex justify-center p-2 text-bg-primary font-semibold rounded-md w-4/5 m-auto my-1'>
    {children}
   </div>
  )

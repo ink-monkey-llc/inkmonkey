@@ -1,7 +1,15 @@
 'use client'
 
-import { Provider } from 'jotai'
+import { Provider, createStore } from 'jotai'
+import { DevTools } from 'jotai-devtools'
+import 'jotai-devtools/styles.css'
 
 export const WindowProvider = ({ children }: { children: React.ReactNode }) => {
- return <Provider>{children}</Provider>
+ const store = createStore()
+ return (
+  <Provider store={store}>
+   <DevTools store={store} />
+   {children}
+  </Provider>
+ )
 }

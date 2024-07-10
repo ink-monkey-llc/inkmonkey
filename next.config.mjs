@@ -3,6 +3,7 @@ import withPlaiceholder from '@plaiceholder/next'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+ transpilePackages: ['jotai-devtools'],
  experimental: {
   serverActions: {
    bodySizeLimit: '4mb',

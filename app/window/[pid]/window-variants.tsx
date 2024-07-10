@@ -7,6 +7,7 @@ import { storeApi } from '@/lib/shopify/storefront-api'
 import Customization from './customization'
 import { useAtom } from 'jotai'
 import { selectedVariantAtom } from '@/app/providers/atoms'
+import WindowAtc from './window-atc'
 
 function WindowVariants({ product }: { product: ShopifyProduct }) {
  const [quantity, setQuantity] = useState(1)
@@ -17,7 +18,7 @@ function WindowVariants({ product }: { product: ShopifyProduct }) {
   return await storeApi.getVariantByOptions({ handle: product.handle, selectedOptions: convertToObjectArray(variant) })
  }
 
- console.log('product:', product)
+ //  console.log('product:', product)
 
  useEffect(() => {
   fetchedVariant(selectedOptions).then((variant) => setSelectedVariant(variant))
@@ -30,6 +31,7 @@ function WindowVariants({ product }: { product: ShopifyProduct }) {
     price={selectedVariant?.price ? selectedVariant?.price.amount : '0'}
    />
    <Customization product={product} />
+   <WindowAtc />
   </div>
  )
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import { useAtom } from 'jotai'
-import { uploadLogo } from '@/app/actions/images'
 import Image from 'next/image'
 import { selectedLogoFileAtom, logoDataUrlAtom } from '@/app/providers/atoms'
 
@@ -16,16 +15,7 @@ function FileInput() {
   setDataUrl('')
   setFile(null)
  }
- const handleUpload = async () => {
-  if (file) {
-   const res = await uploadLogo({ dataUrl, fileName: file.name, fileSize: file.size })
-   if (res.error) {
-    console.log('error:', res.error)
-   } else {
-    console.log('success:', res.imgData)
-   }
-  }
- }
+
  return (
   <>
    {dataUrl ? (

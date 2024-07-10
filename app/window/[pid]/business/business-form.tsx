@@ -1,9 +1,20 @@
 import React, { useState } from 'react'
 import UploadLogo from './upload-logo'
 import { useAtom } from 'jotai'
-import { businessNameAtom, businessSloganAtom, businessContactAtom, businessLocationAtom, businessEtcAtom } from '@/app/providers/atoms'
+import {
+ businessNameAtom,
+ businessSloganAtom,
+ businessContactAtom,
+ businessLocationAtom,
+ businessEtcAtom,
+ selectedLogoOptionAtom,
+ selectedVariantAtom,
+ selectedLogoFileAtom,
+} from '@/app/providers/atoms'
 import FormButton from '../form-button'
 import SavedBusiness from './saved-business'
+import { ErrorToast } from '@/app/toast/error'
+import { initialSelectedVariant } from '@/app/content/initial-values'
 
 type BusinessFormProps = {}
 
@@ -14,6 +25,25 @@ function BusinessForm({}: BusinessFormProps) {
  const [businessContact, setBusinessContact] = useAtom(businessContactAtom)
  const [businessLocation, setBusinessLocation] = useAtom(businessLocationAtom)
  const [businessEtc, setBusinessEtc] = useAtom(businessEtcAtom)
+ const [selectedLogoOption, setSelectedLogoOption] = useAtom(selectedLogoOptionAtom)
+ const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
+ const [selectedLogoFile, setSelectedLogoFile] = useAtom(selectedLogoFileAtom)
+
+ const handleSave = () => {
+  if (!businessSlogan && !businessLocation && !businessContact && !businessEtc && !businessName && !selectedLogoOption) {
+   setSelectedVariant(initialSelectedVariant)
+   return
+  }
+  if (!!selectedLogoFile && !selectedLogoOption) {
+   ErrorToast({ msg: 'Please specify your logo option' })
+   return
+  }
+  if (!businessName) {
+   ErrorToast({ msg: 'Please specify your business name' })
+   return
+  }
+  setIsSaved(true)
+ }
 
  return (
   <>
@@ -83,7 +113,7 @@ function BusinessForm({}: BusinessFormProps) {
       />
      </div>
      <UploadLogo />
-     <FormButton onClick={() => setIsSaved(true)}>Save</FormButton>
+     <FormButton onClick={handleSave}>Save</FormButton>
     </form>
    )}
   </>

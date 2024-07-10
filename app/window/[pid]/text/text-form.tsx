@@ -1,13 +1,22 @@
 import React, { useState } from 'react'
 import { useAtom } from 'jotai'
-import { textContentAtom, textDetailsAtom } from '@/app/providers/atoms'
+import { textContentAtom, textDetailsAtom, selectedVariantAtom } from '@/app/providers/atoms'
 import SavedText from './saved-text'
 import FormButton from '../form-button'
+import { initialSelectedVariant } from '@/app/content/initial-values'
 
 function TextForm() {
  const [textContent, setTextContent] = useAtom(textContentAtom)
  const [textDetails, setTextDetails] = useAtom(textDetailsAtom)
+ const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
  const [isSaved, setIsSaved] = useState(false)
+ const handleSave = () => {
+  if ((!textContent || textContent === '') && (!textDetails || textDetails === '')) {
+   setSelectedVariant(initialSelectedVariant)
+   return
+  }
+  setIsSaved(true)
+ }
  return (
   <>
    {isSaved ? (
@@ -35,7 +44,7 @@ function TextForm() {
         type='text'
        />
       </div>
-      <FormButton onClick={() => setIsSaved(true)}>Save</FormButton>
+      <FormButton onClick={handleSave}>Save</FormButton>
      </form>
     </>
    )}

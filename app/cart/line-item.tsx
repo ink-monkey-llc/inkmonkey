@@ -6,6 +6,7 @@ import { CartItem } from '@/lib/shopify/types'
 import Quantity from '../cart/cart-quant'
 import { formatPrice } from '../utils/helpers'
 import CartDelete from './cart-delete'
+import Chevron, { Direction } from '../icons/chevron'
 
 function LineItem({ lineItem, cartId }: { lineItem: CartItem; cartId: string }) {
  const [userCartId, setUserCartId] = useLocalStorage('userCartId', { id: '', count: 1 })
@@ -28,7 +29,7 @@ function LineItem({ lineItem, cartId }: { lineItem: CartItem; cartId: string }) 
  }
 
  return (
-  <>
+  <div className='flex flex-col '>
    <div className='flex justify-between text-txt-primary'>
     <div className='flex gap-2 items-center'>
      <Image
@@ -39,7 +40,6 @@ function LineItem({ lineItem, cartId }: { lineItem: CartItem; cartId: string }) 
      />
      <div className='flex flex-col gap-1'>
       <h3 className='font-base'>{product.title}</h3>
-
       <div className='font-light text-sm'>{merch.title}</div>
       <div className='text-base font-semibold'>{price}</div>
      </div>
@@ -52,8 +52,18 @@ function LineItem({ lineItem, cartId }: { lineItem: CartItem; cartId: string }) 
      <CartDelete handleRemove={handleRemove} />
     </div>
    </div>
-   <div className='border-t border-border w-full m-auto' />
-  </>
+   <div>
+    <p className='flex justify-center items-center text-accent text-sm'>
+     Personalization Details
+     <Chevron
+      className='w-4 h-4 text-accent ml-1'
+      direction={Direction.Down}
+     />
+    </p>
+    <div className='flex flex-col gap-2 p-2'>{/* TODO: add personalization details */}</div>
+   </div>
+   <div className='border-t border-border w-full m-auto mt-2' />
+  </div>
  )
 }
 

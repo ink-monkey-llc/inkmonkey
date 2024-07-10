@@ -10,15 +10,15 @@ import { selectedVariantAtom } from '@/app/providers/atoms'
 import { initialSelectedVariant } from '@/app/content/initial-values'
 
 type TextProps = {
- variant: ProductVariant
+ textVariant: ProductVariant
 }
 
-function Text({ variant }: TextProps) {
+function Text({ textVariant }: TextProps) {
  const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
 
- const isSelected = selectedVariant?.id === variant.id
+ const isSelected = selectedVariant?.id === textVariant.id
  const handleSelect = () => {
-  setSelectedVariant(isSelected ? initialSelectedVariant : variant)
+  setSelectedVariant(isSelected ? initialSelectedVariant : textVariant)
  }
  return (
   <div
@@ -28,7 +28,7 @@ function Text({ variant }: TextProps) {
     className={cn('flex justify-between items-center hover:border-accent')}>
     <div className='flex gap-2'>
      <Check className={cn('w-6 h-6 text-accent opacity-20 hover:text-accent-bright', isSelected && 'opacity-100')} />
-     {variant.title}
+     {textVariant.title}
     </div>
     <InfoIcon
      id='text-info'
@@ -41,7 +41,7 @@ function Text({ variant }: TextProps) {
      style={{ backgroundColor: 'white', color: '#1A1A1A' }}
      place='top-end'>
      <>
-      <span className='font-bold text-xl'>{variant.title}</span>
+      <span className='font-bold text-xl'>{textVariant.title}</span>
       <p className='font-semibold text-lg'>
        Add custom text to the design <br /> (like your name or a slogan)
       </p>

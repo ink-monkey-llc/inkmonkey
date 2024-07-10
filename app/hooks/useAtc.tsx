@@ -18,6 +18,7 @@ export default function useAtc({ selectedVariant, quantity, attributes }: AtcPro
   if (!selectedVariant) {
    return
   }
+  console.log('ATCProps:', { selectedVariant, quantity, attributes })
   setAdding(true)
   let cartId = userCartId.id ? userCartId.id : ''
   if (!userCartId.id) {

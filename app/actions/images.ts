@@ -37,7 +37,7 @@ export const uploadLogo = async (imgData: { dataUrl: string; fileName: string; f
   return { error: 'File size is too large' }
  }
  const res = await uploadImage(dataUrl)
- console.log('res:', res)
+ //  console.log('res:', res)
  if (res.error) {
   return { error: res.error }
  }

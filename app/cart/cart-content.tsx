@@ -8,7 +8,6 @@ import { Cart } from '@/lib/shopify/types'
 import CartIcon from '../icons/cart-icon'
 import { Smooch } from '../@cart/(.)cart/page'
 import Link from 'next/link'
-import { format } from 'path'
 import { formatPrice } from '../utils/helpers'
 import Spinner from '../spinner/spinner'
 
