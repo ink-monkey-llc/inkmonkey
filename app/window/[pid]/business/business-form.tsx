@@ -113,7 +113,7 @@ function BusinessForm({}: BusinessFormProps) {
       />
      </div>
      <UploadLogo />
-     <FormButton onClick={handleSave}>Save</FormButton>
+     {/* <FormButton onClick={handleSave}>Save</FormButton> */}
     </form>
    )}
   </>

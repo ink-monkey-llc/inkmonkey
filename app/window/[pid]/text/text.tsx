@@ -22,7 +22,10 @@ function Text({ textVariant }: TextProps) {
  }
  return (
   <div
-   className={cn('flex flex-col border-2 border-accent-tr rounded-md px-2 py-1 bg-bg-secondary cursor-pointer', isSelected && 'bg-bg-tertiary border-accent')}>
+   className={cn(
+    'flex flex-col border-2 border-accent-tr rounded-md px-2 pb-2 pt-1 bg-bg-secondary cursor-pointer',
+    isSelected && 'bg-bg-tertiary border-accent'
+   )}>
    <div
     onClick={handleSelect}
     className={cn('flex justify-between items-center hover:border-accent')}>

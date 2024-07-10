@@ -1,5 +1,5 @@
 export const initialSelectedVariant = {
- id: 'gid://shopify/ProductVariant/48313500762396',
+ id: '',
  title: 'None',
  availableForSale: true,
  selectedOptions: [

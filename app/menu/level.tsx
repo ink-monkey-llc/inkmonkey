@@ -20,6 +20,7 @@ async function Level({ obj, params, parent }: Props) {
  const isUnfolded = handle && slug.includes(handle)
  const isMetaObject = obj.type === 'METAOBJECT'
  const isCollection = obj.type === 'COLLECTION'
+ const isCurrent = handle && slug[slug.length - 1] === handle
 
  const collectionHandle = async () => {
   if (isMetaObject && !!obj.resource) {
@@ -43,7 +44,7 @@ async function Level({ obj, params, parent }: Props) {
  return (
   <div className='pl-2'>
    <Link
-    className={cn('flex items-center text-sm', isUnfolded && 'text-accent')}
+    className={cn('flex items-center text-sm', isUnfolded && 'text-accent', isCurrent && 'bg-bg-secondary')}
     href={parent && isUnfolded ? parent : newUrl}>
     {obj.items ? (
      <Chevron

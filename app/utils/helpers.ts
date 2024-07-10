@@ -43,3 +43,14 @@ export function sortWindowVariants(product: ShopifyProduct) {
  const noneVariant = variants.find((variant) => variant.title === 'None')
  return { businessVariants, textVariant, noneVariant }
 }
+
+interface KeyValue {
+ key: string
+ value: string
+}
+
+export function transformKey({ key, value }: KeyValue): { newKey: string; value: string } {
+ const newKey = key.includes('business') ? key.replace('business', '') : key.includes('text') ? key.replace('text', '') : key
+
+ return { newKey, value }
+}

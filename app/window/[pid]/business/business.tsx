@@ -22,6 +22,9 @@ function Business({ variants }: BusinessProps) {
  }
 
  useEffect(() => {
+  if (selectedLogoOption === 'ready') {
+   setSelectedVariant(variants[2])
+  }
   if (selectedLogoOption === 'jpeg') {
    setSelectedVariant(variants[1])
   }

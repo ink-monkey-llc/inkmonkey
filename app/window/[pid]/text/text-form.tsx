@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useAtom } from 'jotai'
+import { ErrorToast } from '@/app/toast/error'
 import { textContentAtom, textDetailsAtom, selectedVariantAtom } from '@/app/providers/atoms'
 import SavedText from './saved-text'
 import FormButton from '../form-button'
 import { initialSelectedVariant } from '@/app/content/initial-values'
+import { text } from 'stream/consumers'
 
 function TextForm() {
  const [textContent, setTextContent] = useAtom(textContentAtom)
@@ -13,6 +15,10 @@ function TextForm() {
  const handleSave = () => {
   if ((!textContent || textContent === '') && (!textDetails || textDetails === '')) {
    setSelectedVariant(initialSelectedVariant)
+   return
+  }
+  if (!textContent || textContent === '') {
+   ErrorToast({ msg: 'Please enter your custom text' })
    return
   }
   setIsSaved(true)
@@ -44,7 +50,7 @@ function TextForm() {
         type='text'
        />
       </div>
-      <FormButton onClick={handleSave}>Save</FormButton>
+      {/* <FormButton onClick={handleSave}>Save</FormButton> */}
      </form>
     </>
    )}

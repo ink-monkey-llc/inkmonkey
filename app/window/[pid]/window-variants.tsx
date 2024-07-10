@@ -18,8 +18,6 @@ function WindowVariants({ product }: { product: ShopifyProduct }) {
   return await storeApi.getVariantByOptions({ handle: product.handle, selectedOptions: convertToObjectArray(variant) })
  }
 
- //  console.log('product:', product)
-
  useEffect(() => {
   fetchedVariant(selectedOptions).then((variant) => setSelectedVariant(variant))
  }, [selectedOptions])

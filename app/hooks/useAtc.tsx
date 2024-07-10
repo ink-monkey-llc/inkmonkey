@@ -9,12 +9,12 @@ export type AtcProps = {
  attributes: { key: string; value: string }[]
 }
 
-export default function useAtc({ selectedVariant, quantity, attributes }: AtcProps) {
+export default function useAtc() {
  const [adding, setAdding] = useState(false)
  const [added, setAdded] = useState(false)
  const [userCartId, setUserCartId] = useLocalStorage('userCartId', { id: '', count: 1 })
 
- const addToCart = async () => {
+ const addToCart = async ({ selectedVariant, quantity, attributes }: AtcProps) => {
   if (!selectedVariant) {
    return
   }

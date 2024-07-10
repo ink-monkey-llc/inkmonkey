@@ -4,16 +4,19 @@ import Image from 'next/image'
 import { storeApi } from '@/lib/shopify/storefront-api'
 import { CartItem } from '@/lib/shopify/types'
 import Quantity from '../cart/cart-quant'
-import { formatPrice } from '../utils/helpers'
+import { formatPrice, transformKey } from '../utils/helpers'
 import CartDelete from './cart-delete'
 import Chevron, { Direction } from '../icons/chevron'
 
 function LineItem({ lineItem, cartId }: { lineItem: CartItem; cartId: string }) {
  const [userCartId, setUserCartId] = useLocalStorage('userCartId', { id: '', count: 1 })
+ const [isOpen, setIsOpen] = useState(false)
  const merch = lineItem.merchandise
  const product = lineItem.merchandise.product
  const price = formatPrice(Number(lineItem.cost.totalAmount.amount))
  const quantity = lineItem.quantity
+ const attributes = lineItem.attributes.map((attr) => transformKey(attr))
+ const hasAttributes = lineItem.attributes.length > 0
 
  const handleQuantity = (num: number) => {
   if (quantity + num < 1) {
@@ -52,17 +55,42 @@ function LineItem({ lineItem, cartId }: { lineItem: CartItem; cartId: string }) 
      <CartDelete handleRemove={handleRemove} />
     </div>
    </div>
-   <div>
-    <p className='flex justify-center items-center text-accent text-sm'>
-     Personalization Details
-     <Chevron
-      className='w-4 h-4 text-accent ml-1'
-      direction={Direction.Down}
-     />
-    </p>
-    <div className='flex flex-col gap-2 p-2'>{/* TODO: add personalization details */}</div>
-   </div>
-   <div className='border-t border-border w-full m-auto mt-2' />
+   {hasAttributes && (
+    <div>
+     {isOpen && (
+      <div className='flex flex-col'>
+       {attributes.map((attr, i) => (
+        <div
+         className='flex '
+         key={attr.newKey + i}>
+         <p className='min-w-24 text-txt-secondary text-sm'>{attr.newKey}:</p>
+         {attr.newKey === 'Logo' ? (
+          <Image
+           className='border border-border'
+           src={attr.value}
+           alt='logo'
+           width={50}
+           height={50}
+          />
+         ) : (
+          <p className='w-max text-txt-secondary'>{attr.value}</p>
+         )}
+        </div>
+       ))}
+      </div>
+     )}
+     <p
+      onClick={() => setIsOpen(!isOpen)}
+      className='cursor-pointer flex justify-center items-center text-accent text-sm hover:text-accent-bright'>
+      Personalization Details
+      <Chevron
+       className='w-4 h-4 ml-1'
+       direction={isOpen ? Direction.Up : Direction.Down}
+      />
+     </p>
+    </div>
+   )}
+   <div className='border-t border-border w-full m-auto' />
   </div>
  )
 }

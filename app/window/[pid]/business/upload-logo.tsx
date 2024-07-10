@@ -14,7 +14,7 @@ function UploadLogo({}: UploadLogoProps) {
  }
 
  return (
-  <div className='flex flex-col gap-1 mt-3 pt-1 border-t border-accent-tr mb-2'>
+  <div className='flex flex-col gap-1 mt-3 pt-1 border-t border-accent-tr mb-1'>
    <div className='flex justify-between w-full'>
     <p>
      Logo <span className='text-sm'>(optional)</span>:
