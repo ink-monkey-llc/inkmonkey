@@ -27,7 +27,7 @@ function WindowVariants({ product }: { product: ShopifyProduct }) {
  return (
   <div className='relative flex flex-col gap-4 min-w-[237px] px-4'>
    <div className='flex flex-col gap-4 '>
-    <div className='sticky top-[96px] pt-4 bg-black border-b border-accent-tr'>
+    <div className='sticky top-[96px] pt-4 z-30 bg-black border-b border-accent-tr'>
      <Price
       quantity={quantity}
       price={selectedVariant?.price ? selectedVariant?.price.amount : '0'}

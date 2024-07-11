@@ -30,13 +30,20 @@ export const businessLocationAtom = atom<string>('')
 export const businessEtcAtom = atom<string>('')
 export const businessLogoDataAtom = atom<BusinessLogoData>(initialBusinessLogoData)
 
+export const businessDataAtom = atom<BusinessData>(initialBusinessData)
+
 export const textContentAtom = atom<string>('')
 export const textDetailsAtom = atom<string>('')
 
-export const businessDataAtom = atom<BusinessData>(initialBusinessData)
-
+// Vehicle Info
 export const isStandardSizeAtom = atom<boolean>(true)
 export const vehicleYearAtom = atom<number>(2024)
+export const makeAtom = atom<string>('')
+export const modelAtom = atom<string>('')
+export const doorsAtom = atom<number>(2)
+export const sideAAtom = atom<string>('')
+export const sideBAtom = atom<string>('')
+export const sideCAtom = atom<string>('')
 
 selectedVariantAtom.debugLabel = 'Selected Variant'
 selectedLogoOptionAtom.debugLabel = 'Selected Logo Option'
@@ -54,3 +61,9 @@ textDetailsAtom.debugLabel = 'Text Details'
 businessDataAtom.debugLabel = 'Business Data'
 isStandardSizeAtom.debugLabel = 'Is Standard Size'
 vehicleYearAtom.debugLabel = 'Vehicle Year'
+makeAtom.debugLabel = 'Make'
+modelAtom.debugLabel = 'Model'
+doorsAtom.debugLabel = 'Doors'
+sideAAtom.debugLabel = 'Side A'
+sideBAtom.debugLabel = 'Side B'
+sideCAtom.debugLabel = 'Side C'

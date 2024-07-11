@@ -11,7 +11,7 @@ function Customization({ product }: { product: ShopifyProduct }) {
  const { businessVariants, textVariant, noneVariant } = sortWindowVariants(product)
 
  return (
-  <div className='flex flex-col gap-2 min-w-[237px]'>
+  <div className='flex flex-col gap-2 pr-2 min-w-[237px]'>
    <h2>Personalization Options</h2>
    {noneVariant && <None noneVariant={noneVariant} />}
    {textVariant && <Text textVariant={textVariant} />}

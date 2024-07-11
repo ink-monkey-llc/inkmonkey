@@ -15,7 +15,7 @@ async function WindowProductPage({ params }: { params: { pid: string } }) {
     <div className='sticky top-[96px] w-full md:w-2/3 h-full mb-auto '>
      <ProductImage product={product} />
     </div>
-    <div className='w-2/3 md:w-1/3 h-full flex flex-col mb-auto pt-6 md:pt-12  pb-12'>
+    <div className='w-2/3 md:w-1/3 h-full flex flex-col mb-auto pt-6 md:pt-12 pb-4'>
      <h1 className='text-3xl text-accent px-4'>{product.title}</h1>
      <WindowVariants product={product} />
     </div>

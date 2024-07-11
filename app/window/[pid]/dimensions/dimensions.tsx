@@ -8,10 +8,10 @@ import AddDimensions from './add-dimensions'
 function Dimensions() {
  const [isStandardSize, setIsStandardSize] = useAtom(isStandardSizeAtom)
  const handleSelectStandard = () => {
-  setIsStandardSize(!isStandardSize)
+  setIsStandardSize(true)
  }
  const handleSelectCustom = () => {
-  setIsStandardSize(!isStandardSize)
+  setIsStandardSize(false)
  }
  return (
   <div>
@@ -32,15 +32,14 @@ function Dimensions() {
       'flex flex-col gap-2 items-center border-2 border-accent-tr rounded-md px-2 pb-2 pt-1 bg-bg-secondary cursor-pointer',
       !isStandardSize && 'bg-bg-tertiary border-accent'
      )}>
-     <div className='flex flex-col gap-2 w-full'>
+     <div className='flex flex-col gap-1 w-full'>
       <div className='flex gap-2'>
        <Check className={cn('w-6 h-6 text-accent opacity-20 hover:text-accent-bright', !isStandardSize && 'opacity-100')} />
-       Get your window measurements
+       Enter your window measurements
       </div>
-      <p className='text-xs text-accent'>*Highly recommended for best results</p>
+      <p className='text-xs ml-8 text-accent'>*Highly recommended for best results</p>
      </div>
-
-     <AddDimensions />
+     <AddDimensions hide={isStandardSize} />
     </div>
    </div>
   </div>

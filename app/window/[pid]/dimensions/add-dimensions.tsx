@@ -1,21 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { cn } from '@/app/utils/cn'
-import { getYears } from '@/app/utils/helpers'
-import { useAtom } from 'jotai'
-import { vehicleYearAtom } from '@/app/providers/atoms'
 import YearSelect from './add-vehicle/year-select'
+import MakeModel from './add-vehicle/make-model'
+import Doors from './add-vehicle/doors'
+import WindowDimensions from './add-vehicle/window-dimensions'
+// import '@/app/styles/dimensions.css'
 
-function AddDimensions() {
- const [yearOpen, setYearOpen] = useState(false)
- const [vehicleYear, setVehicleYear] = useAtom(vehicleYearAtom)
- const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  console.log('e.target.value:', e.target.value)
- }
- const years = getYears()
+function AddDimensions({ hide }: { hide: boolean }) {
  return (
-  <div>
-   <p className='text-sm'>Please enter your vehicle information and the measurements of its back window.</p>
+  <div className={cn('flex flex-col add', hide && 'hidden')}>
+   <p className='text-xs'>Please enter your vehicle information and the measurements of its back window.</p>
    <YearSelect />
+   <MakeModel />
+   <Doors />
+   <WindowDimensions />
   </div>
  )
 }

@@ -320,3 +320,16 @@ export type QueryResult = {
  products: ShopifyProduct[]
  collectionInfo?: ShopifyCollection
 }
+
+export type Vehicle = {
+ make: string
+ model: string
+ year: number
+ doors: number
+}
+
+export type Window = {
+ a: string
+ b: string
+ c: string
+}

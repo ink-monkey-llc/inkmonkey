@@ -18,8 +18,17 @@ import {
  businessEtcAtom,
  textContentAtom,
  textDetailsAtom,
+ isStandardSizeAtom,
+ makeAtom,
+ modelAtom,
+ doorsAtom,
+ vehicleYearAtom,
+ sideAAtom,
+ sideBAtom,
+ sideCAtom,
 } from '@/app/providers/atoms'
 import { uploadLogo } from '@/app/actions/images'
+import { addNewVehicle } from '@/app/actions/vehicles'
 
 function WindowAtc() {
  const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
@@ -34,6 +43,14 @@ function WindowAtc() {
  const [businessEtc, setBusinessEtc] = useAtom(businessEtcAtom)
  const [textContent, setTextContent] = useAtom(textContentAtom)
  const [textDetails, setTextDetails] = useAtom(textDetailsAtom)
+ const [isStandardSize, setIsStandardSize] = useAtom(isStandardSizeAtom)
+ const [make, setMake] = useAtom(makeAtom)
+ const [model, setModel] = useAtom(modelAtom)
+ const [doors, setDoors] = useAtom(doorsAtom)
+ const [vehicleYear, setVehicleYear] = useAtom(vehicleYearAtom)
+ const [sideA, setSideA] = useAtom(sideAAtom)
+ const [sideB, setSideB] = useAtom(sideBAtom)
+ const [sideC, setSideC] = useAtom(sideCAtom)
 
  const router = useRouter()
 
@@ -86,6 +103,28 @@ function WindowAtc() {
     attributes.push({ key: 'textDetails', value: textDetails })
    }
   }
+  if (isStandardSize) {
+   attributes.push({ key: 'isStandardSize', value: 'true' })
+  }
+  if (!isStandardSize) {
+   attributes.push({ key: 'doors', value: `'${doors}'` })
+   attributes.push({ key: 'vehicleYear', value: `'${vehicleYear}'` })
+   if (make !== '') {
+    attributes.push({ key: 'make', value: make })
+   }
+   if (model !== '') {
+    attributes.push({ key: 'model', value: model })
+   }
+   if (sideA !== '') {
+    attributes.push({ key: 'sideA', value: sideA })
+   }
+   if (sideB !== '') {
+    attributes.push({ key: 'sideB', value: sideB })
+   }
+   if (sideC !== '') {
+    attributes.push({ key: 'sideC', value: sideC })
+   }
+  }
   return attributes
  }
 
@@ -101,6 +140,25 @@ function WindowAtc() {
  }
 
  const handleAddToCart = async () => {
+  if (!isStandardSize) {
+   const vehicle = {
+    make,
+    model,
+    year: vehicleYear,
+    doors,
+   }
+   const window = {
+    a: sideA,
+    b: sideB,
+    c: sideC,
+   }
+   addNewVehicle({
+    vehicle,
+    window,
+   }).then((res) => {
+    console.log('res:', res)
+   })
+  }
   if (isBusiness) {
    if (!businessName || businessName === '') {
     ErrorToast({ msg: 'Please specify your business name' })

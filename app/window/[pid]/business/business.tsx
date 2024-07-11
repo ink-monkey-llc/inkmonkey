@@ -46,12 +46,12 @@ function Business({ variants }: BusinessProps) {
     onClick={handleSelect}
     className={cn('flex justify-between items-center hover:border-accent', isSelected && 'bg-bg-tertiary border-accent')}>
     <div className='flex gap-2 items-center'>
-     <Check className={cn('w-6 h-6 text-accent opacity-20 hover:text-accent-bright', isSelected && 'opacity-100')} />
+     <Check className={cn('min-w-6 h-6 text-accent opacity-20 hover:text-accent-bright', isSelected && 'opacity-100')} />
      <h2>Business Info / Advertisement</h2>
     </div>
     <InfoIcon
      id='business-info'
-     className='cursor-pointer w-6 h-6 text-accent hover:text-accent-bright'
+     className='cursor-pointer min-w-6 h-6 text-accent hover:text-accent-bright'
     />
     <Tooltip
      anchorSelect='#business-info'
