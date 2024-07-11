@@ -41,13 +41,13 @@ function VariantSelect({ option, setSelectedOptions, selectedOptions }: VariantS
  return (
   <div
    onClick={handleClick}
-   className='max-w-44 relative'
+   className=' relative'
    key={option.id}>
    <h3>{option.name}</h3>
-   <div className='bg-bg-tertiary rounded-md px-2 py-1 cursor-pointer mb-1 flex justify-between items-center'>
+   <div className='bg-bg-tertiary rounded-md px-2 py-1 cursor-pointer mb-1 flex justify-between items-center text-lg border-2 border-accent'>
     {selectedOptions[option.name]}
     <Chevron
-     className='w-4 h-4 '
+     className='w-6 h-6 text-accent'
      direction={open ? Direction.Up : Direction.Down}
     />
    </div>

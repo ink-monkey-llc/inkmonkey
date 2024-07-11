@@ -20,7 +20,7 @@ function ProductImage({ product }: { product: ShopifyProduct }) {
  const isMd = width > 768
  return (
   <Suspense fallback={<div className='w-full h-[var(--view-height)] overflow-y-hidden'>Loading...</div>}>
-   <div className='w-full h-[var(--view-height)] overflow-y-hidden'>
+   <div className=' w-full h-[var(--view-height)] overflow-y-hidden'>
     <Lightbox
      plugins={[Inline, Thumbnails]}
      thumbnails={{ position: isMd ? 'start' : 'bottom' }}

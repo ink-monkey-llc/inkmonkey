@@ -3,7 +3,7 @@ import { cn } from '../utils/cn'
 import { ArrowRight } from '@/app/icons/arrow-right'
 import Spinner from '@/app/spinner/spinner'
 
-function Atc({ addToCart, adding, added }: { addToCart: () => Promise<void>; adding: boolean; added: boolean }) {
+function Atc({ addToCart, adding, added }: { addToCart: () => void; adding: boolean; added: boolean }) {
  return (
   <div
    onClick={addToCart}

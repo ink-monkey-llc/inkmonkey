@@ -1,9 +1,10 @@
 ### currently working on
 
-1. check for 'design logo' before adding to cart
-2. quantity
-3. warn if image is not vector or large
-4. window product page
+1. open cart sidebar after ATC
+2. check for 'design logo' before adding to cart
+3. quantity
+4. warn if image is not vector or large
+5. window product page
 
 ### todo
 

@@ -14,10 +14,15 @@
   --scrollbar: 17px;
   --cart-padding: calc(var(--header-height) + 225px);
   --cart-view: calc(100vh - var(--cart-padding));
+  --atc-width: calc(33.333% - 2rem);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {}
+}
+
+.atc-w {
+  width: var(--atc-width);
 }
 
 .is-modal {

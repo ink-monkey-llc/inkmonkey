@@ -8,6 +8,8 @@ import Customization from './customization'
 import { useAtom } from 'jotai'
 import { selectedVariantAtom } from '@/app/providers/atoms'
 import WindowAtc from './window-atc'
+import Quantity from '@/app/product/[pid]/quantity'
+import Dimensions from './dimensions/dimensions'
 
 function WindowVariants({ product }: { product: ShopifyProduct }) {
  const [quantity, setQuantity] = useState(1)
@@ -23,12 +25,24 @@ function WindowVariants({ product }: { product: ShopifyProduct }) {
  }, [selectedOptions])
 
  return (
-  <div className='flex flex-col gap-4 min-w-[237px] px-4'>
-   <Price
+  <div className='relative flex flex-col gap-4 min-w-[237px] px-4'>
+   <div className='flex flex-col gap-4 '>
+    <div className='sticky top-[96px] pt-4 bg-black border-b border-accent-tr'>
+     <Price
+      quantity={quantity}
+      price={selectedVariant?.price ? selectedVariant?.price.amount : '0'}
+     />
+    </div>
+    <div className='flex flex-col gap-4 '>
+     <Dimensions />
+     <Customization product={product} />
+    </div>
+   </div>
+
+   <Quantity
     quantity={quantity}
-    price={selectedVariant?.price ? selectedVariant?.price.amount : '0'}
+    setQuantity={setQuantity}
    />
-   <Customization product={product} />
    <WindowAtc />
   </div>
  )

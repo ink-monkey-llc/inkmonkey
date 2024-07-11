@@ -35,6 +35,9 @@ export const textDetailsAtom = atom<string>('')
 
 export const businessDataAtom = atom<BusinessData>(initialBusinessData)
 
+export const isStandardSizeAtom = atom<boolean>(true)
+export const vehicleYearAtom = atom<number>(2024)
+
 selectedVariantAtom.debugLabel = 'Selected Variant'
 selectedLogoOptionAtom.debugLabel = 'Selected Logo Option'
 selectedLogoFileAtom.debugLabel = 'Selected Logo File'
@@ -49,3 +52,5 @@ businessLogoDataAtom.debugLabel = 'Business Logo Data'
 textContentAtom.debugLabel = 'Text Content'
 textDetailsAtom.debugLabel = 'Text Details'
 businessDataAtom.debugLabel = 'Business Data'
+isStandardSizeAtom.debugLabel = 'Is Standard Size'
+vehicleYearAtom.debugLabel = 'Vehicle Year'

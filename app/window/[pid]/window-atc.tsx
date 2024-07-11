@@ -1,3 +1,4 @@
+import { useRouter } from 'next/navigation'
 import useAtc from '@/app/hooks/useAtc'
 import Atc from '@/app/atc'
 import { ErrorToast } from '@/app/toast/error'
@@ -33,6 +34,8 @@ function WindowAtc() {
  const [businessEtc, setBusinessEtc] = useAtom(businessEtcAtom)
  const [textContent, setTextContent] = useAtom(textContentAtom)
  const [textDetails, setTextDetails] = useAtom(textDetailsAtom)
+
+ const router = useRouter()
 
  const handleUpload = async () => {
   if (file) {
@@ -88,6 +91,15 @@ function WindowAtc() {
 
  const { adding, added, addToCart } = useAtc()
 
+ const addAndOpenCart = (imgUrl?: string) => {
+  addToCart({
+   selectedVariant,
+   quantity: 1,
+   attributes: cartAttributes(imgUrl),
+  })
+  router.push('/cart')
+ }
+
  const handleAddToCart = async () => {
   if (isBusiness) {
    if (!businessName || businessName === '') {
@@ -108,20 +120,12 @@ function WindowAtc() {
      return
     }
     if (result.status === 'success') {
-     addToCart({
-      selectedVariant,
-      quantity: 1,
-      attributes: cartAttributes(result.imgUrl),
-     })
+     addAndOpenCart(result.imgUrl)
      return
     }
    }
    if (!dataUrl || dataUrl === '') {
-    addToCart({
-     selectedVariant,
-     quantity: 1,
-     attributes: cartAttributes(),
-    })
+    addAndOpenCart()
    }
   }
   if (isText) {
@@ -129,18 +133,10 @@ function WindowAtc() {
     ErrorToast({ msg: 'Please enter your custom text' })
     return
    }
-   addToCart({
-    selectedVariant,
-    quantity: 1,
-    attributes: cartAttributes(),
-   })
+   addAndOpenCart()
   }
   if (!isBusiness && !isText) {
-   addToCart({
-    selectedVariant,
-    quantity: 1,
-    attributes: cartAttributes(),
-   })
+   addAndOpenCart()
   }
  }
 

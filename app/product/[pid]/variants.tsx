@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import Price from './price'
 import { storeApi } from '@/lib/shopify/storefront-api'
 import { ShopifyProduct, VariantByOptions } from '@/lib/shopify/types'
@@ -16,16 +17,22 @@ function Variants({ product }: { product: ShopifyProduct }) {
  const [selectedVariant, setSelectedVariant] = useState<VariantByOptions | null>(null)
  const [customization, setCustomization] = useState<string>('')
  const [quantity, setQuantity] = useState(1)
+ const router = useRouter()
 
  const fetchedVariant = async (variant: Record<string, string>) => {
   return await storeApi.getVariantByOptions({ handle: product.handle, selectedOptions: convertToObjectArray(variant) })
  }
 
- const { adding, added, addToCart } = useAtc({
-  selectedVariant,
-  quantity,
-  attributes: [{ key: selectedOptions.Personalization, value: customization ? customization : 'None' }],
- })
+ const { adding, added, addToCart } = useAtc()
+
+ const addAndOpenCart = () => {
+  addToCart({
+   selectedVariant,
+   quantity,
+   attributes: [{ key: selectedOptions.Personalization, value: customization ? customization : 'None' }],
+  })
+  router.push('/cart')
+ }
 
  useEffect(() => {
   fetchedVariant(selectedOptions).then((variant) => setSelectedVariant(variant))
@@ -62,7 +69,7 @@ function Variants({ product }: { product: ShopifyProduct }) {
     setQuantity={setQuantity}
    />
    <Atc
-    addToCart={addToCart}
+    addToCart={addAndOpenCart}
     adding={adding}
     added={added}
    />
