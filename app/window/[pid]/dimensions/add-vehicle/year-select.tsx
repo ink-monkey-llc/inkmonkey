@@ -21,7 +21,7 @@ function YearSelect() {
   <div className='relative'>
    <div
     onClick={(e) => onClick(e)}
-    className='flex flex-col mt-2'>
+    className='flex flex-col mt-2 w-max'>
     <label className='text-txt-secondary text-sm'>Vehicle Year:</label>
     <div className='flex gap-1 px-2 w-max items-center rounded-md border border-slate-tr  bg-bg-tertiary text-txt-secondary'>
      {vehicleYear}

@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react'
 import Chevron, { Direction } from '@/app/icons/chevron'
 import { useOnClickOutside } from 'usehooks-ts'
-import { getYears } from '@/app/utils/helpers'
 import { useAtom } from 'jotai'
 import { doorsAtom } from '@/app/providers/atoms'
 import { cn } from '@/app/utils/cn'
@@ -17,12 +16,15 @@ function Doors() {
  }
  const ref = useRef<HTMLDivElement>(null)
  useOnClickOutside(ref, () => setDoorsOpen(false))
- const years = getYears()
+ const handleSelectDoors = (num: number) => {
+  setDoors(num)
+  setDoorsOpen(false)
+ }
  return (
   <div className='relative'>
    <div
     onClick={(e) => onClick(e)}
-    className='flex flex-col mt-1'>
+    className='flex flex-col mt-1 w-max'>
     <label className='text-txt-secondary text-sm'>Doors:</label>
     <div className='flex gap-1 px-2 w-max items-center rounded-md border border-slate-tr bg-bg-tertiary text-txt-secondary'>
      {doors}
@@ -41,6 +43,7 @@ function Doors() {
     {doorsOptions.map((opt) => (
      <div
       key={opt}
+      onClick={() => handleSelectDoors(opt)}
       className='flex px-1 py-1 cursor-pointer w-full hover:bg-bg-tertiary'>
       <h3>{opt}</h3>
      </div>

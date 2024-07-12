@@ -4,6 +4,7 @@
 
 
 :root {
+  --accent: #d2ac53;
   --bg-primary: #0D0E0F;
   --bg-secondary: #1A1A1A;
   --bg-tertiary: #222222;
@@ -60,4 +61,23 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: 20px;
+  border: 3px solid transparent;
 }

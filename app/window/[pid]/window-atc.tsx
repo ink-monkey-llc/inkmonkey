@@ -28,7 +28,7 @@ import {
  sideCAtom,
 } from '@/app/providers/atoms'
 import { uploadLogo } from '@/app/actions/images'
-import { addNewVehicle } from '@/app/actions/vehicles'
+import { addVehicle } from '@/app/actions/vehicles'
 
 function WindowAtc() {
  const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
@@ -136,11 +136,32 @@ function WindowAtc() {
    quantity: 1,
    attributes: cartAttributes(imgUrl),
   })
+
   router.push('/cart')
  }
 
  const handleAddToCart = async () => {
   if (!isStandardSize) {
+   if (!make) {
+    ErrorToast({ msg: 'Please enter a make' })
+    return
+   }
+   if (!model) {
+    ErrorToast({ msg: 'Please enter a model' })
+    return
+   }
+   if (!sideA || !sideB || !sideC) {
+    ErrorToast({ msg: 'Please enter all window measurements' })
+    return
+   }
+   if (!doors) {
+    ErrorToast({ msg: 'Please enter the number of doors' })
+    return
+   }
+   if (!vehicleYear) {
+    ErrorToast({ msg: 'Please enter vehicle year' })
+    return
+   }
    const vehicle = {
     make,
     model,
@@ -152,7 +173,7 @@ function WindowAtc() {
     b: sideB,
     c: sideC,
    }
-   addNewVehicle({
+   addVehicle({
     vehicle,
     window,
    }).then((res) => {

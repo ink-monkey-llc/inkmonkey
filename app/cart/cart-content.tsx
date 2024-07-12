@@ -28,7 +28,7 @@ function CartContent({ smooch, isModal }: { smooch: Smooch; isModal: boolean }) 
  useEffect(() => {
   fetchCart().then((cart) => setCart(cart))
  }, [userCartId.count])
- console.log('cart:', cart)
+ //  console.log('cart:', cart)
  const lineItems = cart?.lines
  const cartId = cart?.id
  return (

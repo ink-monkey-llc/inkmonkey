@@ -50,7 +50,17 @@ interface KeyValue {
 }
 
 export function transformKey({ key, value }: KeyValue): { newKey: string; value: string } {
- const newKey = key.includes('business') ? key.replace('business', '') : key.includes('text') ? key.replace('text', '') : key
+ const newKey = key.includes('business')
+  ? key.replace('business', '')
+  : key.includes('text')
+  ? key.replace('text', '')
+  : key === 'sideA'
+  ? 'Top Width'
+  : key === 'sideB'
+  ? 'Height'
+  : key === 'sideC'
+  ? 'Bottom Width'
+  : key
 
  return { newKey, value }
 }

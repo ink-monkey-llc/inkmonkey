@@ -20,6 +20,8 @@ async function ListTree({ params }: Props) {
  const title = slug[0] === 'Vinyl-Decal' ? 'Stickers & Decals' : formatPathname(slug[0])
  const thisUrl = `/list/${slug[0]}`
 
+ //  console.log('items:', items)
+
  return (
   <div>
    <p className='mb-4 px-2 py-2 w-full text-center bg-bg-secondary'>{title}</p>

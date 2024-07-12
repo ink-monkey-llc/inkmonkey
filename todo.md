@@ -1,6 +1,6 @@
 ### currently working on
 
-1. open cart sidebar after ATC
+1. search input in header
 2. check for 'design logo' before adding to cart
 3. quantity
 4. warn if image is not vector or large
@@ -25,14 +25,15 @@
 ### done
 
 1. customization options for business info
-2. check for empty text before adding to cart
-3. modify react-simple-image-slider package and use it instead
-4. capture user selections for customization
-5. disallow save when no changes
-6. parallel route for cart drawer / cart page
-7. cart page
-8. product detail page
-9. display alternate images for product card
-10. sticky header and fixed sidebar
-11. banner at top of collection page
-12. filter for product grid
+2. open cart sidebar after ATC
+3. check for empty text before adding to cart
+4. modify react-simple-image-slider package and use it instead
+5. capture user selections for customization
+6. disallow save when no changes
+7. parallel route for cart drawer / cart page
+8. cart page
+9. product detail page
+10. display alternate images for product card
+11. sticky header and fixed sidebar
+12. banner at top of collection page
+13. filter for product grid

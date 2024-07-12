@@ -14,6 +14,8 @@ import { filterByType } from '@/app/utils/helpers'
 import { addToCartMutation, createCartMutation, editCartItemsMutation, removeFromCartMutation } from './mutations/cart'
 import { create } from 'domain'
 import { getCartQuery } from './queries/cart'
+import { revalidatePath } from 'next/cache'
+import { searchQuery } from './queries/search'
 
 const API_VERSION = process.env.NEXT_PUBLIC_API_VERSION ?? '2024-04'
 const STORE_DOMAIN = process.env.NEXT_PUBLIC_STORE_DOMAIN ?? '7c5018-3.myshopify.com'
@@ -107,6 +109,7 @@ export const storeApi = {
  },
 
  getMenu: async (args: { handle: string }) => {
+  revalidatePath('/')
   const { data, errors, extensions } = await client.request(menuQuery, {
    variables: {
     handle: args.handle,
@@ -281,5 +284,25 @@ export const storeApi = {
    throw new Error(errors.message)
   }
   return reshapeCart(data.cartLinesRemove.cart)
+ },
+
+ searchProducts: async (args: { query: string; numProducts: number }) => {
+  const variables: { query: string; first: number } = {
+   query: args.query,
+   first: args.numProducts,
+  }
+  const { data, errors, extensions } = await client.request(searchQuery, {
+   variables,
+   apiVersion: API_VERSION,
+  })
+  if (errors) {
+   console.log('errors:', errors)
+   throw new Error(errors.message)
+  }
+  // console.log('data:', await data)
+  const pageInfo = data.search.pageInfo as PageInfo
+  const products = removeEdgesAndNodes(await data.search.edges) as ShopifyProduct[]
+  const productData = { pageInfo, products } as QueryResult
+  return productData
  },
 }

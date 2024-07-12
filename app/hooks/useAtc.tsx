@@ -18,7 +18,7 @@ export default function useAtc() {
   if (!selectedVariant) {
    return
   }
-  console.log('ATCProps:', { selectedVariant, quantity, attributes })
+  // console.log('ATCProps:', { selectedVariant, quantity, attributes })
   setAdding(true)
   let cartId = userCartId.id ? userCartId.id : ''
   if (!userCartId.id) {
@@ -29,7 +29,7 @@ export default function useAtc() {
   const lines = selectedVariant ? [{ merchandiseId: selectedVariant.id, quantity: quantity, attributes: attributes }] : []
   const updatedCart = await storeApi.addToCart(cartId, lines)
   setUserCartId({ id: cartId, count: updatedCart.totalQuantity })
-  console.log('updatedCart:', updatedCart)
+  // console.log('updatedCart:', updatedCart)
   setAdding(false)
   setAdded(true)
   setTimeout(() => {

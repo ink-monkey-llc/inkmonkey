@@ -59,24 +59,29 @@ function LineItem({ lineItem, cartId }: { lineItem: CartItem; cartId: string }) 
     <div>
      {isOpen && (
       <div className='flex flex-col'>
-       {attributes.map((attr, i) => (
-        <div
-         className='flex '
-         key={attr.newKey + i}>
-         <p className='min-w-24 text-txt-secondary text-sm'>{attr.newKey}:</p>
-         {attr.newKey === 'Logo' ? (
-          <Image
-           className='border border-border'
-           src={attr.value}
-           alt='logo'
-           width={50}
-           height={50}
-          />
-         ) : (
-          <p className='w-max text-txt-secondary'>{attr.value}</p>
-         )}
-        </div>
-       ))}
+       {attributes.map((attr, i) => {
+        if (attr.newKey === 'doors' || attr.newKey === 'vehicleYear' || attr.newKey === 'make' || attr.newKey === 'model') {
+         return null
+        }
+        return (
+         <div
+          className='flex '
+          key={attr.newKey + i}>
+          <p className='min-w-24 text-txt-secondary text-sm'>{attr.newKey}:</p>
+          {attr.newKey === 'Logo' ? (
+           <Image
+            className='border border-border'
+            src={attr.value}
+            alt='logo'
+            width={50}
+            height={50}
+           />
+          ) : (
+           <p className='w-max text-txt-secondary'>{attr.value}</p>
+          )}
+         </div>
+        )
+       })}
       </div>
      )}
      <p
