@@ -1,4 +1,3 @@
-import { use } from 'react'
 import { formatPathname } from '@/app/utils/helpers'
 import { storeApi } from '@/lib/shopify/storefront-api'
 import ProductGrid from '@/app/grid/product-grid'

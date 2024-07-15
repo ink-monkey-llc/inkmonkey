@@ -43,7 +43,10 @@ function WindowVariants({ product }: { product: ShopifyProduct }) {
     quantity={quantity}
     setQuantity={setQuantity}
    />
-   <WindowAtc />
+   <WindowAtc
+    quantity={quantity}
+    setQuantity={setQuantity}
+   />
   </div>
  )
 }

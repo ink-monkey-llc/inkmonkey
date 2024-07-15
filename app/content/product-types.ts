@@ -3,3 +3,10 @@ export const productTypes = [
  { id: 'win', label: 'Truck Back Window Graphics', queryHandle: 'Truck Back Window Graphics', url: '/list/Truck-Back-Window-Graphics' },
  { id: 'fonz', label: 'FonzAI AI Design Tool', queryHandle: 'AI', url: '/fonzai' },
 ]
+
+export type ProductType = {
+ id: string
+ label: string
+ queryHandle: string
+ url: string
+}

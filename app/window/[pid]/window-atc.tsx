@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import useAtc from '@/app/hooks/useAtc'
 import Atc from '@/app/atc'
@@ -30,7 +31,7 @@ import {
 import { uploadLogo } from '@/app/actions/images'
 import { addVehicle } from '@/app/actions/vehicles'
 
-function WindowAtc() {
+function WindowAtc({ quantity, setQuantity }: { quantity: number; setQuantity: (num: number) => void }) {
  const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
  const [selectedLogoOption, setSelectedLogoOption] = useAtom(selectedLogoOptionAtom)
  const [file, setFile] = useAtom(selectedLogoFileAtom)
@@ -133,7 +134,7 @@ function WindowAtc() {
  const addAndOpenCart = (imgUrl?: string) => {
   addToCart({
    selectedVariant,
-   quantity: 1,
+   quantity: quantity,
    attributes: cartAttributes(imgUrl),
   })
 

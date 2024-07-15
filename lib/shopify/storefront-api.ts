@@ -286,10 +286,12 @@ export const storeApi = {
   return reshapeCart(data.cartLinesRemove.cart)
  },
 
- searchProducts: async (args: { query: string; numProducts: number }) => {
-  const variables: { query: string; first: number } = {
+ searchProducts: async (args: { query: string; numProducts: number; reverse: boolean; productType: string }) => {
+  const variables: { query: string; first: number; reverse: boolean; productType: string } = {
    query: args.query,
    first: args.numProducts,
+   reverse: args.reverse,
+   productType: args.productType,
   }
   const { data, errors, extensions } = await client.request(searchQuery, {
    variables,
@@ -300,9 +302,10 @@ export const storeApi = {
    throw new Error(errors.message)
   }
   // console.log('data:', await data)
-  const pageInfo = data.search.pageInfo as PageInfo
-  const products = removeEdgesAndNodes(await data.search.edges) as ShopifyProduct[]
-  const productData = { pageInfo, products } as QueryResult
+  // const pageInfo = (await data.search.pageInfo) as PageInfo
+  const products = removeEdgesAndNodes(await data.search) as ShopifyProduct[]
+
+  const productData = { products }
   return productData
  },
 }
