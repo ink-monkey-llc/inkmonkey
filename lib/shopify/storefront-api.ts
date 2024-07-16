@@ -15,7 +15,7 @@ import { addToCartMutation, createCartMutation, editCartItemsMutation, removeFro
 import { create } from 'domain'
 import { getCartQuery } from './queries/cart'
 import { revalidatePath } from 'next/cache'
-import { searchQuery } from './queries/search'
+import { searchAllPrevQuery, searchAllQuery, searchNextQuery, searchPrevQuery, searchQuery } from './queries/search'
 
 const API_VERSION = process.env.NEXT_PUBLIC_API_VERSION ?? '2024-04'
 const STORE_DOMAIN = process.env.NEXT_PUBLIC_STORE_DOMAIN ?? '7c5018-3.myshopify.com'
@@ -286,14 +286,17 @@ export const storeApi = {
   return reshapeCart(data.cartLinesRemove.cart)
  },
 
- searchProducts: async (args: { query: string; numProducts: number; reverse: boolean; productType: string }) => {
-  const variables: { query: string; first: number; reverse: boolean; productType: string } = {
+ searchProducts: async (args: { query: string; numProducts: number; reverse: boolean; productType: string; dir: string; cursor: string }) => {
+  const variables: { query: string; first: number; reverse: boolean; productType: string; cursor?: string } = {
    query: args.query,
    first: args.numProducts,
    reverse: args.reverse,
    productType: args.productType,
   }
-  const { data, errors, extensions } = await client.request(searchQuery, {
+  if (args.cursor) {
+   variables.cursor = args.cursor
+  }
+  const { data, errors, extensions } = await client.request(args.dir === 'prev' ? searchPrevQuery : searchNextQuery, {
    variables,
    apiVersion: API_VERSION,
   })
@@ -301,11 +304,36 @@ export const storeApi = {
    console.log('errors:', errors)
    throw new Error(errors.message)
   }
-  // console.log('data:', await data)
-  // const pageInfo = (await data.search.pageInfo) as PageInfo
+  console.log('data:', await data)
+  const pageInfo = (await data.search.pageInfo) as PageInfo
   const products = removeEdgesAndNodes(await data.search) as ShopifyProduct[]
 
-  const productData = { products }
+  const productData = { products, pageInfo }
+  return productData
+ },
+
+ searchAllProducts: async (args: { query: string; numProducts: number; reverse: boolean; dir: string; cursor: string }) => {
+  const variables: { query: string; first: number; reverse: boolean; cursor?: string } = {
+   query: args.query,
+   first: args.numProducts,
+   reverse: args.reverse,
+  }
+  if (args.cursor) {
+   variables.cursor = args.cursor
+  }
+  const { data, errors, extensions } = await client.request(args.dir === 'prev' ? searchAllPrevQuery : searchAllQuery, {
+   variables,
+   apiVersion: API_VERSION,
+  })
+  if (errors) {
+   console.log('errors:', errors)
+   throw new Error(errors.message)
+  }
+  console.log('data:', await data)
+  const pageInfo = (await data.search.pageInfo) as PageInfo
+  const products = removeEdgesAndNodes(await data.search) as ShopifyProduct[]
+
+  const productData = { products, pageInfo }
   return productData
  },
 }

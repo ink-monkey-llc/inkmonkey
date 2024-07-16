@@ -1,10 +1,20 @@
 import React from 'react'
 import { useRouter } from 'next/navigation'
 
-function SearchField() {
+function SearchField({ type }: { type: string }) {
  const router = useRouter()
+ const buildUrl = (query: string) => {
+  if (type !== 'all') {
+   return `/search?query=${query}&type=${type}`
+  }
+  return `/search?query=${query}`
+ }
  const handleSearch = async (formData: FormData) => {
-  router.push(`/search?query=${formData.get('query')}`)
+  const query = formData.get('query')?.toString()
+  if (query === '' || query === null || query === undefined) {
+   return
+  }
+  router.push(buildUrl(query))
  }
  return (
   <form
