@@ -8,21 +8,19 @@ import ImageSlider from './image-slider'
 import type { ShopifyProduct, Image as ImageType } from '@/lib/shopify/types'
 
 export type FeatImageData = {
- base64: string
- img: { src: string; height: number; width: number }
  image: ImageType
 }
 
 type ProductCardImageProps = {
  product: ShopifyProduct
  featImgData: FeatImageData
- imgDataArr: FeatImageData[]
+ imgDataArr: ImageType[]
 }
 
 function ProductCardImage({ product, featImgData, imgDataArr }: ProductCardImageProps) {
  const [showSlider, setShowSlider] = useState(false)
  const [isPending, startTransition] = useTransition()
- const imgData = imgDataArr.map((imgData) => imgData.img.src)
+ const imgData = imgDataArr.map((imgData) => imgData.url)
  const handleMouse = (arg: boolean) => {
   startTransition(() => setShowSlider(arg))
  }
@@ -47,12 +45,12 @@ function ProductCardImage({ product, featImgData, imgDataArr }: ProductCardImage
      pointerEvents: showSlider ? 'none' : 'auto',
      transition: 'opacity 0.3s',
     }}
-    {...featImgData.img}
+    src={featImgData.image.url}
     alt={featImgData.image.altText}
     width={200}
     height={200}
-    blurDataURL={featImgData.base64}
-    placeholder='blur'
+    // blurDataURL={featImgData.base64}
+    // placeholder='blur'
    />
   </div>
  )

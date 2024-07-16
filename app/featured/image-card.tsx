@@ -1,25 +1,33 @@
 import React from 'react'
 import { ShopifyProduct } from '@/lib/shopify/types'
+import Image from 'next/image'
 import { reshapeImages } from '@/lib/shopify/storefront-api'
-import ProductCardImage from './product-card-image'
 import { imageWithPH } from '../actions/images'
 import Link from 'next/link'
 import { formatPrice } from '../utils/helpers'
 
-async function GridItem({ product }: { product: ShopifyProduct }) {
- const featImage = { image: product.featuredImage, title: product.title }
- const imgs = product.images.edges.map((edge) => edge.node)
-
+async function ImageCard({ product }: { product: ShopifyProduct }) {
  const amount = Number(product.priceRange.minVariantPrice.amount)
- const isWindow = product.productType === 'Truck Back Window Graphics'
+ const isWindow = product.productType === 'Truck Back Window `Graphics'
  return (
-  <div className='w-[200px] m-auto h-full flex flex-col relative mb-4'>
+  <div className='min-w-[200px] m-auto h-[300px] flex flex-col relative mb-4'>
    <Link href={!isWindow ? `/product/${product.handle}` : `/window/${product.handle}`}>
-    <ProductCardImage
-     imgDataArr={imgs}
-     featImgData={featImage}
-     product={product}
-    />
+    <div className='relative w-max h-[200px]'>
+     <Image
+      className='object-cover'
+      style={{
+       display: 'auto',
+       position: 'absolute',
+       minWidth: '200px',
+       height: '200px',
+       inset: '0',
+      }}
+      src={product.featuredImage.url}
+      alt={product.featuredImage.altText}
+      width={200}
+      height={200}
+     />
+    </div>
     <div className='px-1 py-2'>
      <p className='text-xs font-light'>{product.title}</p>
      <p className='font-bold'>From {formatPrice(amount)}</p>
@@ -33,4 +41,4 @@ async function GridItem({ product }: { product: ShopifyProduct }) {
  )
 }
 
-export default GridItem
+export default ImageCard

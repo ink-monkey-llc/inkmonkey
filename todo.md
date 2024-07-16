@@ -1,10 +1,12 @@
 ### currently working on
 
+1. featured gallery on home page
+1. search results grid should be empty initially
 1. search form should be client component
-2. search input in header
-3. check for 'design logo' before adding to cart
-4. warn if image is not vector or large
-5. window product page
+1. search input in header
+1. check for 'design logo' before adding to cart
+1. warn if image is not vector or large
+1. window product page
 
 ### todo
 
