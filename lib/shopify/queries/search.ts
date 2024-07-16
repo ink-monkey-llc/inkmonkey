@@ -47,7 +47,7 @@ export const searchNextQuery = /* GraphQL */ `
 
 export const searchPrevQuery = /* GraphQL */ `
  query SearchProducts($first: Int, $cursor: String, $query: String!, $reverse: Boolean = false, $productType: String = "") {
-  search(query: $query, types: PRODUCT, before: $cursor, first: $first, reverse: $reverse, productFilters: { productType: $productType }) {
+  search(query: $query, types: PRODUCT, before: $cursor, last: $first, reverse: $reverse, productFilters: { productType: $productType }) {
    productFilters {
     type
    }
@@ -87,7 +87,7 @@ export const searchAllQuery = /* GraphQL */ `
 `
 export const searchAllPrevQuery = /* GraphQL */ `
  query SearchAllProducts($first: Int, $cursor: String, $query: String!, $reverse: Boolean = false) {
-  search(query: $query, before: $cursor, types: PRODUCT, first: $first, reverse: $reverse) {
+  search(query: $query, before: $cursor, types: PRODUCT, last: $first, reverse: $reverse) {
    edges {
     node {
      ...product

@@ -8,12 +8,12 @@ import LineItem from './line-item'
 import Arrow from '../icons/arrow'
 import { Cart } from '@/lib/shopify/types'
 import CartIcon from '../icons/cart-icon'
-import { Smooch } from '../@cart/(.)cart/page'
 import Link from 'next/link'
+import { smooch } from '@/lib/fonts'
 import { formatPrice } from '../utils/helpers'
 import Spinner from '../spinner/spinner'
 
-function CartContent({ smooch, isModal }: { smooch: Smooch; isModal: boolean }) {
+function CartContent({ isModal }: { isModal: boolean }) {
  const [userCartId, setUserCartId] = useLocalStorage('userCartId', { id: '', count: 1 })
  const [cart, setCart] = useState<Cart>()
 

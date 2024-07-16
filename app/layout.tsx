@@ -1,13 +1,10 @@
 import type { Metadata } from 'next'
 import { cn } from './utils/cn'
-import { Open_Sans, Smooch, Outfit } from 'next/font/google'
 import Header from './header/header'
 import { Toaster } from 'react-hot-toast'
+import { open_sans, outfit, smooch } from '@/lib/fonts'
 import 'react-tooltip/dist/react-tooltip.css'
 import './globals.css'
-export const open_sans = Open_Sans({ subsets: ['latin'], display: 'swap', variable: '--font-open-sans' })
-export const outfit = Outfit({ subsets: ['latin'], display: 'swap', variable: '--font-outfit' })
-export const smooch = Smooch({ weight: '400', subsets: ['latin'], display: 'swap', variable: '--font-smooch' })
 
 export const metadata: Metadata = {
  title: 'Ink Monkey',

@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { cn } from '../utils/cn'
-import { smooch } from '../layout'
+import { smooch } from '@/lib/fonts'
 
 function Logo() {
  return (

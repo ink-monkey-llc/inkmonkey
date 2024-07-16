@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { cn } from '../utils/cn'
-import { smooch } from '../layout'
+import { smooch } from '@/lib/fonts'
 import imlogo from '../images/imlogo.jpg'
 
 function Hero() {

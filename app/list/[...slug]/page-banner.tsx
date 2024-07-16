@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { cn } from '../../utils/cn'
-import { smooch } from '@/app/layout'
+import { smooch } from '@/lib/fonts'
 import type { ShopifyCollection } from '@/lib/shopify/types'
 import Sort from './sort'
 

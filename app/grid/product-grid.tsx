@@ -26,8 +26,8 @@ function ProductGrid({ products, isSearch = false }: { products: ShopifyProduct[
     <Suspense
      fallback={<Loader />}
      key={product.id}>
-     {/* <GridItem product={product} /> */}
-     <TempGridItem product={product} />
+     <GridItem product={product} />
+     {/* <TempGridItem product={product} /> */}
     </Suspense>
    ))}
   </div>
