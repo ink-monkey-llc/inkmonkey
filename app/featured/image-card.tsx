@@ -6,7 +6,7 @@ import { imageWithPH } from '../actions/images'
 import Link from 'next/link'
 import { formatPrice } from '../utils/helpers'
 
-async function ImageCard({ product }: { product: ShopifyProduct }) {
+function ImageCard({ product }: { product: ShopifyProduct }) {
  const amount = Number(product.priceRange.minVariantPrice.amount)
  const isWindow = product.productType === 'Truck Back Window `Graphics'
  return (

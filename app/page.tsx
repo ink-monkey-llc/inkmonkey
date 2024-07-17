@@ -1,14 +1,16 @@
 import Hero from './hero/hero'
-import SliderContent from './featured/slider-content'
-import Slider from './featured/slider'
+import Featured from './featured/featured'
+import { collections } from './content/featured-collections'
 
 export default function Home() {
  return (
   <main className='flex min-h-screen flex-col items-center justify-between '>
    <Hero />
-   <Slider>
-    <SliderContent collectionHandle='skulls' />
-   </Slider>
+   <Featured
+    type='decals'
+    productsAmount={24}
+    collectionHandles={collections.group1}
+   />
   </main>
  )
 }
