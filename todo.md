@@ -1,25 +1,27 @@
 ### currently working on
 
-1. featured gallery on home page
 1. search results grid should be empty initially
-1. search form should be client component
-1. search input in header
-1. check for 'design logo' before adding to cart
-1. warn if image is not vector or large
-1. window product page
+2. search form should be client component
+3. search input in header
 
 ### todo
 
-1. open animations for window customization options
-2. show recommended products after continue shopping button is clicked
-3. related products under current product
-4. banners and products on home page
-5. Hover effects on links and buttons
-6. search for product grid
-7. error boundaries
-8. change product url to id instead of handle
-9. integrate fonz
-10. make header span the viewport
+1. featured gallery on home page
+2. showcase product types on home page
+3. cta links on hero section
+4. check for 'design logo' before adding to cart
+5. warn if image is not vector or large
+6. window product page
+7. open animations for window customization options
+8. show recommended products after continue shopping button is clicked
+9. related products under current product
+10. banners and products on home page
+11. Hover effects on links and buttons
+12. search for product grid
+13. error boundaries
+14. change product url to id instead of handle
+15. integrate fonz
+16. make header span the viewport
 
 ### done
 

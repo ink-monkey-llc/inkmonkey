@@ -1,47 +1,60 @@
-// 'use client'
-// import React, { useState, useRef } from 'react'
-// import { useOnClickOutside } from 'usehooks-ts'
-// import { useRouter, usePathname } from 'next/navigation'
-// import { SearchType, searchTypes } from '../content/search-types'
-// import '@/app/styles/sort.css'
-// import { cn } from '@/app/utils/cn'
+import React, { useState, useRef, useEffect } from 'react'
+import { useOnClickOutside } from 'usehooks-ts'
+import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+import { SearchType, searchTypes } from '@/app/content/search-types'
+import '@/app/styles/sort.css'
+import { cn } from '@/app/utils/cn'
 
-// function TypeSelect({ query }: { query: string }) {
-//  const [open, setOpen] = useState(false)
-//  const [productType, setProductType] = useState<SearchType>(searchTypes[0])
-//  const popoverRef = useRef<HTMLDivElement>(null)
-//  useOnClickOutside(popoverRef, () => setOpen(false))
-//  const router = useRouter()
-//  const pathname = usePathname()
+function TypeSelect({ query }: { query: string }) {
+ const searchParams = useSearchParams()
+ const urlType = searchParams.get('type')
+ const [open, setOpen] = useState(false)
+ const [productType, setProductType] = useState<SearchType>(searchTypes[0])
+ const popoverRef = useRef<HTMLDivElement>(null)
+ useOnClickOutside(popoverRef, () => setOpen(false))
+ const router = useRouter()
+ const pathname = usePathname()
 
-//  const handleSelect = (id: string) => {
-//   setProductType(searchTypes.find((type) => type.id === id) as SearchType)
-//   router.push(`${pathname}?query=${query}&type=${id}`)
-//   setOpen(false)
-//  }
+ useEffect(() => {
+  if (!urlType) {
+   setProductType(searchTypes[0])
+   return
+  }
+  setProductType(searchTypes.find((type) => type.id === urlType) as SearchType)
+ }, [urlType])
 
-//  return (
-//   <div ref={popoverRef}>
-//    <span className='text-xl'>Product Type:</span>
-//    <button
-//     onClick={() => setOpen(!open)}
-//     className='bg-bg-tertiary mt-2 border border-slate-tr gap-2 flex justify-between items-center rounded-md mb-1 px-2 py-1 h-[34px] cursor-pointer w-56'>
-//     <span className='pl-2 font-sans text-sm'>{productType.label}</span>
-//    </button>
-//    <div
-//     id='sort-menu'
-//     className={cn('bg-bg-tertiary rounded-md px-1 py-1 z-20 absolute w-56', open ? 'fade-in' : 'fade-out')}>
-//     {searchTypes.map((type, i) => (
-//      <div
-//       onClick={() => handleSelect(type.id)}
-//       className=' hover:bg-bg-secondary cursor-pointer text-txt-primary px-4 py-1 text-sm rounded-md'
-//       key={type.id + i}>
-//       <div>{type.label}</div>
-//      </div>
-//     ))}
-//    </div>
-//   </div>
-//  )
-// }
+ const handleSelect = (id: string) => {
+  setProductType(searchTypes.find((type) => type.id === id) as SearchType)
+  router.push(`${pathname}?query=${query}&type=${id}`)
+  setOpen(false)
+ }
 
-// export default TypeSelect
+ return (
+  <div
+   className='w-full max-w-64'
+   ref={popoverRef}>
+   <div className='flex flex-col ml-4 w-64'>
+    <span className='text-lg'>Product Type:</span>
+    <div
+     onClick={() => setOpen(!open)}
+     className='bg-bg-tertiary border border-slate-tr gap-2 flex justify-between items-center rounded-md px-2 py-1 h-[34px] cursor-pointer w-64'>
+     <span className='font-sans '>{productType.label}</span>
+    </div>
+   </div>
+   <div
+    id='sort-menu'
+    className={cn('bg-bg-tertiary mt-1 ml-4 rounded-md px-1 py-1 z-20 absolute w-64 border border-slate-tr', open ? 'fade-in' : 'fade-out')}>
+    {searchTypes.map((type, i) => (
+     <div
+      onClick={() => handleSelect(type.id)}
+      className=' hover:bg-bg-secondary cursor-pointer text-txt-primary px-4 py-1 text-sm rounded-md'
+      key={type.id + i}>
+      <div>{type.label}</div>
+     </div>
+    ))}
+   </div>
+  </div>
+ )
+}
+
+export default TypeSelect
