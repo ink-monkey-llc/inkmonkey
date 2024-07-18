@@ -28,6 +28,9 @@ const config: Config = {
    fontFamily: {
     smooch: ['var(--font-smooch)', 'sans-serif'],
    },
+   backgroundImage: {
+    'window-banner': 'url("/logo-bw-bg.jpg")',
+   },
   },
  },
  plugins: [],

@@ -8,7 +8,7 @@ import 'yet-another-react-lightbox/plugins/thumbnails.css'
 import NextImage from './next-image'
 import { ShopifyProduct } from '@/lib/shopify/types'
 
-function ProductImage({ product }: { product: ShopifyProduct }) {
+function ProductImage({ product, thumbs = true }: { product: ShopifyProduct; thumbs: boolean }) {
  const { width } = useWindowSize()
  const slides = product.images.edges.map((edge) => {
   return {
@@ -22,7 +22,7 @@ function ProductImage({ product }: { product: ShopifyProduct }) {
   <Suspense fallback={<div className='w-full h-[var(--view-height)] overflow-y-hidden'>Loading...</div>}>
    <div className=' w-full h-[var(--view-height)] overflow-y-hidden'>
     <Lightbox
-     plugins={[Inline, Thumbnails]}
+     plugins={thumbs ? [Inline, Thumbnails] : [Inline]}
      thumbnails={{ position: isMd ? 'start' : 'bottom' }}
      open={true}
      slides={slides}

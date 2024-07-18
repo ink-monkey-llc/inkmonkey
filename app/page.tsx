@@ -1,5 +1,6 @@
 import Hero from './hero/hero'
 import Featured from './featured/featured'
+import { WindowBanner } from './featured/window-banner'
 import { collections } from './content/featured-collections'
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
     productsAmount={24}
     collectionHandles={collections.group1}
    />
+   <WindowBanner />
   </main>
  )
 }
