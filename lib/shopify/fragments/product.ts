@@ -4,6 +4,11 @@ import seoFragment from './seo'
 const productFragment = /* GraphQL */ `
  fragment product on Product {
   id
+  collections(first: 10) {
+   nodes {
+    handle
+   }
+  }
   handle
   availableForSale
   title

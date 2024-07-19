@@ -135,6 +135,11 @@ export type CollectionQueryResult = {
 
 export type ShopifyProduct = {
  id: string
+ collections: {
+  nodes: {
+   handle: string
+  }[]
+ }
  handle: string
  availableForSale: boolean
  title: string

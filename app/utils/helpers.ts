@@ -74,3 +74,8 @@ export function getYears() {
  }
  return years
 }
+
+export function filteredHandles(handles: string[]): string[] {
+ const exclude = ['newest-products', 'contour-cut-decals', 'truck-back-window-graphics', 'all-products', 'new-products']
+ return handles.filter((handle) => !exclude.includes(handle))
+}
