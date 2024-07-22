@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "react-alice-carousel/lib/alice-carousel.css";
 
 
 :root {
@@ -80,4 +81,19 @@ input[type=number] {
   background-color: var(--accent);
   border-radius: 20px;
   border: 3px solid transparent;
+}
+
+.card-show {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+
+  @starting-style {
+    opacity: 0;
+
+  }
+}
+
+.card-hide {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
 }

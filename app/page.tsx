@@ -4,6 +4,7 @@ import { WindowBanner } from './featured/window-banner'
 import { collections } from './content/featured-collections'
 import Memorial from './memorial/memorial'
 import ComWindow from './commercial/com-window'
+import Carousel from './carousel/carousel'
 
 export default function Home() {
  return (
@@ -16,6 +17,7 @@ export default function Home() {
    />
    <WindowBanner />
    <ComWindow />
+   <Carousel />
   </main>
  )
 }
