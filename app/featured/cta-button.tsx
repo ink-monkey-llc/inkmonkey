@@ -3,7 +3,7 @@ import { cn } from '@/app/utils/cn'
 import Link from 'next/link'
 import { ArrowRight } from '../icons/arrow-right'
 
-function CtaButton({ href, className }: { href: string; className?: string }) {
+function CtaButton({ href, className, children }: { href: string; className?: string; children: React.ReactNode }) {
  return (
   <Link
    className={cn(
@@ -11,7 +11,7 @@ function CtaButton({ href, className }: { href: string; className?: string }) {
     className
    )}
    href={href}>
-   See All <ArrowRight className='w-6 h-6 group-hover:translate-x-3 transition-all' />
+   {children} <ArrowRight className='w-6 h-6 group-hover:translate-x-3 transition-all' />
   </Link>
  )
 }

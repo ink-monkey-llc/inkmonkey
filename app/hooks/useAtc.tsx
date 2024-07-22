@@ -1,5 +1,5 @@
 import { useLocalStorage } from 'usehooks-ts'
-import { storeApi } from '@/lib/shopify/storefront-api'
+import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { useState } from 'react'
 import { VariantByOptions } from '@/lib/shopify/types'
 

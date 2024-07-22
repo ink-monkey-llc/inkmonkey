@@ -1,5 +1,5 @@
 import React from 'react'
-import { storeApi } from '@/lib/shopify/storefront-api'
+import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { cn } from '@/app/utils/cn'
 import { smooch } from '@/lib/fonts'
 import { collections } from '@/app/content/featured-collections'

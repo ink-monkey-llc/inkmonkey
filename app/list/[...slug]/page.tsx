@@ -1,5 +1,5 @@
 import { formatPathname } from '@/app/utils/helpers'
-import { storeApi } from '@/lib/shopify/storefront-api'
+import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import ProductGrid from '@/app/grid/product-grid'
 import PageBtn from './page-btn'
 import PageBanner from './page-banner'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { storeApi } from '@/lib/shopify/storefront-api'
+import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import RecSlider from './recSlider'
 import { searchTypes } from '../content/search-types'

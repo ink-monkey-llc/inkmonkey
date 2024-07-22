@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useLocalStorage } from 'usehooks-ts'
 import Image from 'next/image'
-import { storeApi } from '@/lib/shopify/storefront-api'
+import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { CartItem } from '@/lib/shopify/types'
 import Quantity from '../cart/cart-quant'
 import { formatPrice, transformKey } from '../utils/helpers'

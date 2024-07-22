@@ -1,4 +1,4 @@
-import { storeApi } from '@/lib/shopify/storefront-api'
+import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import React from 'react'
 import Slider from './slider'
 import { cn } from '../utils/cn'

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Price from './price'
-import { storeApi } from '@/lib/shopify/storefront-api'
+import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { ShopifyProduct, VariantByOptions } from '@/lib/shopify/types'
 import { extractFirstValues, convertToObjectArray } from '@/app/utils/helpers'
 import useAtc from '@/app/hooks/useAtc'

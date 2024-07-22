@@ -3,10 +3,11 @@ import Image from 'next/image'
 import { cn } from '../utils/cn'
 import { smooch } from '@/lib/fonts'
 import imlogo from '../images/imlogo.jpg'
+import HeroCta from './hero-cta'
 
 function Hero() {
  return (
-  <div className='w-full h-[80vh] bg-black flex justify-between items-center px-8 overflow-hidden'>
+  <div className='w-full h-[var(--view-height)] bg-black flex justify-between items-center px-8 overflow-hidden'>
    <div>
     <h1
      id='herologo'

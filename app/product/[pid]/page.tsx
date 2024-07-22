@@ -1,5 +1,5 @@
 import React from 'react'
-import { storeApi } from '@/lib/shopify/storefront-api'
+import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import Image from 'next/image'
 import ProductImage from './product-image'

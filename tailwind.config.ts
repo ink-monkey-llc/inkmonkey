@@ -30,6 +30,7 @@ const config: Config = {
    },
    backgroundImage: {
     'window-banner': 'url("/logo-bw-bg.jpg")',
+    'com-bg': 'url("/hall-window-bw.jpg")',
    },
   },
  },

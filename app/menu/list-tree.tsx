@@ -1,7 +1,7 @@
 import React from 'react'
 import Level from './level'
 import { formatPathname } from '../utils/helpers'
-import { storeApi } from '@/lib/shopify/storefront-api'
+import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import type { Params } from '../list/[...slug]/layout'
 
 type Props = {
@@ -24,7 +24,7 @@ async function ListTree({ params }: Props) {
 
  return (
   <div>
-   <p className='mb-4 px-2 py-2 w-full text-center bg-bg-secondary'>{title}</p>
+   {/* <p className='mb-4 px-2 py-2 w-full text-center bg-bg-secondary'>{title}</p> */}
    <div className='px-4'>
     {items &&
      items.map((item) => (

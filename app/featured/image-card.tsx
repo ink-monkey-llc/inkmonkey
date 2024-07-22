@@ -1,7 +1,7 @@
 import React from 'react'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import Image from 'next/image'
-import { reshapeImages } from '@/lib/shopify/storefront-api'
+import { reshapeImages } from '@/lib/shopify/storefront-api/store-api'
 import { imageWithPH } from '../actions/images'
 import Link from 'next/link'
 import { formatPrice } from '../utils/helpers'

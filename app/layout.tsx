@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast'
 import { open_sans, outfit, smooch } from '@/lib/fonts'
 import 'react-tooltip/dist/react-tooltip.css'
 import './globals.css'
+import Footer from './footer/footer'
 
 export const metadata: Metadata = {
  title: 'Ink Monkey',
@@ -27,6 +28,7 @@ export default function RootLayout({
     <Toaster />
     {cart}
     {children}
+    <Footer />
    </body>
   </html>
  )

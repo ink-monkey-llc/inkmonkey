@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useLocalStorage } from 'usehooks-ts'
 import Link from 'next/link'
 import CartIcon from '../icons/cart-icon'
-import { storeApi } from '@/lib/shopify/storefront-api'
+import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { Cart } from '@/lib/shopify/types'
 
 function CartIndicator() {

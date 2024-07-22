@@ -1,6 +1,6 @@
 import React from 'react'
 import SearchForm from './search-form'
-import { storeApi } from '@/lib/shopify/storefront-api'
+import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { SearchType, searchTypes } from '../content/search-types'
 import ProductGrid from '../grid/product-grid'
 import NextPrev from './next-prev'

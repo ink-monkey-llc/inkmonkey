@@ -1,7 +1,7 @@
 import React from 'react'
 import { cn } from '../utils/cn'
 import type { MenuItem } from '@/lib/shopify/types'
-import { storeApi } from '@/lib/shopify/storefront-api'
+import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import Chevron from '../icons/chevron'
 import Link from 'next/link'
 import { Direction } from '../icons/chevron'

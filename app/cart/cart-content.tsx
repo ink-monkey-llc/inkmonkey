@@ -2,7 +2,7 @@
 import React, { useState, useEffect, Suspense } from 'react'
 import { useRouter } from 'next/navigation'
 import { cn } from '../utils/cn'
-import { storeApi } from '@/lib/shopify/storefront-api'
+import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { useLocalStorage } from 'usehooks-ts'
 import LineItem from './line-item'
 import Arrow from '../icons/arrow'

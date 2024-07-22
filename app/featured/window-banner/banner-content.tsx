@@ -43,8 +43,9 @@ function BannerContent({ products }: { collectionInfo: ShopifyCollection | undef
     </ul>
     <CtaButton
      className='mt-4'
-     href='/list/Truck-Back-Window-Graphics'
-    />
+     href='/list/Truck-Back-Window-Graphics'>
+     See All
+    </CtaButton>
    </div>
    <div className='flex justify-center items-center '>
     <div
