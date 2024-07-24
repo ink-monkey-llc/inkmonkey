@@ -5,8 +5,8 @@ import { smooch } from '@/lib/fonts'
 import type { ShopifyCollection } from '@/lib/shopify/types'
 import Sort from './sort'
 
-function PageBanner({ query, collectionInfo }: { query: string; collectionInfo: ShopifyCollection | undefined }) {
- const productTypeHeader = query === 'Vinyl Decal' ? 'Vinyl Stickers & Decals' : query
+function PageBanner({ query, collectionInfo }: { query: string; collectionInfo?: ShopifyCollection | undefined }) {
+ const productTypeHeader = query === 'Vinyl Decal' ? 'Vinyl Stickers & Decals' : 'all' ? 'All Products' : query
  return (
   <div className='w-full bg-bg-primary flex justify-start items-center p-8 relative'>
    {collectionInfo && collectionInfo.image ? (

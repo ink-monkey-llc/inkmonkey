@@ -5,30 +5,42 @@ import { cn } from '../utils/cn'
 import { smooch } from '@/lib/fonts'
 
 async function Featured({ collectionHandles, productsAmount, type }: { collectionHandles: string[]; productsAmount: number; type: string }) {
+ const getColl = async (handle: string, firstCursor?: string | null) => {
+  // if (firstCursor) console.log('getColl', handle, firstCursor)
+  const { products, pageInfo, collectionInfo } = await storeApi.getCollectionByHandle({
+   handle,
+   sortKey: 'CREATED',
+   reverse: false,
+   numProducts: productsAmount,
+   dir: firstCursor ? 'next' : '',
+   cursor: firstCursor ? firstCursor : '',
+   productType: 'Vinyl Decal',
+  })
+  const seq = !firstCursor ? 'first' : 'last'
+  return { products, collectionInfo, pageInfo, seq }
+ }
+
  const collections = await Promise.all(
   collectionHandles.map(async (handle) => {
-   const { products, pageInfo, collectionInfo } = await storeApi.getCollectionByHandle({
-    handle,
-    sortKey: 'CREATED',
-    reverse: false,
-    numProducts: productsAmount,
-    cursor: '',
-    dir: 'next',
-    productType: 'Vinyl Decal',
-   })
-   return { products, collectionInfo }
+   const first = await getColl(handle)
+   const second = await getColl(handle, first.pageInfo.endCursor)
+   //  console.log('second:', second.seq)
+   return { first, second }
   })
  )
 
  const title = type === 'decals' ? 'Vinyl Decals' : type === 'windows' ? 'Truck Back Window Graphics' : ''
 
  return (
-  <div className='w-full bg-bg-secondary'>
-   <h2 className={cn('text-4xl text-accent pl-8 py-6', smooch.className)}>Featured Collections - {title}</h2>
-   <Slider
-    type={type}
-    collections={collections}
-   />
+  <div className='w-full'>
+   <div className='w-full h-20 bg-feat-gradient -mt-20'></div>
+   <div className='w-full bg-bg-secondary'>
+    <h2 className={cn('text-5xl text-accent pl-8 pt-8 pb-8', smooch.className)}>Featured Collections - {title}:</h2>
+    <Slider
+     type={type}
+     collections={collections}
+    />
+   </div>
   </div>
  )
 }

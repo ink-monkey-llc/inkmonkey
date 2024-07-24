@@ -7,7 +7,7 @@ import HeroCta from './hero-cta'
 
 function Hero() {
  return (
-  <div className='w-full h-[var(--view-height)] bg-black flex justify-between items-center px-8 overflow-hidden'>
+  <div className='w-full h-[var(--hero-height)] bg-black flex justify-between items-center px-8 overflow-hidden'>
    <div>
     <h1
      id='herologo'

@@ -10,12 +10,14 @@
   --bg-secondary: #1A1A1A;
   --bg-tertiary: #222222;
   --header-height: 96px;
+  --hero-offset: 80px;
   --view-height: calc(100vh - var(--header-height));
   --drawer-width: 500px;
   --clr-quantity: #464646;
   --scrollbar: 17px;
   --cart-padding: calc(var(--header-height) + 225px);
   --cart-view: calc(100vh - var(--cart-padding));
+  --hero-height: calc(var(--view-height) + var(--hero-offset));
   --atc-width: calc(33.333% - 2rem);
 }
 

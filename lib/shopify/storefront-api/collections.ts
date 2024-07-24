@@ -8,6 +8,7 @@ import {
 } from '../queries/collections'
 import { PageInfo, ShopifyProduct, QueryResult } from '../types'
 import { removeEdgesAndNodes } from './helpers'
+import { dir } from 'console'
 
 type CollectionArgs = {
  handle: string
@@ -21,16 +22,19 @@ type CollectionArgs = {
 
 const collectionApi = {
  getCollectionByHandle: async (args: CollectionArgs) => {
-  // console.log('getCollectionByHandle', args)
-  const variables: { handle: string; sortKey: string; reverse: boolean; numProducts: number; cursor?: string; productType: string } = {
+  const direction = args.dir === 'prev' ? 'before' : 'after'
+
+  let variables: { handle: string; sortKey: string; reverse: boolean; numProducts: number; cursor?: string; dir?: string; productType: string } = {
    handle: args.handle,
    sortKey: args.sortKey,
    reverse: args.reverse,
    numProducts: args.numProducts,
    productType: args.productType,
+   [direction]: args.cursor,
   }
   if (args.cursor) {
    variables.cursor = args.cursor
+   //  console.log('vars:', variables)
   }
   const { data, errors, extensions } = await client.request(args.dir === 'prev' ? previousCollectionByHandleQuery : nextCollectionByHandleQuery, {
    variables: variables,

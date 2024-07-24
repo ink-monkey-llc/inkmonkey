@@ -338,3 +338,10 @@ export type Window = {
  b: string
  c: string
 }
+
+export type FeaturedCollection = {
+ products: ShopifyProduct[]
+ collectionInfo: ShopifyCollection | undefined
+ pageInfo: PageInfo
+ seq: string
+}

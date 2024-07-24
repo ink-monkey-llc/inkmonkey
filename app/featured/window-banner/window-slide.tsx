@@ -2,15 +2,15 @@
 import { ShopifyProduct } from '@/lib/shopify/types'
 import Image, { StaticImageData } from 'next/image'
 
-import { RenderSlideProps, isImageFitCover, isImageSlide, useLightboxProps, useLightboxState, Slide, CustomSlide } from 'yet-another-react-lightbox'
-
+import { RenderSlideProps, isImageFitCover, isImageSlide, useLightboxProps, useLightboxState, Slide } from 'yet-another-react-lightbox'
+// import type { CustomSlide } from 'yet-another-react-lightbox'
 type CustomImageData = StaticImageData & { price: string; prod: ShopifyProduct }
 
 function isNextImage(slide: Slide): slide is CustomImageData {
  return isImageSlide(slide) && typeof slide.width === 'number' && typeof slide.height === 'number'
 }
 
-// type CustomSlide = Slide & { price: string; prod: ShopifyProduct }
+type CustomSlide = Slide & { price: string; prod: ShopifyProduct }
 
 interface WindowSlideProps {
  slide: CustomSlide

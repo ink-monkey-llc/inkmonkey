@@ -5,6 +5,7 @@ import TempGridItem from './temp-grid-item'
 import TempSlider from './temp-slider'
 import GridItem from './grid-item'
 import Spinner from '../spinner/spinner'
+import { excludeProducts } from '../content/exlude-prods'
 
 const Loader = () => {
  return (
@@ -15,6 +16,7 @@ const Loader = () => {
 }
 
 function ProductGrid({ products, isSearch = false }: { products: ShopifyProduct[]; isSearch?: boolean }) {
+ const filtered = products.filter((product) => !excludeProducts.includes(product.handle))
  return (
   // <div className='grid gap-8 p-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4'>
   <div
@@ -22,7 +24,7 @@ function ProductGrid({ products, isSearch = false }: { products: ShopifyProduct[
     'grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 justify-start pl-4 pt-8 m-auto w-11/12',
     isSearch && ' sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-7'
    )}>
-   {products.map((product) => (
+   {filtered.map((product) => (
     <Suspense
      fallback={<Loader />}
      key={product.id}>

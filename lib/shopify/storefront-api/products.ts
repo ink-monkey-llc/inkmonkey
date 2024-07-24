@@ -1,10 +1,36 @@
-import { productByHandleQuery, previousProductByTypeQuery, nextProductByTypeQuery } from '../queries/products'
+import { productByHandleQuery, previousProductByTypeQuery, nextProductByTypeQuery, nextAllProductsQuery, previousAllProductsQuery } from '../queries/products'
 import { searchAllPrevQuery, searchAllQuery, searchNextQuery, searchPrevQuery } from '../queries/search'
 import { API_VERSION, client } from './store-api'
 import { PageInfo, ShopifyProduct, QueryResult } from '../types'
 import { removeEdgesAndNodes } from './helpers'
 
 const productApi = {
+ getAllProducts: async (args: { numProducts: number; reverse: boolean; dir: string; cursor: string; sortKey: string }) => {
+  const variables: { numProducts: number; reverse: boolean; cursor?: string; sortKey: string } = {
+   numProducts: args.numProducts,
+   reverse: args.reverse,
+   sortKey: args.sortKey,
+  }
+  if (args.cursor) {
+   variables.cursor = args.cursor
+  }
+  console.log('args:', args)
+  const { data, errors, extensions } = await client.request(args.dir === 'prev' ? previousAllProductsQuery : nextAllProductsQuery, {
+   variables,
+   apiVersion: API_VERSION,
+  })
+  if (errors) {
+   console.log('errors:', errors)
+   throw new Error(errors.message)
+  }
+  // console.log('data:', await data)
+  const pageInfo = (await data.products.pageInfo) as PageInfo
+  const products = removeEdgesAndNodes(await data.products) as ShopifyProduct[]
+
+  const productData = { products, pageInfo }
+  return productData
+ },
+
  getProductByHandle: async (args: { handle: string }) => {
   const { data, errors, extensions } = await client.request(productByHandleQuery, {
    variables: {

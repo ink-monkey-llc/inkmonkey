@@ -1,11 +1,11 @@
 'use client'
 import React from 'react'
-import Image from 'next/image'
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
 import CarouselImage from './carousel-image'
 import { images } from '@/lib/carousel-imgs'
-import { url } from 'inspector'
+import { smooch } from '@/lib/fonts'
+import { cn } from '../utils/cn'
 
 const items = images.map((img) => {
  const width = 500
@@ -18,17 +18,21 @@ const items = images.map((img) => {
   />
  )
 })
+
 const Carousel = () => (
- <AliceCarousel
-  animationEasingFunction='cubic-bezier(0.45, 0, 0.55, 1)'
-  animationDuration={5000}
-  responsive={{ 0: { items: 2 }, 768: { items: 5 }, 1024: { items: 5 }, 1440: { items: 7 } }}
-  infinite
-  disableButtonsControls
-  disableSlideInfo
-  disableDotsControls
-  autoPlay
-  items={items}
- />
+ <div className='w-full border-t-8 border-accent-tr bg-bg-primary py-8'>
+  <h2 className={cn(smooch.className, 'pl-8 text-6xl tracking-wide text-accent pb-2 ')}>Tons of Unique Themes:</h2>
+  <AliceCarousel
+   animationEasingFunction='cubic-bezier(0.45, 0, 0.55, 1)'
+   animationDuration={5000}
+   responsive={{ 0: { items: 2 }, 768: { items: 4 }, 1024: { items: 5 }, 1440: { items: 7 } }}
+   infinite
+   disableButtonsControls
+   disableSlideInfo
+   disableDotsControls
+   autoPlay
+   items={items}
+  />
+ </div>
 )
 export default Carousel

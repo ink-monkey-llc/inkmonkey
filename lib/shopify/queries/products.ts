@@ -1,5 +1,42 @@
 import productFragment from '../fragments/product'
 
+export const nextAllProductsQuery = /* GraphQL */ `
+ query NextAllProducts($cursor: String, $numProducts: Int!, $reverse: Boolean = false, $sortKey: ProductSortKeys = ID) {
+  products(after: $cursor, first: $numProducts, reverse: $reverse, sortKey: $sortKey) {
+   edges {
+    node {
+     ...product
+    }
+   }
+   pageInfo {
+    endCursor
+    hasNextPage
+    hasPreviousPage
+    startCursor
+   }
+  }
+ }
+ ${productFragment}
+`
+export const previousAllProductsQuery = /* GraphQL */ `
+ query PreviousAllProducts($cursor: String, $numProducts: Int!, $reverse: Boolean = false, $sortKey: ProductSortKeys = ID) {
+  products(before: $cursor, last: $numProducts, reverse: $reverse, sortKey: $sortKey) {
+   edges {
+    node {
+     ...product
+    }
+   }
+   pageInfo {
+    endCursor
+    hasNextPage
+    hasPreviousPage
+    startCursor
+   }
+  }
+ }
+ ${productFragment}
+`
+
 export const nextProductByTypeQuery = /* GraphQL */ `
  query ProductsByType($query: String, $cursor: String, $numProducts: Int!, $sortKey: ProductSortKeys = ID, $reverse: Boolean = false) {
   products(first: $numProducts, after: $cursor, reverse: $reverse, sortKey: $sortKey, query: $query) {

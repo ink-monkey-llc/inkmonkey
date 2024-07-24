@@ -45,8 +45,8 @@ function ProductCardImage({ product, featImgData, imgDataArr }: ProductCardImage
      pointerEvents: showSlider ? 'none' : 'auto',
      transition: 'opacity 0.3s',
     }}
-    src={featImgData.image.url}
-    alt={featImgData.image.altText}
+    src={featImgData.image?.url ?? ''}
+    alt={featImgData.image?.altText}
     width={200}
     height={200}
     // blurDataURL={featImgData.base64}
