@@ -11,9 +11,11 @@ type Props = {
 function Sidebar({ params }: Props) {
  const { slug } = params
  const title = slug[0] === 'Vinyl-Decal' ? 'Stickers & Decals' : slug[0] === 'all' ? 'All Products' : formatPathname(slug[0])
+
+ //  console.log('sidebar params:', params)
  return (
   <div>
-   <p className=' px-2 py-2 w-full text-center bg-bg-secondary'>{title}</p>
+   <p className=' px-2 py-2 w-full text-center bg-bg-secondary mb-1'>{title}</p>
    <div className='border-r-2 border-border h-[var(--view-height)] overflow-y-scroll min-w-[250px] sticky top-[96px]'>
     <ul className='flex flex-col gap-2 '>
      <ListTree params={params} />

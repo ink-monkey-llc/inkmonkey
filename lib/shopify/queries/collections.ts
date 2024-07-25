@@ -1,12 +1,59 @@
 import productFragment from '../fragments/product'
 
 export const fullCollectionByHandleQuery = /* GraphQL */ `
- query MyQuery($handle: String!, $numProducts: Int!, $sortKey: ProductCollectionSortKeys = ID, $reverse: Boolean = false) {
+ query MyQuery($handle: String!, $cursor: String, $numProducts: Int!, $sortKey: ProductCollectionSortKeys = ID, $reverse: Boolean = false) {
   collectionByHandle(handle: $handle) {
-   description
    handle
+   title
+   updatedAt
+   description
+   seo {
+    description
+    title
+   }
+   image {
+    altText
+    height
+    url
+    width
+   }
    id
-   products(first: $numProducts, reverse: $reverse, sortKey: $sortKey) {
+   products(first: $numProducts, after: $cursor, reverse: $reverse, sortKey: $sortKey) {
+    edges {
+     node {
+      ...product
+     }
+    }
+    pageInfo {
+     endCursor
+     hasNextPage
+     hasPreviousPage
+     startCursor
+    }
+   }
+  }
+ }
+ ${productFragment}
+`
+export const prevFullCollectionByHandleQuery = /* GraphQL */ `
+ query MyQuery($handle: String!, $cursor: String, $numProducts: Int!, $sortKey: ProductCollectionSortKeys = ID, $reverse: Boolean = false) {
+  collectionByHandle(handle: $handle) {
+   handle
+   title
+   updatedAt
+   description
+   seo {
+    description
+    title
+   }
+   image {
+    altText
+    height
+    url
+    width
+   }
+   id
+   products(last: $numProducts, before: $cursor, reverse: $reverse, sortKey: $sortKey) {
     edges {
      node {
       ...product

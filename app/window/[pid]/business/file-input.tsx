@@ -6,6 +6,7 @@ import { selectedLogoFileAtom, logoDataUrlAtom } from '@/app/providers/atoms'
 function FileInput() {
  const [file, setFile] = useAtom(selectedLogoFileAtom)
  const [dataUrl, setDataUrl] = useAtom(logoDataUrlAtom)
+
  function generateDataUrl(file: File, callback: (imageUrl: string) => void) {
   const reader = new FileReader()
   reader.onload = () => callback(reader.result as string)

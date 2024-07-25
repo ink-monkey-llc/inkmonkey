@@ -9,14 +9,18 @@ export type Params = {
 
 export default function GridLayout({
  children,
+ params,
 }: Readonly<{
+ params: Params
  children: React.ReactNode
 }>) {
- const params = { slug: ['all'] }
+ //  console.log('params:', params)
+ const paramsProps = params.slug && params.slug[0] != undefined ? { slug: ['all', ...params.slug] } : { slug: ['all'] }
+ //  console.log('grid layout params:', paramsProps)
  return (
   <div className='flex w-full h-full'>
    {/* <Categories /> */}
-   <Sidebar params={params} />
+   <Sidebar params={paramsProps} />
    {children}
   </div>
  )

@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import { cn } from '../utils/cn'
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { useLocalStorage } from 'usehooks-ts'
+import Continue from './continue'
 import LineItem from './line-item'
 import Arrow from '../icons/arrow'
 import { Cart } from '@/lib/shopify/types'
@@ -31,24 +32,14 @@ function CartContent({ isModal }: { isModal: boolean }) {
  //  console.log('cart:', cart)
  const lineItems = cart?.lines
  const cartId = cart?.id
+ const lastProduct = lineItems && lineItems[0].merchandise.product
  return (
   <div>
    <div className={cn('flex flex-col gap-4 px-8 py-4 overflow-y-scroll h-[var(--cart-view)]', isModal && 'is-modal')}>
     <h2 className={cn('text-accent text-5xl flex gap-4 items-center px-8 pt-4 pb-2 border-b border-border', smooch.className)}>
      <CartIcon className='w-8 text-accent ' /> Cart
     </h2>
-    <div className='flex flex-col gap-4'>
-     <button
-      onClick={() => router.back()}
-      className='flex items-center gap-2 text-sm text-accent w-max ml-auto hover:text-accent-bright'>
-      <Arrow
-       className='w-4 h-4'
-       direction='left'
-      />
-      Continue Shopping
-     </button>
-     <div className='border-t border-border w-full m-auto' />
-    </div>
+    <Continue lastProduct={lastProduct} />
     {lineItems?.map((lineItem) => (
      <LineItem
       cartId={cartId ?? ''}

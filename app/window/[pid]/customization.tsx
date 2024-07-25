@@ -9,6 +9,7 @@ import { sortWindowVariants } from '@/app/utils/helpers'
 
 function Customization({ product }: { product: ShopifyProduct }) {
  const { businessVariants, textVariant, noneVariant } = sortWindowVariants(product)
+ console.log('businessVariants:', businessVariants)
 
  return (
   <div className='flex flex-col gap-2 pr-2 min-w-[237px]'>

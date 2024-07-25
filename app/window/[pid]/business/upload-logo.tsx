@@ -2,16 +2,20 @@ import React, { useState } from 'react'
 import { Alert } from '@/app/icons/alert'
 import { Tooltip } from 'react-tooltip'
 import { useAtom } from 'jotai'
-import { selectedLogoOptionAtom } from '@/app/providers/atoms'
+import { describeLogoAtom, selectedLogoOptionAtom } from '@/app/providers/atoms'
 import FileInput from './file-input'
+import DescribeLogo from './describe-logo'
 
 type UploadLogoProps = {}
 
 function UploadLogo({}: UploadLogoProps) {
  const [selectedLogoOption, setSelectedLogoOption] = useAtom(selectedLogoOptionAtom)
+ const [describeLogo, setDescribeLogo] = useAtom(describeLogoAtom)
  const handleSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
   setSelectedLogoOption(e.target.checked ? e.target.name : null)
  }
+
+ const isDescribe = selectedLogoOption === 'design'
 
  return (
   <div className='flex flex-col gap-1 mt-3 pt-1 border-t border-accent-tr mb-1'>
@@ -69,7 +73,7 @@ function UploadLogo({}: UploadLogoProps) {
      I need a logo designed
     </label>
    </div>
-   <FileInput />
+   {isDescribe ? <DescribeLogo /> : <FileInput />}
    <Tooltip
     anchorSelect='#logo-alert'
     opacity={1}

@@ -22,6 +22,7 @@ export const selectedLogoOptionAtom = atom<string | null>(null)
 export const selectedLogoFileAtom = atom<File | null>(null)
 export const logoDataUrlAtom = atom<string>('')
 export const logoUrlAtom = atom<string>('')
+export const describeLogoAtom = atom<string>('')
 
 export const businessNameAtom = atom<string>('')
 export const businessSloganAtom = atom<string>('')
@@ -44,6 +45,8 @@ export const doorsAtom = atom<number>(2)
 export const sideAAtom = atom<string>('')
 export const sideBAtom = atom<string>('')
 export const sideCAtom = atom<string>('')
+
+export const modalIsOpenAtom = atom<boolean>(false)
 
 selectedVariantAtom.debugLabel = 'Selected Variant'
 selectedLogoOptionAtom.debugLabel = 'Selected Logo Option'

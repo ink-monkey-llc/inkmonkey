@@ -14,7 +14,7 @@ async function ListTree({ params }: Props) {
  const subitem = menuitem.items && menuitem.items[0]
  const resource = subitem && subitem.resource
  //  console.log('resource:', resource)
-
+ //  console.log('list tree params:', params)
  const { items } = menu
  const { slug } = params
  const title = slug[0] === 'Vinyl-Decal' ? 'Stickers & Decals' : formatPathname(slug[0])

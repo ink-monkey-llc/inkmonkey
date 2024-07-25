@@ -14,6 +14,9 @@ export default function GridLayout({
  params: Params
  children: React.ReactNode
 }>) {
+ if (params.slug[0] === 'all') {
+  return null
+ }
  return (
   <div className='flex w-full h-full'>
    {/* <Categories /> */}

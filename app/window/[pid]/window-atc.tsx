@@ -27,6 +27,7 @@ import {
  sideAAtom,
  sideBAtom,
  sideCAtom,
+ describeLogoAtom,
 } from '@/app/providers/atoms'
 import { uploadLogo } from '@/app/actions/images'
 import { addVehicle } from '@/app/actions/vehicles'
@@ -37,6 +38,7 @@ function WindowAtc({ quantity, setQuantity }: { quantity: number; setQuantity: (
  const [file, setFile] = useAtom(selectedLogoFileAtom)
  const [dataUrl, setDataUrl] = useAtom(logoDataUrlAtom)
  const [businessLogoData, setBusinessLogoData] = useAtom(businessLogoDataAtom)
+ const [describeLogo, setDescribeLogo] = useAtom(describeLogoAtom)
  const [businessName, setBusinessName] = useAtom(businessNameAtom)
  const [businessSlogan, setBusinessSlogan] = useAtom(businessSloganAtom)
  const [businessContact, setBusinessContact] = useAtom(businessContactAtom)
@@ -94,6 +96,9 @@ function WindowAtc({ quantity, setQuantity }: { quantity: number; setQuantity: (
    if (imgUrl && imgUrl !== '') {
     console.log('businessLogoData.secure_url:', imgUrl)
     attributes.push({ key: 'businessLogo', value: imgUrl })
+   }
+   if (describeLogo !== '') {
+    attributes.push({ key: 'describeLogo', value: describeLogo })
    }
   }
   if (isText) {
@@ -205,6 +210,10 @@ function WindowAtc({ quantity, setQuantity }: { quantity: number; setQuantity: (
     }
    }
    if (!dataUrl || dataUrl === '') {
+    if (selectedLogoOption === 'design' && describeLogo === '') {
+     ErrorToast({ msg: 'Please describe your logo' })
+     return
+    }
     addAndOpenCart()
    }
   }

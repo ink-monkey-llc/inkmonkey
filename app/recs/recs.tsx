@@ -2,14 +2,14 @@ import React from 'react'
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import RecSlider from './recSlider'
-import { searchTypes } from '../content/search-types'
+import { searchTypes } from '@/app/content/search-types'
 import { filteredHandles } from '@/app/utils/helpers'
 
 async function Recs({ product, recsType }: { product: ShopifyProduct; recsType: string }) {
  const { collections } = product
  const handles = collections.nodes.map((node) => node.handle)
  const filtered = filteredHandles(handles)
- console.log('filtered:', filtered)
+ //  console.log('filtered:', filtered)
 
  const filteredType = searchTypes.find((type) => type.id === recsType)
 

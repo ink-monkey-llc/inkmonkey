@@ -18,18 +18,18 @@ function Business({ variants }: BusinessProps) {
  const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
  const [selectedLogoOption, setSelectedLogoOption] = useAtom(selectedLogoOptionAtom)
  const handleSelect = () => {
-  setSelectedVariant(isSelected ? initialSelectedVariant : variants[2])
+  setSelectedVariant(isSelected ? initialSelectedVariant : variants[0])
  }
 
  useEffect(() => {
   if (selectedLogoOption === 'ready') {
-   setSelectedVariant(variants[2])
+   setSelectedVariant(variants[0])
   }
   if (selectedLogoOption === 'jpeg') {
    setSelectedVariant(variants[1])
   }
   if (selectedLogoOption === 'design') {
-   setSelectedVariant(variants[0])
+   setSelectedVariant(variants[2])
   }
   return
  }, [selectedLogoOption])

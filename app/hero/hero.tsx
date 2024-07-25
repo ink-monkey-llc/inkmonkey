@@ -14,6 +14,7 @@ function Hero() {
      className={cn('text-8xl text-accent-bright z-20 absolute top-72 xl:text-9xl', smooch.className)}>
      Ink Monkey
     </h1>
+    <HeroCta />
    </div>
    <div className='overflow-hidden'>
     <Image

@@ -5,27 +5,37 @@ import { formatPathname } from '@/app/utils/helpers'
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { QueryResult } from '@/lib/shopify/types'
 import React from 'react'
-import PageBanner from '../[...slug]/page-banner'
-import PageBtn from '../[...slug]/page-btn'
-import Sort from '../[...slug]/sort'
+import PageBanner from '../../[...slug]/page-banner'
+import PageBtn from '../../[...slug]/page-btn'
+import Sort from '../../[...slug]/sort'
 
 async function AllProducts({ params, searchParams }: { params: { slug: string[] }; searchParams: { [key: string]: string | string[] | undefined } }) {
- //  const query = formatPathname('all')
  const colName = params.slug ? params.slug.slice(-1)[0] : ''
  const dir = searchParams.dir ? searchParams.dir.toString() : ''
  const cursor = searchParams.cursor ? searchParams.cursor.toString() : ''
  const sort = searchParams.sort ? searchParams.sort.toString() : ''
 
+ //  console.log('slug page params:', params)
+
  const selectedSort = sortOptions.find((option) => option.id === sort)
  const sortParams = selectedSort ? { sortKey: selectedSort.value, reverse: selectedSort.reverse } : { sortKey: 'TITLE', reverse: false }
 
- const dataObj = await storeApi.getAllProducts({
-  sortKey: sortParams.sortKey === 'CREATED' ? 'CREATED_AT' : sortParams.sortKey,
-  reverse: sortParams.reverse,
-  numProducts: 24,
-  cursor: cursor ?? '',
-  dir,
- })
+ const dataObj = params.slug
+  ? await storeApi.getFullCollectionByHandle({
+     handle: colName,
+     sortKey: sortParams.sortKey === 'CREATED' ? 'CREATED_AT' : sortParams.sortKey,
+     reverse: sortParams.reverse,
+     numProducts: 24,
+     cursor: cursor ?? '',
+     dir,
+    })
+  : await storeApi.getAllProducts({
+     sortKey: sortParams.sortKey === 'CREATED' ? 'CREATED_AT' : sortParams.sortKey,
+     reverse: sortParams.reverse,
+     numProducts: 24,
+     cursor: cursor ?? '',
+     dir,
+    })
 
  const { products, pageInfo } = dataObj
 

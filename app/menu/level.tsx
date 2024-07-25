@@ -31,6 +31,7 @@ async function Level({ obj, params, parent }: Props) {
   }
  }
  //  console.log(await collectionHandle())
+ //  console.log('level params:', params)
 
  const newUrl = isCollection ? `${parent}/${obj.resource?.handle}` : isMetaObject ? `${parent}/${obj.resource?.handle}` : '/'
 
