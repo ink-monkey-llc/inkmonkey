@@ -1,0 +1,16 @@
+import React from 'react'
+import type { ComImgData } from '@/app/content/commercial-imgs'
+import Image from 'next/image'
+function ComSlide({ img }: { img: ComImgData }) {
+ return (
+  <div className='w-[100vw] h-[var(--view-height)] overflow-hidden flex items-center px-2'>
+   <Image
+    className='object-cover w-full object-bottom'
+    src={img.src}
+    alt={img.alt}
+   />
+  </div>
+ )
+}
+
+export default ComSlide

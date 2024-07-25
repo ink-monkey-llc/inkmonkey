@@ -3,16 +3,26 @@ import Image from 'next/image'
 import { cn } from '../../utils/cn'
 import { smooch } from '@/lib/fonts'
 import type { ShopifyCollection } from '@/lib/shopify/types'
+import logo from '@/public/logo/logo-no-txt.png'
 import Sort from './sort'
 
 function PageBanner({ query, collectionInfo }: { query: string; collectionInfo?: ShopifyCollection | undefined }) {
  const productTypeHeader = query === 'Vinyl Decal' ? 'Vinyl Stickers & Decals' : 'all' ? 'All Products' : query
+ const isAll = query === 'all'
  return (
   <div className='w-full bg-bg-primary flex justify-start items-center p-8 relative'>
    {collectionInfo && collectionInfo.image ? (
     <Image
      src={collectionInfo.image.url}
      alt={collectionInfo.image.altText}
+     width={100}
+     height={100}
+    />
+   ) : isAll ? (
+    <Image
+     className='bg-transparent'
+     src={logo}
+     alt='logo'
      width={100}
      height={100}
     />

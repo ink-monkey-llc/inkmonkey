@@ -10,7 +10,7 @@ type Props = {
 
 function Sidebar({ params }: Props) {
  const { slug } = params
- const title = slug[0] === 'Vinyl-Decal' ? 'Stickers & Decals' : formatPathname(slug[0])
+ const title = slug[0] === 'Vinyl-Decal' ? 'Stickers & Decals' : slug[0] === 'all' ? 'All Products' : formatPathname(slug[0])
  return (
   <div>
    <p className=' px-2 py-2 w-full text-center bg-bg-secondary'>{title}</p>

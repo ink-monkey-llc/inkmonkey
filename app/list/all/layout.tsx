@@ -9,11 +9,10 @@ export type Params = {
 
 export default function GridLayout({
  children,
- params,
 }: Readonly<{
- params: Params
  children: React.ReactNode
 }>) {
+ const params = { slug: ['all'] }
  return (
   <div className='flex w-full h-full'>
    {/* <Categories /> */}
