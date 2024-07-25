@@ -77,7 +77,7 @@ function Slider({ collections, type }: SliderProps) {
     </Link>
    </div>
    <div className='relative flex flex-col w-full'>
-    <div className='relative flex w-full'>
+    <div className='relative flex w-full overflow-hidden'>
      <div
       onClick={() => handleClick('top', 'left')}
       id='left'
@@ -96,7 +96,7 @@ function Slider({ collections, type }: SliderProps) {
       <ChevronRightLong className='w-24 h-24 -mr-4 -ml-4 text-txt-primary' />
      </div>
     </div>
-    <div className='relative flex w-full pt-3 bg-bg-primary border-t-2 border-accent'>
+    <div className='relative flex w-full pt-3 bg-bg-primary border-t-2 border-accent overflow-hidden'>
      <div
       onClick={() => handleClick('btm', 'left')}
       id='left'

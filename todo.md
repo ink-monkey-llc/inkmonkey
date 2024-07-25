@@ -7,14 +7,15 @@
 
 ### todo
 
-1. check for 'design logo' before adding to cart
-2. warn if image is not vector or large
-3. open animations for window customization options
-4. show recommended products after continue shopping button is clicked
-5. Hover effects on links and buttons
-6. error boundaries
-7. change product url to id instead of handle
-8. integrate fonz
+1. hover tilt animation on product card
+2. check for 'design logo' before adding to cart
+3. warn if image is not vector or large
+4. open animations for window customization options
+5. show recommended products after continue shopping button is clicked
+6. Hover effects on links and buttons
+7. error boundaries
+8. change product url to id instead of handle
+9. integrate fonz
 
 ### done
 
