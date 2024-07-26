@@ -21,6 +21,7 @@ function Slider({ collections, type }: SliderProps) {
  const sliderRef = useRef<HTMLDivElement>(null)
  const nextRef = useRef<HTMLDivElement>(null)
  const { width } = useWindowSize()
+ const isXs = width < 640
  const scrollAmount = width * 0.6
  const [active, setActive] = useState(0)
 
@@ -50,6 +51,10 @@ function Slider({ collections, type }: SliderProps) {
   collections[active].first.collectionInfo?.handle
  }`
 
+ function truncate(str: string, n: number) {
+  return str.length > n ? str.slice(0, n - 1) + '...' : str
+ }
+
  return (
   <div className='flex flex-col w-full bg-bg-secondary'>
    <div className='flex justify-center gap-[1px] '>
@@ -57,11 +62,11 @@ function Slider({ collections, type }: SliderProps) {
      <div
       key={title}
       className={cn(
-       'pb-2 pt-4 px-8 rounded-t-lg cursor-pointer opacity-40 text-accent bg-bg-primary hover:opacity-80 transition-all underline text-lg',
+       'pb-2 pt-2 sm:pt-3 px-4 sm:px-8 rounded-t-lg cursor-pointer opacity-40 text-accent bg-bg-primary hover:opacity-80 transition-all underline text-sm sm:text-lg',
        active === i && 'bg-bg-primary text-accent opacity-100'
       )}
       onClick={() => setActive(i)}>
-      {title}
+      {isXs && title ? truncate(title, 12) : title}
      </div>
     ))}
    </div>
@@ -81,8 +86,8 @@ function Slider({ collections, type }: SliderProps) {
      <div
       onClick={() => handleClick('top', 'left')}
       id='left'
-      className='absolute h-[330px] items-center flex justify-center bg-backdrop-dark rounded-tr-md rounded-br-md cursor-pointer hover:bg-bg-secondary z-30'>
-      <ChevronLeftLong className='w-24 h-24 -mr-4 -ml-4 text-txt-primary' />
+      className='absolute h-32 top-1/2 -translate-y-1/2  items-center flex justify-center bg-backdrop-dark rounded-tr-md rounded-br-md cursor-pointer hover:bg-bg-secondary z-30'>
+      <ChevronLeftLong className='w-12 h-12 text-txt-primary' />
      </div>
      <div
       ref={sliderRef}
@@ -92,16 +97,16 @@ function Slider({ collections, type }: SliderProps) {
      <div
       onClick={() => handleClick('top', 'right')}
       id='right'
-      className='absolute right-0 h-[330px] items-center flex justify-center bg-backdrop-dark rounded-tl-md rounded-bl-md cursor-pointer hover:bg-bg-secondary z-30'>
-      <ChevronRightLong className='w-24 h-24 -mr-4 -ml-4 text-txt-primary' />
+      className='absolute right-0 h-32 top-1/2 -translate-y-1/2  items-center flex justify-center bg-backdrop-dark rounded-tl-md rounded-bl-md cursor-pointer hover:bg-bg-secondary z-30'>
+      <ChevronRightLong className='w-12 h-12 text-txt-primary' />
      </div>
     </div>
     <div className='relative flex w-full pt-3 bg-bg-primary border-t-2 border-accent overflow-hidden'>
      <div
       onClick={() => handleClick('btm', 'left')}
       id='left'
-      className='absolute h-[330px] items-center flex justify-center bg-backdrop-dark rounded-tr-md rounded-br-md cursor-pointer hover:bg-bg-secondary z-30'>
-      <ChevronLeftLong className='w-24 h-24 -mr-4 -ml-4 text-txt-primary' />
+      className='absolute h-32 top-1/2 -translate-y-1/2  items-center flex justify-center bg-backdrop-dark rounded-tr-md rounded-br-md cursor-pointer hover:bg-bg-secondary z-30'>
+      <ChevronLeftLong className='w-12 h-12 text-txt-primary' />
      </div>
      <div
       ref={nextRef}
@@ -111,8 +116,8 @@ function Slider({ collections, type }: SliderProps) {
      <div
       onClick={() => handleClick('btm', 'right')}
       id='right'
-      className='absolute right-0 h-[330px] items-center flex justify-center bg-backdrop-dark rounded-tl-md rounded-bl-md cursor-pointer hover:bg-bg-secondary z-30'>
-      <ChevronRightLong className='w-24 h-24 -mr-4 -ml-4 text-txt-primary' />
+      className='absolute right-0 h-32 top-1/2 -translate-y-1/2  items-center flex justify-center bg-backdrop-dark rounded-tl-md rounded-bl-md cursor-pointer hover:bg-bg-secondary z-30'>
+      <ChevronRightLong className='w-12 h-12 text-txt-primary' />
      </div>
     </div>
    </div>

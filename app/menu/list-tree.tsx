@@ -25,7 +25,7 @@ async function ListTree({ params }: Props) {
  return (
   <div>
    {/* <p className='mb-4 px-2 py-2 w-full text-center bg-bg-secondary'>{title}</p> */}
-   <div className='px-4'>
+   <div className='sm:px-4'>
     {items &&
      items.map((item) => (
       <Level

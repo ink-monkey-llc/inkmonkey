@@ -7,18 +7,18 @@ import HeroCta from './hero-cta'
 
 function Hero() {
  return (
-  <div className='w-full h-[var(--hero-height)] bg-black flex justify-between items-center px-8 overflow-hidden'>
-   <div>
+  <div className='w-full h-[600px] sm:h-[var(--hero-height)] bg-black flex justify-between items-center overflow-hidden'>
+   <div className=''>
     <h1
      id='herologo'
-     className={cn('text-8xl text-accent-bright z-20 absolute top-72 xl:text-9xl', smooch.className)}>
+     className={cn('text-8xl text-accent-bright z-20 absolute left-8 top-72 xl:text-9xl', smooch.className)}>
      Ink Monkey
     </h1>
     <HeroCta />
    </div>
-   <div className='overflow-hidden'>
+   <div className='overflow-hidden top-[var(--mobile-header-height)] absolute md:static '>
     <Image
-     className='max-w-[800px] max-h-[800px]'
+     className='sm:max-w-[800px] sm:max-h-[800px] max-width-[600px] max-height-[600px]'
      src={imlogo}
      alt='Ink Monkey Logo'
     />

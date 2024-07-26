@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
  return (
   <html lang='en'>
-   <body className={cn('relative max-w-[1800px] m-auto ', outfit.className)}>
+   <body className={cn('relative max-w-[1800px] m-auto overflow-x-hidden', outfit.className)}>
     <div id='modal-root' />
     <Header />
     <Toaster />

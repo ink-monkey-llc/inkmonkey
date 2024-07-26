@@ -1,12 +1,10 @@
 'use client'
 import React, { useState, useEffect, Suspense } from 'react'
-import { useRouter } from 'next/navigation'
 import { cn } from '../utils/cn'
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { useLocalStorage } from 'usehooks-ts'
 import Continue from './continue'
 import LineItem from './line-item'
-import Arrow from '../icons/arrow'
 import { Cart } from '@/lib/shopify/types'
 import CartIcon from '../icons/cart-icon'
 import Link from 'next/link'
@@ -17,8 +15,6 @@ import Spinner from '../spinner/spinner'
 function CartContent({ isModal }: { isModal: boolean }) {
  const [userCartId, setUserCartId] = useLocalStorage('userCartId', { id: '', count: 1 })
  const [cart, setCart] = useState<Cart>()
-
- const router = useRouter()
 
  const fetchCart = async () => {
   if (!userCartId.id) {
@@ -32,14 +28,14 @@ function CartContent({ isModal }: { isModal: boolean }) {
  //  console.log('cart:', cart)
  const lineItems = cart?.lines
  const cartId = cart?.id
- const lastProduct = lineItems && lineItems[0].merchandise.product
+ //  const lastProduct = lineItems && lineItems[0].merchandise.product
  return (
   <div>
    <div className={cn('flex flex-col gap-4 px-8 py-4 overflow-y-scroll h-[var(--cart-view)]', isModal && 'is-modal')}>
     <h2 className={cn('text-accent text-5xl flex gap-4 items-center px-8 pt-4 pb-2 border-b border-border', smooch.className)}>
      <CartIcon className='w-8 text-accent ' /> Cart
     </h2>
-    <Continue lastProduct={lastProduct} />
+    <Continue />
     {lineItems?.map((lineItem) => (
      <LineItem
       cartId={cartId ?? ''}

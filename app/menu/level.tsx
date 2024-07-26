@@ -45,7 +45,7 @@ async function Level({ obj, params, parent }: Props) {
  return (
   <div className='pl-2'>
    <Link
-    className={cn('flex items-center text-sm', isUnfolded && 'text-accent', isCurrent && 'bg-bg-secondary')}
+    className={cn('flex items-center text-xs md:text-sm hover:bg-bg-secondary', isUnfolded && 'text-accent', isCurrent && 'bg-bg-secondary')}
     href={parent && isUnfolded ? parent : newUrl}>
     {obj.items ? (
      <Chevron

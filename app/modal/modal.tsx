@@ -20,17 +20,10 @@ function Modal({ children }: { children: React.ReactNode }) {
  console.log('pathname:', pathname)
 
  useEffect(() => {
-  if (pathname !== '/cart') {
-   setClose(true)
-   modalRef.current?.close()
-  }
- }, [pathname])
-
- useEffect(() => {
   if (!modalRef.current?.open) {
    modalRef.current?.showModal()
   }
- }, [])
+ }, [pathname])
 
  const onDismiss = () => {
   setClose(true)

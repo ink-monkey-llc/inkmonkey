@@ -6,7 +6,7 @@ import Btn from './btn'
 
 function ProductTypes() {
  return (
-  <div className='h-full flex justify-end items-end'>
+  <div className='h-full justify-end items-end hidden md:flex'>
    <div className='flex h-max'>
     {productTypes.map((type, i) => (
      <Link
@@ -18,7 +18,7 @@ function ProductTypes() {
         i === 0 && 'border-l-2'
        )}
        key={type.id}>
-       <h2 className=' font-light text-accent'>{type.label}</h2>
+       <h2 className='text-sm font-light text-accent lg:text-base '>{type.label}</h2>
       </div>
      </Link>
     ))}

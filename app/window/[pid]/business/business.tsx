@@ -17,19 +17,22 @@ type BusinessProps = {
 function Business({ variants }: BusinessProps) {
  const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
  const [selectedLogoOption, setSelectedLogoOption] = useAtom(selectedLogoOptionAtom)
+ const readyVariant = variants.find((variant) => variant.title.includes('ready'))
+ const jpegVariant = variants.find((variant) => variant.title.includes('recreate'))
+ const designVariant = variants.find((variant) => variant.title.includes('design'))
  const handleSelect = () => {
-  setSelectedVariant(isSelected ? initialSelectedVariant : variants[0])
+  setSelectedVariant(isSelected ? initialSelectedVariant : readyVariant ?? null)
  }
 
  useEffect(() => {
   if (selectedLogoOption === 'ready') {
-   setSelectedVariant(variants[0])
+   setSelectedVariant(readyVariant ?? null)
   }
   if (selectedLogoOption === 'jpeg') {
-   setSelectedVariant(variants[1])
+   setSelectedVariant(jpegVariant ?? null)
   }
   if (selectedLogoOption === 'design') {
-   setSelectedVariant(variants[2])
+   setSelectedVariant(designVariant ?? null)
   }
   return
  }, [selectedLogoOption])

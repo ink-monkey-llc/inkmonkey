@@ -9,12 +9,14 @@
   --bg-primary: #0D0E0F;
   --bg-secondary: #1A1A1A;
   --bg-tertiary: #222222;
+  --mobile-header-height: 146px;
   --header-height: 96px;
   --hero-offset: 80px;
   --view-height: calc(100vh - var(--header-height));
   --drawer-width: 500px;
   --clr-quantity: #464646;
-  --scrollbar: 17px;
+  --scrollbar: 10px;
+  --view-width: calc(100vw - var(--scrollbar));
   --cart-padding: calc(var(--header-height) + 225px);
   --cart-view: calc(100vh - var(--cart-padding));
   --hero-height: calc(var(--view-height) + var(--hero-offset));

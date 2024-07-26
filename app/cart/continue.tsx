@@ -1,25 +1,12 @@
 import React from 'react'
 import { useRouter } from 'next/navigation'
-import { searchTypes } from '@/app/content/search-types'
-import { insertDashes } from '@/app/utils/helpers'
-import { filteredHandles } from '@/app/utils/helpers'
 import Arrow from '../icons/arrow'
-import { Product } from '@/lib/shopify/types'
-import { useAtom } from 'jotai'
-import { modalIsOpenAtom } from '@/app/providers/atoms'
 
-function Continue({ lastProduct }: { lastProduct: Product | undefined }) {
- const [isOpen, setIsOpen] = useAtom(modalIsOpenAtom)
+function Continue() {
  const router = useRouter()
- const collections = lastProduct ? lastProduct.collections.nodes.map((node) => node.handle) : []
- const productType = lastProduct ? lastProduct.productType : ''
- const pathType = productType ? insertDashes(productType) : ''
- const filtered = filteredHandles(collections)
- //  console.log('filtered:', filtered, 'pathType:', pathType)
- const href = filtered.length > 0 ? `/list/${pathType}/${filtered[0]}` : '/list/all'
+
  const handleClick = () => {
-  // setIsOpen(false)
-  router.push(href)
+  router.back()
  }
 
  return (

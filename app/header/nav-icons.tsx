@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import CartIndicator from './cart-indicator'
 import SearchIcon from '../icons/search-icon'
+import { HamburgerIcon } from '../icons/hamburger'
 
 function NavIcons() {
  return (
@@ -12,6 +13,7 @@ function NavIcons() {
     </Link>
    </div>
    <CartIndicator />
+   {/* <HamburgerIcon className='text-accent w-6 h-6 -scale-x-100' /> */}
   </div>
  )
 }

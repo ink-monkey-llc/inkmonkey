@@ -21,7 +21,7 @@ const items = images.map((img) => {
 
 const Carousel = () => (
  <div className='w-full border-t-8 border-accent-tr bg-bg-primary py-8'>
-  <h2 className={cn(smooch.className, 'pl-8 text-6xl tracking-wide text-accent pb-2 ')}>Tons of Unique Themes:</h2>
+  <h2 className={cn(smooch.className, 'pl-8 text-4xl md:text-6xl tracking-wide text-accent pb-2 ')}>Tons of Unique Themes:</h2>
   <AliceCarousel
    animationEasingFunction='cubic-bezier(0.45, 0, 0.55, 1)'
    animationDuration={5000}

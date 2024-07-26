@@ -3,6 +3,7 @@ import Announce from './announce'
 import Logo from './logo'
 import NavIcons from './nav-icons'
 import ProductTypes from './product-types'
+import ProductTypesSm from './product-types-sm'
 function Header() {
  return (
   <div className='sticky top-0 z-50'>
@@ -12,6 +13,7 @@ function Header() {
     <ProductTypes />
     <NavIcons />
    </div>
+   <ProductTypesSm />
   </div>
  )
 }
