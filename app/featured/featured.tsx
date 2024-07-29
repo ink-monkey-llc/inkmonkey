@@ -32,8 +32,8 @@ async function Featured({ collectionHandles, productsAmount, type }: { collectio
  const title = type === 'decals' ? 'Vinyl Decals' : type === 'windows' ? 'Truck Back Window Graphics' : ''
 
  return (
-  <div className='w-full'>
-   <div className='w-full hidden sm:block h-20 bg-feat-gradient -mt-20'></div>
+  <div className='w-full border-t-8 border-accent-tr'>
+   {/* <div className='w-full hidden sm:block h-20  -mt-20'></div> */}
    <div className='w-full bg-bg-secondary'>
     <h2 className={cn('text-4xl md:text-5xl text-accent pl-8 pt-8 pb-8', smooch.className)}>Featured {title} Collections:</h2>
     <Slider

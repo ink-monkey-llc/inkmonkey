@@ -7,6 +7,7 @@ import { QueryResult } from '@/lib/shopify/types'
 import Arrow from '@/app/icons/arrow'
 import Sort from './sort'
 import { sortOptions } from '@/app/content/sortOptions'
+import MobileGrid from '@/app/grid/mobile-grid/mobile-grid'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -52,6 +53,7 @@ async function ProductType({ params, searchParams }: { params: { slug: string[] 
     collectionInfo={collectionInfo}
    />
    <Sort />
+   <MobileGrid products={products} />
    <ProductGrid products={products} />
    <div className='flex justify-center gap-8 mt-6 absolute bottom-0 left-0 right-0 w-full mb-6'>
     {pageInfo.hasPreviousPage && (

@@ -58,7 +58,7 @@ function CartContent({ isModal }: { isModal: boolean }) {
      <Link
       className='w-full h-full flex items-center justify-center'
       href={cart?.checkoutUrl ?? ''}>
-      {cart ? 'Checkout | ' + formatPrice(Number(cart?.cost?.totalAmount.amount)) : <Spinner small />}
+      {cart ? 'Checkout | ' + formatPrice(Number(cart?.cost?.totalAmount.amount)) : 'Cart Empty'}
      </Link>
     </div>
    </div>

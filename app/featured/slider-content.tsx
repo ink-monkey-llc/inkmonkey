@@ -7,7 +7,9 @@ function SliderContent({ products }: { products: ShopifyProduct[] }) {
  return (
   <div className='w-full bg-bg-primary flex pt-4 px-8 gap-4 '>
    {products.map((product) => (
-    <Suspense fallback={<Spinner />}>
+    <Suspense
+     key={product.id}
+     fallback={<Spinner />}>
      <ImageCard
       key={product.id}
       product={product}

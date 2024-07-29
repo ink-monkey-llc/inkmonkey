@@ -11,9 +11,10 @@ type Props = {
  obj: MenuItem
  params: Params
  parent?: string
+ mobile?: boolean
 }
 
-async function Level({ obj, params, parent }: Props) {
+async function Level({ obj, params, parent, mobile }: Props) {
  const { slug } = params
  const handle = obj.resource?.handle
 
@@ -45,7 +46,7 @@ async function Level({ obj, params, parent }: Props) {
  return (
   <div className='pl-2'>
    <Link
-    className={cn('flex items-center text-xs md:text-sm hover:bg-bg-secondary', isUnfolded && 'text-accent', isCurrent && 'bg-bg-secondary')}
+    className={cn('flex items-center md:text-sm hover:bg-bg-secondary', isUnfolded && 'text-accent', isCurrent && 'bg-bg-secondary')}
     href={parent && isUnfolded ? parent : newUrl}>
     {obj.items ? (
      <Chevron

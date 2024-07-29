@@ -6,9 +6,10 @@ import type { Params } from '../list/[...slug]/layout'
 
 type Props = {
  params: Params
+ mobile?: boolean
 }
 
-async function ListTree({ params }: Props) {
+async function ListTree({ params, mobile }: Props) {
  const menu = await storeApi.getMenu({ handle: 'concise-menu' })
  const menuitem = menu.items[0]
  const subitem = menuitem.items && menuitem.items[0]
@@ -25,11 +26,12 @@ async function ListTree({ params }: Props) {
  return (
   <div>
    {/* <p className='mb-4 px-2 py-2 w-full text-center bg-bg-secondary'>{title}</p> */}
-   <div className='sm:px-4'>
+   <div className='md:px-4'>
     {items &&
      items.map((item) => (
       <Level
        parent={thisUrl}
+       mobile={mobile}
        params={params}
        key={item.id}
        obj={item}

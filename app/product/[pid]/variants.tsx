@@ -44,7 +44,7 @@ function Variants({ product }: { product: ShopifyProduct }) {
 
  const isCustom = selectedOptions.Personalization !== 'None'
  return (
-  <div className='flex flex-col gap-4 min-w-[237px] px-4'>
+  <div className='flex flex-col gap-4 min-w-[237px] px-4 mb-8'>
    <Price
     quantity={quantity}
     price={selectedVariant?.price ? selectedVariant?.price.amount : '0'}

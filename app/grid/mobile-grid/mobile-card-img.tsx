@@ -4,7 +4,7 @@ import React, { useState, useTransition } from 'react'
 import { useWindowSize } from 'usehooks-ts'
 import Image from 'next/image'
 import SimpleImageSlider from 'react-simple-image-slider'
-import ImageSlider from './image-slider'
+import ImageSlider from '@/app/grid/image-slider'
 
 import type { ShopifyProduct, Image as ImageType } from '@/lib/shopify/types'
 
@@ -12,13 +12,13 @@ export type FeatImageData = {
  image: ImageType
 }
 
-type ProductCardImageProps = {
+type MobileCardImgProps = {
  product: ShopifyProduct
  featImgData: FeatImageData
  imgDataArr: ImageType[]
 }
 
-function ProductCardImage({ product, featImgData, imgDataArr }: ProductCardImageProps) {
+function MobileCardImg({ product, featImgData, imgDataArr }: MobileCardImgProps) {
  const { width } = useWindowSize()
  const [showSlider, setShowSlider] = useState(false)
  const [isPending, startTransition] = useTransition()
@@ -27,30 +27,17 @@ function ProductCardImage({ product, featImgData, imgDataArr }: ProductCardImage
   startTransition(() => setShowSlider(arg))
  }
  return (
-  <div
-   onMouseLeave={() => handleMouse(false)}
-   onMouseEnter={() => handleMouse(true)}
-   className='relative sm:w-max  sm:h-[200px] '>
-   <ImageSlider
-    images={imgData}
-    showSlider={showSlider}
-   />
+  <div className='relative w-[80vw] m-auto'>
    <Image
     className='object-cover'
     style={{
      display: 'auto',
-     position: 'absolute',
      minWidth: '200px',
-     height: '200px',
-     inset: '0',
-     opacity: showSlider ? '0' : '1',
-     pointerEvents: showSlider ? 'none' : 'auto',
-     transition: 'opacity 0.3s',
     }}
     src={featImgData.image?.url ?? ''}
     alt={featImgData.image?.altText}
-    width={200}
-    height={200}
+    width={400}
+    height={400}
     // blurDataURL={featImgData.base64}
     // placeholder='blur'
    />
@@ -58,4 +45,4 @@ function ProductCardImage({ product, featImgData, imgDataArr }: ProductCardImage
  )
 }
 
-export default ProductCardImage
+export default MobileCardImg

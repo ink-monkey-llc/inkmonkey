@@ -55,7 +55,7 @@ function UploadLogo({}: UploadLogoProps) {
     <label
      htmlFor='jpeg'
      className='text-txt-secondary text-sm'>
-     Logo is not a vector image
+     Logo is not a vector image or high resolution .PNG
     </label>
    </div>
    <div className='flex gap-2'>
@@ -83,7 +83,7 @@ function UploadLogo({}: UploadLogoProps) {
     <>
      <span className='font-bold text-xl'>Logo Image Options:</span>
      <ul className='max-w-[70vw] list-outside list-disc flex flex-col gap-2 pl-4'>
-      <li className='font-semibold text-lg'>A print-ready logo must be a vector image (.png, .svg, .ai, .pdf, etc.) and must be high resolution.</li>
+      <li className='font-semibold text-lg'>A print-ready logo must be a vector image (. .svg, .ai, .pdf, etc.) or a high resolution .PNG file.</li>
       <li className='font-semibold text-lg'>
        If you have a logo that is not a vector image, we will remake it as a vector image for printing. This will take longer and cost more than a vector image.
       </li>

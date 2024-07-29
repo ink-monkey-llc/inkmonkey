@@ -1,5 +1,6 @@
 // import Categories from './categories'
 import Sidebar from '@/app/menu/sidebar'
+import MobileSidebar from '@/app/menu/mobile-sidebar/mobile-sidebar'
 
 // export const dynamic = 'force-dynamic'
 
@@ -20,6 +21,12 @@ export default function GridLayout({
  return (
   <div className='flex w-full h-full'>
    {/* <Categories /> */}
+   <MobileSidebar>
+    <Sidebar
+     mobile={true}
+     params={params}
+    />
+   </MobileSidebar>
    <Sidebar params={params} />
    {children}
   </div>

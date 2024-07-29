@@ -7,6 +7,8 @@ function FileInput() {
  const [file, setFile] = useAtom(selectedLogoFileAtom)
  const [dataUrl, setDataUrl] = useAtom(logoDataUrlAtom)
 
+ console.log('file:', file)
+
  function generateDataUrl(file: File, callback: (imageUrl: string) => void) {
   const reader = new FileReader()
   reader.onload = () => callback(reader.result as string)
@@ -15,6 +17,15 @@ function FileInput() {
  const handleReset = () => {
   setDataUrl('')
   setFile(null)
+ }
+
+ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const files = e.target.files
+  if (files && files.length > 0) {
+   // if
+   setFile(files[0])
+   generateDataUrl(files[0], setDataUrl)
+  }
  }
 
  return (
@@ -44,13 +55,7 @@ function FileInput() {
      </label>
      <input
       accept='image/*'
-      onChange={(e) => {
-       const files = e.target.files
-       if (files && files.length > 0) {
-        setFile(files[0])
-        generateDataUrl(files[0], setDataUrl)
-       }
-      }}
+      onChange={handleChange}
       id='logo'
       className='w-full rounded-md border border-slate-tr p-1 bg-bg-tertiary text-txt-primary'
       placeholder='Upload a logo'

@@ -1,28 +1,24 @@
 import React from 'react'
 import { ShopifyProduct } from '@/lib/shopify/types'
-import { reshapeImages } from '@/lib/shopify/storefront-api/helpers'
-import ProductCardImage from './product-card-image'
-import { imageWithPH } from '../actions/images'
 import Link from 'next/link'
-import { formatPrice } from '../utils/helpers'
+import { formatPrice } from '@/app/utils/helpers'
+import MobileCardImg from './mobile-card-img'
 
-async function GridItem({ product }: { product: ShopifyProduct }) {
+function MobileGridItem({ product }: { product: ShopifyProduct }) {
  const featImage = { image: product.featuredImage, title: product.title }
  const imgs = product.images.edges.map((edge) => edge.node)
 
  const amount = Number(product.priceRange.minVariantPrice.amount)
  const isWindow = product.productType === 'Truck Back Window Graphics'
  return (
-  <div className='w-full m-auto h-full flex flex-col relative mb-4 items-center'>
-   <Link
-    className='w-full'
-    href={!isWindow ? `/product/${product.handle}` : `/window/${product.handle}`}>
-    <ProductCardImage
+  <div className='w-full justify-start h-full flex flex-col relative mb-4 items-center'>
+   <Link href={!isWindow ? `/product/${product.handle}` : `/window/${product.handle}`}>
+    <MobileCardImg
      imgDataArr={imgs}
      featImgData={featImage}
      product={product}
     />
-    <div className='px-1 py-2 w-full'>
+    <div className='px-1 py-2 '>
      <p className='text-xs font-light'>{product.title}</p>
      <p className='font-bold'>From {formatPrice(amount)}</p>
      <div className='text-green-600 text-xs flex items-center gap-2'>
@@ -35,4 +31,4 @@ async function GridItem({ product }: { product: ShopifyProduct }) {
  )
 }
 
-export default GridItem
+export default MobileGridItem
