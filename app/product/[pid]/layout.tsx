@@ -1,5 +1,3 @@
-import Sidebar from '@/app/menu/sidebar'
-
 export type Params = {
  slug: string[]
 }
@@ -11,10 +9,5 @@ export default function ProductLayout({
  params: Params
  children: React.ReactNode
 }>) {
- return (
-  <div className='flex w-full h-full'>
-   {/* <Sidebar params={params} /> */}
-   {children}
-  </div>
- )
+ return <div className='flex w-full h-full'>{children}</div>
 }

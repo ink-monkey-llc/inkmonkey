@@ -3,7 +3,6 @@
 import React, { useState, useTransition } from 'react'
 import { useWindowSize } from 'usehooks-ts'
 import Image from 'next/image'
-import SimpleImageSlider from 'react-simple-image-slider'
 import ImageSlider from './image-slider'
 
 import type { ShopifyProduct, Image as ImageType } from '@/lib/shopify/types'

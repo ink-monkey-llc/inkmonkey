@@ -3,9 +3,7 @@ import React, { useRef, useState } from 'react'
 import { useWindowSize } from 'usehooks-ts'
 import Chevron, { Direction } from '../icons/chevron'
 import SliderContent from '@/app/featured/slider-content'
-import { ShopifyProduct, ShopifyCollection } from '@/lib/shopify/types'
-import { cn } from '../utils/cn'
-import Link from 'next/link'
+import { ShopifyProduct } from '@/lib/shopify/types'
 
 type SliderProps = {
  products: ShopifyProduct[]

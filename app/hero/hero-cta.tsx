@@ -1,5 +1,4 @@
 import React from 'react'
-import CtaButton from '../featured/cta-button'
 import Link from 'next/link'
 import { ArrowRight } from '../icons/arrow-right'
 import { cn } from '../utils/cn'

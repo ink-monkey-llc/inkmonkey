@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'next/link'
 import { cn } from '../utils/cn'
 import { productTypes } from '../content/product-types'
-import Btn from './btn'
 
 function ProductTypes() {
  return (

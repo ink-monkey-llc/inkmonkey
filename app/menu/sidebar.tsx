@@ -1,6 +1,5 @@
 import React from 'react'
 import { cn } from '../utils/cn'
-import { tempCategories } from '../content/temp-categories'
 import ListTree from './list-tree'
 import type { Params } from '../list/[...slug]/layout'
 import { formatPathname } from '../utils/helpers'

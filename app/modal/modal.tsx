@@ -5,12 +5,9 @@ import { cn } from '../utils/cn'
 import { useOnClickOutside } from 'usehooks-ts'
 import { useRouter, usePathname } from 'next/navigation'
 import { createPortal } from 'react-dom'
-import { useAtom } from 'jotai'
-import { modalIsOpenAtom } from '@/app/providers/atoms'
 import '@/app/styles/modal.css'
 
 function Modal({ children }: { children: React.ReactNode }) {
- // const [isOpen, setIsOpen] = useAtom(modalIsOpenAtom)
  const [close, setClose] = useState(false)
  const router = useRouter()
  const modalRef = useRef<ElementRef<'dialog'>>(null)

@@ -4,7 +4,7 @@ import { useWindowSize } from 'usehooks-ts'
 import Chevron, { Direction } from '../icons/chevron'
 import { ChevronLeftLong, ChevronRightLong } from '../icons/chevron-long'
 import SliderContent from './slider-content'
-import { ShopifyProduct, ShopifyCollection, PageInfo, FeaturedCollection } from '@/lib/shopify/types'
+import { FeaturedCollection } from '@/lib/shopify/types'
 import { cn } from '../utils/cn'
 import Link from 'next/link'
 

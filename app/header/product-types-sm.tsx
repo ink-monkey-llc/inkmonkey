@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { cn } from '../utils/cn'
 import { productTypes } from '../content/product-types'
 import { ArrowRight } from '../icons/arrow-right'
-import { ChevronLongDown } from '../icons/chevron-long-down'
 function ProductTypesSm() {
  const [open, setOpen] = useState(false)
  const { width } = useWindowSize()

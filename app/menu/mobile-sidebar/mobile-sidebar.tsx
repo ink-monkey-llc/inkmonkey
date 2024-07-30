@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useRef } from 'react'
+import React, { useRef } from 'react'
 import { cn } from '../../utils/cn'
 import { useOnClickOutside } from 'usehooks-ts'
 import { HamburgerIcon } from '@/app/icons/hamburger'

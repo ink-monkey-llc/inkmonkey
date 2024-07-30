@@ -1,11 +1,7 @@
 'use client'
 import React from 'react'
-import Chevron from '../icons/chevron'
 import { useWindowSize } from 'usehooks-ts'
 import SimpleImageSlider from 'react-simple-image-slider'
-import { FeatImageData } from './product-card-image'
-import { url } from 'inspector'
-// import { tempImgData } from '../content/temp-img-data'
 
 function ImageSlider({ showSlider, images }: { showSlider: boolean; images: string[] }) {
  const imageArr = images.map((img) => ({ url: img }))

@@ -1,6 +1,5 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import Image from 'next/image'
-import { Image as ImgType } from '@/lib/shopify/types'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import { formatPrice } from '@/app/utils/helpers'
 import Link from 'next/link'

@@ -23,15 +23,6 @@ async function Level({ obj, params, parent, mobile }: Props) {
  const isCollection = obj.type === 'COLLECTION'
  const isCurrent = handle && slug[slug.length - 1] === handle
 
- const collectionHandle = async () => {
-  if (isMetaObject && !!obj.resource) {
-   const id = obj.resource?.fields?.find((field) => field.key === 'top_level_collection')?.value
-   const result = await storeApi.getCollectionHandleById({ id: id as string })
-   const handle = result?.collection?.handle
-   return handle
-  }
- }
- //  console.log(await collectionHandle())
  //  console.log('level params:', params)
 
  const newUrl = isCollection ? `${parent}/${obj.resource?.handle}` : isMetaObject ? `${parent}/${obj.resource?.handle}` : '/'

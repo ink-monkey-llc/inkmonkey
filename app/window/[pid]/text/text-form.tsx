@@ -3,9 +3,7 @@ import { useAtom } from 'jotai'
 import { ErrorToast } from '@/app/toast/error'
 import { textContentAtom, textDetailsAtom, selectedVariantAtom } from '@/app/providers/atoms'
 import SavedText from './saved-text'
-import FormButton from '../form-button'
 import { initialSelectedVariant } from '@/app/content/initial-values'
-import { text } from 'stream/consumers'
 
 function TextForm() {
  const [textContent, setTextContent] = useAtom(textContentAtom)

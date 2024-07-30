@@ -1,10 +1,5 @@
-'use client'
-
-import React, { useState, useTransition } from 'react'
-import { useWindowSize } from 'usehooks-ts'
+import React from 'react'
 import Image from 'next/image'
-import SimpleImageSlider from 'react-simple-image-slider'
-import ImageSlider from '@/app/grid/image-slider'
 
 import type { ShopifyProduct, Image as ImageType } from '@/lib/shopify/types'
 
@@ -18,14 +13,7 @@ type MobileCardImgProps = {
  imgDataArr: ImageType[]
 }
 
-function MobileCardImg({ product, featImgData, imgDataArr }: MobileCardImgProps) {
- const { width } = useWindowSize()
- const [showSlider, setShowSlider] = useState(false)
- const [isPending, startTransition] = useTransition()
- const imgData = imgDataArr.map((imgData) => imgData.url)
- const handleMouse = (arg: boolean) => {
-  startTransition(() => setShowSlider(arg))
- }
+function MobileCardImg({ featImgData }: MobileCardImgProps) {
  return (
   <div className='relative w-[80vw] m-auto'>
    <Image

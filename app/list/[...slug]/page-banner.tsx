@@ -4,7 +4,6 @@ import { cn } from '../../utils/cn'
 import { smooch } from '@/lib/fonts'
 import type { ShopifyCollection } from '@/lib/shopify/types'
 import logo from '@/public/logo/logo-no-txt.png'
-import Sort from './sort'
 
 function PageBanner({ query, collectionInfo }: { query: string; collectionInfo?: ShopifyCollection | undefined }) {
  const productTypeHeader = query === 'Vinyl Decal' ? 'Vinyl Stickers & Decals' : query === 'all' ? 'All Products' : query

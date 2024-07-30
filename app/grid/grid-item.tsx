@@ -1,8 +1,6 @@
 import React from 'react'
 import { ShopifyProduct } from '@/lib/shopify/types'
-import { reshapeImages } from '@/lib/shopify/storefront-api/helpers'
 import ProductCardImage from './product-card-image'
-import { imageWithPH } from '../actions/images'
 import Link from 'next/link'
 import { formatPrice } from '../utils/helpers'
 

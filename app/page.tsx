@@ -2,9 +2,7 @@ import Hero from './hero/hero'
 import Featured from './featured/featured'
 import { WindowBanner } from './featured/window-banner'
 import { collections } from './content/featured-collections'
-import Memorial from './memorial/memorial'
 import ComWindow from './commercial/com-window/com-window'
-// import Carousel from './carousel/carousel'
 import Carousel from './carousel/carousel-nossr'
 
 export default function Home() {

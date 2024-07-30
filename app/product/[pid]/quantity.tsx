@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Plus } from '@/app/icons/plus'
 import { Minus } from '@/app/icons/minus'
 
