@@ -2,15 +2,16 @@
 const FONZ_URL = process.env.FONZ_URL
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+ trailingSlash: true,
  async rewrites() {
   return [
    {
-    source: '/fonz',
-    destination: `${FONZ_URL}/fonz`,
+    source: '/fonz/',
+    destination: `${FONZ_URL}/fonz/`,
    },
    {
-    source: '/fonz/:path*',
-    destination: `${FONZ_URL}/fonz/:path*`,
+    source: '/fonz/:path*/',
+    destination: `${FONZ_URL}/fonz/:path*/`,
    },
   ]
  },
