@@ -7,7 +7,7 @@ function FileInput() {
  const [file, setFile] = useAtom(selectedLogoFileAtom)
  const [dataUrl, setDataUrl] = useAtom(logoDataUrlAtom)
 
- console.log('file:', file)
+ //  console.log('file:', file)
 
  function generateDataUrl(file: File, callback: (imageUrl: string) => void) {
   const reader = new FileReader()
@@ -22,7 +22,6 @@ function FileInput() {
  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const files = e.target.files
   if (files && files.length > 0) {
-   // if
    setFile(files[0])
    generateDataUrl(files[0], setDataUrl)
   }

@@ -20,7 +20,7 @@ function Sidebar({ params, mobile }: Props) {
    {mobile && <MobileProdSel />}
    <div
     className={cn(
-     'border-r-2 border-border h-[var(--sidebar-sm-height)] md:h-[var(--view-height)] overflow-y-scroll min-w-[250px] sticky top-[130px] md:top-[96px]',
+     'border-r-2 border-border h-[var(--sidebar-sm-height)] md:h-[var(--view-height)] overflow-y-scroll min-w-[200px] md:min-w-[250px] sticky top-[130px] md:top-[96px]',
      mobile && 'h-[var(--mobile-drawer-height)]'
     )}>
     {!mobile && <p className='px-2 py-2 w-full text-center bg-bg-secondary mb-1 text-sm md:text-base '>{title}</p>}
