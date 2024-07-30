@@ -8,7 +8,12 @@ import Chevron, { Direction } from '@/app/icons/chevron'
 
 const items = imgs.map((img) => {
  const imgData = { id: img.id, src: img.src, alt: img.alt }
- return <ComSlide img={imgData} />
+ return (
+  <ComSlide
+   key={img.id}
+   img={imgData}
+  />
+ )
 })
 
 const CarouselBtn = ({ direction, handleClick }: { direction: 'left' | 'right'; handleClick: (arg: 'left' | 'right') => void }) => {

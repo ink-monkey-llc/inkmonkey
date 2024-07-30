@@ -4,7 +4,7 @@
  "private": true,
  "scripts": {
   "dev": "next dev",
-  "dev-host" : "next dev -H 192.168.0.27",
+  "dev-host": "next dev -H 192.168.0.27",
   "fast": "next dev --turbo",
   "fasttrace": "next dev --turbo NEXT_TURBOPACK_TRACING=1",
   "build": "next build",
