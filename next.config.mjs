@@ -1,5 +1,5 @@
 // @ts-check
-const fonzUrl = process.env.NEXT_PUBLIC_FONZ_URL
+const fonzUrl = 'https://fonz-store.vercel.app/'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
  async rewrites() {
