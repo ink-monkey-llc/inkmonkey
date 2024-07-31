@@ -1,5 +1,5 @@
 import React from 'react'
-import Modal from '../../modal/modal'
+import Modal from '@/app/modal/modal'
 import CartContent from '@/app/cart/cart-content'
 
 function Cart() {

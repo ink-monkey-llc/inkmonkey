@@ -5,7 +5,7 @@ import 'react-alice-carousel/lib/alice-carousel.css'
 import CarouselImage from './carousel-image'
 import { images } from '@/lib/carousel-imgs'
 import { smooch } from '@/lib/fonts'
-import { cn } from '../utils/cn'
+import { cn } from '../../utils/cn'
 
 const items = images.map((img) => {
  const width = 500

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
-import { cn } from '../utils/cn'
+import { cn } from '../../utils/cn'
 import { smooch } from '@/lib/fonts'
 
 type CarouselImage = {

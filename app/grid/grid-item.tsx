@@ -2,7 +2,7 @@ import React from 'react'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import ProductCardImage from './product-card-image'
 import Link from 'next/link'
-import { formatPrice } from '../utils/helpers'
+import { formatPrice } from '../../utils/helpers'
 
 async function GridItem({ product }: { product: ShopifyProduct }) {
  const featImage = { image: product.featuredImage, title: product.title }

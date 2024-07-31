@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { cn } from '../utils/cn'
+import { cn } from '../../utils/cn'
 import { smooch } from '@/lib/fonts'
 import imlogo from '../images/imlogo.jpg'
 import HeroCta from './hero-cta'

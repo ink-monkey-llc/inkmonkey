@@ -1,7 +1,7 @@
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import React from 'react'
 import Slider from './slider'
-import { cn } from '../utils/cn'
+import { cn } from '../../utils/cn'
 import { smooch } from '@/lib/fonts'
 
 async function Featured({ collectionHandles, productsAmount, type }: { collectionHandles: string[]; productsAmount: number; type: string }) {

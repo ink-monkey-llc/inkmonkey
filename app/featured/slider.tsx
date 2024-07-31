@@ -5,7 +5,7 @@ import Chevron, { Direction } from '../icons/chevron'
 import { ChevronLeftLong, ChevronRightLong } from '../icons/chevron-long'
 import SliderContent from './slider-content'
 import { FeaturedCollection } from '@/lib/shopify/types'
-import { cn } from '../utils/cn'
+import { cn } from '../../utils/cn'
 import Link from 'next/link'
 
 type SliderProps = {

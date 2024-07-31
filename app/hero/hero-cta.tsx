@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { ArrowRight } from '../icons/arrow-right'
-import { cn } from '../utils/cn'
+import { cn } from '../../utils/cn'
 
 function HeroCta() {
  return (

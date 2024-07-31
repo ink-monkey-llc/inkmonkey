@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import { cn } from '@/app/utils/cn'
+import { cn } from '@/utils/cn'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
 // import { productTypes } from '@/app/content/product-types'

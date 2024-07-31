@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef, useEffect, ElementRef, useState, use } from 'react'
-import { cn } from '../utils/cn'
+import { cn } from '../../utils/cn'
 import { useOnClickOutside } from 'usehooks-ts'
 import { useRouter, usePathname } from 'next/navigation'
 import { createPortal } from 'react-dom'

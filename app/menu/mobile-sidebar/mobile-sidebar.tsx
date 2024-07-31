@@ -1,6 +1,6 @@
 'use client'
 import React, { useRef } from 'react'
-import { cn } from '../../utils/cn'
+import { cn } from '../../../utils/cn'
 import { useOnClickOutside } from 'usehooks-ts'
 import { HamburgerIcon } from '@/app/icons/hamburger'
 import { Close } from '@/app/icons/close'

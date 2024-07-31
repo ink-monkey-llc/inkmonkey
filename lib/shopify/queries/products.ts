@@ -109,3 +109,25 @@ export const variantByOptionsQuery = /* GraphQL */ `
   }
  }
 `
+export const variantByIdQuery = /* GraphQL */ `
+ query VariantById($id: ID!) {
+  node(id: $id) {
+   ... on ProductVariant {
+    id
+    selectedOptions {
+     name
+     value
+    }
+    title
+    price {
+     amount
+    }
+    product {
+     handle
+     title
+     id
+    }
+   }
+  }
+ }
+`

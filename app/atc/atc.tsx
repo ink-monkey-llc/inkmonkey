@@ -1,5 +1,5 @@
 import React from 'react'
-import { cn } from '../utils/cn'
+import { cn } from '../../utils/cn'
 import { ArrowRight } from '@/app/icons/arrow-right'
 import Spinner from '@/app/spinner/spinner'
 

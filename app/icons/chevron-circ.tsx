@@ -1,5 +1,5 @@
 import { SVGProps } from 'react'
-import { cn } from '../utils/cn'
+import { cn } from '../../utils/cn'
 
 export function ChevronCirc({ dir, className }: { dir: string; className: string }, props: SVGProps<SVGSVGElement>) {
  const direction = dir === 'right' ? 'rotate-180' : 'rotate-0'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { cn } from '../utils/cn'
+import { cn } from '../../utils/cn'
 import './spinner.css'
 
 function Spinner({ small = false, bright = false, noMargin = false }: { small?: boolean; bright?: boolean; noMargin?: boolean }) {

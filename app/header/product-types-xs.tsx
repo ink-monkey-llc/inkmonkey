@@ -1,5 +1,5 @@
 import React from 'react'
-import { cn } from '../utils/cn'
+import { cn } from '../../utils/cn'
 import { productTypes } from '../content/product-types'
 import Link from 'next/link'
 

@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import { ShopifyProduct } from '@/lib/shopify/types'
-import { cn } from '../utils/cn'
+import { cn } from '../../utils/cn'
 import GridItem from './grid-item'
 import Spinner from '../spinner/spinner'
 import { excludeProducts } from '../content/exlude-prods'

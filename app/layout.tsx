@@ -1,11 +1,10 @@
 import type { Metadata } from 'next'
-import { cn } from './utils/cn'
-import Header from './header/header'
+import { cn } from '@/utils/cn'
+import Header from '@/app/header/header'
 import { Toaster } from 'react-hot-toast'
-import { open_sans, outfit, smooch } from '@/lib/fonts'
+import { outfit } from '@/lib/fonts'
 import 'react-tooltip/dist/react-tooltip.css'
-import './globals.css'
-import Footer from './footer/footer'
+import '@/app/globals.css'
 
 export const metadata: Metadata = {
  title: 'Ink Monkey',
@@ -28,7 +27,6 @@ export default function RootLayout({
     <Toaster />
     {cart}
     {children}
-    <Footer />
    </body>
   </html>
  )

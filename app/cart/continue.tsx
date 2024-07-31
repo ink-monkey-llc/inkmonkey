@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/navigation'
-import Arrow from '../icons/arrow'
+import Arrow from '@/app/icons/arrow'
 
 function Continue() {
  const router = useRouter()

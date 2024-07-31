@@ -5,7 +5,7 @@ import { ChevronLeftLong, ChevronRightLong } from '@/app/icons/chevron-long'
 import { useWindowSize } from 'usehooks-ts'
 import { windowCopy } from '@/app/content/window-copy'
 import BannerImg from './banner-img'
-import { cn } from '@/app/utils/cn'
+import { cn } from '@/utils/cn'
 import { smooch } from '@/lib/fonts'
 import CtaButton from '../cta-button'
 

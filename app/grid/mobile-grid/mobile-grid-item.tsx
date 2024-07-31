@@ -1,7 +1,7 @@
 import React from 'react'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import Link from 'next/link'
-import { formatPrice } from '@/app/utils/helpers'
+import { formatPrice } from '@/utils/helpers'
 import MobileCardImg from './mobile-card-img'
 
 function MobileGridItem({ product }: { product: ShopifyProduct }) {

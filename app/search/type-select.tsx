@@ -3,7 +3,7 @@ import { useOnClickOutside } from 'usehooks-ts'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import { SearchType, searchTypes } from '@/app/content/search-types'
 import '@/app/styles/sort.css'
-import { cn } from '@/app/utils/cn'
+import { cn } from '@/utils/cn'
 
 function TypeSelect({ query }: { query: string }) {
  const searchParams = useSearchParams()

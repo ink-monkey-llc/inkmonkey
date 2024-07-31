@@ -3,7 +3,7 @@ import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import RecSlider from './recSlider'
 import { searchTypes } from '@/app/content/search-types'
-import { filteredHandles } from '@/app/utils/helpers'
+import { filteredHandles } from '@/utils/helpers'
 import Spinner from '../spinner/spinner'
 
 async function Recs({ product, recsType }: { product: ShopifyProduct; recsType: string }) {

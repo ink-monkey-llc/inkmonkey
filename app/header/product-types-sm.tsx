@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { useWindowSize } from 'usehooks-ts'
 import Link from 'next/link'
-import { cn } from '../utils/cn'
+import { cn } from '../../utils/cn'
 import { productTypes } from '../content/product-types'
 import { ArrowRight } from '../icons/arrow-right'
 function ProductTypesSm() {

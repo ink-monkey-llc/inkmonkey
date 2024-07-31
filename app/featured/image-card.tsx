@@ -2,7 +2,7 @@ import React from 'react'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import Image from 'next/image'
 import Link from 'next/link'
-import { formatPrice } from '../utils/helpers'
+import { formatPrice } from '../../utils/helpers'
 
 function ImageCard({ product }: { product: ShopifyProduct }) {
  const amount = Number(product.priceRange.minVariantPrice.amount)

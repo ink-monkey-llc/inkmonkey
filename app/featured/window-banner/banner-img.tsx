@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { ShopifyProduct } from '@/lib/shopify/types'
-import { formatPrice } from '@/app/utils/helpers'
+import { formatPrice } from '@/utils/helpers'
 import Link from 'next/link'
 
 function BannerImg({ prod, ind, active }: { prod: ShopifyProduct; ind: number; active: number }) {

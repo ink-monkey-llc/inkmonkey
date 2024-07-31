@@ -1,16 +1,16 @@
 'use client'
 import React, { useState, useEffect, Suspense } from 'react'
-import { cn } from '../utils/cn'
+import { cn } from '@/utils/cn'
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { useLocalStorage } from 'usehooks-ts'
 import Continue from './continue'
 import LineItem from './line-item'
 import { Cart } from '@/lib/shopify/types'
-import CartIcon from '../icons/cart-icon'
+import CartIcon from '@/app/icons/cart-icon'
 import Link from 'next/link'
 import { smooch } from '@/lib/fonts'
-import { formatPrice } from '../utils/helpers'
-import Spinner from '../spinner/spinner'
+import { formatPrice } from '@/utils/helpers'
+import Spinner from '@/app/spinner/spinner'
 
 function CartContent({ isModal }: { isModal: boolean }) {
  const [userCartId, setUserCartId] = useLocalStorage('userCartId', { id: '', count: 1 })
@@ -25,7 +25,7 @@ function CartContent({ isModal }: { isModal: boolean }) {
  useEffect(() => {
   fetchCart().then((cart) => setCart(cart))
  }, [userCartId.count])
- //  console.log('cart:', cart)
+ console.log('cart:', cart)
  const lineItems = cart?.lines
  const cartId = cart?.id
  //  const lastProduct = lineItems && lineItems[0].merchandise.product

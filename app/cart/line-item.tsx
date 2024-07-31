@@ -3,10 +3,10 @@ import { useLocalStorage } from 'usehooks-ts'
 import Image from 'next/image'
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { CartItem } from '@/lib/shopify/types'
-import Quantity from '../cart/cart-quant'
-import { formatPrice, transformKey } from '../utils/helpers'
+import Quantity from './cart-quant'
+import { formatPrice, transformKey } from '@/utils/helpers'
 import CartDelete from './cart-delete'
-import Chevron, { Direction } from '../icons/chevron'
+import Chevron, { Direction } from '@/app/icons/chevron'
 
 function LineItem({ lineItem, cartId }: { lineItem: CartItem; cartId: string }) {
  const [userCartId, setUserCartId] = useLocalStorage('userCartId', { id: '', count: 1 })
@@ -31,13 +31,17 @@ function LineItem({ lineItem, cartId }: { lineItem: CartItem; cartId: string }) 
   storeApi.removeFromCart(cartId, [lineItem.id]).then((cart) => setUserCartId({ id: cart.id, count: cart.totalQuantity }))
  }
 
+ const imgSrc = product.handle.includes('ai-') ? attributes.find((attr) => attr.newKey === 'imageUrl')?.value : product.featuredImage.url
+
+ const imgAlt = product.handle.includes('ai-') ? 'Custom AI Designed Image' : product.featuredImage.altText
+
  return (
   <div className='flex flex-col '>
    <div className='flex justify-between text-txt-primary'>
     <div className='flex gap-2 items-center'>
      <Image
-      src={product.featuredImage.url}
-      alt={product.featuredImage.altText}
+      src={imgSrc as string}
+      alt={imgAlt}
       width={80}
       height={80}
      />
