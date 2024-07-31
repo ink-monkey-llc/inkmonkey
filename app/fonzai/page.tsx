@@ -1,7 +1,8 @@
 import React from 'react'
+import { redirect } from 'next/navigation'
 
 function Fonz() {
- return <div>Fonz</div>
+ redirect('/fonz/')
 }
 
 export default Fonz

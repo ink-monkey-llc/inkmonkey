@@ -10,7 +10,7 @@ function ProductTypes() {
   <div className='h-full justify-end items-end hidden md:flex'>
    <div className='flex h-max'>
     {productTypes.map((type, i) => (
-     <Link
+     <a
       key={type.id}
       href={type.url}>
       <div
@@ -21,7 +21,7 @@ function ProductTypes() {
        key={type.id}>
        <h2 className='text-sm font-light text-accent lg:text-base '>{type.label}</h2>
       </div>
-     </Link>
+     </a>
     ))}
    </div>
   </div>
