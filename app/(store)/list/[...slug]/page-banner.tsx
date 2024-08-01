@@ -9,7 +9,7 @@ function PageBanner({ query, collectionInfo }: { query: string; collectionInfo?:
  const productTypeHeader = query === 'Vinyl Decal' ? 'Vinyl Stickers & Decals' : query === 'all' ? 'All Products' : query
  const isAll = query === 'all'
  return (
-  <div className='w-full bg-bg-primary flex justify-center items-center p-8 relative pl-20 sm:pl-0'>
+  <div className='w-full bg-bg-primary flex justify-center items-center p-4 relative pl-20 sm:pl-0'>
    {collectionInfo && collectionInfo.image ? (
     <Image
      src={collectionInfo.image.url}

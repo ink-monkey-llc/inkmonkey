@@ -10,7 +10,7 @@ import { cn } from '@/utils/cn'
 function Sort() {
  const [open, setOpen] = useState(false)
 
- const [sort, setSort] = useState<SortOption>(sortOptions[0])
+ const [sort, setSort] = useState<SortOption>(sortOptions[2])
  const popoverRef = useRef<HTMLDivElement>(null)
  useOnClickOutside(popoverRef, () => setOpen(false))
  const router = useRouter()

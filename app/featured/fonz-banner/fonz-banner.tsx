@@ -8,12 +8,12 @@ import Mockup from './mockup'
 
 function FonzBanner() {
  return (
-  <div className='w-full border-t-8 border-accent-tr px-8 py-4 bg-robot bg-cover bg-center'>
-   <div className=' flex max-w-[1000px] m-auto'>
-    <div className='w-1/2 flex flex-col gap-4'>
+  <div className='w-full border-t-8 border-accent-tr px-8 md:px-4 py-4 bg-robot bg-cover bg-center'>
+   <div className=' flex flex-col  m-auto md:flex-row md:max-w-full max-w-[400px] lg:max-w-[900px] '>
+    <div className='flex flex-col gap-4 mb-4 md:w-1/2 pr-4'>
      <Link href='/fonzai'>
       <Image
-       className='object-contain w-[400px]'
+       className='object-contain m-auto w-[400px]'
        src={logo}
        alt='fonzie'
       />
@@ -32,7 +32,7 @@ function FonzBanner() {
        </ul>
       </div>
       <Link
-       className='px-6 py-2 m-auto rounded-md border-2 bg-accent border-accent w-max text-xl text-bg-primary font-bold hover:bg-accent-bright hover:text-bg-primary transition-all group flex items-center justify-center gap-2'
+       className='px-6 py-2 md:px-2 lg:px-6 m-auto rounded-md border-2 bg-accent border-accent w-max text-xl text-bg-primary font-bold hover:bg-accent-bright hover:text-bg-primary transition-all group flex items-center justify-center gap-2'
        href='/fonzai'>
        Try it out!
        <ArrowRight className='w-6 h-6 text-bg-primary group-hover:translate-x-3 transition-all' />

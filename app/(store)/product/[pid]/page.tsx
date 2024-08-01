@@ -17,6 +17,7 @@ async function ProductPage({ params }: { params: { pid: string } }) {
      <Suspense fallback={<Spinner />}>
       <ProductImage
        thumbs={true}
+       iid={''}
        product={product}
       />
      </Suspense>

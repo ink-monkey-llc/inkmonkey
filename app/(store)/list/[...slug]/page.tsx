@@ -20,7 +20,7 @@ async function ProductType({ params, searchParams }: { params: { slug: string[] 
  const sort = searchParams.sort ? searchParams.sort.toString() : ''
 
  const selectedSort = sortOptions.find((option) => option.id === sort)
- const sortParams = selectedSort ? { sortKey: selectedSort.value, reverse: selectedSort.reverse } : { sortKey: 'TITLE', reverse: false }
+ const sortParams = selectedSort ? { sortKey: selectedSort.value, reverse: selectedSort.reverse } : { sortKey: 'CREATED', reverse: true }
 
  type dataObj = QueryResult
 
