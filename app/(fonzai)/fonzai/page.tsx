@@ -14,7 +14,7 @@ function Fonz({ searchParams }: { searchParams: { [key: string]: string | string
  const { isMobile, isTablet, isDesktop } = useBreakPoints()
  return (
   <main className={cn('h-[var(--view-height)] w-full flex bg-bg-primary', isMobile && 'flex-col')}>
-   <DevTools />
+   {/* <DevTools /> */}
    <Controls />
    <ImageBox />
    <History />
