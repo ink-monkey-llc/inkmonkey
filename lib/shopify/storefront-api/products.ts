@@ -1,4 +1,11 @@
-import { productByHandleQuery, previousProductByTypeQuery, nextProductByTypeQuery, nextAllProductsQuery, previousAllProductsQuery } from '../queries/products'
+import {
+ productByHandleQuery,
+ previousProductByTypeQuery,
+ nextProductByTypeQuery,
+ nextAllProductsQuery,
+ previousAllProductsQuery,
+ getProductsByTagQuery,
+} from '../queries/products'
 import { searchAllPrevQuery, searchAllQuery, searchNextQuery, searchPrevQuery } from '../queries/search'
 import { API_VERSION, client } from './store-api'
 import { PageInfo, ShopifyProduct, QueryResult } from '../types'
@@ -119,6 +126,22 @@ const productApi = {
 
   const productData = { products, pageInfo }
   return productData
+ },
+
+ getProductsByTag: async (query: string) => {
+  const { data, errors, extensions } = await client.request(getProductsByTagQuery, {
+   variables: {
+    query: query,
+   },
+   apiVersion: '2024-04',
+  })
+
+  if (errors) {
+   console.log('errors:', errors)
+   throw new Error(errors.message)
+  }
+  //  console.log('data:', data)
+  return await data.products
  },
 }
 

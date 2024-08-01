@@ -19,6 +19,8 @@
   "class-variance-authority": "^0.7.0",
   "cloudinary": "^2.2.0",
   "clsx": "^2.1.1",
+  "compromise": "^14.14.0",
+  "embla-carousel-react": "^8.1.8",
   "jotai": "^2.8.4",
   "jotai-devtools": "^0.10.0",
   "lucide-react": "^0.407.0",

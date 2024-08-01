@@ -10,7 +10,7 @@ async function Featured({ collectionHandles, productsAmount, type }: { collectio
   const { products, pageInfo, collectionInfo } = await storeApi.getCollectionByHandle({
    handle,
    sortKey: 'CREATED',
-   reverse: false,
+   reverse: true,
    numProducts: productsAmount,
    dir: firstCursor ? 'next' : '',
    cursor: firstCursor ? firstCursor : '',

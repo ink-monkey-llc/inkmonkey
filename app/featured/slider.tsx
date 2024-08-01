@@ -66,7 +66,7 @@ function Slider({ collections, type }: SliderProps) {
        active === i && 'bg-bg-primary text-accent opacity-100'
       )}
       onClick={() => setActive(i)}>
-      {isXs && title ? truncate(title, 12) : title}
+      {isXs && title ? truncate(title, 12) : title === 'All Products' ? 'New!' : title}
      </div>
     ))}
    </div>
@@ -101,25 +101,28 @@ function Slider({ collections, type }: SliderProps) {
       <ChevronRightLong className='w-12 h-12 text-txt-primary' />
      </div>
     </div>
-    <div className='relative flex w-full pt-3 bg-bg-primary border-t-2 border-accent overflow-hidden'>
-     <div
-      onClick={() => handleClick('btm', 'left')}
-      id='left'
-      className='absolute h-32 top-1/2 -translate-y-1/2  items-center flex justify-center bg-backdrop-dark rounded-tr-md rounded-br-md cursor-pointer hover:bg-bg-secondary z-30'>
-      <ChevronLeftLong className='w-12 h-12 text-txt-primary' />
+    {secondArr[active].products.length > 0 && (
+     <div className='relative flex w-full pt-3 bg-bg-primary border-t-2 border-accent overflow-hidden'>
+      <div
+       onClick={() => handleClick('btm', 'left')}
+       id='left'
+       className='absolute h-32 top-1/2 -translate-y-1/2  items-center flex justify-center bg-backdrop-dark rounded-tr-md rounded-br-md cursor-pointer hover:bg-bg-secondary z-30'>
+       <ChevronLeftLong className='w-12 h-12 text-txt-primary' />
+      </div>
+
+      <div
+       ref={nextRef}
+       className='w-full  overflow-x-scroll bg-bg-primary'>
+       {secondArr[active].products.length > 0 && <SliderContent products={secondArr[active]?.products} />}
+      </div>
+      <div
+       onClick={() => handleClick('btm', 'right')}
+       id='right'
+       className='absolute right-0 h-32 top-1/2 -translate-y-1/2  items-center flex justify-center bg-backdrop-dark rounded-tl-md rounded-bl-md cursor-pointer hover:bg-bg-secondary z-30'>
+       <ChevronRightLong className='w-12 h-12 text-txt-primary' />
+      </div>
      </div>
-     <div
-      ref={nextRef}
-      className='w-full  overflow-x-scroll bg-bg-primary'>
-      {secondArr[active].products && <SliderContent products={secondArr[active]?.products} />}
-     </div>
-     <div
-      onClick={() => handleClick('btm', 'right')}
-      id='right'
-      className='absolute right-0 h-32 top-1/2 -translate-y-1/2  items-center flex justify-center bg-backdrop-dark rounded-tl-md rounded-bl-md cursor-pointer hover:bg-bg-secondary z-30'>
-      <ChevronRightLong className='w-12 h-12 text-txt-primary' />
-     </div>
-    </div>
+    )}
    </div>
   </div>
  )

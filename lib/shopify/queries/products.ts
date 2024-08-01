@@ -131,3 +131,15 @@ export const variantByIdQuery = /* GraphQL */ `
   }
  }
 `
+export const getProductsByTagQuery = /* GraphQL */ `
+ query ProductsByTags($query: String) {
+  products(first: 10, query: $query) {
+   edges {
+    node {
+     ...product
+    }
+   }
+  }
+ }
+ ${productFragment}
+`

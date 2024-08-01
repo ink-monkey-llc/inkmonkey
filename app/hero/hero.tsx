@@ -8,11 +8,11 @@ import ProductTypesXs from '../header/product-types-xs'
 
 function Hero() {
  return (
-  <div className='w-full h-[600px] sm:h-[var(--hero-height)] bg-black flex justify-between items-center overflow-hidden'>
+  <div className='w-full max-w-[1400px] h-[600px] sm:h-[var(--hero-height)] bg-black flex justify-between items-center overflow-hidden relative'>
    <div className='w-full sm:w-auto'>
     <h1
      id='herologo'
-     className={cn('text-8xl text-accent-bright z-20 absolute left-8 top-56 sm:top-72 xl:text-9xl', smooch.className)}>
+     className={cn('text-8xl text-accent-bright z-20 absolute left-8 top-56 sm:top-72 xl:text-9xl mb-8', smooch.className)}>
      Ink Monkey
     </h1>
     <ProductTypesXs /> <HeroCta />

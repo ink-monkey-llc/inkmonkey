@@ -1,14 +1,8 @@
-// import type { VariantType } from './types/product-types'
-// import type { Product } from './storefront-api/types'
 import { decalPrompt } from '@/app/(fonzai)/data/style-options'
-// import { clsx } from 'clsx'
-// import { twMerge } from 'tailwind-merge'
-// import { getNouns } from './lib/compromise'
-// import { getProductsByTag } from './storefront-api/products'
 
-// export function cn(...inputs: any[]) {
-//  return twMerge(clsx(inputs))
-// }
+import { getNouns } from '@/lib/compromise'
+import { storeApi } from '@/lib/shopify/storefront-api/store-api'
+import { Product } from '@/lib/shopify/types'
 
 export const assemblePrompt = (prompt: string, style: string, ar?: string, idCode?: string) => {
  const fullPrompt = () => {
@@ -91,28 +85,28 @@ export function extractProductId(string: string): string {
  return parts[parts.length - 1]
 }
 
-// export async function getRecs(queryObj: { userQuery: string; productType: string }) {
-//  const { userQuery, productType } = queryObj
-//  console.log('userQuery:', userQuery)
-//  const nouns: () => Promise<string[]> = async () => {
-//   const result: string[] = await getNouns({ userQuery })
-//   console.log('nouns:', result)
-//   return result
-//  }
-//  const nounsArr = await nouns()
-//  function createSearchQuery(nounsArr: string[], productType: string) {
-//   const tagPart = nounsArr.map((noun) => `(tag:${noun})`).join(' OR ')
-//   const query = `${tagPart} AND (product_type:${productType})`
-//   console.log(query)
-//   return query
-//  }
-//  const recs = async () => {
-//   const query = createSearchQuery(nounsArr, productType)
-//   const products = await getProductsByTag(query)
-//   const prodArray: Product[] = products.edges
-//   console.log(prodArray)
-//   return prodArray
-//  }
+export async function getRecs(queryObj: { userQuery: string; productType: string }) {
+ const { userQuery, productType } = queryObj
+ console.log('userQuery:', userQuery)
+ const nouns: () => Promise<string[]> = async () => {
+  const result: string[] = await getNouns({ userQuery })
+  console.log('nouns:', result)
+  return result
+ }
+ const nounsArr = await nouns()
+ function createSearchQuery(nounsArr: string[], productType: string) {
+  const tagPart = nounsArr.map((noun) => `(tag:${noun})`).join(' OR ')
+  const query = `${tagPart} AND (product_type:${productType})`
+  console.log(query)
+  return query
+ }
+ const recs = async () => {
+  const query = createSearchQuery(nounsArr, productType)
+  const products = await storeApi.getProductsByTag(query)
+  const prodArray: Product[] = products.edges
+  console.log(prodArray)
+  return prodArray
+ }
 
-//  return await recs()
-// }
+ return await recs()
+}
