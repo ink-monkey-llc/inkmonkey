@@ -6,11 +6,11 @@ function Progress() {
  const [status] = useAtom(statusAtom)
  //  const status = '50%'
  return (
-  <div className='relative w-full h-16 bg-slate-tr mt-auto mb-12'>
-   <p className='w-full absolute text-center -top-8 text-white'>Progress: {status}</p>
+  <div className='relative w-1/2  border border-txt-primary m-auto mb-12 rounded-md'>
+   <p className='w-full  text-center border-b border-txt-primary p-2 text-white'>Progress: {status}</p>
    <div
     style={{ width: status }}
-    className='h-16 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 '
+    className='h-4 bg-txt-primary border-txt-primary '
    />
   </div>
  )

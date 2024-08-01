@@ -31,7 +31,12 @@ function LineItem({ lineItem, cartId }: { lineItem: CartItem; cartId: string }) 
   storeApi.removeFromCart(cartId, [lineItem.id]).then((cart) => setUserCartId({ id: cart.id, count: cart.totalQuantity }))
  }
 
- const imgSrc = product.handle.includes('ai-') ? attributes.find((attr) => attr.newKey === 'imageUrl')?.value : product.featuredImage.url
+ const imgSrc =
+  product.handle === 'ai-truck-back-window-graphics'
+   ? attributes.find((attr) => attr.newKey === 'FonzImageUrl')?.value
+   : product.handle.includes('ai-')
+   ? attributes.find((attr) => attr.newKey === 'imageUrl')?.value
+   : product.featuredImage.url
 
  const imgAlt = product.handle.includes('ai-') ? 'Custom AI Designed Image' : product.featuredImage.altText
 
@@ -69,7 +74,7 @@ function LineItem({ lineItem, cartId }: { lineItem: CartItem; cartId: string }) 
         }
         return (
          <div
-          className='flex '
+          className='flex items-center'
           key={attr.newKey + i}>
           <p className='min-w-24 text-txt-secondary text-sm'>{attr.newKey}:</p>
           {attr.newKey === 'Logo' ? (

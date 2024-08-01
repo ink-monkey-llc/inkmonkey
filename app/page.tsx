@@ -4,6 +4,7 @@ import { WindowBanner } from './featured/window-banner'
 import { collections } from './content/featured-collections'
 import ComWindow from './(store)/commercial/com-window/com-window'
 import Carousel from './carousel/carousel-nossr'
+import Footer from './footer/footer'
 
 export default function Home() {
  return (
@@ -17,6 +18,7 @@ export default function Home() {
    <WindowBanner />
    <ComWindow />
    <Carousel />
+   <Footer />
   </main>
  )
 }

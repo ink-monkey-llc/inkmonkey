@@ -26,7 +26,10 @@ function StyleSelect() {
    <div className='text-lg pl-2'>Style</div>
    <div
     onClick={handleClick}
-    className={cn('bg-bg-tertiary mx-2 mt-2 p-1 rounded-md flex items-center justify-between pr-4 cursor-pointer', isDisabled && 'pointer-events-none')}>
+    className={cn(
+     'bg-bg-tertiary relative mx-2 mt-2 p-1 rounded-md flex items-center justify-between pr-4 cursor-pointer',
+     isDisabled && 'pointer-events-none'
+    )}>
     <div className='flex items-center gap-4'>
      <SelectIcon image={selectedStyle.img} />
      <span>{selectedStyle.label}</span>

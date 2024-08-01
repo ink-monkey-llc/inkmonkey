@@ -33,7 +33,7 @@ function ImageGenerate() {
  const isWindow = selectedFF.id === 'wi'
 
  return (
-  <div className={cn('px-2', isLoading && 'opacity-40 pointer-events-none')}>
+  <div className={cn('pl-2 h-full overflow-y-scroll', isLoading && 'opacity-40 pointer-events-none')}>
    <Logo />
    <div className='my-4'>
     <div className='text-lg pl-2'>Product type</div>

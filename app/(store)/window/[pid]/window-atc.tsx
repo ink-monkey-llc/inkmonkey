@@ -32,7 +32,7 @@ import {
 import { uploadLogo } from '@/app/actions/images'
 import { addVehicle } from '@/app/actions/vehicles'
 
-function WindowAtc({ quantity, setQuantity }: { quantity: number; setQuantity: (num: number) => void }) {
+function WindowAtc({ quantity, setQuantity, iid }: { iid: string | boolean; quantity: number; setQuantity: (num: number) => void }) {
  const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
  const [selectedLogoOption, setSelectedLogoOption] = useAtom(selectedLogoOptionAtom)
  const [file, setFile] = useAtom(selectedLogoFileAtom)
@@ -74,6 +74,7 @@ function WindowAtc({ quantity, setQuantity }: { quantity: number; setQuantity: (
 
  const isBusiness = selectedVariant && selectedVariant?.title?.includes('Business')
  const isText = selectedVariant && selectedVariant?.title?.includes('Name / Text')
+ const isAi = iid !== false
 
  const cartAttributes = (imgUrl?: string) => {
   let attributes = []
@@ -130,6 +131,9 @@ function WindowAtc({ quantity, setQuantity }: { quantity: number; setQuantity: (
    if (sideC !== '') {
     attributes.push({ key: 'sideC', value: sideC })
    }
+  }
+  if (isAi) {
+   attributes.push({ key: 'FonzImageUrl', value: `https://res.cloudinary.com/dkxssdk96/image/upload/${iid}.png` })
   }
   return attributes
  }

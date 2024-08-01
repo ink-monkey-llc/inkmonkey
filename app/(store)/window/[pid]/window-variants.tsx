@@ -11,7 +11,7 @@ import WindowAtc from './window-atc'
 import Quantity from '@/app/(store)/product/[pid]/quantity'
 import Dimensions from './dimensions/dimensions'
 
-function WindowVariants({ product }: { product: ShopifyProduct }) {
+function WindowVariants({ product, iid }: { product: ShopifyProduct; iid: string | boolean }) {
  const [quantity, setQuantity] = useState(1)
  const initialOptions = extractFirstValues(product.options)
  const [selectedOptions, setSelectedOptions] = useState(initialOptions)
@@ -44,6 +44,7 @@ function WindowVariants({ product }: { product: ShopifyProduct }) {
     setQuantity={setQuantity}
    />
    <WindowAtc
+    iid={iid}
     quantity={quantity}
     setQuantity={setQuantity}
    />

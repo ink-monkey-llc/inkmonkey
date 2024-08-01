@@ -8,6 +8,9 @@ import Spinner from '../spinner/spinner'
 
 async function Recs({ product, recsType }: { product: ShopifyProduct; recsType: string }) {
  const { collections } = product
+ if (collections.nodes.length === 0) {
+  return <Spinner />
+ }
  const handles = collections.nodes.map((node) => node.handle)
  const filtered = filteredHandles(handles)
  //  console.log('filtered:', filtered)

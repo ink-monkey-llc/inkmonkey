@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { cn } from '@/utils/cn'
 import { useBreakPoints } from '@/app/hooks/useBreakPoints'
 import { CldImage } from 'next-cloudinary'
@@ -37,19 +37,21 @@ function GridImage({ img, isGrid, index }: GridImageProps) {
     isGrid && (isMobile ? 'h-[var(--mb-grid-img-h)]' : 'h-[var(--grid-img-height)]'),
     !isGrid && (isMobile ? 'h-mb-stack' : 'h-stack')
    )}>
-   <CldImage
-    onClick={handleClick}
-    src={img.image.publicID}
-    className='object-contain  hover:border hover:border-accent rounded-md'
-    fill
-    crop={{
-     type: 'crop',
-     width: 0.5,
-     height: 0.5,
-     gravity: img.image.gravity,
-    }}
-    alt={img.label}
-   />
+   <Suspense fallback={<div className='w-full h-full'>Loading...</div>}>
+    <CldImage
+     onClick={handleClick}
+     src={img.image.publicID}
+     className='object-contain  hover:border hover:border-accent rounded-md'
+     fill
+     crop={{
+      type: 'crop',
+      width: 0.5,
+      height: 0.5,
+      gravity: img.image.gravity,
+     }}
+     alt={img.label}
+    />
+   </Suspense>
   </div>
  )
 }

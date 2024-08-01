@@ -10,7 +10,6 @@ export default function FonzLayout({
  children,
 }: Readonly<{
  children: React.ReactNode
- viewer: React.ReactNode
 }>) {
  return <div className='h-app bg-bg-primary'>{children}</div>
 }

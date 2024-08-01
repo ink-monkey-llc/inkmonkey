@@ -1,8 +1,5 @@
-import React, { use, useEffect } from 'react'
+import React from 'react'
 import { cn } from '@/utils/cn'
-import { useRouter } from 'next/navigation'
-import { useAtom } from 'jotai'
-import { cartDataAtom, cartContentsAtom, upscaleAndAddAtom } from '@/app/providers/fonz-atoms'
 
 type ModOptionProps = {
  option: {
@@ -11,7 +8,7 @@ type ModOptionProps = {
   goBack?: () => void
   makeVariations?: () => void
   upscale?: () => void
-  addProductToCart?: any
+  addProductToCart?: () => void
  }
 }
 

@@ -18,6 +18,7 @@ import {
  cartContentsAtom,
  cartDataAtom,
  shopAtom,
+ selectedVariantAtom,
 } from '@/app/providers/fonz-atoms'
 import { ProductVariant } from '../(fonzai)/types/product-types'
 
@@ -30,6 +31,7 @@ function useModOptions() {
  const [selectedImage, setSelectedImage] = useAtom(selectedImageAtom)
  const [isUpscaling, setIsUpscaling] = useAtom(isUpscalingAtom)
  const [, setUpscaleAndAdd] = useAtom(upscaleAndAddAtom)
+ const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
  const [wsId] = useAtom(wsIdAtom)
  const [shop] = useAtom(shopAtom)
  //  const { checkCooldown } = useCooldown()
@@ -73,7 +75,6 @@ function useModOptions() {
 
  const addProductToCart = async (addCartData: { up: boolean; imageUrl: string; productId: string; publicId: string; wi: boolean }) => {
   console.log('addCartData:', addCartData)
-  const fetchedVariant: ProductVariant = await storeApi.getVariantById(generated.productId)
 
   const { up, imageUrl, productId, publicId, wi } = addCartData ? addCartData : { up: false, imageUrl: '', productId: '', publicId: '', wi: false }
 
@@ -88,44 +89,25 @@ function useModOptions() {
     return
    }
   }
+
   if (wi) {
-   window.location.replace(`${shop.primaryDomain.url}/products/${productId}?pid=${publicId}`)
+   router.push(`/window/${addCartData.productId}?iid=${addCartData.publicId}`)
    return
   }
   if (generated.ff === 'wi') {
-   window.location.replace(`${shop.primaryDomain.url}/products/${generated.productId}?pid=${generated.imgData.publicId}`)
+   router.push(`/window/${generated.productId}?iid=${generated.imgData.publicId}`)
+   console.log('generated:', generated)
    return
   }
-  // if (!cartData.hasCart) {
-  //  //  console.log('generated:', generated)
-  //  const newCart = await createCart({
-  //   merchandiseId: up ? productId : generated.productId,
-  //   quantity: 1,
-  //   attributes: [{ key: 'imageUrl', value: up ? imageUrl : generated.imgData.url }],
-  //  })
-  //  setCartData({
-  //   cartId: newCart.id,
-  //   hasCart: true,
-  //  })
+  const fetchedVariant: ProductVariant = await storeApi.getVariantById(addCartData?.productId ? addCartData.productId : generated.productId)
+
   addToCart({
    selectedVariant: fetchedVariant,
    quantity: 1,
    attributes: [{ key: 'imageUrl', value: up ? imageUrl : generated.imgData.url }],
   })
-  router.push('?modal=cart')
+  router.push('/cart')
  }
- // if (cartData.hasCart) {
- //  const updatedCart = await addCartLine(cartData.cartId, {
- //   merchandiseId: up ? productId : generated.productId,
- //   quantity: 1,
- //   attributes: [{ key: 'imageUrl', value: up ? imageUrl : generated.imgData.url }],
- //  })
- //  setCartData({
- //   cartId: updatedCart.id,
- //   hasCart: true,
- //  })
- //  router.push('?modal=cart')
- // }
 
  const optionData = {
   purchase: {

@@ -51,7 +51,7 @@ function SecVarSelect() {
     )}>
     {selectedSecVar.label !== '' ? selectedSecVar.label : selectedFF.secondaryVariant}
     <Chevron
-     className='w-6 h-6 '
+     className='w-6 h-6 text-txt-primary'
      direction={secVarOpen ? Direction.Up : Direction.Down}
     />
    </div>

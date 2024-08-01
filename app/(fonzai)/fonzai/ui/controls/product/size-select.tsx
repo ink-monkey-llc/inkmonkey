@@ -58,12 +58,12 @@ function SizeSelect() {
     )}>
     {selectedSize.size != '' ? selectedSize.size : 'Size'}
     <Chevron
-     className='w-4 h-4 text-accent'
+     className='w-6 h-6 text-txt-primary'
      direction={sizeOpen ? Direction.Up : Direction.Down}
     />
    </div>
    {sizeOpen && (
-    <div className='bg-bg-tertiary m-2 rounded-md absolute right-0 left-0 z-20'>
+    <div className='bg-bg-tertiary m-2 rounded-md absolute right-0 left-0 z-20 '>
      {sizeOptions &&
       sizeOptions.map((s) => (
        <SizeItem

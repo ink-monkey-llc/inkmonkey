@@ -8,8 +8,25 @@ import 'yet-another-react-lightbox/plugins/thumbnails.css'
 import NextImage from './next-image'
 import { ShopifyProduct } from '@/lib/shopify/types'
 
-function ProductImage({ product, thumbs = true }: { product: ShopifyProduct; thumbs: boolean }) {
+function ProductImage({ product, iid = '', thumbs = true }: { product: ShopifyProduct; thumbs: boolean; iid: string }) {
  const { width } = useWindowSize()
+ const isAi = product.handle === 'ai-truck-back-window-graphics'
+ let aiSlide = [
+  {
+   src: '',
+   height: 0,
+   width: 0,
+  },
+ ]
+ if (isAi) {
+  aiSlide = [
+   {
+    src: `https://res.cloudinary.com/dkxssdk96/image/upload/${iid}.png`,
+    width: 900,
+    height: 300,
+   },
+  ]
+ }
  const slides = product.images.edges.map((edge) => {
   return {
    src: edge.node.url,
@@ -25,7 +42,7 @@ function ProductImage({ product, thumbs = true }: { product: ShopifyProduct; thu
      plugins={thumbs ? [Inline, Thumbnails] : [Inline]}
      thumbnails={{ position: isMd ? 'start' : 'bottom' }}
      open={true}
-     slides={slides}
+     slides={isAi ? aiSlide : slides}
      render={{ slide: NextImage }}
      noScroll={{ disabled: true }}
     />
