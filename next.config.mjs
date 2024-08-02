@@ -1,5 +1,4 @@
 // @ts-check
-const FONZ_URL = process.env.FONZ_URL
 /** @type {import('next').NextConfig} */
 const nextConfig = {
  transpilePackages: ['jotai-devtools'],

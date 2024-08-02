@@ -1,26 +1,20 @@
-'use client'
-import { useBreakPoints } from '@/app/hooks/useBreakPoints'
-import { cn } from '@/utils/cn'
-import { DevTools } from 'jotai-devtools'
-import { useWS } from './hooks/useWS'
 import Controls from './ui/controls/controls'
+
+import FonzLayout from './components/fonz-layout'
 import History from './ui/history/history'
 import ImageBox from './ui/image/imagebox'
-import 'jotai-devtools/styles.css'
+import RecsModal from './ui/recs/recs-modal'
 
 function Fonz({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
- useWS()
  const { modal } = searchParams
- const { isMobile, isTablet, isDesktop } = useBreakPoints()
  return (
-  <main className={cn('h-[var(--view-height)] w-full flex bg-bg-primary', isMobile && 'flex-col')}>
-   {/* <DevTools /> */}
+  <FonzLayout>
    <Controls />
    <ImageBox />
    <History />
    {/* <StyleList /> */}
-   {/* {modal === 'recs' && <RecsModal />} */}
-  </main>
+   {modal === 'recs' && <RecsModal />}
+  </FonzLayout>
  )
 }
 

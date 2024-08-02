@@ -6,6 +6,7 @@ import ComWindow from './(store)/commercial/com-window/com-window'
 import Carousel from './carousel/carousel-nossr'
 import Footer from './footer/footer'
 import FonzBanner from './featured/fonz-banner/fonz-banner'
+import '@/app/globals.css'
 
 export default function Home() {
  return (

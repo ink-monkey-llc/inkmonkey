@@ -11,7 +11,7 @@ async function WindowProductPage({ params, searchParams }: { params: { pid: stri
  const iid = searchParams.iid ? searchParams.iid.toString() : ''
  const product: ShopifyProduct = await storeApi.getProductByHandle({ handle: pid })
  const isAi = pid === 'ai-truck-back-window-graphics'
- console.log('product:', product)
+ //  console.log('product:', product)
 
  return (
   <div className='flex flex-col items-center justify-center w-full max-w-[1400px] m-auto'>

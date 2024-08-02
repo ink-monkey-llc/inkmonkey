@@ -2,7 +2,7 @@ import { decalPrompt } from '@/app/(fonzai)/data/style-options'
 
 import { getNouns } from '@/lib/compromise'
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
-import { Product } from '@/lib/shopify/types'
+import { Product, ShopifyProduct } from '@/lib/shopify/types'
 
 export const assemblePrompt = (prompt: string, style: string, ar?: string, idCode?: string) => {
  const fullPrompt = () => {
@@ -96,14 +96,27 @@ export async function getRecs(queryObj: { userQuery: string; productType: string
  const nounsArr = await nouns()
  function createSearchQuery(nounsArr: string[], productType: string) {
   const tagPart = nounsArr.map((noun) => `(tag:${noun})`).join(' OR ')
-  const query = `${tagPart} AND (product_type:${productType})`
+  let query = ''
+  const flatNouns = nounsArr.flat().toString()
+  if (nounsArr.length > 0) {
+   query = `${tagPart} AND (product_type:${productType})`
+  }
   console.log(query)
-  return query
+  return { query, flatNouns }
  }
  const recs = async () => {
-  const query = createSearchQuery(nounsArr, productType)
-  const products = await storeApi.getProductsByTag(query)
-  const prodArray: Product[] = products.edges
+  const { query, flatNouns } = createSearchQuery(nounsArr, productType)
+  const searchedProducts = await storeApi.searchProducts({ query: flatNouns, numProducts: 24, reverse: true, productType, dir: 'next', cursor: '' })
+  let products = searchedProducts.products
+  // if (products.length < 6) {
+  //  products = await storeApi.getProductsByTag(query)
+  // }
+  if (products.length < 1) {
+   products = await storeApi
+    .getProductsByType({ productType, sortKey: 'CREATED', reverse: true, numProducts: 24, cursor: '', dir: 'next' })
+    .then((res) => res.products)
+  }
+  const prodArray: ShopifyProduct[] = products
   console.log(prodArray)
   return prodArray
  }

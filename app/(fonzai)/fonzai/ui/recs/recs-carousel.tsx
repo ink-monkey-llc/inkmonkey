@@ -1,38 +1,47 @@
-import React, { Suspense } from 'react'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './carousel/carousel'
-import { useAtom } from 'jotai'
-import { recsAtom } from '@/app/providers/fonz-atoms'
-import Spinner from '@/app/spinner/spinner'
-import RecsItem from './recs-item'
+import { useRef, useState } from 'react'
+import SliderContent from '@/app/featured/slider-content'
+import { ChevronLeftLong, ChevronRightLong } from '@/app/icons/chevron-long'
+import React from 'react'
+import { useWindowSize } from 'usehooks-ts'
+import { ShopifyProduct } from '@/lib/shopify/types'
 
-const Loader = () => {
+function RecsCarousel({ products }: { products: ShopifyProduct[] }) {
+ const { width } = useWindowSize()
+ const isXs = width < 640
+ const scrollAmount = width * 0.6
+ const [active, setActive] = useState(0)
+ const sliderRef = useRef<HTMLDivElement>(null)
+ const handleClick = (seq: string, dir: string) => {
+  if (dir === 'left') {
+   sliderRef.current?.scrollBy({ left: -scrollAmount, behavior: 'smooth' })
+  }
+  if (dir === 'right') {
+   sliderRef.current?.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+  }
+ }
  return (
-  <div className='w-[200px] h-[200px] flex justify-center items-center border-2 rounded-md border-accent-tr'>
-   <Spinner />
+  <div className='relative flex w-full overflow-hidden rounded-md'>
+   <div
+    onClick={() => handleClick('top', 'left')}
+    id='left'
+    className='absolute h-32 top-1/2 -translate-y-1/2  items-center flex justify-center bg-backdrop-dark rounded-tr-md rounded-br-md cursor-pointer hover:bg-bg-secondary z-30'>
+    <ChevronLeftLong className='w-12 h-12 text-txt-primary' />
+   </div>
+   <div
+    ref={sliderRef}
+    className='w-full  overflow-x-scroll bg-bg-primary'>
+    <SliderContent
+     fonz={true}
+     products={products}
+    />
+   </div>
+   <div
+    onClick={() => handleClick('top', 'right')}
+    id='right'
+    className='absolute right-0 h-32 top-1/2 -translate-y-1/2  items-center flex justify-center bg-backdrop-dark rounded-tl-md rounded-bl-md cursor-pointer hover:bg-bg-secondary z-30'>
+    <ChevronRightLong className='w-12 h-12 text-txt-primary' />
+   </div>
   </div>
- )
-}
-
-function RecsCarousel() {
- const [recs, setRecs] = useAtom(recsAtom)
- if (!recs) return null
-
- return (
-  <Carousel className='mt-4'>
-   <CarouselContent>
-    {recs.map((rec) => (
-     <CarouselItem
-      className='sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 2xl:basis-1/6 flex flex-col justify-center items-center'
-      key={rec.id}>
-      <Suspense fallback={<Loader />}>
-       <RecsItem {...rec} />
-      </Suspense>
-     </CarouselItem>
-    ))}
-   </CarouselContent>
-   <CarouselPrevious className='-left-4 text-accent border-2 border-accent hover:text-bg-primary' />
-   <CarouselNext className='-right-4 text-accent border-2 border-accent  hover:text-bg-primary' />
-  </Carousel>
  )
 }
 

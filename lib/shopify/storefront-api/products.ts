@@ -77,6 +77,7 @@ const productApi = {
   const productData = { pageInfo, products } as QueryResult
   return productData
  },
+
  searchProducts: async (args: { query: string; numProducts: number; reverse: boolean; productType: string; dir: string; cursor: string }) => {
   const variables: { query: string; first: number; reverse: boolean; productType: string; cursor?: string } = {
    query: args.query,

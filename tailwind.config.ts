@@ -56,5 +56,3 @@ const config: Config = {
  plugins: [],
 }
 export default config
-
-// 975px

@@ -89,6 +89,23 @@ export type ProductVariant = {
  price: Money
 }
 
+export type VariantById = {
+ id: string
+ selectedOptions: {
+  name: string
+  value: string
+ }
+ title: string
+ price: {
+  amount: string
+ }
+ product: {
+  handle: string
+  title: string
+  id: string
+ }
+}
+
 export type SEO = {
  title: string
  description: string

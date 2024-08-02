@@ -2,7 +2,7 @@ import { atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 import { Generated, CldImageType, SelectedImageType } from '@/app/(fonzai)/types/image-types'
 import { Secondary, Variant } from '@/app/(fonzai)/data/options'
-import { Product } from '@/lib/shopify/types'
+import { Product, ShopifyProduct } from '@/lib/shopify/types'
 
 export const viewOpenAtom = atom(false)
 
@@ -403,5 +403,5 @@ export const formTypeAtom = atom('signIn')
 
 export const sentVerificationAtom = atom({ sent: false, message: '' })
 
-export const recsAtom = atom<Product[]>([])
+export const recsAtom = atom<ShopifyProduct[]>([])
 recsAtom.debugLabel = 'recsAtom'

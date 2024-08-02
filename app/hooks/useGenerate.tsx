@@ -19,6 +19,7 @@ import {
  selectedVariantAtom,
 } from '@/app/providers/fonz-atoms'
 import { assemblePrompt } from '@/app/(fonzai)/utils'
+import { useCooldown } from './useCooldown'
 export function useGenerate() {
  const [wsMessage, setWsMessage] = useAtom(wsMessageAtom)
  const [wsId] = useAtom(wsIdAtom)
@@ -33,7 +34,7 @@ export function useGenerate() {
  const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
  const [generateError, setGenerateError] = useAtom(generateErrorAtom)
  const [isLoading, setIsLoading] = useAtom(isLoadingAtom)
- //  const { checkCooldown } = useCooldown()
+ const { checkCooldown } = useCooldown()
 
  const router = useRouter()
 
@@ -84,19 +85,23 @@ export function useGenerate() {
    setGenerateError({ error: true, message: 'Please select a product' })
    return
   }
-  // const cdMessage = checkCooldown()
-  // if (cdMessage.cd) {
-  //  toast.error(cdMessage.message, { position: 'top-left' })
-  //  return
-  // }
+  const cdMessage = checkCooldown()
+  if (cdMessage.cd) {
+   toast.error(cdMessage.message, { position: 'top-left' })
+   return
+  }
 
   const messageData = buildMessage()
   if (localSelectedVariant) {
    setSelectedVariant(localSelectedVariant.node)
   }
-  // router.push('?modal=recs')
+
+  router.push('?modal=recs')
   setWsMessage({ event: 'generate', data: JSON.stringify(messageData), id: wsId })
   // setPrompt('')
  }
  return { handleGenerate, isLoading }
+}
+function checkCooldown() {
+ throw new Error('Function not implemented.')
 }

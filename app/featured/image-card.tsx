@@ -4,12 +4,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { formatPrice } from '../../utils/helpers'
 
-function ImageCard({ product }: { product: ShopifyProduct }) {
+function ImageCard({ product, fonz }: { product: ShopifyProduct; fonz?: boolean }) {
  const amount = Number(product.priceRange.minVariantPrice.amount)
  const isWindow = product.productType === 'Truck Back Window `Graphics'
  return (
   <div className='min-w-[220px] m-auto h-[300px] flex flex-col relative mb-4 rounded-md border-2 border-transparent hover:border-accent p-2 transition-all'>
-   <Link href={!isWindow ? `/product/${product.handle}` : `/window/${product.handle}`}>
+   <Link
+    target={fonz ? '_blank' : ''}
+    rel='noopener noreferrer'
+    href={!isWindow ? `/product/${product.handle}` : `/window/${product.handle}`}>
     <div className='relative w-max h-[200px]'>
      <Image
       className='object-cover'
