@@ -13,7 +13,7 @@ function FonzBanner() {
     <div className='flex flex-col gap-4 mb-4 md:w-1/2 pr-4'>
      <Link href='/fonzai'>
       <Image
-       className='object-contain m-auto w-[400px]'
+       className='object-contain p-4 m-auto w-[400px] rounded-md border-2 border-transparent hover:bg-accent-tr hover:border-accent-tr transition-all'
        src={logo}
        alt='fonzie'
       />
