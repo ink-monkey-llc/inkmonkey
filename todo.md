@@ -9,11 +9,15 @@
 5. highlight product cards on hover in list
 6. tweak menu tree link behavior
 7. style home page for mobile
-8. ? make bottom level of collections by badges along top of list instead of tree nodes
-9. mobile image cards should be half width (2 per row)
-10. make header, footer, and separators span whole viewport
-11. hover tilt animation on product card
-12. open animations for window customization options
+8. mobile image cards should be half width (2 per row)
+9. make header, footer, and separators span whole viewport
+10. hover tilt animation on product card
+11. open animations for window customization options
+
+### ideas
+
+1. make bottom level of collections by badges along top of list instead of tree nodes
+2. commit to a "build" branch whenever app is built
 
 ### done
 
