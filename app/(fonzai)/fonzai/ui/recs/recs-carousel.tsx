@@ -29,7 +29,7 @@ function RecsCarousel({ products }: { products: ShopifyProduct[] }) {
    </div>
    <div
     ref={sliderRef}
-    className='w-full  overflow-x-scroll bg-bg-primary'>
+    className='w-full overflow-x-scroll bg-bg-primary'>
     <SliderContent
      fonz={true}
      products={products}

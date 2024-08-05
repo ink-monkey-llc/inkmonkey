@@ -113,7 +113,7 @@ export async function getRecs(queryObj: { userQuery: string; productType: string
   // }
   if (products.length < 1) {
    products = await storeApi
-    .getProductsByType({ productType, sortKey: 'CREATED', reverse: true, numProducts: 24, cursor: '', dir: 'next' })
+    .getProductsByType({ productType, sortKey: 'CREATED_AT', reverse: true, numProducts: 24, cursor: '', dir: 'next' })
     .then((res) => res.products)
   }
   const prodArray: ShopifyProduct[] = products

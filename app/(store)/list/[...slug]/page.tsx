@@ -8,6 +8,7 @@ import Arrow from '@/app/icons/arrow'
 import Sort from './sort'
 import { sortOptions } from '@/app/content/sortOptions'
 import MobileGrid from '@/app/grid/mobile-grid/mobile-grid'
+import SubCats from './sub-cats'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -53,6 +54,7 @@ async function ProductType({ params, searchParams }: { params: { slug: string[] 
     query={query}
     collectionInfo={collectionInfo}
    />
+   <SubCats params={params} />
    <Sort />
    <MobileGrid products={products} />
    <ProductGrid products={products} />

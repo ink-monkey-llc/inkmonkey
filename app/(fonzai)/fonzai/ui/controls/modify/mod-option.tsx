@@ -20,7 +20,7 @@ function ModOption({ option, price }: ModOptionProps) {
  const [selectedImage] = useAtom(selectedImageAtom)
  const [generated] = useAtom(generatedAtom)
  const isAtc = option.id === 'purchase'
- const isSingle = selectedImage.img.label !== '' || generated.isUpscaled
+ const isSingle = selectedImage.img?.label !== '' || generated.isUpscaled
  const handleClick = () => {
   if (option.id === 'back') {
    option.goBack && option.goBack()

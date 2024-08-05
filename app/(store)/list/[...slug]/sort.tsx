@@ -28,7 +28,7 @@ function Sort() {
  return (
   <div
    ref={popoverRef}
-   className=' w-full py-1 relative ml-auto mr-4 max-w-32'>
+   className='w-full py-1 relative ml-auto mr-4 max-w-32'>
    Sort by:
    <button
     onClick={() => setOpen(!open)}
