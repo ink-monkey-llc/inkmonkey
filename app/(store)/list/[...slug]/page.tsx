@@ -45,9 +45,10 @@ async function ProductType({ params, searchParams }: { params: { slug: string[] 
      })
 
  const { products, pageInfo, collectionInfo } = await dataObj
+ //  console.log('pageInfo:', pageInfo)
 
  return (
-  <div className='pb-12 relative w-full'>
+  <div className='pb-12 relative w-full overflow-hidden'>
    <PageBanner
     query={query}
     collectionInfo={collectionInfo}

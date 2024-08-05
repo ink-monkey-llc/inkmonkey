@@ -37,23 +37,7 @@ function BannerContent({ products }: { collectionInfo: ShopifyCollection | undef
  const noNext = active === products.length - 1
 
  return (
-  <div className='flex flex-col md-lg:flex-row justify-center gap-8 m-auto'>
-   <div className='md-lg:w-1/3 flex flex-col gap-4 mt-4 items-start justify-center sm:justify-start px-8'>
-    <h2 className={cn('text-4xl sm:text-5xl md:text-6xl text-accent', smooch.className)}> Truck Back Window Graphics</h2>
-    <p className='max-w-[90vw] text-balance'>{windowCopy}</p>
-    <ul className='list-disc pl-4 text-txt-secondary'>
-     <li>High Quality Perforated Vinyl</li>
-     <li>OEM Eco-Solvent Ink</li>
-     <li>Durable and Long Lasting</li>
-     <li>Step by Step Installation Instructions</li>
-     <li>{`You can see out, but they can't see in`}</li>
-    </ul>
-    <CtaButton
-     className='mt-4 mx-auto md:'
-     href='/list/Truck-Back-Window-Graphics'>
-     See All
-    </CtaButton>
-   </div>
+  <div className='flex flex-col md-lg:flex-row justify-center m-auto '>
    <div className='flex justify-center items-center '>
     <div
      className={cn(
@@ -80,12 +64,28 @@ function BannerContent({ products }: { collectionInfo: ShopifyCollection | undef
     </div>
     <div
      className={cn(
-      'h-full items-center flex  backdrop-blur-sm bg-backdrop rounded-tr-md rounded-br-md cursor-pointer hover:bg-bg-secondary',
+      'h-full items-center flex backdrop-blur-sm bg-backdrop rounded-tr-md rounded-br-md cursor-pointer hover:bg-bg-secondary',
       noNext && 'opacity-30'
      )}
      onClick={handleNext}>
      <ChevronRightLong className='w-24 h-24 -ml-6 -mr-6' />
     </div>
+   </div>
+   <div className='max-w-[500px]  m-auto ml-8 md-lg:w-2/5 flex flex-col gap-6 mt-4 items-start justify-center sm:justify-start px-12 md:px-0'>
+    <h2 className={cn('text-4xl sm:text-5xl lg:text-6xl text-accent', smooch.className)}> Truck Back Window Graphics</h2>
+    <p className='max-w-lg lg:max-w-[90vw] text-pretty sm:text-balance '>{windowCopy}</p>
+    <ul className='list-disc pl-4 text-txt-secondary'>
+     <li>High Quality Perforated Vinyl</li>
+     <li>OEM Eco-Solvent Ink</li>
+     <li>Durable and Long Lasting</li>
+     <li>Step by Step Installation Instructions</li>
+     <li>{`You can see out, but they can't see in`}</li>
+    </ul>
+    <CtaButton
+     className='mt-4 mr-auto ml-4 py-4 px-12 text-xl items-center'
+     href='/list/Truck-Back-Window-Graphics'>
+     See All
+    </CtaButton>
    </div>
   </div>
  )

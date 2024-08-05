@@ -16,7 +16,7 @@ async function WindowBanner() {
   productType: 'Truck Back Window Graphics',
  })
  return (
-  <div className='w-full flex flex-col bg-window-banner bg-cover justify-center items-start sm:p-8 pt-6 pb-8 relative'>
+  <div className='w-full flex flex-col bg-window-banner bg-cover bg-center justify-center items-start sm:p-8 pt-6 pb-8 relative'>
    <BannerContent
     collectionInfo={collectionInfo}
     products={products}

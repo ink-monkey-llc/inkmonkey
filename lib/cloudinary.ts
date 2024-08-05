@@ -13,7 +13,7 @@ const uploadImage = async (image: string) => {
  const result = await cloudinary.uploader
   .upload(image)
   .then((result: UploadApiResponse) => {
-   console.log('result:', result)
+   //  console.log('result:', result)
    return result
   })
   .catch((error: UploadApiErrorResponse) => {

@@ -25,7 +25,7 @@ type CollectionArgs = {
 const collectionApi = {
  getCollectionByHandle: async (args: CollectionArgs) => {
   const direction = args.dir === 'prev' ? 'before' : 'after'
-
+  // console.log('args:', args)
   let variables: { handle: string; sortKey: string; reverse: boolean; numProducts: number; cursor?: string; dir?: string; productType: string } = {
    handle: args.handle,
    sortKey: args.sortKey,
@@ -36,15 +36,15 @@ const collectionApi = {
   }
   if (args.cursor) {
    variables.cursor = args.cursor
-   //  console.log('vars:', variables)
   }
+  // console.log('vars:', variables)
   const { data, errors, extensions } = await client.request(args.dir === 'prev' ? previousCollectionByHandleQuery : nextCollectionByHandleQuery, {
    variables: variables,
    apiVersion: API_VERSION,
   })
   if (errors) {
    console.log('errors:', errors)
-   throw new Error(errors.message)
+   //  throw new Error(errors.message)
   }
   // console.log('data:', await data)
   if (!data.collectionByHandle) {

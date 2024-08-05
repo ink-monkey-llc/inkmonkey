@@ -12,7 +12,7 @@ function Hero() {
    <div className='w-full md:w-auto absolute top-8 z-40 md:top-[20vh] md:left-8 '>
     <h1
      id='herologo'
-     className={cn('text-8xl text-accent-bright text-center z-20 xl:text-9xl mb-[20vh] md:mb-8', smooch.className)}>
+     className={cn('text-7xl sm:text-8xl text-accent-bright text-center z-20 xl:text-9xl mb-[20vh] md:mb-8', smooch.className)}>
      Ink Monkey
     </h1>
     <ProductTypesXs /> <HeroCta />

@@ -12,9 +12,9 @@ function ComContent() {
    </h2>
    <Link
     href={'/commercial'}
-    className=' group flex items-center justify-center px-8 py-4 bg-accent text-bg-primary font-semibold rounded-md w-max m-auto mt-[15vh] cursor-pointer hover:bg-accent-bright hover:text-bg-primary transition-all'>
+    className=' group flex items-center justify-center px-8 py-4 bg-accent text-bg-primary font-semibold rounded-md w-max m-auto mt-[15vh] cursor-pointer hover:bg-accent-bright hover:text-bg-primary transition-all md:px-12 md:py-6 md:text-xl'>
     Learn More
-    <ArrowRight className='w-6 h-6 ml-2 group-hover:translate-x-3 transition-all' />
+    <ArrowRight className='w-6 h-6 ml-2 group-hover:translate-x-3 transition-all md:w-8 md:h-8' />
    </Link>
   </div>
  )

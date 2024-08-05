@@ -74,7 +74,7 @@ function useModOptions() {
  }
 
  const addProductToCart = async (addCartData: { up: boolean; imageUrl: string; productId: string; publicId: string; wi: boolean }) => {
-  console.log('addCartData:', addCartData)
+  // console.log('addCartData:', addCartData)
 
   const { up, imageUrl, productId, publicId, wi } = addCartData ? addCartData : { up: false, imageUrl: '', productId: '', publicId: '', wi: false }
 
@@ -96,7 +96,7 @@ function useModOptions() {
   }
   if (generated.ff === 'wi') {
    router.push(`/window/${generated.productId}?iid=${generated.imgData.publicId}`)
-   console.log('generated:', generated)
+   //  console.log('generated:', generated)
    return
   }
   const fetchedVariant: ProductVariant = await storeApi.getVariantById(addCartData?.productId ? addCartData.productId : generated.productId)

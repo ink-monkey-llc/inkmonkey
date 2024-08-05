@@ -23,7 +23,7 @@ function Sidebar({ params, mobile }: Props) {
      mobile && 'h-[var(--mobile-drawer-height)]'
     )}>
     {!mobile && <p className='px-2 py-2 w-full text-center bg-bg-secondary mb-1 text-sm md:text-base '>{title}</p>}
-    <ul className='flex flex-col gap-2  '>
+    <ul className='flex flex-col gap-2 items-start '>
      <ListTree
       mobile={mobile}
       params={params}

@@ -23,9 +23,10 @@ async function Featured({ collectionHandles, productsAmount, type }: { collectio
  const collections = await Promise.all(
   collectionHandles.map(async (handle) => {
    const first = await getColl(handle)
-   const second = await getColl(handle, first.pageInfo.endCursor)
-   //  console.log('second:', second.seq)
-   return { first, second }
+   //  const second = await getColl(handle, first.pageInfo.endCursor)
+   //  const second = await getColl(handle, first.pageInfo.endCursor)
+   //  console.log('second:', second)
+   return { first }
   })
  )
 
@@ -33,7 +34,7 @@ async function Featured({ collectionHandles, productsAmount, type }: { collectio
 
  return (
   <div className='w-full border-t-8 border-accent-tr'>
-   {/* <div className='w-full hidden sm:block h-20  -mt-20'></div> */}
+   {/* <div className='w-full hidden sm:block h-20 -mt-20'></div> */}
    <div className='w-full bg-bg-secondary'>
     <h2 className={cn('text-4xl md:text-5xl text-accent pl-8 pt-8 pb-8', smooch.className)}>Featured {title} Collections:</h2>
     <Slider

@@ -11,9 +11,9 @@ async function GridItem({ product }: { product: ShopifyProduct }) {
  const amount = Number(product.priceRange.minVariantPrice.amount)
  const isWindow = product.productType === 'Truck Back Window Graphics'
  return (
-  <div className='w-max m-auto h-full flex flex-col relative mb-4 items-center'>
+  <div className='w-max m-auto h-full flex flex-col relative pb-4 items-center'>
    <Link
-    className=''
+    className='border-2 border-transparent hover:scale-105 hover:border-accent rounded-md p-2 transition-all'
     href={!isWindow ? `/product/${product.handle}` : `/window/${product.handle}`}>
     <ProductCardImage
      imgDataArr={imgs}

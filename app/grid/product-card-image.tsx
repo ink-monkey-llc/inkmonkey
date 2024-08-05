@@ -22,6 +22,7 @@ function ProductCardImage({ product, featImgData, imgDataArr }: ProductCardImage
  const [showSlider, setShowSlider] = useState(false)
  const [isPending, startTransition] = useTransition()
  const imgData = imgDataArr.map((imgData) => imgData.url)
+ const multipleImgs = imgDataArr.length > 1
  const handleMouse = (arg: boolean) => {
   startTransition(() => setShowSlider(arg))
  }
@@ -30,10 +31,12 @@ function ProductCardImage({ product, featImgData, imgDataArr }: ProductCardImage
    onMouseLeave={() => handleMouse(false)}
    onMouseEnter={() => handleMouse(true)}
    className='relative sm:w-max  sm:h-[200px] '>
-   <ImageSlider
-    images={imgData}
-    showSlider={showSlider}
-   />
+   {multipleImgs && (
+    <ImageSlider
+     images={imgData}
+     showSlider={showSlider}
+    />
+   )}
    <Image
     className='object-cover'
     style={{
@@ -42,8 +45,8 @@ function ProductCardImage({ product, featImgData, imgDataArr }: ProductCardImage
      minWidth: '200px',
      height: '200px',
      inset: '0',
-     opacity: showSlider ? '0' : '1',
-     pointerEvents: showSlider ? 'none' : 'auto',
+     opacity: multipleImgs && showSlider ? '0' : '1',
+     pointerEvents: multipleImgs && showSlider ? 'none' : 'auto',
      transition: 'opacity 0.3s',
     }}
     src={featImgData.image?.url ?? ''}

@@ -19,20 +19,24 @@ function FonzBanner() {
       />
      </Link>
      <h2 className='text-2xl '>Generate your own custom design with our free AI design tool!</h2>
-     <div className='flex'>
-      <div className='flex flex-col'>
+     <div className='flex flex-col sm:flex-row m-auto sm:m-0'>
+      <div className='flex gap-2 flex-col mt-4'>
        <p>Designs can be printed on:</p>
-       <ul className='list-disc pl-4 text-txt-secondary'>
-        <li>Stickers</li>
-        <li>Banners</li>
-        <li>Prints</li>
-        <li>T-shirts</li>
-        <li>Mailbox wraps</li>
-        <li>Vehicle Window Graphics</li>
-       </ul>
+       <div className='flex sm:flex-col'>
+        <ul className='list-disc pl-4 text-txt-secondary'>
+         <li>Stickers</li>
+         <li>Banners</li>
+         <li>Prints</li>
+        </ul>
+        <ul className='list-disc pl-4 text-txt-secondary ml-4 sm:ml-0'>
+         <li>T-shirts</li>
+         <li>Mailbox wraps</li>
+         <li>Vehicle Window Graphics</li>
+        </ul>
+       </div>
       </div>
       <Link
-       className='px-6 py-2 md:px-2 lg:px-6 m-auto rounded-md border-2 bg-accent border-accent w-max text-xl text-bg-primary font-bold hover:bg-accent-bright hover:text-bg-primary transition-all group flex items-center justify-center gap-2'
+       className='px-6 py-2 md:px-2 lg:px-6 m-auto rounded-md border-2 bg-accent border-accent w-full sm:w-max text-xl text-bg-primary font-bold hover:bg-accent-bright hover:text-bg-primary transition-all group flex items-center justify-center gap-2 my-8 sm:my-auto'
        href='/fonzai'>
        Try it out!
        <ArrowRight className='w-6 h-6 text-bg-primary group-hover:translate-x-3 transition-all' />

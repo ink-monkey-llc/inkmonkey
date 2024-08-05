@@ -95,7 +95,7 @@ function WindowAtc({ quantity, setQuantity, iid }: { iid: string | boolean; quan
     attributes.push({ key: 'businessEtc', value: businessEtc })
    }
    if (imgUrl && imgUrl !== '') {
-    console.log('businessLogoData.secure_url:', imgUrl)
+    // console.log('businessLogoData.secure_url:', imgUrl)
     attributes.push({ key: 'businessLogo', value: imgUrl })
    }
    if (describeLogo !== '') {

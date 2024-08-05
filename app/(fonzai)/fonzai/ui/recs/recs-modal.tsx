@@ -20,13 +20,13 @@ function RecsModal() {
  useEffect(() => {
   const fetchRecs = async () => {
    const recs = await getRecs({ userQuery: prompt, productType: selectedFF.id === 'wi' ? 'Truck Back Window Graphics' : 'Vinyl Decal' })
-   console.log('recs', recs)
+   //  console.log('recs', recs)
    setRecs(recs)
   }
   fetchRecs()
  }, [])
 
- console.log('recs', recs)
+ //  console.log('recs', recs)
 
  return (
   <div className='fixed left-0 top-0 w-full h-full bg-black bg-opacity-30 z-50 overflow-hidden backdrop-blur flex justify-center items-center px-8'>

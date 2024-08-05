@@ -11,7 +11,7 @@ import Link from 'next/link'
 type SliderProps = {
  collections: {
   first: FeaturedCollection
-  second: FeaturedCollection
+  // second: FeaturedCollection
  }[]
  type: string
 }
@@ -44,7 +44,7 @@ function Slider({ collections, type }: SliderProps) {
  }
 
  const firstArr = collections.map((col) => col.first)
- const secondArr = collections.map((col) => col.second)
+ //  const secondArr = collections.map((col) => col.second)
  const titles = firstArr.map((collection) => collection.collectionInfo?.title)
 
  const linkPath = ` list/${type === 'decals' ? 'Vinyl-Decal' : type === 'windows' ? 'Truck-Back-Window-Graphics' : ''}/${
@@ -58,17 +58,20 @@ function Slider({ collections, type }: SliderProps) {
  return (
   <div className='flex flex-col w-full bg-bg-secondary'>
    <div className='flex justify-center gap-[1px] '>
-    {titles.map((title, i) => (
-     <div
-      key={title}
-      className={cn(
-       'pb-2 pt-2 sm:pt-3 px-4 sm:px-8 rounded-t-lg cursor-pointer opacity-40 text-accent bg-bg-primary hover:opacity-80 transition-all underline text-sm sm:text-lg',
-       active === i && 'bg-bg-primary text-accent opacity-100'
-      )}
-      onClick={() => setActive(i)}>
-      {isXs && title ? truncate(title, 12) : title === 'All Products' ? 'New!' : title}
-     </div>
-    ))}
+    {titles.map((title, i) => {
+     const label = title === 'All Products' ? 'New!' : title
+     return (
+      <div
+       key={title}
+       className={cn(
+        'pb-2 pt-2 sm:pt-3 px-4 sm:px-8 rounded-t-lg cursor-pointer opacity-40 text-accent bg-bg-primary hover:opacity-80 transition-all underline text-sm sm:text-lg',
+        active === i && 'bg-bg-primary text-accent opacity-100'
+       )}
+       onClick={() => setActive(i)}>
+       {isXs && label ? truncate(label, 12) : label}
+      </div>
+     )
+    })}
    </div>
    <div className='flex justify-end bg-bg-primary py-4 pr-4'>
     <Link
@@ -101,7 +104,7 @@ function Slider({ collections, type }: SliderProps) {
       <ChevronRightLong className='w-12 h-12 text-txt-primary' />
      </div>
     </div>
-    {secondArr[active].products.length > 0 && (
+    {/* {secondArr[active].products.length > 0 && (
      <div className='relative flex w-full pt-3 bg-bg-primary border-t-2 border-accent overflow-hidden'>
       <div
        onClick={() => handleClick('btm', 'left')}
@@ -122,7 +125,7 @@ function Slider({ collections, type }: SliderProps) {
        <ChevronRightLong className='w-12 h-12 text-txt-primary' />
       </div>
      </div>
-    )}
+    )} */}
    </div>
   </div>
  )

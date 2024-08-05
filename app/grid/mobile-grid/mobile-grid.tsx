@@ -4,7 +4,7 @@ import MobileGridItem from './mobile-grid-item'
 
 function MobileGrid({ products }: { products: ShopifyProduct[] }) {
  return (
-  <div className='flex flex-col sm:hidden w-full m-auto  ml-8'>
+  <div className='grid grid-cols-2 sm:hidden w-full m-auto ml-10 pr-12'>
    {products.map((product) => (
     <MobileGridItem
      key={product.id}

@@ -79,7 +79,7 @@ export function useWS() {
     setIsLoading(false)
     setStatus('0%')
     setPromptHistory((prev) => [data, ...prev])
-    console.log(event, ' data:', data)
+    // console.log(event, ' data:', data)
     if (upscaleAndAdd.cart) {
      const addCartData = {
       up: true,

@@ -11,7 +11,7 @@ function MobileGridItem({ product }: { product: ShopifyProduct }) {
  const amount = Number(product.priceRange.minVariantPrice.amount)
  const isWindow = product.productType === 'Truck Back Window Graphics'
  return (
-  <div className='w-full justify-start h-full flex flex-col relative mb-4 items-center'>
+  <div className='w-[200px] justify-start h-[250px] flex flex-col relative mb-4 items-center'>
    <Link href={!isWindow ? `/product/${product.handle}` : `/window/${product.handle}`}>
     <MobileCardImg
      imgDataArr={imgs}
@@ -19,7 +19,7 @@ function MobileGridItem({ product }: { product: ShopifyProduct }) {
      product={product}
     />
     <div className='px-1 py-2 '>
-     <p className='text-xs font-light'>{product.title}</p>
+     <p className='text-xs font-light w-[140px]'>{product.title}</p>
      <p className='font-bold'>From {formatPrice(amount)}</p>
      <div className='text-green-600 text-xs flex items-center gap-2'>
       <div className='w-[6px] h-[6px] rounded-full  bg-green-600' />

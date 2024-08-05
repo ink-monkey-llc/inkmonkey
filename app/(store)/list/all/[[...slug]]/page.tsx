@@ -38,7 +38,7 @@ async function AllProducts({ params, searchParams }: { params: { slug: string[] 
  const { products, pageInfo } = dataObj
 
  return (
-  <div className='pb-12 relative w-full'>
+  <div className='pb-12 relative w-full overflow-hidden'>
    <PageBanner query={'all'} />
    <Sort />
    <ProductGrid products={products} />

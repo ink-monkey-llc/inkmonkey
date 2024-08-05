@@ -12,7 +12,7 @@ function Mockup() {
    href='/fonzai'
    onMouseEnter={() => setOpen(true)}
    onMouseLeave={() => setOpen(false)}
-   className='relative overflow-hidden'>
+   className='relative overflow-hidden mb-8 '>
    <Image
     className='border-2 m-auto border-accent object-contain rounded-md'
     src={mockup}
@@ -22,7 +22,7 @@ function Mockup() {
    />
    <div
     className={cn(
-     'absolute top-0 left-0 w-full h-full flex justify-center items-center bg-accent rounded-md bg-opacity-60 opacity-0 transition-all',
+     'absolute top-0 left-0 w-full h-[392px] flex justify-center items-center bg-accent rounded-md bg-opacity-60 opacity-0 transition-all',
      open && 'opacity-100'
     )}>
     <h2 className='text-bg-primary font-bold text-5xl'>Check it out!</h2>

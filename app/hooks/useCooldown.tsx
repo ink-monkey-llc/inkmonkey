@@ -17,7 +17,7 @@ export function useCooldown() {
    return cdMessage
   }
   if (isCd) {
-   console.log('On Cooldown')
+   //  console.log('On Cooldown')
    cdMessage = {
     cd: true,
     message: 'You have reached the limit of 8 generations per day. You may generate more designs in ' + hours + ' hours and ' + minutes + ' minutes.',

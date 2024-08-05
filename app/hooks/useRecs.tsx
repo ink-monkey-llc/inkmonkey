@@ -13,21 +13,21 @@ async function useRecs() {
  const type = selectedFF.id === 'wi' ? 'Truck Back Window Graphics' : 'Vinyl Decal'
  const nouns: () => Promise<string[]> = async () => {
   const result: string[] = await getNouns({ userQuery: prompt })
-  console.log(result)
+  // console.log(result)
   return result
  }
  const nounsArr = await nouns()
  function createSearchQuery(nounsArr: string[], productType: string) {
   const tagPart = nounsArr.map((noun) => `(tag:${noun})`).join(' OR ')
   const query = `${tagPart} AND (product_type:${productType})`
-  console.log(query)
+  // console.log(query)
   return query
  }
 
  const recs = async () => {
   const query = createSearchQuery(nounsArr, type)
   const products = storeApi.getProductsByTag(query)
-  console.log(await products)
+  // console.log(await products)
   return await products
  }
  setRecProds(await recs())

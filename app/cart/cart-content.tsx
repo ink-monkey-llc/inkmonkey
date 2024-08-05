@@ -25,7 +25,7 @@ function CartContent({ isModal }: { isModal: boolean }) {
  useEffect(() => {
   fetchCart().then((cart) => setCart(cart))
  }, [userCartId.count])
- console.log('cart:', cart)
+ //  console.log('cart:', cart)
  const lineItems = cart?.lines
  const cartId = cart?.id
  //  const lastProduct = lineItems && lineItems[0].merchandise.product

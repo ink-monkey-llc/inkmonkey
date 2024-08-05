@@ -20,7 +20,7 @@ const cartApi = {
  },
 
  addToCart: async (cartId: string, lines: { merchandiseId: string; quantity: number; attributes: { key: string; value: string }[] }[]) => {
-  console.log('addToCart:', { cartId, lines })
+  // console.log('addToCart:', { cartId, lines })
   const { data, errors, extensions } = await client.request(addToCartMutation, {
    variables: {
     cartId: cartId,
@@ -61,7 +61,7 @@ const cartApi = {
    console.log('errors:', errors)
    throw new Error(errors.message)
   }
-  console.log('data:', await data)
+  // console.log('data:', await data)
   return reshapeCart(data.cartLinesUpdate.cart)
  },
 

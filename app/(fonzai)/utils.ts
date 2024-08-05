@@ -87,10 +87,10 @@ export function extractProductId(string: string): string {
 
 export async function getRecs(queryObj: { userQuery: string; productType: string }) {
  const { userQuery, productType } = queryObj
- console.log('userQuery:', userQuery)
+ //  console.log('userQuery:', userQuery)
  const nouns: () => Promise<string[]> = async () => {
   const result: string[] = await getNouns({ userQuery })
-  console.log('nouns:', result)
+  // console.log('nouns:', result)
   return result
  }
  const nounsArr = await nouns()
@@ -101,7 +101,7 @@ export async function getRecs(queryObj: { userQuery: string; productType: string
   if (nounsArr.length > 0) {
    query = `${tagPart} AND (product_type:${productType})`
   }
-  console.log(query)
+  // console.log(query)
   return { query, flatNouns }
  }
  const recs = async () => {
@@ -117,7 +117,7 @@ export async function getRecs(queryObj: { userQuery: string; productType: string
     .then((res) => res.products)
   }
   const prodArray: ShopifyProduct[] = products
-  console.log(prodArray)
+  // console.log(prodArray)
   return prodArray
  }
 

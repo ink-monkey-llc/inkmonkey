@@ -21,7 +21,7 @@ const productApi = {
   if (args.cursor) {
    variables.cursor = args.cursor
   }
-  console.log('args:', args)
+  // console.log('args:', args)
   const { data, errors, extensions } = await client.request(args.dir === 'prev' ? previousAllProductsQuery : nextAllProductsQuery, {
    variables,
    apiVersion: API_VERSION,
@@ -96,7 +96,7 @@ const productApi = {
    console.log('errors:', errors)
    throw new Error(errors.message)
   }
-  console.log('data:', await data)
+  // console.log('data:', await data)
   const pageInfo = (await data.search.pageInfo) as PageInfo
   const products = removeEdgesAndNodes(await data.search) as ShopifyProduct[]
 
@@ -121,7 +121,7 @@ const productApi = {
    console.log('errors:', errors)
    throw new Error(errors.message)
   }
-  console.log('data:', await data)
+  // console.log('data:', await data)
   const pageInfo = (await data.search.pageInfo) as PageInfo
   const products = removeEdgesAndNodes(await data.search) as ShopifyProduct[]
 

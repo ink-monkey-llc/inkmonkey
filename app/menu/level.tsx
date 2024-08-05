@@ -35,10 +35,10 @@ async function Level({ obj, params, parent, mobile }: Props) {
  }
 
  return (
-  <div className='pl-2'>
+  <div className='pl-4'>
    <Link
-    className={cn('flex items-center text-sm hover:bg-bg-secondary', isUnfolded && 'text-accent', isCurrent && 'bg-bg-secondary')}
-    href={parent && isUnfolded ? parent : newUrl}>
+    className={cn('flex items-center  hover:bg-bg-secondary', isUnfolded && 'text-accent', isCurrent && 'bg-bg-secondary', mobile && 'text-lg')}
+    href={newUrl}>
     {obj.items ? (
      <Chevron
       className='w-4 h-4 mr-1'
@@ -53,6 +53,7 @@ async function Level({ obj, params, parent, mobile }: Props) {
     isUnfolded &&
     obj.items.map((item) => (
      <Level
+      mobile={mobile}
       parent={newUrl}
       params={params}
       key={item.id}

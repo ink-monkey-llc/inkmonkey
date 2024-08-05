@@ -15,17 +15,17 @@ type MobileCardImgProps = {
 
 function MobileCardImg({ featImgData }: MobileCardImgProps) {
  return (
-  <div className='relative w-[80vw] m-auto'>
+  <div className='relative m-auto'>
    <Image
     className='object-cover'
     style={{
      display: 'auto',
-     minWidth: '200px',
+     minWidth: '50px',
     }}
     src={featImgData.image?.url ?? ''}
     alt={featImgData.image?.altText}
-    width={400}
-    height={400}
+    width={140}
+    height={140}
     // blurDataURL={featImgData.base64}
     // placeholder='blur'
    />

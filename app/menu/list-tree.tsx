@@ -20,7 +20,7 @@ async function ListTree({ params, mobile }: Props) {
 
  return (
   <div className='pb-8'>
-   <div className='md:px-4 '>
+   <div className=''>
     {items &&
      items.map((item) => (
       <Level

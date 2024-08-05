@@ -26,7 +26,7 @@ function Modify() {
   fetchVariant()
  }, [generated])
 
- console.log('currentVariant:', currentVariant)
+ //  console.log('currentVariant:', currentVariant)
 
  return (
   <div className={cn('px-2', isLoading && 'opacity-30 pointer-events-none', isMobile && 'pb-4')}>
