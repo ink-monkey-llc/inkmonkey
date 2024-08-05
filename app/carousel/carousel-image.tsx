@@ -34,11 +34,11 @@ function CarouselImage({ img }: { img: CarouselImage }) {
    />
    <div
     className={cn(
-     'absolute w-full h-full inset-0 bg-backdrop flex items-center border-2 border-accent-tr rounded-md ',
+     'absolute w-full h-full inset-0 bg-backdrop flex items-center border-2 border-accent-tr rounded-md',
      hover && 'card-show',
      !hover && 'card-hide'
     )}>
-    <h2 className={cn('text-5xl text-center text-accent-bright text-wrap', smooch.className, isEntertain && 'text-[2rem]')}>{img.title}</h2>
+    <h2 className={cn('text-xl sm:text-5xl text-center text-accent-bright text-wrap', smooch.className, isEntertain && 'text-[2rem]')}>{img.title}</h2>
    </div>
   </Link>
  )
