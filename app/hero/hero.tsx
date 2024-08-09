@@ -9,10 +9,10 @@ import ProductTypesXs from '../header/product-types-xs'
 function Hero() {
  return (
   <div className='w-full max-w-[1400px] h-[600px] sm:h-[var(--hero-height)] bg-black flex justify-between items-start overflow-hidden relative'>
-   <div className='w-full md:w-auto absolute top-8 z-40 md:top-[20vh] md:left-8 '>
+   <div className='w-full md:w-auto absolute top-8 z-40 md:top-[20vh] md:left-12 '>
     <h1
      id='herologo'
-     className={cn('text-7xl sm:text-8xl text-accent-bright text-center z-20 xl:text-9xl mb-[20vh] md:mb-8', smooch.className)}>
+     className={cn('text-7xl sm:text-8xl text-accent-bright text-center z-20 xl:text-9xl mb-[20vh] md:mb-16', smooch.className)}>
      Ink Monkey
     </h1>
     <ProductTypesXs /> <HeroCta />

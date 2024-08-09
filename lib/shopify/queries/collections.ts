@@ -80,11 +80,11 @@ export const nextCollectionByHandleQuery = /* GraphQL */ `
   $reverse: Boolean = false
   $productType: String
  ) {
-  collectionByHandle(handle: $handle) {
+  collection(handle: $handle) {
    handle
+   id
    title
    updatedAt
-   description
    seo {
     description
     title
@@ -95,7 +95,6 @@ export const nextCollectionByHandleQuery = /* GraphQL */ `
     url
     width
    }
-   id
    products(first: $numProducts, after: $cursor, reverse: $reverse, sortKey: $sortKey, filters: { productType: $productType }) {
     edges {
      node {
@@ -111,8 +110,10 @@ export const nextCollectionByHandleQuery = /* GraphQL */ `
    }
   }
  }
+
  ${productFragment}
 `
+
 export const previousCollectionByHandleQuery = /* GraphQL */ `
  query MyQuery(
   $handle: String!
@@ -122,10 +123,10 @@ export const previousCollectionByHandleQuery = /* GraphQL */ `
   $reverse: Boolean = false
   $productType: String
  ) {
-  collectionByHandle(handle: $handle) {
+  collection(handle: $handle) {
    handle
+   id
    title
-   description
    updatedAt
    seo {
     description
@@ -137,7 +138,6 @@ export const previousCollectionByHandleQuery = /* GraphQL */ `
     url
     width
    }
-   id
    products(last: $numProducts, before: $cursor, reverse: $reverse, sortKey: $sortKey, filters: { productType: $productType }) {
     edges {
      node {
@@ -153,8 +153,52 @@ export const previousCollectionByHandleQuery = /* GraphQL */ `
    }
   }
  }
+
  ${productFragment}
 `
+
+// export const previousCollectionByHandleQuery = /* GraphQL */ `
+//  query MyQuery(
+//   $handle: String!
+//   $cursor: String
+//   $numProducts: Int!
+//   $sortKey: ProductCollectionSortKeys = ID
+//   $reverse: Boolean = false
+//   $productType: String
+//  ) {
+//   collectionByHandle(handle: $handle) {
+//    handle
+//    title
+//    description
+//    updatedAt
+//    seo {
+//     description
+//     title
+//    }
+//    image {
+//     altText
+//     height
+//     url
+//     width
+//    }
+//    id
+//    products(last: $numProducts, before: $cursor, reverse: $reverse, sortKey: $sortKey, filters: { productType: $productType }) {
+//     edges {
+//      node {
+//       ...product
+//      }
+//     }
+//     pageInfo {
+//      endCursor
+//      hasNextPage
+//      hasPreviousPage
+//      startCursor
+//     }
+//    }
+//   }
+//  }
+//  ${productFragment}
+// `
 export const nextCollectionByIdQuery = /* GraphQL */ `
  query MyQuery($id: ID!, $cursor: String, $numProducts: Int!, $sortKey: ProductCollectionSortKeys = ID, $reverse: Boolean = false) {
   collection(id: $id) {

@@ -14,8 +14,8 @@ async function SubCats({ params }: { params: { slug: string[] } }) {
  const parentLevel = menu.items.find((item) => item.resource?.handle === topLevel)
  const current = parentLevel && parentLevel.items?.find((item) => item.resource?.handle === parent)
  const subitems = current?.items
- console.log('current:', current)
- console.log('parent:', parent)
+ //  console.log('current:', current)
+ //  console.log('parent:', parent)
  return <SubcatSlider subitems={subitems} />
 }
 

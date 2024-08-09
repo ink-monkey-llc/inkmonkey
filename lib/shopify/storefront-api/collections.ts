@@ -37,7 +37,7 @@ const collectionApi = {
   if (args.cursor) {
    variables.cursor = args.cursor
   }
-  // console.log('vars:', variables)
+  // log('vars:', variables)
   const { data, errors, extensions } = await client.request(args.dir === 'prev' ? previousCollectionByHandleQuery : nextCollectionByHandleQuery, {
    variables: variables,
    apiVersion: API_VERSION,
@@ -54,13 +54,13 @@ const collectionApi = {
    //  throw new Error(errors.message)
   }
   // console.log('data:', await data)
-  if (!data.collectionByHandle) {
+  if (!data.collection) {
    return { products: [], pageInfo: { hasNextPage: false, hasPreviousPage: false, startCursor: null, endCursor: null } }
   }
-  const { handle, title, description, updatedAt, seo, image, id } = data.collectionByHandle
+  const { handle, title, description, updatedAt, seo, image, id } = data.collection
   const collectionInfo = { handle, title, description, updatedAt, seo, image, id }
-  const pageInfo = data.collectionByHandle.products.pageInfo as PageInfo
-  const products = removeEdgesAndNodes(await data.collectionByHandle.products) as ShopifyProduct[]
+  const pageInfo = data.collection.products.pageInfo as PageInfo
+  const products = removeEdgesAndNodes(await data.collection.products) as ShopifyProduct[]
   const productData = { pageInfo, products, collectionInfo } as QueryResult
   return productData
  },

@@ -23,6 +23,9 @@ function Modify() {
    const variant: VariantById = await storeApi.getVariantById(generated.productId)
    setCurrentVariant(variant)
   }
+  if (generated.ff === 'wi') {
+   return
+  }
   fetchVariant()
  }, [generated])
 

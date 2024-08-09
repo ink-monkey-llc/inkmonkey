@@ -6,7 +6,7 @@ import { cn } from '../../utils/cn'
 function Logo() {
  return (
   <Link href='/'>
-   <h2 className={cn('text-2xl text-accent mx-4', smooch.className)}>Ink Monkey</h2>
+   <h2 className={cn('text-2xl text-accent ml-8', smooch.className)}>Ink Monkey</h2>
   </Link>
  )
 }

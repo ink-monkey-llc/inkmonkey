@@ -15,6 +15,7 @@ import {
  isUpscalingAtom,
  upscaleAndAddAtom,
 } from '@/app/providers/fonz-atoms'
+import { read } from 'fs'
 
 export function useWS() {
  const [wsId, setWsId] = useAtom(wsIdAtom)
@@ -29,6 +30,11 @@ export function useWS() {
  const { sendJsonMessage, sendMessage, lastJsonMessage, readyState } = useWebSocket(WS_URL, {
   share: true,
   shouldReconnect: () => true,
+  heartbeat: {
+   returnMessage: 'pong',
+   timeout: 60000, // 1 minute
+   interval: 25000, // every 25 seconds
+  },
  })
 
  const modOptions = useModOptions()
@@ -45,6 +51,7 @@ export function useWS() {
   if (readyState === 1) {
    console.log('connected')
   }
+  // console.log(readyState)
  }, [readyState])
 
  type WsMessage = {

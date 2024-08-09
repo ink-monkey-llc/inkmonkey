@@ -20,6 +20,7 @@ function ModOption({ option, price }: ModOptionProps) {
  const [selectedImage] = useAtom(selectedImageAtom)
  const [generated] = useAtom(generatedAtom)
  const isAtc = option.id === 'purchase'
+ const isWindow = generated.ff === 'wi'
  const isSingle = selectedImage.img?.label !== '' || generated.isUpscaled
  const handleClick = () => {
   if (option.id === 'back') {
@@ -46,7 +47,7 @@ function ModOption({ option, price }: ModOptionProps) {
      'bg-bg-tertiary mx-2 mt-2 py-2 px-2 rounded-md flex items-center justify-center pr-4 cursor-pointer border border-transparent hover:border-accent ',
      isAtc && 'flex-col text-accent'
     )}>
-    {isAtc && isSingle && <p className=''>{totalPrice}</p>}
+    {isAtc && isSingle && !isWindow && <p className=''>{totalPrice}</p>}
     <p className='sm:text-sm'>{option.label}</p>
    </div>
   </div>

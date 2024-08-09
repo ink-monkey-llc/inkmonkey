@@ -1,0 +1,118 @@
+{
+ "t": "MESSAGE_UPDATE",
+ "s": 18,
+ "op": 0,
+ "d": {
+  "webhook_id": "936929561302675456",
+  "type": 20,
+  "tts": false,
+  "timestamp": "2024-08-08T19:25:59.738000+00:00",
+  "position": 0,
+  "pinned": false,
+  "mentions": [
+   {
+    "username": "volvner",
+    "public_flags": 0,
+    "member": {
+     "roles": [],
+     "premium_since": null,
+     "pending": false,
+     "nick": null,
+     "mute": false,
+     "joined_at": "2024-03-20T14:06:07.762000+00:00",
+     "flags": 0,
+     "deaf": false,
+     "communication_disabled_until": null,
+     "banner": null,
+     "avatar": null
+    },
+    "id": "1002308909979156490",
+    "global_name": "Volvner",
+    "discriminator": "0",
+    "clan": null,
+    "avatar_decoration_data": null,
+    "avatar": null
+   }
+  ],
+  "mention_roles": [],
+  "mention_everyone": false,
+  "member": {
+   "roles": ["1220010675556978782"],
+   "premium_since": null,
+   "pending": false,
+   "nick": null,
+   "mute": false,
+   "joined_at": "2024-03-20T14:06:51.845638+00:00",
+   "flags": 0,
+   "deaf": false,
+   "communication_disabled_until": null,
+   "banner": null,
+   "avatar": null
+  },
+  "interaction_metadata": {
+   "user": {
+    "username": "volvner",
+    "public_flags": 0,
+    "id": "1002308909979156490",
+    "global_name": "Volvner",
+    "discriminator": "0",
+    "clan": null,
+    "avatar_decoration_data": null,
+    "avatar": null
+   },
+   "type": 2,
+   "name": "imagine",
+   "id": "1271187675302465536",
+   "authorizing_integration_owners": { "0": "1220010490999078983" }
+  },
+  "interaction": {
+   "user": {
+    "username": "volvner",
+    "public_flags": 0,
+    "id": "1002308909979156490",
+    "global_name": "Volvner",
+    "discriminator": "0",
+    "clan": null,
+    "avatar_decoration_data": null,
+    "avatar": null
+   },
+   "type": 2,
+   "name": "imagine",
+   "member": {
+    "roles": [],
+    "premium_since": null,
+    "pending": false,
+    "nick": null,
+    "mute": false,
+    "joined_at": "2024-03-20T14:06:07.762000+00:00",
+    "flags": 0,
+    "deaf": false,
+    "communication_disabled_until": null,
+    "banner": null,
+    "avatar": null
+   },
+   "id": "1271187675302465536"
+  },
+  "id": "1271187677068267612",
+  "flags": 0,
+  "embeds": [],
+  "edited_timestamp": "2024-08-08T19:26:18.952119+00:00",
+  "content": "**realistic, photograph, 35mm, dslr, A ufo --ar 4:5 --v 6.0** - <@1002308909979156490> (35%) (fast, stealth)",
+  "components": [],
+  "channel_id": "1220010490999078986",
+  "author": {
+   "username": "Midjourney Bot",
+   "public_flags": 589824,
+   "id": "936929561302675456",
+   "global_name": null,
+   "discriminator": "9282",
+   "clan": null,
+   "bot": true,
+   "avatar_decoration_data": null,
+   "avatar": "f6ce562a6b4979c4b1cbc5b436d3be76"
+  },
+  "attachments": [],
+  "application_id": "936929561302675456",
+  "guild_id": "1220010490999078983"
+ }
+}
