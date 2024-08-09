@@ -7,7 +7,11 @@ import Link from 'next/link'
 function ComContent() {
  return (
   <div className='z-10 absolute flex-col items-center justify-center w-full h-full'>
-   <h2 className={cn('text-4xl sm:text-5xl md:text-6xl text-txt-primary p-4 text-center rounded-t-md w-2/3 backdrop-blur-sm m-auto mt-8', smooch.className)}>
+   <h2
+    className={cn(
+     'text-4xl sm:text-5xl md:text-6xl text-txt-primary p-4 text-center rounded-t-md w-2/3 bg-backdrop backdrop-blur-sm m-auto mt-8',
+     smooch.className
+    )}>
     Industry Leader in Commercial Window Graphics
    </h2>
    <Link

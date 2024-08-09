@@ -5,6 +5,7 @@ import { smooch } from '@/lib/fonts'
 import imlogo from '../images/imlogo.jpg'
 import HeroCta from './hero-cta'
 import ProductTypesXs from '../header/product-types-xs'
+import './hero.css'
 
 function Hero() {
  return (
@@ -17,7 +18,9 @@ function Hero() {
     </h1>
     <ProductTypesXs /> <HeroCta />
    </div>
-   <div className='overflow-hidden ml-auto top-[var(--header-height)] absolute md:static '>
+   <div
+    id='hero-img'
+    className='overflow-hidden ml-auto top-[var(--header-height)] absolute md:static '>
     <Image
      className='sm:max-w-[800px] sm:max-h-[800px] max-width-[600px] max-height-[600px]'
      src={imlogo}
