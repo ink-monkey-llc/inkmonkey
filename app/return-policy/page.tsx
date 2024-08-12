@@ -1,10 +1,16 @@
 import { smooch } from '@/lib/fonts'
 import React from 'react'
 import { cn } from '../../utils/cn'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+ title: 'Return Policy',
+ description: 'Return Policy at Ink Monkey LLC',
+}
 
 function ReturnPolicy() {
  return (
-  <div className='w-full min-h-[var(--view-height)] justify-center text-center py-12 flex flex-col'>
+  <div className='w-max m-auto bg-bg-secondary px-12 min-h-[var(--view-height)] justify-center text-center py-12 my-8 rounded-md flex flex-col'>
    <h1 className={cn('text-6xl text-accent mb-8', smooch.className)}>Return Policy</h1>
    <div className='text-start flex flex-col gap-4 max-w-[600px] m-auto'>
     <p className='text-lg'>Ink Monkey has a 30-day return policy, which means you have 30 days after receiving your item to request a return.</p>

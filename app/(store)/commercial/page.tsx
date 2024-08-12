@@ -1,10 +1,16 @@
 import { smooch } from '@/lib/fonts'
+import type { Metadata } from 'next'
 import React from 'react'
 import { cn } from '../../../utils/cn'
 
+export const metadata: Metadata = {
+ title: 'Commercial Window Graphics',
+ description: 'Commercial Window Graphics at Ink Monkey LLC',
+}
+
 function Commercial() {
  return (
-  <div className='w-full h-[var(--view-height)] overflow-y-scroll bg-com-bg flex flex-col items-center justify-center'>
+  <div className='w-full h-[var(--view-height)] overflow-y-scroll bg-no-repeat bg-cover bg-com-bg flex flex-col items-center justify-center'>
    <div className='w-3/4 m-auto'>
     <h2 className={cn('text-6xl text-accent p-4 backdrop-blur-sm rounded-t-md', smooch.className)}>The Industry Leader in Window Graphics</h2>
     <div className='flex flex-col gap-4 p-4 backdrop-blur-sm rounded-b-md'>
