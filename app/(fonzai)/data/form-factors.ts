@@ -5,6 +5,11 @@ export const formFactors = [
   handle: 'ai-designed-banner',
  },
  {
+  id: 'fr',
+  label: 'Free Decal',
+  handle: 'free-ai-decal',
+ },
+ {
   id: 'de',
   label: 'Contour Cut Decal',
   handle: 'ai-designed-contour-cut-decal',

@@ -19,6 +19,7 @@ function FormFactorItem({ formFactor, setOpen }: FormFactorItemProps) {
 
  const handleSelect = async () => {
   const resProduct = await productApi.getProductByHandle({ handle: formFactor.handle })
+  console.log('resProduct:', resProduct)
   setProduct(resProduct)
   setSelectedFF(formFactor)
   if (formFactor.variants.length === 1) {

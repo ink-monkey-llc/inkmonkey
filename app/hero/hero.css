@@ -1,7 +1,11 @@
 #hero-img {
   transform: translateX(0%);
-  transition: all 1.2s cubic-bezier(0.33, 1, 0.68, 1) 0.4s;
   filter: blur(0px);
+  transition-property: transform, filter;
+  transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  transition-duration: 1.2s;
+  transition-delay: 0.4s;
+  /* transition: all 1.2s cubic-bezier(0.33, 1, 0.68, 1) 0.4s; */
 
   @starting-style {
     transform: translateX(100%);
@@ -13,7 +17,10 @@
   transform: scale(1);
   opacity: 1;
   filter: blur(0px);
-  transition: all 1.2s cubic-bezier(0.33, 1, 0.68, 1) 0.4s;
+  transition-property: transform, opacity, filter;
+  transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  transition-duration: 1.2s;
+  transition-delay: 0.4s;
 
 
   @starting-style {
@@ -27,7 +34,14 @@
   transform: scale(1);
   opacity: 1;
   filter: blur(0px);
-  transition: all 1.2s cubic-bezier(0.33, 1, 0.68, 1) 0.4s;
+  transition-property: transform, opacity, filter;
+  transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  transition-duration: 1.2s;
+  transition-delay: 0.4s;
+
+
+
+  /* transition: all 1.2s cubic-bezier(0.33, 1, 0.68, 1) 0.4s; */
 
   @starting-style {
     transform: scale(1.8);
