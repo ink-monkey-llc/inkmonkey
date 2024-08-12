@@ -19,86 +19,104 @@ import img16 from '/public/com/016.jpg'
 // export const imgs = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16]
 
 const imgs = [
- {
-  id: '1',
-  src: img1,
-  alt: 'commercial window graphics',
- },
- {
-  id: '2',
-  src: img2,
-  alt: 'commercial window graphics',
- },
- {
-  id: '3',
-  src: img3,
-  alt: 'commercial window graphics',
- },
- {
-  id: '4',
-  src: img4,
-  alt: 'commercial window graphics',
- },
- {
-  id: '5',
-  src: img5,
-  alt: 'commercial window graphics',
- },
- {
-  id: '6',
-  src: img6,
-  alt: 'commercial window graphics',
- },
- {
-  id: '7',
-  src: img7,
-  alt: 'commercial window graphics',
- },
- {
-  id: '8',
-  src: img8,
-  alt: 'commercial window graphics',
- },
- {
-  id: '9',
-  src: img9,
-  alt: 'commercial window graphics',
- },
- {
-  id: '10',
-  src: img10,
-  alt: 'commercial window graphics',
- },
- {
-  id: '11',
-  src: img11,
-  alt: 'commercial window graphics',
- },
- {
-  id: '12',
-  src: img12,
-  alt: 'commercial window graphics',
- },
- {
-  id: '13',
-  src: img13,
-  alt: 'commercial window graphics',
- },
- {
-  id: '14',
-  src: img14,
-  alt: 'commercial window graphics',
- },
- {
-  id: '15',
-  src: img15,
-  alt: 'commercial window graphics',
- },
- {
-  id: '16',
-  src: img16,
-  alt: 'commercial window graphics',
- },
+ [
+  {
+   id: '1',
+   src: img1,
+   alt: 'commercial window graphics',
+  },
+  {
+   id: '2',
+   src: img2,
+   alt: 'commercial window graphics',
+  },
+ ],
+ [
+  {
+   id: '3',
+   src: img3,
+   alt: 'commercial window graphics',
+  },
+  {
+   id: '4',
+   src: img4,
+   alt: 'commercial window graphics',
+  },
+ ],
+
+ [
+  {
+   id: '5',
+   src: img5,
+   alt: 'commercial window graphics',
+  },
+  {
+   id: '6',
+   src: img6,
+   alt: 'commercial window graphics',
+  },
+ ],
+ [
+  {
+   id: '7',
+   src: img7,
+   alt: 'commercial window graphics',
+  },
+  {
+   id: '8',
+   src: img8,
+   alt: 'commercial window graphics',
+  },
+ ],
+
+ [
+  {
+   id: '9',
+   src: img9,
+   alt: 'commercial window graphics',
+  },
+  {
+   id: '10',
+   src: img10,
+   alt: 'commercial window graphics',
+  },
+ ],
+ [
+  {
+   id: '11',
+   src: img11,
+   alt: 'commercial window graphics',
+  },
+  {
+   id: '12',
+   src: img12,
+   alt: 'commercial window graphics',
+  },
+ ],
+ [
+  {
+   id: '13',
+   src: img13,
+   alt: 'commercial window graphics',
+  },
+  {
+   id: '14',
+   src: img14,
+   alt: 'commercial window graphics',
+  },
+ ],
+ [
+  {
+   id: '15',
+   src: img15,
+   alt: 'commercial window graphics',
+  },
+  {
+   id: '16',
+   src: img16,
+   alt: 'commercial window graphics',
+  },
+ ],
 ]
 
 export type ComImgData = {

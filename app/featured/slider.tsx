@@ -64,7 +64,7 @@ function Slider({ collections, type }: SliderProps) {
       <div
        key={title}
        className={cn(
-        'pb-2 pt-2 sm:pt-3 px-4 sm:px-8 rounded-t-lg cursor-pointer opacity-40 text-accent bg-bg-primary hover:opacity-80 transition-all underline text-sm sm:text-lg',
+        'pb-2 pt-2 sm:pt-3 px-4 sm:px-8 rounded-t-lg cursor-pointer opacity-40 text-accent bg-bg-primary hover:opacity-80 transition-all ease-cubic-custom underline text-sm sm:text-lg',
         active === i && 'bg-bg-primary text-accent opacity-100'
        )}
        onClick={() => setActive(i)}>

@@ -15,7 +15,7 @@ export default function Home() {
    <FonzBanner />
    <Featured
     type='decals'
-    productsAmount={24}
+    productsAmount={36}
     collectionHandles={collections.group1}
    />
    <WindowBanner />

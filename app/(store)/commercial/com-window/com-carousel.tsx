@@ -5,14 +5,28 @@ import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
 import imgs from '../../../content/commercial-imgs'
 import Chevron, { Direction } from '@/app/icons/chevron'
+import { StaticImageData } from 'next/image'
 
 const items = imgs.map((img) => {
- const imgData = { id: img.id, src: img.src, alt: img.alt }
+ const img1 = img[0]
+ const img2 = img[1]
+
+ const imgData = (img: { id: string; src: StaticImageData; alt: string }) => {
+  return { id: img.id, src: img.src, alt: img.alt }
+ }
  return (
-  <ComSlide
-   key={img.id}
-   img={imgData}
-  />
+  <div
+   key={img1.id}
+   className='flex gap-2'>
+   <ComSlide
+    key={img1.id}
+    img={img1}
+   />
+   <ComSlide
+    key={img2.id}
+    img={img2}
+   />
+  </div>
  )
 })
 

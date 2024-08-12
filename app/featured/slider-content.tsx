@@ -5,7 +5,7 @@ import Spinner from '../spinner/spinner'
 
 function SliderContent({ products, fonz }: { products: ShopifyProduct[]; fonz?: boolean }) {
  return (
-  <div className='w-full h-[325px] bg-bg-primary flex pt-4 px-8 gap-4 '>
+  <div className='w-full h-[325px] bg-bg-primary flex pt-4 px-8 gap-4 transition-all ease-cubic-custom'>
    {products.map((product) => (
     <ImageCard
      fonz={fonz}

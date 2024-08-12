@@ -37,7 +37,7 @@ async function Level({ obj, params, parent, mobile }: Props) {
  return (
   <div className='pl-4'>
    <Link
-    className={cn('flex items-center  hover:bg-bg-secondary', isUnfolded && 'text-accent', isCurrent && 'bg-bg-secondary', mobile && 'text-lg')}
+    className={cn('flex items-center rounded-md px-1 hover:bg-bg-secondary', isUnfolded && 'text-accent', isCurrent && 'bg-bg-secondary', mobile && 'text-lg')}
     href={newUrl}>
     {obj.items ? (
      <Chevron

@@ -47,6 +47,9 @@ const config: Config = {
    width: {
     'mb-img-w': 'var(--mb-img-width)',
    },
+   transitionTimingFunction: {
+    'cubic-custom': 'cubic-bezier(0.33, 1, 0.68, 1)',
+   },
   },
   screens: {
    'md-lg': '975px',
