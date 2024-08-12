@@ -3,6 +3,7 @@ import { cn } from '@/utils/cn'
 import Header from '@/app/header/header'
 import { Toaster } from 'react-hot-toast'
 import { outfit } from '@/lib/fonts'
+import { Analytics } from '@vercel/analytics/react'
 import 'react-tooltip/dist/react-tooltip.css'
 import '@/app/globals.css'
 
