@@ -5,6 +5,27 @@ import ProductImage from './product-image'
 import Variants from './variants'
 import Recs from '@/app/recs/recs'
 import Spinner from '@/app/spinner/spinner'
+import { ResolvingMetadata, Metadata } from 'next'
+
+type MetaProps = {
+ params: { pid: string }
+ searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export async function generateMetadata({ params, searchParams }: MetaProps, parent: ResolvingMetadata): Promise<Metadata> {
+ const { pid } = params
+ const product: ShopifyProduct = await storeApi.getProductByHandle({ handle: pid })
+
+ return {
+  title: product.title,
+  description: product.description,
+  openGraph: {
+   title: product.title,
+   description: product.description,
+   images: [product.featuredImage?.url ?? '', ...product.images.edges.map((edge) => edge.node.url)],
+  },
+ }
+}
 
 async function ProductPage({ params }: { params: { pid: string } }) {
  const { pid } = params

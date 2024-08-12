@@ -6,6 +6,62 @@ import React from 'react'
 import PageBanner from '../../[...slug]/page-banner'
 import PageBtn from '../../[...slug]/page-btn'
 import Sort from '../../[...slug]/sort'
+import { Metadata, ResolvingMetadata } from 'next'
+
+type MetaProps = {
+ params: { slug: string[] }
+ searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export async function generateMetadata({ params, searchParams }: MetaProps, parent: ResolvingMetadata): Promise<Metadata> {
+ const colName = params.slug ? params.slug.slice(-1)[0] : ''
+ const dir = searchParams.dir ? searchParams.dir.toString() : ''
+ const cursor = searchParams.cursor ? searchParams.cursor.toString() : ''
+ const sort = searchParams.sort ? searchParams.sort.toString() : ''
+
+ //  console.log('slug page params:', params)
+
+ const selectedSort = sortOptions.find((option) => option.id === sort)
+ const sortParams = selectedSort ? { sortKey: selectedSort.value, reverse: selectedSort.reverse } : { sortKey: 'TITLE', reverse: false }
+
+ const collectionInfo = params.slug
+  ? await storeApi
+     .getFullCollectionByHandle({
+      handle: colName,
+      sortKey: sortParams.sortKey === 'CREATED' ? 'CREATED_AT' : sortParams.sortKey,
+      reverse: sortParams.reverse,
+      numProducts: 24,
+      cursor: cursor ?? '',
+      dir,
+     })
+     .then((res) => res.collectionInfo)
+  : null
+ const allData = !params.slug
+  ? await storeApi.getAllProducts({
+     sortKey: sortParams.sortKey === 'CREATED' ? 'CREATED_AT' : sortParams.sortKey,
+     reverse: sortParams.reverse,
+     numProducts: 24,
+     cursor: cursor ?? '',
+     dir,
+    })
+  : null
+
+ const description = collectionInfo
+  ? `${collectionInfo.title} Vinyl Decals and Vehicle Back Window Graphics at Ink Monkey LLC`
+  : 'Only the highest quality decals, vehicle back window decals, custom designs, and more!'
+
+ const previousImages = (await parent).openGraph?.images || []
+
+ return {
+  title: 'Vinyl Decals and Window Graphics',
+  description: description,
+  openGraph: {
+   title: 'Vinyl Decals and Window Graphics',
+   description: description,
+   images: [collectionInfo?.image ?? '', ...previousImages],
+  },
+ }
+}
 
 async function AllProducts({ params, searchParams }: { params: { slug: string[] }; searchParams: { [key: string]: string | string[] | undefined } }) {
  const colName = params.slug ? params.slug.slice(-1)[0] : ''

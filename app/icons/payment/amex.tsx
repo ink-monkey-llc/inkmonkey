@@ -9,7 +9,6 @@ function Amex() {
    viewBox='0 0 38 24'
    width='38'
    height='24'>
-   <title id='pi-american_express'>American Express</title>
    <path
     fill='#000'
     d='M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3Z'

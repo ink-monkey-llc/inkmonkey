@@ -9,7 +9,7 @@ import '@/app/globals.css'
 export const metadata: Metadata = {
  title: 'Ink Monkey',
  description:
-  'Discover the ultimate destination for all your decal needs at Ink Monkey! Specializing in an extensive range of decals, we cater to both custom requests and our unique in-house designs. From compact laptop stickers to full wall graphics to vehicle back window graphics made of perforated vinyl, we have everything!',
+  'Discover the ultimate destination for all your decal needs at Ink Monkey! Specializing in an extensive range of decals. Design your own decal with our powerful AI design tool "Fonzai", or choose from our countless in-house designs. From compact laptop stickers to full wall graphics to vehicle back window graphics made of perforated vinyl, we have everything!',
 }
 
 export default function RootLayout({
