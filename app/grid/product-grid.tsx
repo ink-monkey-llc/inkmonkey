@@ -23,7 +23,7 @@ function ProductGrid({ collectionName, products, isSearch = false }: { collectio
    {noProds && <div className='text-xl text-center'>{collectionName} designs coming soon!</div>}
    <div
     className={cn(
-     ' grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 justify-start pl-4 m-auto w-11/12 ml-auto hidden sm:grid',
+     ' grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 justify-start pl-4 m-auto w-full ml-auto hidden sm:grid ',
      isSearch && 'sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-7'
     )}>
     {filtered.map((product) => (
