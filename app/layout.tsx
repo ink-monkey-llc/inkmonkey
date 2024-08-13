@@ -22,6 +22,7 @@ export default function RootLayout({
 }>) {
  return (
   <html lang='en'>
+   <Analytics />
    <body className={cn('relative  m-auto overflow-x-hidden', outfit.className)}>
     <div id='modal-root' />
     <Header />
