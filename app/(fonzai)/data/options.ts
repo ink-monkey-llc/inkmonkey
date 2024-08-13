@@ -21,48 +21,6 @@ export type Secondary = {
 
 export const options = [
  {
-  id: 'pr',
-  label: 'Promo Decal',
-  handle: 'ai-decal-promo',
-  disabled: false,
-  secondaryVariant: 'none',
-  variants: [
-   {
-    size: '3"',
-    secondary: [
-     {
-      id: 'pr1',
-      label: '3"',
-      ar: '1:1',
-      grid: true,
-     },
-    ],
-   },
-   {
-    size: '4"',
-    secondary: [
-     {
-      id: 'pr2',
-      label: '4"',
-      ar: '1:1',
-      grid: true,
-     },
-    ],
-   },
-   {
-    size: '5"',
-    secondary: [
-     {
-      id: 'pr3',
-      label: '5"',
-      ar: '1:1',
-      grid: true,
-     },
-    ],
-   },
-  ],
- },
- {
   id: 'de',
   label: 'Contour Cut Decal',
   handle: 'ai-designed-contour-cut-decal',
