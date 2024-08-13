@@ -7,12 +7,14 @@ import Carousel from './carousel/carousel-nossr'
 import Footer from './footer/footer'
 import FonzBanner from './featured/fonz-banner/fonz-banner'
 import '@/app/globals.css'
+import CtBanner from './featured/cybertruck/ct-banner'
 
 export default function Home() {
  return (
   <main className=' flex min-h-screen flex-col items-center justify-between overflow-hidden '>
    <Hero />
    <FonzBanner />
+   <CtBanner />
    <Featured
     type='decals'
     productsAmount={36}
