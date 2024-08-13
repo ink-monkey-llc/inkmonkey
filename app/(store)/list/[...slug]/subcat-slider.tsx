@@ -28,7 +28,7 @@ function SubcatSlider({ subitems }: { subitems: MenuItem[] | undefined }) {
  const url = `/list/${slug[0]}/${slug[1]}/${slug[2]}`
 
  return (
-  <div className='relative w-full flex'>
+  <div className='relative w-full flex pl-12 sm:pl-0'>
    <div
     id='left'
     onClick={() => handleClick('left')}

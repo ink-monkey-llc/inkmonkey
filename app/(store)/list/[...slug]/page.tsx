@@ -99,7 +99,6 @@ async function ProductType({ params, searchParams }: { params: { slug: string[] 
      })
 
  const { products, pageInfo, collectionInfo } = await dataObj
- //  console.log('dataObj:', await dataObj)
 
  return (
   <div className='pb-12 relative w-full overflow-hidden'>
@@ -109,8 +108,14 @@ async function ProductType({ params, searchParams }: { params: { slug: string[] 
    />
    <SubCats params={params} />
    <Sort />
-   <MobileGrid products={products} />
-   <ProductGrid products={products} />
+   <MobileGrid
+    collectionName={collectionInfo?.title}
+    products={products}
+   />
+   <ProductGrid
+    collectionName={collectionInfo?.title}
+    products={products}
+   />
    <div className='flex justify-center gap-8 mt-6 absolute bottom-0 left-0 right-0 w-full mb-6'>
     {pageInfo.hasPreviousPage && (
      <PageBtn

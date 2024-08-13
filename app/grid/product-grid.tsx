@@ -13,24 +13,29 @@ const Loader = () => {
  )
 }
 
-function ProductGrid({ products, isSearch = false }: { products: ShopifyProduct[]; isSearch?: boolean }) {
+function ProductGrid({ collectionName, products, isSearch = false }: { collectionName?: string; products: ShopifyProduct[]; isSearch?: boolean }) {
  const filtered = products.filter((product) => !excludeProducts.includes(product.handle))
+
+ const noProds = filtered.length === 0
+
  return (
-  // <div className='grid gap-8 p-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4'>
-  <div
-   className={cn(
-    ' grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 justify-start pl-4 m-auto w-11/12 ml-auto hidden sm:grid',
-    isSearch && 'sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-7'
-   )}>
-   {filtered.map((product) => (
-    <Suspense
-     fallback={<Loader />}
-     key={product.id}>
-     <GridItem product={product} />
-     {/* <TempGridItem product={product} /> */}
-    </Suspense>
-   ))}
-  </div>
+  <>
+   {noProds && <div className='text-xl text-center'>{collectionName} designs coming soon!</div>}
+   <div
+    className={cn(
+     ' grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 justify-start pl-4 m-auto w-11/12 ml-auto hidden sm:grid',
+     isSearch && 'sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-7'
+    )}>
+    {filtered.map((product) => (
+     <Suspense
+      fallback={<Loader />}
+      key={product.id}>
+      <GridItem product={product} />
+      {/* <TempGridItem product={product} /> */}
+     </Suspense>
+    ))}
+   </div>
+  </>
  )
 }
 
