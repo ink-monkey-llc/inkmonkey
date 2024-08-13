@@ -23,8 +23,8 @@ function SearchForm() {
  }
 
  return (
-  <div className='w-full p-4 flex justify-center items-center'>
-   <div>
+  <div className='w-full p-4 flex justify-center items-start sm:items-center flex-col-reverse sm:flex-row'>
+   <div className='w-full sm:w-auto'>
     <label
      className='text-xl text-txt-primary'
      htmlFor='query'>

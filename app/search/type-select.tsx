@@ -31,19 +31,19 @@ function TypeSelect({ query }: { query: string }) {
 
  return (
   <div
-   className='w-full max-w-64'
+   className='w-full sm:max-w-64'
    ref={popoverRef}>
-   <div className='flex flex-col ml-4 w-64'>
+   <div className='flex flex-col ml-0 sm:ml-4 sm:w-64'>
     <span className='text-lg'>Product Type:</span>
     <div
      onClick={() => setOpen(!open)}
-     className='bg-bg-tertiary border border-slate-tr gap-2 flex justify-between items-center rounded-md px-2 py-1 h-[34px] cursor-pointer w-64'>
+     className='bg-bg-tertiary border border-slate-tr gap-2 flex justify-between items-center rounded-md px-2 py-1 h-[34px] cursor-pointer sm:w-64'>
      <span className='font-sans '>{productType.label}</span>
     </div>
    </div>
    <div
     id='sort-menu'
-    className={cn('bg-bg-tertiary mt-1 ml-4 rounded-md px-1 py-1 z-20 absolute w-64 border border-slate-tr', open ? 'fade-in' : 'fade-out')}>
+    className={cn('bg-bg-tertiary mt-1  sm:ml-4 rounded-md px-1 py-1 z-20 absolute w-64 border border-slate-tr', open ? 'fade-in' : 'fade-out')}>
     {searchTypes.map((type, i) => (
      <div
       onClick={() => handleSelect(type.id)}
