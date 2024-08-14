@@ -1,5 +1,13 @@
 import { ShopifyProduct, ProductOption, ProductVariant } from '@/lib/shopify/types'
 
+export function createArray(): string[] {
+ let result: string[] = []
+ for (let i = 1; i <= 21; i++) {
+  result.push(`q${i}`)
+ }
+ return result
+}
+
 export function formatPathname(pathname: string): string {
  return pathname.replace(/-/g, ' ')
 }

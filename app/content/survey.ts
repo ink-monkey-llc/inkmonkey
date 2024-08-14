@@ -11,7 +11,7 @@ export type QuestionData = {
 export type Answer = {
  id: string
  label: string
- value: string
+ value?: string
  detailsLabel?: string
  details?: string
 }
@@ -85,6 +85,7 @@ export const questions: QuestionData[] = [
   label: 'Did you know you could add text to your FONZAI designs?',
   boolean: true,
   details: false,
+  dependsOn: 'q5',
  },
  {
   id: 'q10',

@@ -39,6 +39,10 @@
   background-color: #d2ac53;
 }
 
+.sk-fading-circle.dark .sk-circle:before {
+  background-color: #000;
+}
+
 .sk-fading-circle .sk-circle2 {
   -webkit-transform: rotate(30deg);
   -ms-transform: rotate(30deg);
