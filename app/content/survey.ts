@@ -9,6 +9,7 @@ export type QuestionData = {
 }
 
 export type Answer = {
+ isCompleted: boolean
  id: string
  label: string
  value?: string

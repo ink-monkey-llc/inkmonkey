@@ -1,45 +1,20 @@
 'use client'
 import React, { useState } from 'react'
 import { questions, Answer } from '@/app/content/survey'
-import { useLocalStorage } from 'usehooks-ts'
 import SurveyQuestion from './survey-question'
-import { createArray } from '@/utils/helpers'
 import { cn } from '@/utils/cn'
 import Spinner from '@/app/spinner/spinner'
+import { useAtom } from 'jotai'
+import { discAuthAtom, isSubmittingAtom, incompleteAtom, answersAtom, questionsAtom } from './state/survey-atoms'
 
 function Survey() {
- const [incomplete, setIncomplete] = useState<string[]>([])
- const [isSubmitting, setIsSubmitting] = useState(false)
- const [discountAuth, setDiscountAuth] = useLocalStorage('discountAuth', { authorized: false })
- const [answers, setAnswers] = useState<Answer[] | []>([
-  {
-   id: 'q5',
-   label: 'Did you use FONZAI, our AI design playground?',
-   value: 'Yes',
-   detailsLabel: '',
-   details: '',
-  },
- ])
-
- const didUseFonz = answers.find((answer) => answer.id === 'q5')?.value === 'Yes'
- const fonzQuestions = questions.filter((question) => question.dependsOn === 'q5')
- const fonzRelated = fonzQuestions.map((question) => question.id)
-
- const getIncomplete = () => {
-  const allIds = createArray()
-  const completeIds = answers.map((answer) => answer.id)
-  return allIds.filter((id) => !completeIds.includes(id))
- }
+ const [answers, setAnswers] = useAtom(answersAtom)
+ const [qs] = useAtom(questionsAtom)
+ const [incomplete, setIncomplete] = useAtom(incompleteAtom)
+ const [isSubmitting, setIsSubmitting] = useAtom(isSubmittingAtom)
+ const [discAuth, setDiscAuth] = useAtom(discAuthAtom)
 
  const handleSubmit = async () => {
-  let incompleteIds = getIncomplete()
-  if (!didUseFonz) {
-   incompleteIds = incompleteIds.filter((id) => !fonzRelated.includes(id))
-  }
-  if (incompleteIds.length > 0) {
-   setIncomplete(incompleteIds)
-   return
-  }
   setIsSubmitting(true)
   const res = await fetch('/api/send', {
    method: 'POST',
@@ -51,7 +26,7 @@ function Survey() {
   if (res.ok) {
    setIsSubmitting(false)
    setIncomplete([])
-   setDiscountAuth({ authorized: true })
+   setDiscAuth({ authorized: true })
   }
  }
 
@@ -63,11 +38,7 @@ function Survey() {
    <div className='flex flex-col gap-4 max-w-[600px] m-auto'>
     {questions.map((question, i) => (
      <SurveyQuestion
-      incomplete={incomplete}
-      setIncomplete={setIncomplete}
-      didUseFonz={didUseFonz}
-      answers={answers}
-      setAnswers={setAnswers}
+      atom={qs[question.id as keyof typeof qs]}
       key={question.id}
       question={question}
      />
