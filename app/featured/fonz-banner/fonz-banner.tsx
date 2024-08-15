@@ -8,7 +8,7 @@ import Mockup from './mockup'
 
 function FonzBanner() {
  return (
-  <div className='w-full border-t-8 border-accent-tr px-8 md:px-4 py-4 bg-robot bg-cover bg-center'>
+  <div className='w-full border-t-0 border-accent-tr px-8 md:px-4 py-4 bg-robot bg-cover bg-center'>
    <div className=' flex flex-col  m-auto md:flex-row md:max-w-full max-w-[400px] lg:max-w-[900px] '>
     <div className='flex flex-col gap-4 mb-4 md:w-1/2 pr-4'>
      <Link href='/fonzai'>

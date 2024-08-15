@@ -27,17 +27,17 @@ function Discount() {
   setTimeout(() => setCopied(false), 1000)
  }
  return (
-  <div className='h-main w-full flex justify-center items-center'>
+  <div className='h-main w-full flex flex-col justify-center items-center px-4'>
    <div className='p-8 bg-bg-primary rounded-md max-w-[600px] m-auto'>
     <h1 className='text-2xl mb-2 text-accent text-center'>Thank you for completing the survey!</h1>{' '}
-    <p className='text-txt-secondary'>
+    <p className='text-txt-secondary text-center '>
      Use our AI design playground,{' '}
      <Link
       href='/fonzai'
       className='underline text-lg text-accent-bright'>
       FONZAI
      </Link>{' '}
-     to design a <span className='text-lg font-bold text-white'>free</span> contour-cut decal
+     to design a <span className='text-lg font-semibold text-white'>free</span> contour-cut decal
     </p>
     <p className='text-txt-secondary mt-2 text-center'>Just enter this code at checkout:</p>
     <p className={cn('text-txt-secondary opacity-0 text-sm text-center', copied && 'opacity-1')}>Copied to clipboard!</p>
@@ -57,6 +57,9 @@ function Discount() {
      height={400}
     />
    </div>
+   <p className='text-center text-txt-secondary mt-8 mb-2'>
+    If you experience any issues redeeming your discount code, please email us at inkmonkeyllc@gmail.com
+   </p>
   </div>
  )
 }
