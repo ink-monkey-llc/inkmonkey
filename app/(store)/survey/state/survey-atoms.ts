@@ -1,15 +1,13 @@
 import { atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
-import { QuestionData, Answer } from '@/app/content/survey'
+import { Answer } from '@/app/content/survey'
 
 export const answerDefault = { isCompleted: false, label: '', value: '', detailsLabel: '', details: '' }
 
-export const incompleteAtom = atom<string[]>([])
 export const initSubmitAtom = atom(false)
 export const isSubmittingAtom = atom(false)
 export const discAuthAtom = atomWithStorage('discountAuth', { authorized: false })
 
-export const answersAtom = atom<Answer[]>([])
 export const a1Atom = atom<Answer>({ id: 'q1', ...answerDefault })
 export const a2Atom = atom<Answer>({ id: 'q2', ...answerDefault })
 export const a3Atom = atom<Answer>({ id: 'q3', ...answerDefault })

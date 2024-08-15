@@ -1,13 +1,12 @@
 import React from 'react'
-import { questions } from '@/app/content/survey'
-import SurveyRange from './survey-range'
 import { cn } from '@/utils/cn'
-import type { QuestionData } from '@/app/content/survey'
-import SurveyBool from './survey-bool'
+import SurveyRange from './survey-range'
 import SurveyDetails from './survey-details'
+import SurveyBool from './survey-bool'
+import { Check } from '@/app/icons/check'
+import type { QuestionData } from '@/app/content/survey'
 import { useAtom } from 'jotai'
 import { a5Atom, questionsAtom, initSubmitAtom } from './state/survey-atoms'
-import { init } from 'next/dist/compiled/webpack/webpack'
 
 type SurveyQuestionProps = {
  question: QuestionData
@@ -24,8 +23,10 @@ function SurveyQuestion({ question }: SurveyQuestionProps) {
  const isDisabled = isFonzRelated && !didUseFonz
  const isIncomplete = answer?.isCompleted === false && initSubmit
  return (
-  <div className={cn('bg-bg-primary rounded-md p-4 pt-2 border-2 border-transparent', isDisabled && 'hidden', isIncomplete && 'border-2 border-red-600')}>
-   <p className='text-lg pb-2'>{question.label}</p>
+  <div className={cn('bg-bg-primary rounded-md p-4 pt-1 border-2 border-transparent', isDisabled && 'hidden', isIncomplete && 'border-2 border-red-600')}>
+   <Check className={cn('w-6 h-6 ml-auto opacity-15 text-accent-bright', answer?.isCompleted && 'opacity-100')} />
+   <p className='text-lg pb-2 leading-tight'>{question.label}</p>
+
    {question.range && <SurveyRange question={question} />}
    {question.details && <SurveyDetails question={question} />}
    {question.boolean && (

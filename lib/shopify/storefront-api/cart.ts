@@ -1,5 +1,12 @@
 import { client, API_VERSION } from './store-api'
-import { createCartMutation, addToCartMutation, editCartItemsMutation, removeFromCartMutation } from '../mutations/cart'
+import {
+ createCartMutation,
+ addToCartMutation,
+ editCartItemsMutation,
+ removeFromCartMutation,
+ cartDiscountMutation,
+ createCartDiscountMutation,
+} from '../mutations/cart'
 import { getCartQuery } from '../queries/cart'
 import { Cart } from '../types'
 import { reshapeCart } from './helpers'
@@ -78,6 +85,32 @@ const cartApi = {
    throw new Error(errors.message)
   }
   return reshapeCart(data.cartLinesRemove.cart)
+ },
+
+ updateDiscountCodes: async (cartId: string, discountCodes: string[]) => {
+  const { data, errors, extensions } = await client.request(cartDiscountMutation, {
+   variables: {
+    cartId,
+    discountCodes,
+   },
+  })
+  if (errors) {
+   console.log('errors:', errors)
+   throw new Error(errors.message)
+  }
+  return { status: 'success', code: data.cartDiscountCodesUpdate.cart.discountCodes[0].code, cartId: data.cartDiscountCodesUpdate.cart.id }
+ },
+ createCartDiscount: async (discountCodes: string[]) => {
+  const { data, errors, extensions } = await client.request(createCartDiscountMutation, {
+   variables: {
+    discountCodes,
+   },
+  })
+  if (errors) {
+   console.log('errors:', errors)
+   throw new Error(errors.message)
+  }
+  return { status: 'success', code: data.cartCreate.cart.discountCodes[0].code, cartId: data.cartCreate.cart.id }
  },
 }
 

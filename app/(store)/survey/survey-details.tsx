@@ -1,7 +1,7 @@
-import { Answer, QuestionData } from '@/app/content/survey'
+import { QuestionData } from '@/app/content/survey'
 import { useAtom } from 'jotai'
 import React from 'react'
-import { questionsAtom, answerDefault } from './state/survey-atoms'
+import { questionsAtom } from './state/survey-atoms'
 
 type SurveyDetailsProps = {
  question: QuestionData

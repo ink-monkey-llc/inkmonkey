@@ -1,17 +1,30 @@
+import React from 'react'
 import Spinner from '@/app/spinner/spinner'
-import { useAtom } from 'jotai'
+import { useLocalStorage } from 'usehooks-ts'
+import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { useRouter } from 'next/navigation'
 import useValidateAnswers from './useValidateAnswers'
-import React from 'react'
-import { isSubmittingAtom, discAuthAtom, incompleteAtom, answersAtom, initSubmitAtom } from './state/survey-atoms'
+import { useAtom } from 'jotai'
+import { isSubmittingAtom, discAuthAtom, initSubmitAtom } from './state/survey-atoms'
 
 function SurveySubmit() {
  const [isSubmitting, setIsSubmitting] = useAtom(isSubmittingAtom)
  const [discAuth, setDiscAuth] = useAtom(discAuthAtom)
  const [initSubmit, setInitSubmit] = useAtom(initSubmitAtom)
  const { answersData, incomplete } = useValidateAnswers()
-
+ const [userCartId, setUserCartId] = useLocalStorage('userCartId', { id: '', count: 1 })
  const router = useRouter()
+
+ const handleCart = async () => {
+  if (userCartId.id) {
+   const { cartId, code, status } = await storeApi.updateDiscountCodes(userCartId.id, ['SURVEY824'])
+   console.log('cartId:', cartId, 'code:', code, 'status:', status)
+  } else {
+   const { cartId, code, status } = await storeApi.createCartDiscount(['SURVEY824'])
+   setUserCartId({ id: cartId, count: 0 })
+   console.log('cartId:', cartId, 'code:', code, 'status:', status)
+  }
+ }
 
  const handleSubmit = async () => {
   setInitSubmit(true)
@@ -28,6 +41,7 @@ function SurveySubmit() {
   })
   if (res.ok) {
    setIsSubmitting(false)
+   handleCart()
    setDiscAuth({ authorized: true })
    router.push('/survey/discount')
   }

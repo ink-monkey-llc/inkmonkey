@@ -1,8 +1,8 @@
 'use client'
-import { cn } from '@/utils/cn'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import { cn } from '@/utils/cn'
 import { useLocalStorage, useCopyToClipboard } from 'usehooks-ts'
 
 function Discount() {

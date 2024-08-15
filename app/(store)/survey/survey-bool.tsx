@@ -1,6 +1,5 @@
-import { QuestionData, Answer } from '@/app/content/survey'
+import { QuestionData } from '@/app/content/survey'
 import { cn } from '@/utils/cn'
-import { questions } from '@/app/content/survey'
 import React from 'react'
 import { useAtom } from 'jotai'
 import { questionsAtom } from './state/survey-atoms'
@@ -12,8 +11,10 @@ type SurveyBoolProps = {
 function SurveyBool({ question }: SurveyBoolProps) {
  const opts = ['Yes', 'No']
  const [questions] = useAtom(questionsAtom)
+
  const atom = questions[question.id as keyof typeof questions]
  const [answer, setAnswer] = useAtom(atom)
+
  const handleSelect = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
   const id = e.currentTarget.id
   setAnswer({

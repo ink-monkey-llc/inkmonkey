@@ -1,8 +1,6 @@
-import { useMemo } from 'react'
 import { useAtom } from 'jotai'
 import { questions } from '@/app/content/survey'
 import {
- answersAtom,
  a1Atom,
  a2Atom,
  a3Atom,
@@ -26,7 +24,6 @@ import {
  a21Atom,
 } from './state/survey-atoms'
 export default function useValidateAnswers() {
- const [answers, setAnswers] = useAtom(answersAtom)
  const [a1] = useAtom(a1Atom)
  const [a2] = useAtom(a2Atom)
  const [a3] = useAtom(a3Atom)
@@ -76,7 +73,7 @@ export default function useValidateAnswers() {
  if (a5?.value === 'No') {
   incompleteIds = incompleteIds.filter((id) => !dependentIds.includes(id))
  }
+ const progress = (incompleteIds.length * 5 - 100) * -1
  const incomplete = incompleteIds.length > 0 ? true : false
- //  console.log('incomplete:', incompleteIds)
- return { answersData, incomplete }
+ return { answersData, incomplete, progress }
 }
