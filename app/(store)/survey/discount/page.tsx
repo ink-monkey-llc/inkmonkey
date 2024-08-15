@@ -1,5 +1,6 @@
 'use client'
 import { cn } from '@/utils/cn'
+import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { useLocalStorage, useCopyToClipboard } from 'usehooks-ts'
@@ -28,26 +29,33 @@ function Discount() {
  return (
   <div className='h-main w-full flex justify-center items-center'>
    <div className='p-8 bg-bg-primary rounded-md max-w-[600px] m-auto'>
-    <h1 className='text-2xl text-accent'>Thank you for completing the survey!</h1>
+    <h1 className='text-2xl mb-2 text-accent text-center'>Thank you for completing the survey!</h1>{' '}
+    <p className='text-txt-secondary'>
+     Use our AI design playground,{' '}
+     <Link
+      href='/fonzai'
+      className='underline text-lg text-accent-bright'>
+      FONZAI
+     </Link>{' '}
+     to design a <span className='text-lg font-bold text-white'>free</span> contour-cut decal
+    </p>
+    <p className='text-txt-secondary mt-2 text-center'>Just enter this code at checkout:</p>
     <p className={cn('text-txt-secondary opacity-0 text-sm text-center', copied && 'opacity-1')}>Copied to clipboard!</p>
     <div
      onClick={handleCopy}
      className='px-3 py-1 bg-bg-tertiary rounded-md text-xl mb-6 w-max m-auto hover:bg-bg-secondary cursor-pointer'>
      SURVEY824
     </div>
-
     <div className='w-max m-auto'>
-     <p className='mt-2 text-txt-secondary'>Enter this code at checkout to get 1 free</p>
-     <p className='text-white text-lg'>{`3", 4", or 5" contour-cut decal`}</p>
-     <p className='text-txt-secondary '>
-      generated with our AI design tool{` `}
-      <Link
-       href='/fonzai'
-       className='underline text-accent-bright'>
-       FONZAI.
-      </Link>
-     </p>
+     <p className='text-white text-lg'>{`Available decal sizes: 3", 4", or 5"`}</p>
     </div>
+    <Image
+     className='m-auto mt-4 rounded-md'
+     src='/disc-ss.png'
+     alt='discount code screenshot'
+     width={400}
+     height={400}
+    />
    </div>
   </div>
  )
