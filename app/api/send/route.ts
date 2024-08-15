@@ -8,7 +8,7 @@ export async function POST(request: Request) {
  try {
   const { data, error } = await resend.emails.send({
    from: 'jordan@jrobertsweb.dev',
-   to: ['jrobertswebdev@gmail.com'],
+   to: ['inkmonkeyllc@gmail.com'],
    subject: 'Ink Monkey - Website Survey',
    text: 'Survey results are attached',
    attachments: [
