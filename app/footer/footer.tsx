@@ -17,7 +17,11 @@ function Footer() {
      </Link>
      <p>|</p>
      <Link href='/return-policy'>
-      <p className='  text-accent text-start'>Return Policy</p>
+      <p className='w-max  text-accent text-start'>Return Policy</p>
+     </Link>
+     <p>|</p>
+     <Link href='/survey'>
+      <p className=' w-max text-accent text-start'>New Website Survey</p>
      </Link>
     </div>
     {/* <PayMethods /> */}
