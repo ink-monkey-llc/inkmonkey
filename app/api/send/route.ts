@@ -3,6 +3,7 @@ import { Resend } from 'resend'
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: Request) {
+ const dateTime = new Date().toISOString()
  const body = await request.json()
  const jsonBuffer = Buffer.from(JSON.stringify(body))
  try {
@@ -13,7 +14,7 @@ export async function POST(request: Request) {
    text: 'Survey results are attached',
    attachments: [
     {
-     filename: 'survey.json',
+     filename: `survey-${dateTime}.json`,
      content: jsonBuffer,
      content_type: 'application/json',
     },
