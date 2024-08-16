@@ -19,6 +19,8 @@ function Variants({ product }: { product: ShopifyProduct }) {
  const [quantity, setQuantity] = useState(1)
  const router = useRouter()
 
+ const description = product.description
+
  const fetchedVariant = async (variant: Record<string, string>) => {
   return await storeApi.getVariantByOptions({ handle: product.handle, selectedOptions: convertToObjectArray(variant) })
  }

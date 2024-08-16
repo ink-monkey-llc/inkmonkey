@@ -8,7 +8,11 @@ import { Close } from '@/app/icons/close'
 function SurveyBanner() {
  const [open, setOpen] = useState(true)
  return (
-  <div className={cn('sm:absolute sm:top-4 -mb-8 sm:-mb-12 z-50 bg-bg-secondary border-y-8 border-accent-bright w-full', !open && 'hidden')}>
+  <div
+   className={cn(
+    'sm:absolute sm:top-4 -mb-8 sm:-mb-12 z-40 bg-bg-secondary border-y-8 border-accent-bright w-full shadow-md shadow-black/40',
+    !open && 'hidden'
+   )}>
    <div className='relative max-w-[800px] m-auto flex justify-center'>
     <div className='flex flex-col '>
      <div className='flex'>

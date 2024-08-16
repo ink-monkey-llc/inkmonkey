@@ -72,7 +72,12 @@ function BannerContent({ products }: { collectionInfo: ShopifyCollection | undef
     </div>
    </div>
    <div className='max-w-[500px]  m-auto ml-8 md-lg:w-2/5 flex flex-col gap-6 mt-4 items-start justify-center sm:justify-start px-12 md:px-0'>
-    <h2 className={cn('text-4xl sm:text-5xl lg:text-6xl text-accent', smooch.className)}> Truck Back Window Graphics</h2>
+    <h2
+     style={{ textShadow: '0px 4px 6px #000' }}
+     className={cn('text-4xl sm:text-5xl lg:text-6xl text-accent', smooch.className)}>
+     {' '}
+     Truck Back Window Graphics
+    </h2>
     <p className='max-w-lg lg:max-w-[90vw] text-pretty sm:text-balance '>{windowCopy}</p>
     <ul className='list-disc pl-4 text-txt-secondary'>
      <li>High Quality Perforated Vinyl</li>

@@ -36,7 +36,11 @@ async function Featured({ collectionHandles, productsAmount, type }: { collectio
   <div className='w-full border-t-8 border-accent-tr'>
    {/* <div className='w-full hidden sm:block h-20 -mt-20'></div> */}
    <div className='w-full bg-bg-secondary'>
-    <h2 className={cn('text-4xl md:text-5xl text-accent pl-8 pt-8 pb-8', smooch.className)}>Featured {title} Collections:</h2>
+    <h2
+     style={{ textShadow: '0px 4px 6px #00000086' }}
+     className={cn('text-4xl md:text-5xl text-accent pl-8 pt-8 pb-8', smooch.className)}>
+     Featured {title} Collections:
+    </h2>
     <Slider
      type={type}
      collections={collections}

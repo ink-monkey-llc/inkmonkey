@@ -28,6 +28,7 @@ function CartContent({ isModal }: { isModal: boolean }) {
  //  console.log('cart:', cart)
  const lineItems = cart?.lines
  const cartId = cart?.id
+ const discountCodes = cart?.discountCodes
  //  const lastProduct = lineItems && lineItems[0].merchandise.product
  return (
   <div>
@@ -44,7 +45,17 @@ function CartContent({ isModal }: { isModal: boolean }) {
      />
     ))}
    </div>
+
    <div className='p-8 pt-4 bg-bg-secondary border-t border-border fixed bottom-0 left-0 right-0 w-full'>
+    {discountCodes &&
+     discountCodes?.length > 0 &&
+     discountCodes.map((code) => (
+      <p
+       key={code.code}
+       className='text-center text-txt-secondary'>
+       Discount code applied: <span className='text-accent'>{code.code} </span>
+      </p>
+     ))}
     <p className='text-txt-secondary'>Note:</p>
     <textarea
      name='note'

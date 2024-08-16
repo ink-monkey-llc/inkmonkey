@@ -42,6 +42,7 @@ async function ProductPage({ params }: { params: { pid: string } }) {
        product={product}
       />
      </Suspense>
+     <div />
     </div>
     <div className='w-2/3 md:w-1/3 h-full flex flex-col gap-4 pt-6 md:pt-12'>
      <h1 className='text-3xl text-accent px-4'>{product.title}</h1>

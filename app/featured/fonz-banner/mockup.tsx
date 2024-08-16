@@ -14,7 +14,7 @@ function Mockup() {
    onMouseLeave={() => setOpen(false)}
    className='relative overflow-hidden mb-8 '>
    <Image
-    className='border-2 m-auto border-accent object-contain rounded-md'
+    className='border-2 m-auto border-accent object-contain rounded-md shadow-lg shadow-black '
     src={mockup}
     alt='fonzie'
     width={400}
