@@ -5,12 +5,13 @@
 
 ### todo
 
-1. add page banner to layout instead of page
-2. descriptions for product pages
-3. scroll / intro animations for home page
-4. optimize for speed
-5. optimize for SEO
-6. open animations for window customization options
+1. write a readme / documentation
+2. add page banner to layout instead of page
+3. descriptions for product pages
+4. scroll / intro animations for home page
+5. optimize for speed
+6. optimize for SEO
+7. open animations for window customization options
 
 ### ideas
 
