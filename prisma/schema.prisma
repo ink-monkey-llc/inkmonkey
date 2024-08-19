@@ -66,3 +66,9 @@ model WindowSize {
   c       Int
   Vehicle Vehicle[]
 }
+
+model SurveyResults {
+  id      String   @id @default(uuid())
+  json    String
+  createdAt DateTime @default(now())
+}
