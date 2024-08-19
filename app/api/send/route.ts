@@ -35,7 +35,7 @@ export async function POST(request: Request) {
    from: 'jordan@jrobertsweb.dev',
    to: ['jrobertswebdev@gmail.com'],
    subject: 'Ink Monkey - Website Survey',
-   html: `<a href='https://jrr.at/reader/${id}'> View Survey Results </a>`,
+   html: `<a href='https://inkmonkey-git-react-email-team-robots.vercel.app/reader/${id}'> View Survey Results </a>`,
 
    attachments: [
     {
