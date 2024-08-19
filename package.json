@@ -9,7 +9,8 @@
   "fasttrace": "next dev --turbo NEXT_TURBOPACK_TRACING=1",
   "build": "next build",
   "start": "next start",
-  "lint": "next lint"
+  "lint": "next lint",
+  "postinstall": "prisma generate"
  },
  "dependencies": {
   "@prisma/client": "^5.16.2",
