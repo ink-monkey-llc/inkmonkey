@@ -18,6 +18,7 @@ import {
  generatedAtom,
  isLoadingAtom,
 } from '@/app/providers/fonz-atoms'
+import UploadImage from './upload-image'
 
 function ImageGenerate() {
  const [selectedFF, setSelectedFF] = useAtom(selectedFFAtom)
@@ -33,7 +34,7 @@ function ImageGenerate() {
  const isWindow = selectedFF.id === 'wi'
 
  return (
-  <div className={cn('pl-2 h-full overflow-y-scroll', isLoading && 'opacity-40 pointer-events-none')}>
+  <div className={cn('pl-2 pb-4 h-full overflow-y-scroll', isLoading && 'opacity-40 pointer-events-none')}>
    <Logo />
    <div className='my-4'>
     <div className='text-lg pl-2'>Product type</div>
@@ -42,6 +43,7 @@ function ImageGenerate() {
     {showSecVar && secExists && !ffOpen && !sizeOpen && <SecVarSelect />}
    </div>
    <StyleSelect />
+   <UploadImage />
    <Prompt />
   </div>
  )

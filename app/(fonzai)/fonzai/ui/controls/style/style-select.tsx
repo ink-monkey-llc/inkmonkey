@@ -27,7 +27,7 @@ function StyleSelect() {
    <div
     onClick={handleClick}
     className={cn(
-     'bg-bg-tertiary relative mx-2 mt-2 p-1 rounded-md flex items-center justify-between pr-4 cursor-pointer',
+     'bg-bg-tertiary relative mx-2 my-2 p-1 rounded-md flex items-center justify-between pr-4 cursor-pointer',
      isDisabled && 'pointer-events-none'
     )}>
     <div className='flex items-center gap-4'>

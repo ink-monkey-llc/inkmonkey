@@ -14,7 +14,7 @@ function Controls() {
  const [generated, setGenerated] = useAtom(generatedAtom)
  const isModify = generated.productId && generated.productId != ''
  return (
-  <div className={cn('w-1/4 pt-2 relative flex flex-col justify-between ', isMobile && 'w-full')}>
+  <div className={cn('min-w-[25vw] pt-2 relative flex flex-col justify-between ', isMobile && 'w-full')}>
    {isModify ? <Modify /> : <GenerateImage />}
    {isModify ? <NewDesign /> : <Generate />}
   </div>

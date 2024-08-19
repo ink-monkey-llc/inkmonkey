@@ -6,6 +6,11 @@ import { Product, ShopifyProduct } from '@/lib/shopify/types'
 
 export const viewOpenAtom = atom(false)
 
+export const dataUrlAtom = atom('')
+export const uploadingPromptImgAtom = atom(false)
+export const imagePromptSelectedAtom = atom(false)
+export const promptImgDataAtom = atom({ publicID: '', url: '', secure_url: '' })
+
 export const productAtom = atom({
  id: '',
  title: '',
