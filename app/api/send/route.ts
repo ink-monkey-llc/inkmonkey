@@ -3,7 +3,7 @@ import prisma from '@/lib/db'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-export const saveResults = async (data: {
+const saveResults = async (data: {
  [key: string]: string | string[] | undefined
 }): Promise<{
  id: string
