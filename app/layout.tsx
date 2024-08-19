@@ -4,10 +4,12 @@ import Header from '@/app/header/header'
 import { Toaster } from 'react-hot-toast'
 import { outfit } from '@/lib/fonts'
 import { Analytics } from '@vercel/analytics/react'
+import metaBase from '@/metadataBase'
 import 'react-tooltip/dist/react-tooltip.css'
 import '@/app/globals.css'
 
 export const metadata: Metadata = {
+ metadataBase: new URL(metaBase),
  title: 'Ink Monkey',
  description:
   'Discover the ultimate destination for all your decal needs at Ink Monkey! Specializing in an extensive range of decals. Design your own decal with our powerful AI design tool "Fonzai", or choose from our countless in-house designs. From compact laptop stickers to full wall graphics to vehicle back window graphics made of perforated vinyl, we have everything!',

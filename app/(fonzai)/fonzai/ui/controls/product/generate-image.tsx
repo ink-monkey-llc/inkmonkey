@@ -18,7 +18,7 @@ import {
  generatedAtom,
  isLoadingAtom,
 } from '@/app/providers/fonz-atoms'
-import UploadImage from './upload-image'
+import UploadImage from '../image-upload/upload-image'
 
 function ImageGenerate() {
  const [selectedFF, setSelectedFF] = useAtom(selectedFFAtom)

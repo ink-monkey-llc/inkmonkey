@@ -58,7 +58,7 @@ function UploadImage() {
     </div>
    )}
    <label
-    className='pl-2 text-lg'
+    className=' text-lg'
     htmlFor='image-upload'>
     {selected ? 'Your image prompt:' : 'Upload image prompt'}
    </label>

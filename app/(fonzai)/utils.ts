@@ -4,13 +4,15 @@ import { getNouns } from '@/lib/compromise'
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { Product, ShopifyProduct } from '@/lib/shopify/types'
 
-export const assemblePrompt = (prompt: string, style: string, ar?: string, idCode?: string) => {
+export const assemblePrompt = (prompt: string, style: string, ar?: string, idCode?: string, imgUrl?: string) => {
  const fullPrompt = () => {
   if (prompt.endsWith('noprefix')) {
    return prompt
   } else {
    if (idCode?.startsWith('de') || idCode?.startsWith('ts')) {
     return `${decalPrompt} ${style} ${prompt}`
+   } else if (imgUrl !== '') {
+    return `${imgUrl} ${style} ${prompt} --ar ${ar}`
    } else {
     return `${style} ${prompt} --ar ${ar}`
    }

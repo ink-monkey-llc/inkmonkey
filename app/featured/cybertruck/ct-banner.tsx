@@ -16,6 +16,7 @@ function CtBanner() {
     <Image
      className='m-auto border-2 border-accent-tr rounded-sm'
      src='/ct/ct-gif.gif'
+     unoptimized={true}
      alt='cybertruck'
      width={830}
      height={800}

@@ -13,6 +13,7 @@ import {
  selectedFFAtom,
  selectedSizeAtom,
  sizeFilteredAtom,
+ promptImgDataAtom,
  generateErrorAtom,
  selectedStyleAtom,
  selectedSecVarAtom,
@@ -34,6 +35,7 @@ export function useGenerate() {
  const [selectedVariant, setSelectedVariant] = useAtom(selectedVariantAtom)
  const [generateError, setGenerateError] = useAtom(generateErrorAtom)
  const [isLoading, setIsLoading] = useAtom(isLoadingAtom)
+ const [promptImgData, setPromptImgData] = useAtom(promptImgDataAtom)
  const { checkCooldown } = useCooldown()
 
  const router = useRouter()
@@ -44,6 +46,8 @@ export function useGenerate() {
   ar: '4:1',
   grid: false,
  }
+
+ const hasImgPrompt = promptImgData.publicID !== ''
 
  const isWindow = selectedFF.id === 'wi'
  const isMB = selectedFF.id === 'de' || selectedFF.id === 'mb'
@@ -60,7 +64,7 @@ export function useGenerate() {
   setIsGrid(isGrid)
   const messageData = {
    event: 'generate',
-   prompt: assemblePrompt(prompt, selectedStyle.prompt, ar, idCode),
+   prompt: assemblePrompt(prompt, selectedStyle.prompt, ar, idCode, hasImgPrompt ? promptImgData.secure_url : ''),
    productId,
    isGrid,
    ff: selectedFF.id,
