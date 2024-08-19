@@ -1,5 +1,6 @@
 import { Resend } from 'resend'
 import prisma from '@/lib/db'
+import Email from '@/app/(store)/email/results-link'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -33,9 +34,9 @@ export async function POST(request: Request) {
  try {
   const { data, error } = await resend.emails.send({
    from: 'jordan@jrobertsweb.dev',
-   to: ['jrobertswebdev@gmail.com'],
+   to: ['inkmonkeyllc@gmail.com', 'jordan@inkmonkeyllc.com'],
    subject: 'Ink Monkey - Website Survey',
-   html: `<a href='https://inkmonkey-git-react-email-team-robots.vercel.app/reader/${id}'> View Survey Results </a>`,
+   react: Email({ id }),
 
    attachments: [
     {
