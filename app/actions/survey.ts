@@ -7,3 +7,8 @@ export const getResults = async (id: string) => {
  })
  return result
 }
+
+export const getAllResults = async () => {
+ const result = await prisma.surveyResults.findMany()
+ return result
+}
