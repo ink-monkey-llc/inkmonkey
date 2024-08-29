@@ -22,6 +22,9 @@ function Variants({ product }: { product: ShopifyProduct }) {
 
  const description = product.description
 
+ //  console.log('product.options:', product.options)
+ const isCard = product.productType === 'Credit Card Skin'
+
  const fetchedVariant = async (variant: Record<string, string>) => {
   return await storeApi.getVariantByOptions({ handle: product.handle, selectedOptions: convertToObjectArray(variant) })
  }
@@ -53,14 +56,15 @@ function Variants({ product }: { product: ShopifyProduct }) {
     price={selectedVariant?.price ? selectedVariant?.price.amount : '0'}
    />
    <div>
-    {product.options.map((option, i) => (
-     <VariantSelect
-      setSelectedOptions={handleSelect}
-      selectedOptions={selectedOptions}
-      option={option}
-      key={option.id}
-     />
-    ))}
+    {!isCard &&
+     product.options.map((option, i) => (
+      <VariantSelect
+       setSelectedOptions={handleSelect}
+       selectedOptions={selectedOptions}
+       option={option}
+       key={option.id}
+      />
+     ))}
    </div>
    <Customization
     isCustom={isCustom}

@@ -10,7 +10,7 @@ function Customization({ customization, isCustom, setCustomization }: Customizat
  return (
   <div className={cn(!isCustom && 'hidden')}>
    <h2>
-    Personalization Details <br /> (name, business info, text color, placement, etc.)
+    Personalization Details <span className='text-xs text-txt-secondary pl-1'> *optional</span> <br /> (name, business info, text color, placement, etc.)
    </h2>
    <textarea
     rows={3}

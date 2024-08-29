@@ -17,7 +17,8 @@ function Hero() {
      className={cn('text-7xl sm:text-8xl text-accent-bright text-center z-20 xl:text-9xl mb-[20vh] md:mb-16  ', smooch.className)}>
      Ink Monkey
     </h1>
-    <ProductTypesXs /> <HeroCta />
+    {/* <ProductTypesXs /> */}
+    <HeroCta />
    </div>
    <div
     id='hero-img'
