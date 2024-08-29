@@ -10,7 +10,7 @@ function ComContent() {
    <h2
     style={{ textShadow: '0px 4px 6px #000' }}
     className={cn(
-     'text-4xl sm:text-5xl md:text-6xl text-txt-primary p-4 text-center rounded-t-md w-2/3 bg-backdrop backdrop-blur-sm m-auto mt-8 ',
+     'text-4xl sm:text-5xl md:text-6xl text-txt-primary p-4 text-center rounded-md w-2/3 bg-backdrop backdrop-blur-sm m-auto mt-8 ',
      smooch.className
     )}>
     Industry Leader in Commercial Window Graphics

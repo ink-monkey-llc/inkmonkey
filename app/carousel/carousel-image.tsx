@@ -38,7 +38,9 @@ function CarouselImage({ img }: { img: CarouselImage }) {
      hover && 'card-show',
      !hover && 'card-hide'
     )}>
-    <h2 className={cn('text-xl sm:text-5xl text-center text-accent-bright text-wrap', smooch.className, isEntertain && 'text-[2rem]')}>{img.title}</h2>
+    <h2 className={cn('text-xl w-full leading-tight sm:text-5xl text-center text-accent-bright text-wrap', smooch.className, isEntertain && 'text-base')}>
+     {img.title}
+    </h2>
    </div>
   </Link>
  )

@@ -54,7 +54,7 @@ const collectionApi = {
    //  throw new Error(errors.message)
   }
   // console.log('data:', await data)
-  if (!data.collection) {
+  if (!data?.collection) {
    return { products: [], pageInfo: { hasNextPage: false, hasPreviousPage: false, startCursor: null, endCursor: null } }
   }
   const { handle, title, description, updatedAt, seo, image, id } = data.collection
