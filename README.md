@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<a href='ink-monkey.com'>
 
-## Getting Started
+# Ink-monkey.com - ecommerce storefront
 
-First, run the development server:
+![ink monkey logo](/public/logo/logo-no-txt-sm.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+</a>
+<hr >
+Ink-monkey.com is an ecommerce storefront for Ink Monkey LLC, selling vinyl decals, vehicle and building window graphics, credit card skins and more.
+<hr>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Technology
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project is written in Typescript and using the Next.js fullstack framework. TailwindCSS is used for styling, Jotai for some state management, Prisma ORM for database interaction, and the shopify headless api for managing products and checkouts. The image generator app uses websockets to connect with Midjourney over discord, store generated images with cloudinary, and display them for purchase as a physical decal or graphic to be printed and delivered to the customer.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Features
 
-## Learn More
+The site is a fully featured ecommerce application with all bespoke product galleries, product pages, shopping cart, product search and filtering.
+An AI image generating application is integrated, allowing users to generate an image using Midjourney and then purchase a decal using the design.
 
-To learn more about Next.js, take a look at the following resources:
+<a href='ink-monkey.com'>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## ink-monkey.com</a>
