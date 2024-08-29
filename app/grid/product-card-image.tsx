@@ -4,7 +4,7 @@ import React, { useState, useTransition } from 'react'
 import { useWindowSize } from 'usehooks-ts'
 import Image from 'next/image'
 import ImageSlider from './image-slider'
-
+import { cn } from '@/utils/cn'
 import type { ShopifyProduct, Image as ImageType } from '@/lib/shopify/types'
 
 export type FeatImageData = {
@@ -21,6 +21,7 @@ function ProductCardImage({ product, featImgData, imgDataArr }: ProductCardImage
  const { width } = useWindowSize()
  const [showSlider, setShowSlider] = useState(false)
  const [isPending, startTransition] = useTransition()
+ const isCard = product.productType === 'Credit Card Skin'
  const imgData = imgDataArr.map((imgData) => imgData.url)
  const multipleImgs = imgDataArr.length > 1
  const handleMouse = (arg: boolean) => {
@@ -38,7 +39,7 @@ function ProductCardImage({ product, featImgData, imgDataArr }: ProductCardImage
     />
    )}
    <Image
-    className='object-cover'
+    className={cn('object-cover', isCard && 'object-contain')}
     style={{
      display: 'auto',
      position: 'absolute',
