@@ -16,8 +16,9 @@ export const reshapeImages = (images: Connection<Image>, productTitle: string) =
  })
 }
 
-export const reshapeCart = (cart: ShopifyCart): Cart => {
- if (!cart.cost?.totalTaxAmount) {
+export const reshapeCart = (cart: ShopifyCart): Cart | null => {
+ if (!cart) return null
+ if (!cart?.cost?.totalTaxAmount) {
   cart.cost.totalTaxAmount = {
    amount: '0.0',
    currencyCode: 'USD',

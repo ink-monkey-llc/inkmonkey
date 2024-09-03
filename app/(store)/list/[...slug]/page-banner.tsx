@@ -6,7 +6,8 @@ import type { ShopifyCollection } from '@/lib/shopify/types'
 import logo from '@/public/logo/logo-no-txt.png'
 
 function PageBanner({ query, collectionInfo }: { query: string; collectionInfo?: ShopifyCollection | undefined }) {
- const productTypeHeader = query === 'Vinyl Decal' ? 'Vinyl Stickers & Decals' : query === 'all' ? 'All Products' : query
+ const productTypeHeader =
+  query === 'Vinyl Decal' ? 'Vinyl Stickers & Decals' : query === 'all' ? 'All Products' : query === 'Credit Card Skin' ? 'Credit Card Skins' : query
  const isAll = query === 'all'
  return (
   <div className='w-full bg-bg-primary flex sm:justify-center items-center p-4 relative pl-16 sm:pl-0'>

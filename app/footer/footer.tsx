@@ -28,7 +28,7 @@ function Footer() {
         {links.resources.links.map((link) => (
          <li key={link.label}>
           <Link
-           className='text-accent hover:text-accent-bright text-sm'
+           className='text-accent hover:text-accent-bright text-sm underline'
            href={link.href}>
            {link.label}
           </Link>
@@ -42,7 +42,7 @@ function Footer() {
         {links.products.links.map((link) => (
          <li key={link.label}>
           <Link
-           className='text-accent text-sm hover:text-accent-bright'
+           className='text-accent text-sm hover:text-accent-bright underline'
            href={link.href}>
            {link.label}
           </Link>
