@@ -9,7 +9,7 @@ function ImageCard({ product, fonz }: { product: ShopifyProduct; fonz?: boolean 
  const amount = Number(product.priceRange.minVariantPrice.amount)
  const isWindow = product.productType === 'Truck Back Window `Graphics'
  return (
-  <div className='min-w-[220px] m-auto h-[300px] flex flex-col relative mb-4 rounded-md border-2 border-transparent hover:border-accent p-2 transition-all shadow-md hover:shadow-black hover:scale-[105%]'>
+  <div className='min-w-[220px] m-auto h-[300px] flex flex-col relative  rounded-md border-2 border-transparent hover:border-accent p-2 transition-all shadow-md hover:shadow-black hover:scale-[105%] '>
    <Link
     target={fonz ? '_blank' : ''}
     rel='noopener noreferrer'

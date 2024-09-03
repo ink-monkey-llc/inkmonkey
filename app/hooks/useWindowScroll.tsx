@@ -1,19 +1,16 @@
 import { useCallback, useLayoutEffect, useState } from 'react'
 
-// Define the state type
 interface ScrollState {
  x: number | null
  y: number | null
 }
 
-// Define the scroll options type
 type ScrollOptions = {
  top?: number
  left?: number
  behavior?: 'auto' | 'smooth'
 }
 
-// Define the scrollTo function type
 type ScrollToFunction = {
  (options: ScrollOptions): void
  (x: number, y: number): void
