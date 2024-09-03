@@ -34,7 +34,7 @@ export async function POST(request: Request) {
  try {
   const { data, error } = await resend.emails.send({
    from: 'jordan@jrobertsweb.dev',
-   to: ['inkmonkeyllc@gmail.com', 'jordan@inkmonkeyllc.com'],
+   to: ['inkmonkeyllc@gmail.com', 'jordan.inkmonkey@gmail.com'],
    subject: 'Ink Monkey - Website Survey',
    react: Email({ id }),
 

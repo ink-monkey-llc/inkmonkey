@@ -1,10 +1,10 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
- const siteUrl = 'https://jrr.at'
+ const siteUrl = 'https://www.ink-monkey.com'
  return [
   {
-   url: 'https://jrr.at',
+   url: 'https://www.ink-monkey.com',
    lastModified: new Date(),
    changeFrequency: 'weekly',
    priority: 1,
@@ -40,7 +40,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
    priority: 0.8,
   },
   {
-   url: `${siteUrl}/list/Vinyl-Decal`,
+   url: `${siteUrl}/list/Truck-Back-Window-Graphics`,
+   lastModified: new Date(),
+   changeFrequency: 'daily',
+   priority: 0.8,
+  },
+  {
+   url: `${siteUrl}/list/Credit-Card-Skin`,
    lastModified: new Date(),
    changeFrequency: 'daily',
    priority: 0.8,
