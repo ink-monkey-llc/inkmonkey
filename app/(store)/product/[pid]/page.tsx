@@ -34,8 +34,31 @@ async function ProductPage({ params }: { params: { pid: string } }) {
  const { pid } = params
  const product: ShopifyProduct = await storeApi.getProductByHandle({ handle: pid })
 
+ const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': ['Product', 'Decal'],
+  name: product.title,
+  image: product.featuredImage?.url ?? '',
+  description: product.description,
+  sku: product.handle,
+  brand: {
+   '@type': 'Thing',
+   name: 'Ink Monkey',
+  },
+  offers: {
+   '@type': 'Offer',
+   availability: 'https://schema.org/InStock',
+   price: product.priceRange.minVariantPrice.amount,
+   priceCurrency: product.priceRange.minVariantPrice.currencyCode,
+  },
+ }
+
  return (
   <div className='flex flex-col items-center justify-center w-full max-w-[1400px] m-auto'>
+   <script
+    type='application/ld+json'
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+   />
    <BackButton />
    <div className='flex flex-col md:flex-row items-center justify-center w-full max-w-[1400px] m-auto'>
     <div className='w-full md:w-2/3 h-full'>
