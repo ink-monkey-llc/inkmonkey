@@ -1,4 +1,0 @@
-- submit form
-- send json in email to store email address
-- give user discount code
-- add discount code to their local storage

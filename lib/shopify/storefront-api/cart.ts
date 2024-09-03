@@ -50,6 +50,9 @@ const cartApi = {
    },
    apiVersion: API_VERSION,
   })
+  if (!data?.cart) {
+   return null
+  }
   if (errors) {
    console.log('errors:', errors)
    throw new Error(errors.message)
