@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 import { Languages } from 'next/dist/lib/metadata/types/alternative-urls-types'
-
+import { sitemapUrls } from './content/sitemap-data'
 type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -46,32 +46,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
    changeFrequency: 'daily',
    priority: 0.8,
   },
-  ...categories.map((category) => ({
-   url: `${decalsUrl}/${category}`,
-   lastModified: new Date(),
-   changeFrequency: 'daily' as const,
-   priority: 0.8,
-  })),
+  //   ...categories.map((category) => ({
+  //    url: `${decalsUrl}/${category}`,
+  //    lastModified: new Date(),
+  //    changeFrequency: 'daily' as const,
+  //    priority: 0.8,
+  //   })),
   {
    url: windowUrl,
    lastModified: new Date(),
    changeFrequency: 'daily',
    priority: 0.8,
   },
-  ...categories.map((category) => ({
-   url: `${windowUrl}/${category}`,
-   lastModified: new Date(),
-   changeFrequency: 'daily' as const,
-   priority: 0.8,
-  })),
+  //   ...categories.map((category) => ({
+  //    url: `${windowUrl}/${category}`,
+  //    lastModified: new Date(),
+  //    changeFrequency: 'daily' as const,
+  //    priority: 0.8,
+  //   })),
   {
    url: creditUrl,
    lastModified: new Date(),
    changeFrequency: 'daily',
    priority: 0.8,
   },
-  ...categories.map((category) => ({
-   url: `${creditUrl}/${category}`,
+  //   ...categories.map((category) => ({
+  //    url: `${creditUrl}/${category}`,
+  //    lastModified: new Date(),
+  //    changeFrequency: 'daily' as const,
+  //    priority: 0.8,
+  //   })),
+  ...sitemapUrls.map((url) => ({
+   url: url as string,
    lastModified: new Date(),
    changeFrequency: 'daily' as const,
    priority: 0.8,
