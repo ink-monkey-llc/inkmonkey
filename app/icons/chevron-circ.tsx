@@ -2,7 +2,7 @@ import { SVGProps } from 'react'
 import { cn } from '../../utils/cn'
 
 export function ChevronCirc({ dir, className }: { dir: string; className: string }, props: SVGProps<SVGSVGElement>) {
- const direction = dir === 'right' ? 'rotate-180' : 'rotate-0'
+ const direction = dir === 'right' ? 'rotate-180' : dir === 'up' ? 'rotate-90' : 'rotate-0'
  return (
   <svg
    xmlns='http://www.w3.org/2000/svg'

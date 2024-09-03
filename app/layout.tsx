@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/react'
 import metaBase from '@/metadataBase'
 import 'react-tooltip/dist/react-tooltip.css'
 import '@/app/globals.css'
+import ScrollUpBtn from './scroll-up/scroll-up-btn'
 
 export const metadata: Metadata = {
  metadataBase: new URL(metaBase),
@@ -31,6 +32,7 @@ export default function RootLayout({
     <Toaster />
     {cart}
     {children}
+    <ScrollUpBtn />
    </body>
   </html>
  )
