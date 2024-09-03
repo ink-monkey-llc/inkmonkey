@@ -2,9 +2,11 @@
 
 ### todo
 
-1. add page banner to layout instead of page
-2. descriptions for product pages
-3. open animations for window customization options
+1. redo footer with links and logo
+2. auto scroll to top btn
+3. add page banner to layout instead of page
+4. descriptions for product pages
+5. open animations for window customization options
 
 ### ideas
 
