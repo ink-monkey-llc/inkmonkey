@@ -57,6 +57,7 @@ export async function generateMetadata({ params, searchParams }: MetaProps, pare
   description: description,
   openGraph: {
    title: 'Vinyl Decals and Window Graphics',
+   siteName: 'Ink Monkey',
    description: description,
    images: [collectionInfo?.image ?? '', ...previousImages],
   },

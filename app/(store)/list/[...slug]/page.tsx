@@ -60,6 +60,7 @@ export async function generateMetadata({ params, searchParams }: MetaProps, pare
   description: description,
   openGraph: {
    title: collectionInfo ? collectionInfo?.title : query,
+   siteName: 'Ink Monkey',
    description: description,
    images: [collectionInfo?.image ?? '', ...previousImages],
   },

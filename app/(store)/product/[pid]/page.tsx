@@ -24,6 +24,7 @@ export async function generateMetadata({ params, searchParams }: MetaProps, pare
   description: product.description,
   openGraph: {
    title: product.title,
+   siteName: 'Ink Monkey',
    description: product.description,
    images: [product.featuredImage?.url ?? '', ...product.images.edges.map((edge) => edge.node.url)],
   },
