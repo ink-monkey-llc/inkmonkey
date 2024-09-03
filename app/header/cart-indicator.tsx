@@ -9,15 +9,16 @@ import { Cart } from '@/lib/shopify/types'
 function CartIndicator() {
  const [userCartId, setUserCartId] = useLocalStorage('userCartId', { id: '', count: 1 })
  const [cart, setCart] = useState<Cart>()
- const fetchCart = async () => {
-  if (!userCartId.id) {
-   return
-  }
-  return await storeApi.getCart(userCartId.id)
- }
 
  useEffect(() => {
-  fetchCart().then((cart) => setCart(cart))
+  const fetchCart = async () => {
+   await storeApi.getCart(userCartId.id)
+   if (!cart) {
+    return
+   }
+   setCart(cart)
+  }
+  fetchCart()
  }, [userCartId.count])
  //  console.log('cart:', cart)
 

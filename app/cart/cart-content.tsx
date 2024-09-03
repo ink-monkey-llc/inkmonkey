@@ -23,7 +23,14 @@ function CartContent({ isModal }: { isModal: boolean }) {
   return await storeApi.getCart(userCartId.id)
  }
  useEffect(() => {
-  fetchCart().then((cart) => setCart(cart))
+  const fetchCart = async () => {
+   await storeApi.getCart(userCartId.id)
+   if (!cart) {
+    return
+   }
+   setCart(cart)
+  }
+  fetchCart()
  }, [userCartId.count])
  //  console.log('cart:', cart)
  const lineItems = cart?.lines
