@@ -17,7 +17,7 @@ function ComContent() {
    </h2>
    <Link
     href={'/commercial'}
-    className=' group flex items-center justify-center px-8 py-4 bg-accent text-bg-primary font-semibold rounded-md w-max m-auto mt-2 md:mt-[15vh] cursor-pointer hover:bg-accent-bright hover:text-bg-primary transition-all md:px-12 md:py-6 md:text-xl shadow-md shadow-black/60 '>
+    className=' group flex items-center justify-center px-8 py-4 bg-accent text-bg-primary font-semibold rounded-md w-max m-auto mt-2 sm:mt-8 lg:mt-[15vh] cursor-pointer hover:bg-accent-bright hover:text-bg-primary transition-all lg:px-12 lg:py-6 lg:text-xl shadow-md shadow-black/60 '>
     Learn More
     <ArrowRight className='w-6 h-6 ml-2 group-hover:translate-x-3 transition-all md:w-8 md:h-8' />
    </Link>
