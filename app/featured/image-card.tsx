@@ -15,22 +15,20 @@ function ImageCard({ product, fonz }: { product: ShopifyProduct; fonz?: boolean 
     rel='noopener noreferrer'
     href={!isWindow ? `/product/${product.handle}` : `/window/${product.handle}`}>
     <div className='relative w-max h-[200px]'>
-     <Suspense fallback={<ImgCardFb />}>
-      <Image
-       className='object-cover'
-       style={{
-        display: 'auto',
-        position: 'absolute',
-        minWidth: '200px',
-        height: '200px',
-        inset: '0',
-       }}
-       src={product.featuredImage.url}
-       alt={product.featuredImage.altText}
-       width={200}
-       height={200}
-      />
-     </Suspense>
+     <Image
+      className='object-cover'
+      style={{
+       display: 'auto',
+       position: 'absolute',
+       minWidth: '200px',
+       height: '200px',
+       inset: '0',
+      }}
+      src={product.featuredImage.url}
+      alt={product.featuredImage.altText}
+      width={200}
+      height={200}
+     />
     </div>
     <div className='px-1 py-2'>
      <p className='text-xs font-light'>{product.title}</p>
