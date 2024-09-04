@@ -5,6 +5,7 @@ import { cn } from '@/utils/cn'
 import { smooch } from '@/lib/fonts'
 import Link from 'next/link'
 import PayMethods from './pay-methods'
+import Social from './social'
 
 function Footer() {
  const year = new Date().getFullYear()
@@ -13,17 +14,18 @@ function Footer() {
    <PayMethods />
    <div className='w-full justify-between flex gap-2 py-2  pl-4'>
     <div className='flex gap-12'>
-     <div className=' w-max items-center relative hidden md:flex'>
+     <div className=' w-max items-center relative hidden gap-4 md:flex flex-col'>
       <Image
        src='/logo/logo-footer.webp'
        alt='inkmonkey logo'
        width={100}
        height={100}
       />
+      <Social />
      </div>
-     <div className='grid grid-cols-2'>
-      <div>
-       <h3 className=''>{links.resources.label}</h3>
+     <div className='flex gap-8'>
+      <div className='w-max'>
+       <h3>{links.resources.label}</h3>
        <ul className=' text-txt-secondary'>
         {links.resources.links.map((link) => (
          <li key={link.label}>
@@ -36,7 +38,7 @@ function Footer() {
         ))}
        </ul>
       </div>
-      <div>
+      <div className='w-max'>
        <h3 className=''>{links.products.label}</h3>
        <ul className=' text-txt-secondary'>
         {links.products.links.map((link) => (
