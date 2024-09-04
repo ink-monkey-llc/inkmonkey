@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { cn } from '@/utils/cn'
 import Header from '@/app/header/header'
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import { Toaster } from 'react-hot-toast'
 import { outfit } from '@/lib/fonts'
 import { Analytics } from '@vercel/analytics/react'
@@ -43,6 +43,7 @@ export default function RootLayout({
  return (
   <html lang='en'>
    <Analytics />
+   <GoogleTagManager gtmId='GTM-M9L5J5H' />
    <body className={cn('relative  m-auto overflow-x-hidden', outfit.className)}>
     <div id='modal-root' />
     <Header />
