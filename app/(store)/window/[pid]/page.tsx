@@ -2,6 +2,7 @@ import React from 'react'
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import { WindowProvider } from '@/app/providers/window-provider'
+import Description from '@/app/(store)/description'
 import WindowVariants from './window-variants'
 import ProductImage from '@/app/(store)/product/[pid]/product-image'
 import Recs from '@/app/recs/recs'
@@ -14,7 +15,7 @@ async function WindowProductPage({ params, searchParams }: { params: { pid: stri
  //  console.log('product:', product)
 
  return (
-  <div className='flex flex-col items-center justify-center w-full max-w-[1400px] m-auto'>
+  <div className='flex flex-col items-center justify-center w-full max-w-[1400px] m-auto overflow-hidden'>
    <WindowProvider>
     <div className='flex flex-col md:flex-row items-center justify-center w-full max-w-[1400px] m-auto'>
      <div className='sm:sticky top-[96px] w-full md:w-2/3 h-full mb-auto '>
@@ -30,6 +31,7 @@ async function WindowProductPage({ params, searchParams }: { params: { pid: stri
        iid={isAi ? iid : false}
        product={product}
       />
+      <Description product={product} />
      </div>
     </div>
    </WindowProvider>

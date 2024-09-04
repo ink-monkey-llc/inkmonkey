@@ -7,7 +7,7 @@ import 'yet-another-react-lightbox/styles.css'
 import 'yet-another-react-lightbox/plugins/thumbnails.css'
 import NextImage from './next-image'
 import { ShopifyProduct } from '@/lib/shopify/types'
-import Description from './description'
+import Description from '../../description'
 
 function ProductImage({ product, iid = '', thumbs = true }: { product: ShopifyProduct; thumbs: boolean; iid: string }) {
  const { width } = useWindowSize()

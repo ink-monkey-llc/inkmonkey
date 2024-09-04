@@ -9,7 +9,7 @@ import Spinner from '@/app/spinner/spinner'
 import { ResolvingMetadata, Metadata } from 'next'
 import Arrow from '@/app/icons/arrow'
 import BackButton from '@/app/common/back-button'
-import Description from './description'
+import Description from '../../description'
 
 type MetaProps = {
  params: { pid: string }

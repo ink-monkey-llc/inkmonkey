@@ -2,13 +2,15 @@
 import React, { useState } from 'react'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import { cn } from '@/utils/cn'
+import { extractAndCleanDiv } from '@/utils/helpers'
 import Chevron, { Direction } from '@/app/icons/chevron'
 
 function Description({ product }: { product: ShopifyProduct }) {
  const [open, setOpen] = useState(false)
- const descHtml = product.descriptionHtml ? { __html: product.descriptionHtml } : { __html: '' }
+ const cleanedHtml = extractAndCleanDiv(product.descriptionHtml)
+ const descHtml = product.descriptionHtml ? { __html: cleanedHtml } : { __html: '' }
  return (
-  <div>
+  <div className='overflow-hidden'>
    <div
     onClick={() => setOpen(!open)}
     className='mb-4 mx-2 py-2 px-8 text-xl flex gap-2 items-center cursor-pointer rounded-md bg-bg-primary hover:bg-accent-tr hover:text-accent-bright transition-all '>
@@ -18,10 +20,13 @@ function Description({ product }: { product: ShopifyProduct }) {
      direction={open ? Direction.Up : Direction.Down}
     />
    </div>
-   <div className={cn(open ? 'p-4 mx-2 mb-4 bg-bg-secondary rounded-md prose prose-invert' : 'absolute opacity-0 pointer-events-none')}>
+   <div className={cn(open ? 'p-4 mx-2 mb-4 bg-bg-secondary rounded-md prose prose-invert ' : 'absolute opacity-0 pointer-events-none h-0 overflow-hidden')}>
     <h2>Ink Monkey has stickers, decals, and vinyl graphics for every need. </h2>
     <p>Laptop stickers, water bottle stickers, vehicle back window graphics, credit card skins and more!</p>
-    <div dangerouslySetInnerHTML={descHtml}></div>
+    <div
+     style={{ color: 'white' }}
+     className={cn(open ? 'prose prose-invert dark' : 'absolute opacity-0 pointer-events-none')}
+     dangerouslySetInnerHTML={descHtml}></div>
    </div>
   </div>
  )
