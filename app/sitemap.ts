@@ -46,36 +46,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
    changeFrequency: 'daily',
    priority: 0.8,
   },
-  //   ...categories.map((category) => ({
-  //    url: `${decalsUrl}/${category}`,
-  //    lastModified: new Date(),
-  //    changeFrequency: 'daily' as const,
-  //    priority: 0.8,
-  //   })),
   {
    url: windowUrl,
    lastModified: new Date(),
    changeFrequency: 'daily',
    priority: 0.8,
   },
-  //   ...categories.map((category) => ({
-  //    url: `${windowUrl}/${category}`,
-  //    lastModified: new Date(),
-  //    changeFrequency: 'daily' as const,
-  //    priority: 0.8,
-  //   })),
   {
    url: creditUrl,
    lastModified: new Date(),
    changeFrequency: 'daily',
    priority: 0.8,
   },
-  //   ...categories.map((category) => ({
-  //    url: `${creditUrl}/${category}`,
-  //    lastModified: new Date(),
-  //    changeFrequency: 'daily' as const,
-  //    priority: 0.8,
-  //   })),
   ...sitemapUrls.map((url) => ({
    url: url as string,
    lastModified: new Date(),

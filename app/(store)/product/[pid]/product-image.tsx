@@ -7,6 +7,7 @@ import 'yet-another-react-lightbox/styles.css'
 import 'yet-another-react-lightbox/plugins/thumbnails.css'
 import NextImage from './next-image'
 import { ShopifyProduct } from '@/lib/shopify/types'
+import Description from './description'
 
 function ProductImage({ product, iid = '', thumbs = true }: { product: ShopifyProduct; thumbs: boolean; iid: string }) {
  const { width } = useWindowSize()
@@ -29,6 +30,7 @@ function ProductImage({ product, iid = '', thumbs = true }: { product: ShopifyPr
  }
  const slides = product.images.edges.map((edge) => {
   return {
+   alt: edge.node.altText,
    src: edge.node.url,
    width: edge.node.width,
    height: edge.node.height,
@@ -36,18 +38,16 @@ function ProductImage({ product, iid = '', thumbs = true }: { product: ShopifyPr
  })
  const isMd = width > 768
  return (
-  <Suspense fallback={<div className='w-full h-[var(--view-height)] overflow-y-hidden'>Loading...</div>}>
-   <div className=' w-full h-[var(--view-height)] overflow-y-hidden'>
-    <Lightbox
-     plugins={thumbs ? [Inline, Thumbnails] : [Inline]}
-     thumbnails={{ position: isMd ? 'start' : 'bottom' }}
-     open={true}
-     slides={isAi ? aiSlide : slides}
-     render={{ slide: NextImage }}
-     noScroll={{ disabled: true }}
-    />
-   </div>
-  </Suspense>
+  <div className=' w-full h-[var(--view-height)] overflow-y-hidden'>
+   <Lightbox
+    plugins={thumbs ? [Inline, Thumbnails] : [Inline]}
+    thumbnails={{ position: isMd ? 'start' : 'bottom' }}
+    open={true}
+    slides={isAi ? aiSlide : slides}
+    render={{ slide: NextImage }}
+    noScroll={{ disabled: true }}
+   />
+  </div>
  )
 }
 

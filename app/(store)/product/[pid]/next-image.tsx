@@ -27,7 +27,7 @@ function NextImage({ slide, offset, rect }: RenderSlideProps) {
   <div style={{ position: 'relative', width, height }}>
    <Image
     fill
-    alt=''
+    alt='Ink Monkey Vinyl Stickers and Graphics'
     src={slide}
     loading='eager'
     draggable={false}

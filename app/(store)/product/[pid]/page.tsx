@@ -9,6 +9,7 @@ import Spinner from '@/app/spinner/spinner'
 import { ResolvingMetadata, Metadata } from 'next'
 import Arrow from '@/app/icons/arrow'
 import BackButton from '@/app/common/back-button'
+import Description from './description'
 
 type MetaProps = {
  params: { pid: string }
@@ -61,8 +62,8 @@ async function ProductPage({ params }: { params: { pid: string } }) {
     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
    />
    <BackButton />
-   <div className='flex flex-col md:flex-row items-center justify-center w-full max-w-[1400px] m-auto'>
-    <div className='w-full md:w-2/3 h-full'>
+   <div className='flex flex-col md:flex-row items-start justify-center w-full max-w-[1400px] m-auto'>
+    <div className='flex items-start w-full md:w-2/3 h-full'>
      <Suspense fallback={<Spinner />}>
       <ProductImage
        thumbs={true}
@@ -75,8 +76,10 @@ async function ProductPage({ params }: { params: { pid: string } }) {
     <div className='w-2/3 md:w-1/3 h-full flex flex-col gap-4 pt-6 md:pt-12'>
      <h1 className='text-3xl text-accent px-4'>{product.title}</h1>
      <Variants product={product} />
+     <Description product={product} />
     </div>
    </div>
+   {/* <Description product={product} /> */}
    <Recs
     recsType='dec'
     product={product}

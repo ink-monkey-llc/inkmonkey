@@ -56,6 +56,6 @@ const config: Config = {
    ...defaultTheme.screens,
   },
  },
- plugins: [],
+ plugins: [require('@tailwindcss/typography')],
 }
 export default config
