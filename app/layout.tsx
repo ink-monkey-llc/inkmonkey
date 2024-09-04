@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { cn } from '@/utils/cn'
 import Header from '@/app/header/header'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { Toaster } from 'react-hot-toast'
 import { outfit } from '@/lib/fonts'
 import { Analytics } from '@vercel/analytics/react'
@@ -50,6 +51,7 @@ export default function RootLayout({
     {children}
     <ScrollUpBtn />
    </body>
+   <GoogleAnalytics gaId='G-H1PNDS4GRF' />
   </html>
  )
 }
