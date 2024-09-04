@@ -15,9 +15,9 @@ async function WindowProductPage({ params, searchParams }: { params: { pid: stri
  //  console.log('product:', product)
 
  return (
-  <div className='flex flex-col items-center justify-center w-full max-w-[1400px] m-auto overflow-hidden'>
+  <div className='flex flex-col items-center justify-start w-full max-w-[1400px] m-auto'>
    <WindowProvider>
-    <div className='flex flex-col md:flex-row items-center justify-center w-full max-w-[1400px] m-auto'>
+    <div className='flex flex-col md:flex-row items-center justify-start w-full max-w-[1400px] m-auto'>
      <div className='sm:sticky top-[96px] w-full md:w-2/3 h-full mb-auto '>
       <ProductImage
        thumbs={true}

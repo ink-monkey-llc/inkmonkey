@@ -10,7 +10,7 @@ function Description({ product }: { product: ShopifyProduct }) {
  const cleanedHtml = extractAndCleanDiv(product.descriptionHtml)
  const descHtml = product.descriptionHtml ? { __html: cleanedHtml } : { __html: '' }
  return (
-  <div className='overflow-hidden'>
+  <div>
    <div
     onClick={() => setOpen(!open)}
     className='mb-4 mx-2 py-2 px-8 text-xl flex gap-2 items-center cursor-pointer rounded-md bg-bg-primary hover:bg-accent-tr hover:text-accent-bright transition-all '>
@@ -21,7 +21,7 @@ function Description({ product }: { product: ShopifyProduct }) {
     />
    </div>
    <div className={cn(open ? 'p-4 mx-2 mb-4 bg-bg-secondary rounded-md prose prose-invert ' : 'absolute opacity-0 pointer-events-none h-0 overflow-hidden')}>
-    <h2>Ink Monkey has stickers, decals, and vinyl graphics for every need. </h2>
+    <h3>Ink Monkey has stickers, decals, and vinyl graphics for every need. </h3>
     <p>Laptop stickers, water bottle stickers, vehicle back window graphics, credit card skins and more!</p>
     <div
      style={{ color: 'white' }}

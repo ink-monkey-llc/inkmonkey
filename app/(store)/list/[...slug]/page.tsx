@@ -11,9 +11,6 @@ import { sortOptions } from '@/app/content/sortOptions'
 import MobileGrid from '@/app/grid/mobile-grid/mobile-grid'
 import SubCats from './sub-cats'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
-
 type MetaProps = {
  params: { slug: string[] }
  searchParams: { [key: string]: string | string[] | undefined }

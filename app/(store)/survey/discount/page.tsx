@@ -50,6 +50,7 @@ function Discount() {
      <p className='text-white text-lg'>{`Available decal sizes: 3", 4", or 5"`}</p>
     </div>
     <Image
+     unoptimized={true}
      className='m-auto mt-4 rounded-md'
      src='/disc-ss.png'
      alt='discount code screenshot'

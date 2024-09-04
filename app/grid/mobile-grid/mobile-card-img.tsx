@@ -17,6 +17,7 @@ function MobileCardImg({ featImgData }: MobileCardImgProps) {
  return (
   <div className='relative m-auto'>
    <Image
+    unoptimized={true}
     className='object-cover'
     style={{
      display: 'auto',

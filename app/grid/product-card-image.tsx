@@ -39,6 +39,7 @@ function ProductCardImage({ product, featImgData, imgDataArr }: ProductCardImage
     />
    )}
    <Image
+    unoptimized={true}
     className={cn('object-cover', isCard && 'object-contain')}
     style={{
      display: 'auto',

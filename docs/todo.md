@@ -1,5 +1,7 @@
 ### currently working on
 
+1. optimize data cache reads
+
 ### todo
 
 1. social links
