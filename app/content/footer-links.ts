@@ -18,6 +18,10 @@ export const links = {
     label: 'Website Survey',
     href: '/survey',
    },
+   {
+    label: 'Blog',
+    href: '/blog',
+   },
   ],
  },
  products: {

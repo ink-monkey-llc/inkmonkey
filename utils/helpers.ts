@@ -127,3 +127,9 @@ export function extractAndCleanDiv(htmlString: string): string {
   return ''
  }
 }
+
+export function formatBlogTitle(input: string): string {
+ const cleanedString = input.replace(/[^a-zA-Z0-9\s]/g, '').trim()
+ const hyphenatedString = cleanedString.replace(/\s+/g, '-')
+ return hyphenatedString
+}

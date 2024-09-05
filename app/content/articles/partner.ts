@@ -1,8 +1,10 @@
+import { formatBlogTitle } from '@/utils/helpers'
+
 export const partner = {
- id: 'partner',
  author: 'Jeremy Harrison',
  image: 'https://cdn.shopify.com/s/files/1/0830/7005/8780/articles/Safe-Harbor-Hearts_520x500.jpg?v=1699638182',
  title: 'A Great Partnership: Your Ideas with Ink Monkey Designs',
+ id: formatBlogTitle('A Great Partnership: Your Ideas with Ink Monkey Designs'),
  excerpt:
   "At Ink Monkey Designs, we take pride in transforming our clients' ideas into reality. This project was more than just a brochure; it was a partnership, a journey of turning a vision into something tangible and impactful.",
  body: `<p data-mce-fragment="1">At Ink Monkey Designs, we believe in the power of collaboration. Our recent project with a new Non-Profit youth sport fishing adventure organization perfectly illustrates this ethos. This client approached us with a vision: to create a brochure that would encapsulate the spirit and excitement of their initiative. And, as always, we were more than ready to rise to the occasion.</p>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { formatBlogTitle } from '@/utils/helpers'
 import Image from 'next/image'
 import type { Article } from '@/app/content/articles'
 

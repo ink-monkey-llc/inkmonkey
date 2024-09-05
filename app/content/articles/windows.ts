@@ -1,8 +1,10 @@
+import { formatBlogTitle } from '@/utils/helpers'
+
 export const windows = {
- id: 'windows',
  author: 'Jeremy Harrison',
  image: 'https://cdn.shopify.com/s/files/1/0830/7005/8780/articles/Window-Graphics_66d7099a-d596-42b2-99a4-bf06fd0e5b30_520x500.jpg?v=1699658484',
  title: "Transform Your Windows with Ink Monkey Designs' Premier Graphics",
+ id: formatBlogTitle("Transform Your Windows with Ink Monkey Designs' Premier Graphics"),
  excerpt: 'An excellent choice for both security and advertising, turning your windows into captivating displays or effective billboards.',
  body: `<p data-mce-fragment="1">At Ink Monkey Designs, we specialize in creating stunning window graphics for commercial and small businesses. With over 30 years of design experience, we pride ourselves on offering window graphics that are, quite simply, second to none. Renowned across the United States for our expertise, we bring a blend of creativity, technical skill, and top-quality materials to every project.</p>
 <p data-mce-fragment="1"><strong data-mce-fragment="1">Our Specialty: Three Types of Vinyl for Diverse Needs</strong></p>

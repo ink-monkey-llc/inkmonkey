@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next'
 import { Languages } from 'next/dist/lib/metadata/types/alternative-urls-types'
 import { sitemapUrls } from './content/sitemap-data'
+import { formatBlogTitle } from '@/utils/helpers'
+import { articles } from '@/app/content/articles'
 type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -29,24 +31,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
    changeFrequency: 'yearly',
    priority: 0.4,
   },
-  {
-   url: `${blogUrl}/coloring`,
+  ...articles.map((article) => ({
+   url: `${blogUrl}/${formatBlogTitle(article.title)}`,
    lastModified: new Date(),
-   changeFrequency: 'yearly',
+   changeFrequency: 'yearly' as const,
    priority: 0.4,
-  },
-  {
-   url: `${blogUrl}/windows`,
-   lastModified: new Date(),
-   changeFrequency: 'yearly',
-   priority: 0.4,
-  },
-  {
-   url: `${blogUrl}/partner`,
-   lastModified: new Date(),
-   changeFrequency: 'yearly',
-   priority: 0.4,
-  },
+  })),
   {
    url: `${siteUrl}/return-policy`,
    lastModified: new Date(),
