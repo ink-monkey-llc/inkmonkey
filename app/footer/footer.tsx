@@ -14,7 +14,7 @@ function Footer() {
    <PayMethods />
    <div className='w-full justify-between flex gap-2 py-2  pl-4'>
     <div className='flex gap-12'>
-     <div className=' w-max items-center relative hidden gap-4 md:flex flex-col'>
+     <div className=' w-max items-center justify-center relative hidden gap-4 md:flex flex-col'>
       <Image
        src='/logo/logo-footer.webp'
        alt='inkmonkey logo'
@@ -26,13 +26,13 @@ function Footer() {
      <div className='flex gap-8'>
       <div className='w-max'>
        <h3>{links.resources.label}</h3>
-       <ul className=' text-txt-secondary'>
+       <ul className='flex flex-col gap-2 text-txt-secondary max-w-40'>
         {links.resources.links.map((link) => (
          <li key={link.label}>
           <Link
-           className='text-accent hover:text-accent-bright text-sm underline'
+           className='text-accent hover:text-accent-bright text-sm underline text-wrap '
            href={link.href}>
-           {link.label}
+           <p>{link.label}</p>
           </Link>
          </li>
         ))}
@@ -40,13 +40,13 @@ function Footer() {
       </div>
       <div className='w-max'>
        <h3 className=''>{links.products.label}</h3>
-       <ul className=' text-txt-secondary'>
+       <ul className=' flex flex-col gap-2 text-txt-secondary max-w-40'>
         {links.products.links.map((link) => (
          <li key={link.label}>
           <Link
            className='text-accent text-sm hover:text-accent-bright underline'
            href={link.href}>
-           {link.label}
+           <p>{link.label}</p>
           </Link>
          </li>
         ))}

@@ -15,8 +15,8 @@ export const links = {
     href: '/return-policy',
    },
    {
-    label: 'Website Survey',
-    href: '/survey',
+    label: 'Truck Window Graphics Installation',
+    href: '/installation',
    },
    {
     label: 'Blog',

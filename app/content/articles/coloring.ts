@@ -1,8 +1,9 @@
+import { formatBlogTitle } from '@/utils/helpers'
 export const coloring = {
- id: 'coloring',
  author: 'Jeremy Harrison',
  image: 'https://cdn.shopify.com/s/files/1/0830/7005/8780/articles/Coloring-Book-Poster-Mother-and-Son-3_520x500.jpg?v=1699644647',
  title: 'Transform Your Memories into Art: Custom Coloring Posters by Ink Monkey Designs',
+ id: formatBlogTitle('Transform Your Memories into Art: Custom Coloring Posters by Ink Monkey Designs'),
  excerpt:
   'You provide the photo and tell us your vision – what you want in the background, the activities or poses you prefer, or any other details that will make the poster uniquely yours. Our talented artists at Ink Monkey Designs will then work their magic to turn your idea into a stunning black and white outline, perfect for coloring.',
  body: `<p data-mce-fragment="1">Have you ever wanted to add a personal touch to your home decor or find a creative way to cherish your memories? Ink Monkey Designs offers an innovative service that brings your photos to life in a unique way: custom adult coloring posters created from your own images.</p>

@@ -2,7 +2,8 @@
 
 ### todo
 
-1. social links
+1. fonz instructions page
+2. window decal install directions video
 
 ### ideas
 
