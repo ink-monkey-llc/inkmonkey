@@ -10,6 +10,7 @@ import { selectedVariantAtom } from '@/app/providers/atoms'
 import WindowAtc from './window-atc'
 import Quantity from '@/app/(store)/product/[pid]/quantity'
 import Dimensions from './dimensions/dimensions'
+import Link from 'next/link'
 
 function WindowVariants({ product, iid }: { product: ShopifyProduct; iid: string | boolean }) {
  const [quantity, setQuantity] = useState(1)
@@ -33,9 +34,16 @@ function WindowVariants({ product, iid }: { product: ShopifyProduct; iid: string
       price={selectedVariant?.price ? selectedVariant?.price.amount : '0'}
      />
     </div>
-    <div className='flex flex-col gap-4 '>
-     <Dimensions />
-     <Customization product={product} />
+    <div>
+     <Link
+      className='flex w-max ml-auto underline text-txt-secondary hover:text-txt-primary'
+      href='/installation'>
+      Installation Instructions
+     </Link>
+     <div className='flex flex-col gap-4 '>
+      <Dimensions />
+      <Customization product={product} />
+     </div>
     </div>
    </div>
 
