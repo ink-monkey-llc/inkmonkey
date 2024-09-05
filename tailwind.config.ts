@@ -33,6 +33,7 @@ const config: Config = {
     'window-banner': 'url("/logo-bw-bg.jpg")',
     'com-bg': 'url("/hall-window-bw.jpg")',
     robot: 'url("/img/robotpaint-tr.png")',
+    blog: 'url("/dark.png")',
     'feat-gradient':
      'linear-gradient(to bottom, rgba(26,26,26,0) 0%, rgba(26,26,26,0.18) 8%,rgba(26,26,26,0.24) 12%, rgba(26,26,26,0.30) 16% ,rgba(26,26,26,0.38) 24%,rgba(26,26,26,0.52) 38%,rgba(26,26,26,0.64) 54%,rgba(26,26,26,0.79) 68%,rgba(26,26,26,0.8) 69%,rgba(26,26,26,0.95) 84%,rgba(26,26,26,1) 100%);',
    },

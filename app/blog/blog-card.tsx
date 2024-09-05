@@ -7,7 +7,7 @@ function BlogCard({ article }: { article: Article }) {
  return (
   <Link
    href={`/blog/${article.id}`}
-   className='flex rounded-md bg-bg-secondary hover:bg-bg-tertiary transition-all w-max m-auto cursor-pointer'>
+   className='flex rounded-md bg-blog hover:bg-bg-tertiary transition-all w-max m-auto cursor-pointer'>
    <Image
     className='rounded-md'
     src={article.image}

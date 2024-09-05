@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
  const decalsUrl = `${siteUrl}/list/Vinyl-Decal`
  const windowUrl = `${siteUrl}/list/Truck-Back-Window-Graphics`
  const creditUrl = `${siteUrl}/list/Credit-Card-Skin`
+ const blogUrl = `${siteUrl}/blog`
  const categories = ['interests-hobbies', 'celebrations-1', 'identity', 'music-entertainment', 'art-design']
  return [
   {
@@ -21,6 +22,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
    lastModified: new Date(),
    changeFrequency: 'yearly',
    priority: 0.5,
+  },
+  {
+   url: blogUrl,
+   lastModified: new Date(),
+   changeFrequency: 'yearly',
+   priority: 0.4,
+  },
+  {
+   url: `${blogUrl}/coloring`,
+   lastModified: new Date(),
+   changeFrequency: 'yearly',
+   priority: 0.4,
+  },
+  {
+   url: `${blogUrl}/windows`,
+   lastModified: new Date(),
+   changeFrequency: 'yearly',
+   priority: 0.4,
+  },
+  {
+   url: `${blogUrl}/partner`,
+   lastModified: new Date(),
+   changeFrequency: 'yearly',
+   priority: 0.4,
   },
   {
    url: `${siteUrl}/return-policy`,
