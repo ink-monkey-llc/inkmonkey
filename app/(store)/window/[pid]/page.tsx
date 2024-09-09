@@ -2,7 +2,8 @@ import React from 'react'
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import { WindowProvider } from '@/app/providers/window-provider'
-import Description from '@/app/(store)/description'
+import dynamic from 'next/dynamic'
+// import Description from '@/app/(store)/description'
 import WindowVariants from './window-variants'
 import ProductImage from '@/app/(store)/product/[pid]/product-image'
 import Recs from '@/app/recs/recs'
@@ -13,6 +14,7 @@ async function WindowProductPage({ params, searchParams }: { params: { pid: stri
  const product: ShopifyProduct = await storeApi.getProductByHandle({ handle: pid })
  const isAi = pid === 'ai-truck-back-window-graphics'
  //  console.log('product:', product)
+ const Description = dynamic(() => import('@/app/(store)/description'), { ssr: false })
 
  return (
   <div className='flex flex-col items-center justify-start w-full max-w-[1400px] m-auto'>

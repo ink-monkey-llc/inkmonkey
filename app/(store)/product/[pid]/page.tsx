@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
-import { redirect } from 'next/navigation'
+import dynamic from 'next/dynamic'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import ProductImage from './product-image'
 import Variants from './variants'
@@ -9,7 +9,8 @@ import Spinner from '@/app/spinner/spinner'
 import { ResolvingMetadata, Metadata } from 'next'
 import Arrow from '@/app/icons/arrow'
 import BackButton from '@/app/common/back-button'
-import Description from '../../description'
+import { redirect } from 'next/navigation'
+// import Description from '../../description'
 
 type MetaProps = {
  params: { pid: string }
@@ -35,7 +36,11 @@ export async function generateMetadata({ params, searchParams }: MetaProps, pare
 async function ProductPage({ params }: { params: { pid: string } }) {
  const { pid } = params
  const product: ShopifyProduct = await storeApi.getProductByHandle({ handle: pid })
-
+ const isWindow = product.productType === 'Truck Back Window Graphics'
+ if (isWindow) {
+  return redirect(`/window/${pid}`)
+ }
+ const Description = dynamic(() => import('../../description'), { ssr: false })
  const jsonLd = {
   '@context': 'https://schema.org',
   '@type': ['Product', 'Decal'],

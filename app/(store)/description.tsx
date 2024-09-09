@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { ShopifyProduct } from '@/lib/shopify/types'
 import { cn } from '@/utils/cn'
-import { extractAndCleanDiv } from '@/utils/helpers'
+import { extractAndCleanDiv } from '@/utils/extract'
 import Chevron, { Direction } from '@/app/icons/chevron'
 
 function Description({ product }: { product: ShopifyProduct }) {
