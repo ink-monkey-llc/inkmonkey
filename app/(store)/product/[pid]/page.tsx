@@ -9,7 +9,7 @@ import Spinner from '@/app/spinner/spinner'
 import { ResolvingMetadata, Metadata } from 'next'
 import Arrow from '@/app/icons/arrow'
 import BackButton from '@/app/common/back-button'
-import { redirect } from 'next/navigation'
+import { permanentRedirect } from 'next/navigation'
 // import Description from '../../description'
 
 type MetaProps = {
@@ -38,7 +38,7 @@ async function ProductPage({ params }: { params: { pid: string } }) {
  const product: ShopifyProduct = await storeApi.getProductByHandle({ handle: pid })
  const isWindow = product.productType === 'Truck Back Window Graphics'
  if (isWindow) {
-  return redirect(`/window/${pid}`)
+  return permanentRedirect(`/window/${pid}`)
  }
  const Description = dynamic(() => import('../../description'), { ssr: false })
  const jsonLd = {
