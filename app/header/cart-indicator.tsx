@@ -12,11 +12,11 @@ function CartIndicator() {
 
  useEffect(() => {
   const fetchCart = async () => {
-   await storeApi.getCart(userCartId.id)
-   if (!cart) {
+   const fetchedCart = await storeApi.getCart(userCartId.id)
+   if (!fetchedCart) {
     return
    }
-   setCart(cart)
+   setCart(fetchedCart)
   }
   fetchCart()
  }, [userCartId.count])
