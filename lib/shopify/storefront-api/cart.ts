@@ -50,6 +50,7 @@ const cartApi = {
    },
    apiVersion: API_VERSION,
   })
+  console.log('data:', await data)
   if (!data?.cart) {
    return null
   }

@@ -16,23 +16,18 @@ function CartContent({ isModal }: { isModal: boolean }) {
  const [userCartId, setUserCartId] = useLocalStorage('userCartId', { id: '', count: 1 })
  const [cart, setCart] = useState<Cart>()
 
- const fetchCart = async () => {
-  if (!userCartId.id) {
-   return
-  }
-  return await storeApi.getCart(userCartId.id)
- }
  useEffect(() => {
   const fetchCart = async () => {
-   await storeApi.getCart(userCartId.id)
-   if (!cart) {
+   const fetchedCart = await storeApi.getCart(userCartId.id)
+   console.log('fetchedCart:', fetchedCart)
+   if (!fetchedCart) {
     return
    }
-   setCart(cart)
+   setCart(fetchedCart)
   }
   fetchCart()
  }, [userCartId.count])
- //  console.log('cart:', cart)
+ console.log('cart-content:', cart)
  const lineItems = cart?.lines
  const cartId = cart?.id
  const discountCodes = cart?.discountCodes
