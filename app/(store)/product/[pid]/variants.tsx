@@ -35,7 +35,7 @@ function Variants({ product }: { product: ShopifyProduct }) {
   addToCart({
    selectedVariant,
    quantity,
-   attributes: [{ key: selectedOptions.Personalization, value: customization ? customization : 'None' }],
+   attributes: [{ key: selectedOptions.Personalization ? selectedOptions.Personalization : 'None', value: customization ? customization : 'None' }],
   })
   router.push('/cart')
  }

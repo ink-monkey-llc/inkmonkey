@@ -18,6 +18,8 @@ function LineItem({ lineItem, cartId }: { lineItem: CartItem; cartId: string }) 
  const attributes = lineItem.attributes.map((attr) => transformKey(attr))
  const hasAttributes = lineItem.attributes.length > 0
 
+ const merchTitle = merch.title === 'Default Title' ? '' : merch.title
+
  const handleQuantity = (num: number) => {
   if (quantity + num < 1) {
    return
@@ -52,7 +54,7 @@ function LineItem({ lineItem, cartId }: { lineItem: CartItem; cartId: string }) 
      />
      <div className='flex flex-col gap-1'>
       <h3 className='font-base'>{product.title}</h3>
-      <div className='font-light text-sm'>{merch.title}</div>
+      <div className='font-light text-sm'>{merchTitle}</div>
       <div className='text-base font-semibold'>{price}</div>
      </div>
     </div>

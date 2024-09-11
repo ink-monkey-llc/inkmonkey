@@ -27,7 +27,7 @@ const cartApi = {
  },
 
  addToCart: async (cartId: string, lines: { merchandiseId: string; quantity: number; attributes: { key: string; value: string }[] }[]) => {
-  // console.log('addToCart:', { cartId, lines })
+  console.log('addToCart:', { cartId, lines })
   const { data, errors, extensions } = await client.request(addToCartMutation, {
    variables: {
     cartId: cartId,
