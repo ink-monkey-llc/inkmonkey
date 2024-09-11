@@ -5,7 +5,7 @@ import { WindowProvider } from '@/app/providers/window-provider'
 import dynamic from 'next/dynamic'
 // import Description from '@/app/(store)/description'
 import WindowVariants from './window-variants'
-import ProductImage from '@/app/(store)/product/[pid]/product-image'
+// import ProductImage from '@/app/(store)/product/[pid]/product-image'
 import Recs from '@/app/recs/recs'
 
 async function WindowProductPage({ params, searchParams }: { params: { pid: string }; searchParams: { [key: string]: string | string[] | undefined } }) {
@@ -15,6 +15,7 @@ async function WindowProductPage({ params, searchParams }: { params: { pid: stri
  const isAi = pid === 'ai-truck-back-window-graphics'
  //  console.log('product:', product)
  const Description = dynamic(() => import('@/app/(store)/description'), { ssr: false })
+ const ProductImage = dynamic(() => import('@/app/(store)/product/[pid]/product-image'))
 
  return (
   <div className='flex flex-col items-center justify-start w-full max-w-[1400px] m-auto'>

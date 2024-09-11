@@ -1,5 +1,12 @@
 import React from 'react'
 import { YouTubeEmbed } from '@next/third-parties/google'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+ title: 'Installing your truck back window graphics | Ink Monkey',
+ description:
+  'Installing your truck back window graphics is a simple process that can be done in minutes. Follow these steps to ensure your window graphics are installed correctly.',
+}
 
 function Installation() {
  return (

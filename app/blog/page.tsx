@@ -1,6 +1,12 @@
 import React from 'react'
 import BlogCard from './blog-card'
 import { articles } from '@/app/content/articles'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+ title: 'Blog | Ink Monkey',
+ description: 'Ink Monkey Designs Blog',
+}
 
 function Blog() {
  return (

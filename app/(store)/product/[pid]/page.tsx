@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import dynamic from 'next/dynamic'
 import { ShopifyProduct } from '@/lib/shopify/types'
-import ProductImage from './product-image'
+// import ProductImage from './product-image'
 import Variants from './variants'
 import Recs from '@/app/recs/recs'
 import Spinner from '@/app/spinner/spinner'
@@ -41,6 +41,7 @@ async function ProductPage({ params }: { params: { pid: string } }) {
   return permanentRedirect(`/window/${pid}`)
  }
  const Description = dynamic(() => import('../../description'), { ssr: false })
+ const ProductImage = dynamic(() => import('./product-image'))
  const jsonLd = {
   '@context': 'https://schema.org',
   '@type': ['Product', 'Decal'],
@@ -69,13 +70,11 @@ async function ProductPage({ params }: { params: { pid: string } }) {
    <BackButton />
    <div className='flex flex-col md:flex-row items-start justify-center w-full max-w-[1400px] m-auto'>
     <div className='flex items-start w-full md:w-2/3 h-full'>
-     <Suspense fallback={<Spinner />}>
-      <ProductImage
-       thumbs={true}
-       iid={''}
-       product={product}
-      />
-     </Suspense>
+     <ProductImage
+      thumbs={true}
+      iid={''}
+      product={product}
+     />
      <div />
     </div>
     <div className='w-2/3 md:w-1/3 h-full flex flex-col gap-4 pt-6 md:pt-12'>
