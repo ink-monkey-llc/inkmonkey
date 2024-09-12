@@ -5,6 +5,8 @@ import {
  nextAllProductsQuery,
  previousAllProductsQuery,
  getProductsByTagQuery,
+ getProductHandlesQuery,
+ getFirstProductHandlesQuery,
 } from '../queries/products'
 import { searchAllPrevQuery, searchAllQuery, searchNextQuery, searchPrevQuery } from '../queries/search'
 import { API_VERSION, client } from './store-api'
@@ -133,6 +135,22 @@ const productApi = {
   const { data, errors, extensions } = await client.request(getProductsByTagQuery, {
    variables: {
     query: query,
+   },
+   apiVersion: '2024-04',
+  })
+
+  if (errors) {
+   console.log('errors:', errors)
+   throw new Error(errors.message)
+  }
+  //  console.log('data:', data)
+  return await data.products
+ },
+ getProductHandles: async (args: { after: string; first: number; isFirst: boolean }) => {
+  const { data, errors, extensions } = await client.request(args.isFirst ? getFirstProductHandlesQuery : getProductHandlesQuery, {
+   variables: {
+    after: args.after,
+    first: args.first,
    },
    apiVersion: '2024-04',
   })

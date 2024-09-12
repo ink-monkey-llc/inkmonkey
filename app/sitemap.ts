@@ -1,17 +1,21 @@
 import { MetadataRoute } from 'next'
 import { Languages } from 'next/dist/lib/metadata/types/alternative-urls-types'
 import { sitemapUrls } from './content/sitemap-data'
+import { siteMapProdUrls } from '@/utils/makeSitemapProdUrls'
 import { formatBlogTitle } from '@/utils/helpers'
 import { articles } from '@/app/content/articles'
 type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
  const siteUrl = 'https://www.ink-monkey.com'
  const decalsUrl = `${siteUrl}/list/Vinyl-Decal`
  const windowUrl = `${siteUrl}/list/Truck-Back-Window-Graphics`
  const creditUrl = `${siteUrl}/list/Credit-Card-Skin`
  const blogUrl = `${siteUrl}/blog`
  const categories = ['interests-hobbies', 'celebrations-1', 'identity', 'music-entertainment', 'art-design']
+
+ const prodUrls = await siteMapProdUrls()
+
  return [
   {
    url: 'https://www.ink-monkey.com',
@@ -84,6 +88,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
    lastModified: new Date(),
    changeFrequency: 'daily' as const,
    priority: 0.8,
+  })),
+  ...prodUrls.map((url) => ({
+   url: `${siteUrl}${url as string}`,
+   lastModified: new Date(),
+   changeFrequency: 'daily' as const,
+   priority: 0.9,
   })),
   {
    url: `${siteUrl}/fonzai`,

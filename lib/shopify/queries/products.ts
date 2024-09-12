@@ -143,3 +143,33 @@ export const getProductsByTagQuery = /* GraphQL */ `
  }
  ${productFragment}
 `
+
+export const getFirstProductHandlesQuery = /* GraphQL */ `
+ query FirstProductHandles($first: Int) {
+  products(first: $first) {
+   nodes {
+    handle
+    productType
+   }
+   pageInfo {
+    endCursor
+    hasNextPage
+   }
+  }
+ }
+`
+
+export const getProductHandlesQuery = /* GraphQL */ `
+ query ProductHandles($after: String, $first: Int) {
+  products(first: $first, after: $after) {
+   nodes {
+    handle
+    productType
+   }
+   pageInfo {
+    endCursor
+    hasNextPage
+   }
+  }
+ }
+`

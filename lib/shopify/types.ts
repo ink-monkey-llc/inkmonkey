@@ -366,3 +366,22 @@ export type FeaturedCollection = {
  pageInfo: PageInfo
  seq: string
 }
+
+export type SitemapProduct = {
+ handle: string
+ productType: string
+}
+
+export type HandlesPageInfo = {
+ endCursor: string
+ hasNextPage: boolean
+}
+
+export type HandlesNodes = {
+ nodes: SitemapProduct[]
+}
+
+export type HandlesResponse = {
+ nodes: SitemapProduct[]
+ pageInfo: HandlesPageInfo
+}
