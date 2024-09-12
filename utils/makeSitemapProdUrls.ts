@@ -22,7 +22,9 @@ export async function makeSitemapProdUrls() {
   if (handle.productType === 'Truck Back Window Graphics') {
    urls.push(`/window/${handle.handle}`)
   }
-  urls.push(`/product/${handle.handle}`)
+  if (handle.productType !== 'Truck Back Window Graphics') {
+   urls.push(`/product/${handle.handle}`)
+  }
  })
  console.log('urls:', urls)
  return urls
