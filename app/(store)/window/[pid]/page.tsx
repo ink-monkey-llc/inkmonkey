@@ -19,7 +19,7 @@ async function WindowProductPage({ params, searchParams }: { params: { pid: stri
 
  const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': ['Product', 'Decal'],
+  '@type': ['Product', 'Decal', 'Truck Back Window Graphics'],
   name: product.title,
   image: product.featuredImage?.url ?? product.images?.edges[0]?.node.url ?? '',
   description: product.description,
