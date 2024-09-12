@@ -46,7 +46,7 @@ async function ProductPage({ params }: { params: { pid: string } }) {
   '@context': 'https://schema.org',
   '@type': ['Product', 'Decal'],
   name: product.title,
-  image: product.featuredImage?.url ?? '',
+  image: product.featuredImage?.url ?? product.images?.edges[0]?.node.url ?? '',
   description: product.description,
   sku: product.handle,
   brand: {

@@ -17,8 +17,31 @@ async function WindowProductPage({ params, searchParams }: { params: { pid: stri
  const Description = dynamic(() => import('@/app/(store)/description'), { ssr: false })
  const ProductImage = dynamic(() => import('@/app/(store)/product/[pid]/product-image'))
 
+ const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': ['Product', 'Decal'],
+  name: product.title,
+  image: product.featuredImage?.url ?? product.images?.edges[0]?.node.url ?? '',
+  description: product.description,
+  sku: product.handle,
+  brand: {
+   '@type': 'Thing',
+   name: 'Ink Monkey',
+  },
+  offers: {
+   '@type': 'Offer',
+   availability: 'https://schema.org/InStock',
+   price: product.priceRange.minVariantPrice.amount,
+   priceCurrency: product.priceRange.minVariantPrice.currencyCode,
+  },
+ }
+
  return (
   <div className='flex flex-col items-center justify-start w-full max-w-[1400px] m-auto'>
+   <script
+    type='application/ld+json'
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+   />
    <WindowProvider>
     <div className='flex flex-col md:flex-row items-center justify-start w-full max-w-[1400px] m-auto'>
      <div className='sm:sticky top-[96px] w-full md:w-2/3 h-full mb-auto '>
