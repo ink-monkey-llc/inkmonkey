@@ -30,7 +30,7 @@ function UploadImage() {
   if (files && files.length > 0) {
    const dataUrl = await generateDataUrl(files[0])
    const res = await uploadImagePrompt({ dataUrl, fileName: files[0].name, fileSize: files[0].size })
-   console.log('res:', res)
+   //    console.log('res:', res)
    if (res.error) {
     ErrorToast({ msg: 'Image upload failed, please try again' })
     console.log('error:', res.error)

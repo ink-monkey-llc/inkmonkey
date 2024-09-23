@@ -385,3 +385,15 @@ export type HandlesResponse = {
  nodes: SitemapProduct[]
  pageInfo: HandlesPageInfo
 }
+
+export type EyebrowCustom = {
+ bgColor: string
+ fontColor: string
+ text: string
+}
+
+export const eyebrowCustomDefault = {
+ bgColor: '#000000',
+ fontColor: '#FFFFFF',
+ text: '',
+}

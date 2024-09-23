@@ -4,26 +4,26 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Price from './price'
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
-import { ShopifyProduct, VariantByOptions } from '@/lib/shopify/types'
+import { ShopifyProduct, VariantByOptions, EyebrowCustom as EyebrowCustomType, eyebrowCustomDefault } from '@/lib/shopify/types'
 import { extractFirstValues, convertToObjectArray } from '@/utils/helpers'
 import useAtc from '@/app/hooks/useAtc'
 import VariantSelect from './variant-select'
 import Quantity from './quantity'
 import Customization from './customization'
 import Atc from '../../../atc'
+import EyebrowCustom from './eyebrow-custom'
 
 function Variants({ product }: { product: ShopifyProduct }) {
  const initialOptions = extractFirstValues(product.options)
  const [selectedOptions, setSelectedOptions] = useState(initialOptions)
  const [selectedVariant, setSelectedVariant] = useState<VariantByOptions | null>(null)
  const [customization, setCustomization] = useState<string>('')
+ const [eyebrowCustom, setEyebrowCustom] = useState<EyebrowCustomType>(eyebrowCustomDefault)
  const [quantity, setQuantity] = useState(1)
  const router = useRouter()
 
- const description = product.description
-
- //  console.log('product.options:', product.options)
  const isCard = product.productType === 'Credit Card Skin'
+ const isEyebrow = product.handle === 'truck-windshield-eyebrow'
 
  const fetchedVariant = async (variant: Record<string, string>) => {
   return await storeApi.getVariantByOptions({ handle: product.handle, selectedOptions: convertToObjectArray(variant) })
@@ -31,11 +31,22 @@ function Variants({ product }: { product: ShopifyProduct }) {
 
  const { adding, added, addToCart } = useAtc()
 
+ const makeAttrs = () => {
+  if (isEyebrow) {
+   return [
+    { key: 'Text', value: eyebrowCustom.text },
+    { key: 'Font Color', value: eyebrowCustom.fontColor },
+    { key: 'Background Color', value: eyebrowCustom.bgColor },
+   ]
+  }
+  return [{ key: selectedOptions.Personalization ? selectedOptions.Personalization : 'None', value: customization ? customization : 'None' }]
+ }
+
  const addAndOpenCart = () => {
   addToCart({
    selectedVariant,
    quantity,
-   attributes: [{ key: selectedOptions.Personalization ? selectedOptions.Personalization : 'None', value: customization ? customization : 'None' }],
+   attributes: makeAttrs(),
   })
   router.push('/cart')
  }
@@ -66,11 +77,18 @@ function Variants({ product }: { product: ShopifyProduct }) {
       />
      ))}
    </div>
-   <Customization
-    isCustom={isCustom}
-    setCustomization={setCustomization}
-    customization={customization}
-   />
+   {isEyebrow ? (
+    <EyebrowCustom
+     eyebrowCustom={eyebrowCustom}
+     setEyebrowCustom={setEyebrowCustom}
+    />
+   ) : (
+    <Customization
+     isCustom={isCustom}
+     setCustomization={setCustomization}
+     customization={customization}
+    />
+   )}
    <Quantity
     quantity={quantity}
     setQuantity={setQuantity}

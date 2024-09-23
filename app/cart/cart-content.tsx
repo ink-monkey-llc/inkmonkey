@@ -19,7 +19,7 @@ function CartContent({ isModal }: { isModal: boolean }) {
  useEffect(() => {
   const fetchCart = async () => {
    const fetchedCart = await storeApi.getCart(userCartId.id)
-   console.log('fetchedCart:', fetchedCart)
+   //    console.log('fetchedCart:', fetchedCart)
    if (!fetchedCart) {
     return
    }
@@ -27,7 +27,7 @@ function CartContent({ isModal }: { isModal: boolean }) {
   }
   fetchCart()
  }, [userCartId.count])
- console.log('cart-content:', cart)
+ //  console.log('cart-content:', cart)
  const lineItems = cart?.lines
  const cartId = cart?.id
  const discountCodes = cart?.discountCodes

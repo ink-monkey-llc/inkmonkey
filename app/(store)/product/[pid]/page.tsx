@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import dynamic from 'next/dynamic'
 import { ShopifyProduct } from '@/lib/shopify/types'
@@ -10,7 +10,6 @@ import { ResolvingMetadata, Metadata } from 'next'
 import Arrow from '@/app/icons/arrow'
 import BackButton from '@/app/common/back-button'
 import { permanentRedirect } from 'next/navigation'
-// import Description from '../../description'
 
 type MetaProps = {
  params: { pid: string }
@@ -37,11 +36,15 @@ async function ProductPage({ params }: { params: { pid: string } }) {
  const { pid } = params
  const product: ShopifyProduct = await storeApi.getProductByHandle({ handle: pid })
  const isWindow = product.productType === 'Truck Back Window Graphics'
+ const isEyebrow = product.handle === 'truck-windshield-eyebrow'
+
  if (isWindow) {
   return permanentRedirect(`/window/${pid}`)
  }
+
  const Description = dynamic(() => import('../../description'), { ssr: false })
  const ProductImage = dynamic(() => import('./product-image'))
+
  const jsonLd = {
   '@context': 'https://schema.org',
   '@type': ['Product', 'Decal'],
@@ -83,11 +86,12 @@ async function ProductPage({ params }: { params: { pid: string } }) {
      <Description product={product} />
     </div>
    </div>
-   {/* <Description product={product} /> */}
-   <Recs
-    recsType='dec'
-    product={product}
-   />
+   {!isEyebrow && (
+    <Recs
+     recsType='dec'
+     product={product}
+    />
+   )}
   </div>
  )
 }

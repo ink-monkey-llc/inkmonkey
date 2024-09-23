@@ -8,6 +8,8 @@ import Spinner from '../spinner/spinner'
 
 async function Recs({ product, recsType }: { product: ShopifyProduct; recsType: string }) {
  const { collections } = product
+ const isEyebrow = product.handle === 'truck-windshield-eyebrow'
+
  if (collections.nodes.length === 0) {
   return <Spinner />
  }

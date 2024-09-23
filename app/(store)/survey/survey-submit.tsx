@@ -18,11 +18,11 @@ function SurveySubmit() {
  const handleCart = async () => {
   if (userCartId.id) {
    const { cartId, code, status } = await storeApi.updateDiscountCodes(userCartId.id, ['SURVEY824'])
-   console.log('cartId:', cartId, 'code:', code, 'status:', status)
+   //    console.log('cartId:', cartId, 'code:', code, 'status:', status)
   } else {
    const { cartId, code, status } = await storeApi.createCartDiscount(['SURVEY824'])
    setUserCartId({ id: cartId, count: 0 })
-   console.log('cartId:', cartId, 'code:', code, 'status:', status)
+   //    console.log('cartId:', cartId, 'code:', code, 'status:', status)
   }
  }
 

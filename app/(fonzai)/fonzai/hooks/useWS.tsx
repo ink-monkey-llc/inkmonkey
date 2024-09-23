@@ -64,7 +64,7 @@ export function useWS() {
   if (lastJsonMessage) {
    const { id, data, event } = lastJsonMessage as WsMessage
    if (event === 'id') {
-    console.log('id:', id as string)
+    // console.log('id:', id as string)
     setWsId(id as string)
    }
    if (event === 'status') {

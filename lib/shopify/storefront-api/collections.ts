@@ -43,14 +43,14 @@ const collectionApi = {
    apiVersion: API_VERSION,
   })
   if (errors) {
-   console.log(
-    'errors:',
-    errors,
-    'locations:',
-    errors.graphQLErrors ? errors.graphQLErrors[0].locations : null,
-    'path:',
-    errors.graphQLErrors ? errors.graphQLErrors[0].path : null
-   )
+   //    console.log(
+   //     'collectionByHandle errors:',
+   //     errors,
+   //     'locations:',
+   //     errors.graphQLErrors ? errors.graphQLErrors[0].locations : null,
+   //     'path:',
+   //     errors.graphQLErrors ? errors.graphQLErrors[0].path : null
+   //    )
    //  throw new Error(errors.message)
   }
   // console.log('data:', await data)
