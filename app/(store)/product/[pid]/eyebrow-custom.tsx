@@ -1,10 +1,12 @@
 import React from 'react'
 import localFont from 'next/font/local'
 import { EyebrowCustom as EyebrowCustomType } from '@/lib/shopify/types'
+import { cn } from '@/utils/cn'
 
-const aachen = localFont({ src: '../../../fonts/aachen.ttf' })
+const aachen = localFont({ src: '../../../fonts/AachenBoldBT.ttf', weight: '700' })
 
 function EyebrowCustom({ eyebrowCustom, setEyebrowCustom }: { eyebrowCustom: EyebrowCustomType; setEyebrowCustom: (arg: EyebrowCustomType) => void }) {
+ const demoLen = eyebrowCustom.text.length
  return (
   <div className='flex flex-col gap-2'>
    <div>
@@ -41,6 +43,11 @@ function EyebrowCustom({ eyebrowCustom, setEyebrowCustom }: { eyebrowCustom: Eye
       onChange={(e) => setEyebrowCustom({ ...eyebrowCustom, bgColor: e.target.value })}
      />
     </div>
+   </div>
+   <div
+    style={{ color: eyebrowCustom.fontColor, backgroundColor: eyebrowCustom.bgColor }}
+    className={cn(aachen.className, 'text-center text-2xl py-1', demoLen > 15 && 'text-lg')}>
+    {eyebrowCustom.text}
    </div>
   </div>
  )
