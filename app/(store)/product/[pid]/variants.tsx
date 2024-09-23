@@ -11,7 +11,7 @@ import VariantSelect from './variant-select'
 import Quantity from './quantity'
 import Customization from './customization'
 import Atc from '../../../atc'
-import EyebrowCustom from './eyebrow-custom'
+import EyebrowCustom from './eyebrow/eyebrow-custom'
 
 function Variants({ product }: { product: ShopifyProduct }) {
  const initialOptions = extractFirstValues(product.options)

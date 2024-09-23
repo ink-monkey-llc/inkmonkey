@@ -26,7 +26,7 @@ function Header() {
     <NavDropdown />
     <Link
      href='/fonzai'
-     className='rounded-br-md -ml-[3px] cursor-pointer border-2 hover:bg-bg-secondary border-bg-tertiary px-4 py-1 transition-all'>
+     className='bg-black rounded-br-md -ml-[3px] cursor-pointer border-2 hover:bg-bg-secondary border-bg-tertiary px-4 py-1 transition-all'>
      FONZAI AI design playground
     </Link>
    </div>

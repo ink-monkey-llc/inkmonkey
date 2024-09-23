@@ -2,9 +2,9 @@ import React from 'react'
 import localFont from 'next/font/local'
 import { EyebrowCustom as EyebrowCustomType } from '@/lib/shopify/types'
 import { cn } from '@/utils/cn'
-import ColorPicker from './eyebrow/color-picker'
+import ColorPicker from './color-picker'
 
-const aachen = localFont({ src: '../../../fonts/AachenBoldBT.ttf', weight: '700' })
+const aachen = localFont({ src: '../../../../fonts/AachenBoldBT.ttf', weight: '700' })
 
 function EyebrowCustom({ eyebrowCustom, setEyebrowCustom }: { eyebrowCustom: EyebrowCustomType; setEyebrowCustom: (arg: EyebrowCustomType) => void }) {
  const demoLen = eyebrowCustom.text.length
