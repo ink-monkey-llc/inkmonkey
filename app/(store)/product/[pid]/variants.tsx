@@ -36,7 +36,8 @@ function Variants({ product }: { product: ShopifyProduct }) {
    return [
     { key: 'Text', value: eyebrowCustom.text },
     { key: 'Font Color', value: eyebrowCustom.fontColor },
-    { key: 'Background Color', value: eyebrowCustom.bgColor },
+    { key: 'BG Color', value: eyebrowCustom.bgColor },
+    { key: 'Note', value: eyebrowCustom.note },
    ]
   }
   return [{ key: selectedOptions.Personalization ? selectedOptions.Personalization : 'None', value: customization ? customization : 'None' }]

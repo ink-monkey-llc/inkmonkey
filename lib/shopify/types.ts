@@ -390,10 +390,12 @@ export type EyebrowCustom = {
  bgColor: string
  fontColor: string
  text: string
+ note: string
 }
 
 export const eyebrowCustomDefault = {
- bgColor: '#ff0000',
+ bgColor: '#B40e0e',
  fontColor: '#FFFFFF',
  text: '',
+ note: '',
 }
