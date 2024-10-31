@@ -3,6 +3,15 @@ import withBundleAnalyzer from '@next/bundle-analyzer'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
  transpilePackages: ['jotai-devtools'],
+ redirects: async () => {
+  return [
+   {
+    source: '/backdoor',
+    destination: 'https://ink-monkey-backdoor.vercel.app/',
+    permanent: true,
+   },
+  ]
+ },
  experimental: {
   serverActions: {
    bodySizeLimit: '4mb',
@@ -17,6 +26,10 @@ const nextConfig = {
    {
     protocol: 'https',
     hostname: 'res.cloudinary.com',
+   },
+   {
+    protocol: 'https',
+    hostname: 'jumpshare.com',
    },
   ],
  },
