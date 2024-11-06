@@ -34,7 +34,7 @@ function CartContent({ isModal }: { isModal: boolean }) {
  //  const lastProduct = lineItems && lineItems[0].merchandise.product
  return (
   <div>
-   <div className={cn('flex flex-col gap-4 px-8 py-4 overflow-y-scroll h-[var(--cart-view)]', isModal && 'is-modal')}>
+   <div className={cn('flex flex-col gap-4 px-8 py-4 ', isModal && 'is-modal overflow-y-scroll h-[var(--cart-view)]')}>
     <h2 className={cn('text-accent text-5xl flex gap-4 items-center px-8 pt-4 pb-2 border-b border-border', smooch.className)}>
      <CartIcon className='w-8 text-accent ' /> Cart
     </h2>
@@ -48,7 +48,7 @@ function CartContent({ isModal }: { isModal: boolean }) {
     ))}
    </div>
 
-   <div className='p-8 pt-4 bg-bg-secondary border-t border-border fixed bottom-0 left-0 right-0 w-full'>
+   <div className={cn('p-8 pt-4 bg-bg-secondary border-t border-border ', isModal && ' fixed bottom-0 left-0 right-0 w-full')}>
     {discountCodes &&
      discountCodes?.length > 0 &&
      discountCodes.map((code) => (
