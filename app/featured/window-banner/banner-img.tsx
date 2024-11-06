@@ -14,7 +14,7 @@ function BannerImg({ prod, ind, active }: { prod: ShopifyProduct; ind: number; a
    href={`/window/${prod.handle}`}>
    <Image
     src={prod.featuredImage.url}
-    alt={prod.featuredImage.altText}
+    alt={prod.featuredImage.altText ?? 'Product Image'}
     width={500}
     height={500}
    />

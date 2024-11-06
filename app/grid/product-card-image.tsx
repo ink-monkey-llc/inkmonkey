@@ -52,7 +52,7 @@ function ProductCardImage({ product, featImgData, imgDataArr }: ProductCardImage
      transition: 'opacity 0.3s',
     }}
     src={featImgData.image?.url ?? ''}
-    alt={featImgData.image?.altText}
+    alt={featImgData.image?.altText ?? 'Alt text'}
     width={200}
     height={200}
     // blurDataURL={featImgData.base64}

@@ -1,6 +1,6 @@
 import React from 'react'
 import Modal from '@/app/modal/modal'
-import CartContent from '@/app/cart/cart-content'
+import CartContent from '@/app/(storefront)/(store)/cart/cart-content'
 
 function Cart() {
  return (

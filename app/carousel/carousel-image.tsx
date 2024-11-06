@@ -28,7 +28,7 @@ function CarouselImage({ img }: { img: CarouselImage }) {
     className='p-2'
     key={img.alt}
     src={img.src}
-    alt={img.alt}
+    alt={img.alt ?? 'Carousel Image'}
     width={img.width}
     height={img.height}
    />

@@ -34,7 +34,7 @@ function StyleItem({ item }: StyleItemProps) {
       src={item.img}
       width='96'
       height='96'
-      alt=''
+      alt='alt text'
      />
     ) : (
      <div className='w-24 h-24 bg-transparent' />

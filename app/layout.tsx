@@ -1,14 +1,10 @@
 import type { Metadata } from 'next'
-import { cn } from '@/utils/cn'
-import Header from '@/app/header/header'
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import { Toaster } from 'react-hot-toast'
-import { outfit } from '@/lib/fonts'
 import { Analytics } from '@vercel/analytics/react'
 import metaBase from '@/metadataBase'
 import 'react-tooltip/dist/react-tooltip.css'
-import '@/app/globals.css'
-import ScrollUpBtn from './scroll-up/scroll-up-btn'
+import './globals.css'
 import './opengraph-image.png'
 
 export const metadata: Metadata = {
@@ -44,13 +40,11 @@ export default function RootLayout({
   <html lang='en'>
    <Analytics />
    <GoogleTagManager gtmId='GTM-M9L5J5H' />
-   <body className={cn('relative  m-auto overflow-x-hidden', outfit.className)}>
+   <body>
     <div id='modal-root' />
-    <Header />
     <Toaster />
-    {cart}
     {children}
-    <ScrollUpBtn />
+    {cart}
    </body>
    <GoogleAnalytics gaId='G-H1PNDS4GRF' />
   </html>

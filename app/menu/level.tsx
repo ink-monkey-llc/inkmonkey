@@ -5,7 +5,7 @@ import { storeApi } from '@/lib/shopify/storefront-api/store-api'
 import Chevron from '../icons/chevron'
 import Link from 'next/link'
 import { Direction } from '../icons/chevron'
-import { Params } from '../(store)/list/[...slug]/layout'
+import { Params } from '../(storefront)/(store)/list/[...slug]/layout'
 
 type Props = {
  obj: MenuItem

@@ -28,7 +28,7 @@ function CtBanner() {
      src='/ct/shine-overlay.png'
      width={208}
      height={208}
-     alt=''
+     alt='Cybertruck'
     />
     <h2 className='text-yellow-300 italic text-center mb-2 leading-tight'>{ctHeading}</h2>
     <p className='text-xs mb-2'>{ctCopy[0]}</p>

@@ -25,7 +25,7 @@ function ImageCard({ product, fonz }: { product: ShopifyProduct; fonz?: boolean 
        inset: '0',
       }}
       src={product.featuredImage.url}
-      alt={product.featuredImage.altText}
+      alt={product.featuredImage.altText ?? 'Product Image'}
       width={200}
       height={200}
      />

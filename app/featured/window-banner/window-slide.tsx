@@ -40,7 +40,7 @@ function WindowSlide({ slide, offset, rect }: WindowSlideProps) {
   <div style={{ position: 'relative', width, height }}>
    <Image
     fill
-    alt=''
+    alt='Product Image'
     src={slide}
     loading='eager'
     draggable={false}

@@ -1,7 +1,7 @@
 import React from 'react'
 import Level from './level'
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
-import type { Params } from '../(store)/list/[...slug]/layout'
+import type { Params } from '../(storefront)/(store)/list/[...slug]/layout'
 
 type Props = {
  params: Params

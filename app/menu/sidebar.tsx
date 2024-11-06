@@ -1,7 +1,7 @@
 import React from 'react'
 import { cn } from '../../utils/cn'
 import ListTree from './list-tree'
-import type { Params } from '../(store)/list/[...slug]/layout'
+import type { Params } from '../(storefront)/(store)/list/[...slug]/layout'
 import { formatPathname } from '../../utils/helpers'
 import MobileProdSel from './mobile-sidebar/mobile-prod-sel'
 

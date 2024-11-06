@@ -19,7 +19,7 @@ function SelectIcon({ image }: SelectIconProps) {
      src={image}
      width='32'
      height='32'
-     alt=''
+     alt='alt text'
     />
    )}
   </div>

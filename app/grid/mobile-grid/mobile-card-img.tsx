@@ -24,7 +24,7 @@ function MobileCardImg({ featImgData }: MobileCardImgProps) {
      minWidth: '50px',
     }}
     src={featImgData.image?.url ?? ''}
-    alt={featImgData.image?.altText}
+    alt={featImgData.image?.altText ?? 'Product image'}
     width={140}
     height={140}
     // blurDataURL={featImgData.base64}

@@ -16,7 +16,7 @@ function ImagePrompt({ imgSrc, imgAlt }: { imgSrc: string; imgAlt: string }) {
    <Image
     className='m-auto object-contain'
     src={imgSrc}
-    alt={imgAlt}
+    alt={imgAlt ?? 'Alt text'}
     width={250}
     height={250}
    />

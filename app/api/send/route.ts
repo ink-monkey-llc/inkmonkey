@@ -1,6 +1,6 @@
 import { Resend } from 'resend'
 import prisma from '@/lib/db'
-import Email from '@/app/(store)/email/results-link'
+import Email from '@/app/(storefront)/(store)/email/results-link'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 

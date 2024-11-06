@@ -25,6 +25,11 @@ const config: Config = {
     'backdrop-dark': '#1a1a1ad3',
     'slate-tr': '#94a3b849',
     quant: '#464646',
+    'var-home-border': '#CCCCCC',
+    'var-home-btn': '#454545',
+    'var-bg': '#1e1e1e',
+    'var-bg-dark': '#0a0a0a',
+    'var-bg-sec': '#2b2b2b',
    },
    fontFamily: {
     smooch: ['var(--font-smooch)', 'sans-serif'],
