@@ -23,7 +23,7 @@ function HomePage() {
      </div>
      <div className='flex flex-col gap-4'>
       <Link
-       href='/'
+       href='https://im-calendar.vercel.app/'
        className={cn(
         figtree.className,
         'bg-var-home-btn rounded-xl py-3 px-6 w-max font-bold text-xl m-auto opacity-80 hover:opacity-100 cursor-pointer flex items-center'
