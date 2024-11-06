@@ -31,11 +31,18 @@ function HomePage() {
        Go to the app
        <ArrowRight className='ml-2' />
       </Link>
-      <Link
-       className={cn(figtree.className, 'underline m-auto flex justify-center')}
-       href='/calendar/privacy'>
-       Privacy Policy
-      </Link>
+      <div className='flex m-auto gap-4 mb-2'>
+       <Link
+        className={cn(figtree.className, 'underline ')}
+        href='/calendar/privacy'>
+        Privacy Policy
+       </Link>
+       <Link
+        className={cn(figtree.className, 'underline ')}
+        href='/calendar/tos'>
+        Terms of Service
+       </Link>
+      </div>
      </div>
     </div>
     <Image
