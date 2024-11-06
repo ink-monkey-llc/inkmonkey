@@ -1,10 +1,10 @@
 import React from 'react'
 import SearchForm from './search-form'
 import { storeApi } from '@/lib/shopify/storefront-api/store-api'
-import { SearchType, searchTypes } from '../content/search-types'
-import ProductGrid from '../grid/product-grid'
+import { SearchType, searchTypes } from '../../../content/search-types'
+import ProductGrid from '../../../grid/product-grid'
 import NextPrev from './next-prev'
-import MobileGrid from '../grid/mobile-grid/mobile-grid'
+import MobileGrid from '../../../grid/mobile-grid/mobile-grid'
 
 async function Page({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
  const { type: urlType, query, dir, cursor } = searchParams
@@ -31,7 +31,7 @@ async function Page({ searchParams }: { searchParams: { [key: string]: string | 
  //  console.log('products:', products)
 
  return (
-  <div className='w-full h-full min-h-[60vh] pb-12'>
+  <div className='relative w-full h-full flex flex-col min-h-[60vh] pb-12'>
    <SearchForm />
    <MobileGrid
     isSearch={true}

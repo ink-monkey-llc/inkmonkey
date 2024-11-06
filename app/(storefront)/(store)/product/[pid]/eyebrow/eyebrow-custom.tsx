@@ -5,7 +5,7 @@ import { cn } from '@/utils/cn'
 import ColorPicker from './color-picker'
 import CurveShape from './curve-shape'
 
-const aachen = localFont({ src: '../../../../fonts/AachenBoldBT.ttf', weight: '700' })
+const aachen = localFont({ src: '../../../../../fonts/AachenBoldBT.ttf', weight: '700' })
 
 function EyebrowCustom({ eyebrowCustom, setEyebrowCustom }: { eyebrowCustom: EyebrowCustomType; setEyebrowCustom: (arg: EyebrowCustomType) => void }) {
  const demoLen = eyebrowCustom.text.length

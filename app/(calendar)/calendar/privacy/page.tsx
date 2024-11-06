@@ -9,7 +9,9 @@ const figtree = Figtree({ subsets: ['latin'] })
 
 function PrivacyPolicy() {
  return (
-  <div className='p-8 w-[100vw] '>
+  <div
+   style={{ scrollbarWidth: 'thin', scrollbarColor: '#2b2b2b transparent' }}
+   className='p-8 w-[100vw] bg-var-bg '>
    <div className='flex gap-2'>
     <Image
      src={'/cal/icon_192.png'}
@@ -22,13 +24,13 @@ function PrivacyPolicy() {
      <p className='text-xs'>by Ink Monkey</p>
     </div>
    </div>
-   <div className=' w-full tablet:w-max mx-auto'>
+   <div className='w-full tablet:w-max mx-auto'>
     <Link
-     href='/'
+     href='/calendar'
      className='-mt-8 bg-var-home-btn rounded-xl py-3 px-6 w-max font-bold text-xl opacity-80 hover:opacity-100 cursor-pointer flex items-center ml-auto'>
      Back
     </Link>
-    <div className={cn(figtree.className, 'mt-2 border border-var-home-border rounded-xl w-full tablet:w-max flex flex-col gap-2 mx-auto')}>
+    <div className={cn(figtree.className, 'mt-2 border border-var-home-border rounded-xl w-full sm:w-max flex flex-col gap-2 mx-auto')}>
      <div className='p-4'>
       <h2 className='font-semibold text-xl'>Privacy Policy</h2>
       <p className='text-sm'>Effective Date: November 5th 2024</p>

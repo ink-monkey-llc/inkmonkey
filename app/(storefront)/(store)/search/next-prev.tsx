@@ -1,5 +1,5 @@
 import React from 'react'
-import Arrow from '../icons/arrow'
+import Arrow from '../../../icons/arrow'
 import SearchBtn from './search-btn'
 import { PageInfo } from '@/lib/shopify/types'
 

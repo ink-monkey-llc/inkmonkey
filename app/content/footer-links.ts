@@ -22,6 +22,10 @@ export const links = {
     label: 'Blog',
     href: '/blog',
    },
+   {
+    label: 'The Calendar',
+    href: '/calendar',
+   },
   ],
  },
  products: {

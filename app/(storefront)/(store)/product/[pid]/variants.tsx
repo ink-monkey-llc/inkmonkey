@@ -10,7 +10,7 @@ import useAtc from '@/app/hooks/useAtc'
 import VariantSelect from './variant-select'
 import Quantity from './quantity'
 import Customization from './customization'
-import Atc from '../../../../atc'
+import Atc from '@/app/atc'
 import EyebrowCustom from './eyebrow/eyebrow-custom'
 
 function Variants({ product }: { product: ShopifyProduct }) {

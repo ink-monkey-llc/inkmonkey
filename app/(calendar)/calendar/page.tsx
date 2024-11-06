@@ -10,7 +10,7 @@ const figtree = Figtree({ subsets: ['latin'] })
 
 function HomePage() {
  return (
-  <div className='bg-var-bg h-full min-h-[100vh] w-[100vw] overflow-x-hidden'>
+  <div className='bg-var-bg h-full min-h-[100vh] w-[100vw] overflow-x-hidden '>
    <div className='m-auto border-2 border-var-home-border max-h-[500px] max-w-[900px] rounded-[60px] mt-16 pl-8 flex gap-8 pt-8 overflow-hidden'>
     <div className={cn(daysOne.className, 'flex flex-col gap-6 w-1/2')}>
      <div>

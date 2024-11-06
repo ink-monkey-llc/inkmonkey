@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useRef } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import TypeSelect from '@/app/search/type-select'
+import TypeSelect from '@/app/(storefront)/(store)/search/type-select'
 
 function SearchForm() {
  const router = useRouter()
