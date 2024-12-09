@@ -9,9 +9,9 @@ function NavDropdown() {
    target={
     <div
      className={cn(
-      'bg-black rounded-bl-md sm:rounded-bl-none sm:rounded-tl-md cursor-pointer border-2 hover:bg-bg-secondary border-bg-tertiary px-4 py-1 transition-all'
+      'bg-black sm:rounded-tl-md cursor-pointer border-2 hover:bg-bg-secondary border-bg-tertiary py-2 sm:py-1 transition-all w-[250px]'
      )}>
-     <h2 className='font-light text-accent lg:text-base'>Our Products</h2>
+     <h2 className=' text-accent font-semibold lg:text-base text-center'>Our Products</h2>
     </div>
    }>
    <ProductTypes />

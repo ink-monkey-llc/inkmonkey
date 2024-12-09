@@ -7,6 +7,7 @@ import PageBanner from '../../[...slug]/page-banner'
 import PageBtn from '../../[...slug]/page-btn'
 import Sort from '../../[...slug]/sort'
 import { Metadata, ResolvingMetadata } from 'next'
+import MobileGrid from '@/app/grid/mobile-grid/mobile-grid'
 
 type MetaProps = {
  params: { slug: string[] }
@@ -98,6 +99,9 @@ async function AllProducts({ params, searchParams }: { params: { slug: string[] 
   <div className='pb-12 relative w-full overflow-hidden'>
    <PageBanner query={'all'} />
    <Sort />
+   <MobileGrid
+    products={products}
+   />
    <ProductGrid products={products} />
    <div className='flex justify-center gap-8 mt-6 absolute bottom-0 left-0 right-0 w-full mb-6'>
     {pageInfo.hasPreviousPage && (

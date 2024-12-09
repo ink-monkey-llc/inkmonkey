@@ -15,7 +15,7 @@ function MobileSidebar({ children }: { children: React.ReactNode }) {
  useOnClickOutside(ref, () => setOpen(false))
 
  return (
-  <div className='h-[var(--view-height)]  fixed top-[96px] flex flex-col items-start justify-start bg-bg-secondary sm:hidden w-12 z-50'>
+  <div className='h-[var(--view-height)]  fixed top-[96px] flex flex-col items-start justify-start bg-bg-secondary min-[768px]:hidden w-12 z-50'>
    <HamburgerIcon
     onClick={() => setOpen(!open)}
     className='w-12 h-12 p-2 text-accent cursor-pointer ml-auto'

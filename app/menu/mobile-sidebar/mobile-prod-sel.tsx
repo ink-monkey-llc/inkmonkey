@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { cn } from '@/utils/cn'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
-// import { productTypes } from '@/app/content/product-types'
+import { productTypes } from '@/app/content/product-types'
 import Chevron, { Direction } from '@/app/icons/chevron'
 
 function MobileProdSel() {
@@ -12,12 +12,13 @@ function MobileProdSel() {
  const handleClick = () => {
   setOpen(!open)
  }
-
- const productTypes = [
-  { id: 'dec', label: 'Stickers & Decals', queryHandle: 'Vinyl Decal', url: '/list/Vinyl-Decal' },
-  { id: 'win', label: 'Truck Back Window Graphics', queryHandle: 'Truck Back Window Graphics', url: '/list/Truck-Back-Window-Graphics' },
- ]
- const currentOption = productTypes.find((type) => type.url.includes(slug[0]))
+ 
+let currentOption
+if (!slug || slug[0] === 'all') {
+  currentOption = productTypes[0]
+} else {
+  currentOption = productTypes.find((type) => type.url.includes(slug[0]))
+}
 
  return (
   <div
@@ -38,7 +39,7 @@ function MobileProdSel() {
       href={type.url}>
       <div
        className={cn(
-        'group cursor-pointer border-2 border-t-2 bg-bg-secondary rounded-md hover:bg-bg-primary border-bg-tertiary px-4 py-2 transition-all flex items-center justify-center gap-2 group'
+        'group cursor-pointer border-2 border-t-2 bg-bg-secondary rounded-md hover:bg-bg-primary border-bg-tertiary px-4 py-2 transition-all flex items-center justify-start gap-2 group'
        )}>
        <h2 className=' text-txt-primary  font-bold text-lg group-hover:text-accent-bright'>{type.label}</h2>
       </div>

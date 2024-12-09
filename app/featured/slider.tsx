@@ -59,7 +59,7 @@ function Slider({ collections, type }: SliderProps) {
   <div className='flex flex-col w-full bg-bg-secondary'>
    <div className='flex justify-center gap-[1px] '>
     {titles.map((title, i) => {
-     const label = title === 'All Products' ? 'New!' : title
+     const label = title === 'All Products' ? 'New!' : title === 'Patriotic' ? 'Political' : title
      return (
       <div
        key={title}

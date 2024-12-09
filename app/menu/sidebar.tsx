@@ -15,7 +15,7 @@ function Sidebar({ params, mobile }: Props) {
  const title = slug[0] === 'Vinyl-Decal' ? 'Stickers & Decals' : slug[0] === 'all' ? 'All Products' : formatPathname(slug[0])
 
  return (
-  <div className={cn('hidden sm:block relative', mobile && 'block sm:hidden')}>
+  <div className={cn('hidden min-[768px]:block relative', mobile && 'block min-[768px]:hidden')}>
    {mobile && <MobileProdSel />}
    <div
     className={cn(
