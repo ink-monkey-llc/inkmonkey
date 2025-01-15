@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { uploadCustomDesign } from '@/app/actions/images'
 import { ErrorToast } from '@/app/toast/error'
+import Disclaimer from './disclaimer'
 
 function FileInput({
   setImageData,
@@ -49,7 +50,8 @@ function FileInput({
     }
   }
   return (
-    <div className='px-2'>
+    <div className='px-2 md:w-2/3'>
+      {!selected && <Disclaimer />}
       <label htmlFor="logo" className="text-sm">
        {!selected ? 'Select your design file' : 'Design uploaded'}
       </label>
