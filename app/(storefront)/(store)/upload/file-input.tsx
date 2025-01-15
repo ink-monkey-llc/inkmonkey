@@ -52,15 +52,14 @@ function FileInput({
   return (
     <div className='px-2 md:w-2/3'>
       {!selected && <Disclaimer />}
-      <label htmlFor="logo" className="text-sm">
+      <label htmlFor="upload" className="text-sm">
        {!selected ? 'Select your design file' : 'Design uploaded'}
       </label>
       <input
         accept="image/*"
         onChange={handleChange}
-        id="logo"
+        id="upload"
         className="w-full rounded-md border border-slate-tr p-1 bg-bg-tertiary text-txt-primary"
-        placeholder="Upload a logo"
         type="file"
       />
     </div>
