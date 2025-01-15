@@ -43,7 +43,7 @@ export const uploadCustomDesign = async (imgData: { dataUrl: string; fileName: s
         return { error: 'File size is too large' }
     }
     const res = await uploadImage(dataUrl)
-    //  console.log('res:', res)
+     console.log('res:', res)
     if (res.error) {
         return { error: res.error }
     }

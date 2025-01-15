@@ -138,7 +138,7 @@ export type SelectedOptionInput = {
 export type VariantByOptions = {
  id: string
  price: { amount: string }
- metafield: { value: string }
+ metafield?: { value: string }
 }
 
 export type ShopifyCollection = {

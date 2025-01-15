@@ -64,7 +64,7 @@ function Variants({ product, imageData }: { product: ShopifyProduct, imageData?:
     setSelectedOptions(variant)
   }
 
-  console.log('selectedVariant', selectedVariant)
+  // console.log('selectedVariant', selectedVariant)
 
   const isCustom = selectedOptions.Personalization !== 'None'
   return (

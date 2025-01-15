@@ -49,9 +49,9 @@ function FileInput({
     }
   }
   return (
-    <div>
+    <div className='px-2'>
       <label htmlFor="logo" className="text-sm">
-        Select your design file
+       {!selected ? 'Select your design file' : 'Design uploaded'}
       </label>
       <input
         accept="image/*"

@@ -1,35 +1,59 @@
-'use client'
-import React, { useState, useEffect } from 'react'
-import FileInput from './file-input'
-import { ShopifyProduct } from '@/lib/shopify/types'
-import { storeApi } from '@/lib/shopify/storefront-api/store-api'
+'use client';
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import FileInput from './file-input';
+import { ShopifyProduct } from '@/lib/shopify/types';
+import { storeApi } from '@/lib/shopify/storefront-api/store-api';
 
-import Variants from '../product/[pid]/variants'
+import Variants from '../product/[pid]/variants';
+import UploadImage from './upload-image';
+import BackButton from '@/app/common/back-button';
 
 function Upload() {
-  const [product, setProduct] = useState<ShopifyProduct | null>(null)
-  const [imageData, setImageData] = useState({ publicID: '', url: '', secure_url: '' })
+  const [product, setProduct] = useState<ShopifyProduct | null>(null);
+  const [imageData, setImageData] = useState({
+    publicID: '',
+    url: '',
+    secure_url: '',
+  });
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const product = await storeApi.getProductByHandle({ handle: 'custom-sticker-design' })
-      setProduct(product)
-    }
-    fetchProduct()
-  }, [])
+      const product = await storeApi.getProductByHandle({
+        handle: 'custom-sticker-design',
+      });
+      setProduct(product);
+    };
+    fetchProduct();
+  }, []);
 
-  if (!product) return null
+  if (!product) return null;
   // console.log('product', product)
 
   return (
-    <div className="max-w-[1200px] mx-auto">
-      <h1 className="text-center text-2xl font-bold">Upload your own design</h1>
-      <div className="flex gap-4 justify-center">
-        <FileInput setImageData={setImageData} imageData={imageData} />
-        <Variants imageData={imageData} product={product} />
+    <div className="flex flex-col items-center justify-center w-full max-w-[1400px] m-auto px-2">
+      <BackButton />
+      <div className="flex flex-col md:flex-row items-start justify-center w-full max-w-[1400px] m-auto mt-2">
+        <div className="rounded-md border-2 border-accent-tr flex flex-col items-center justify-center w-full md:w-2/3 md:h-[70vh] md:mb-8 md:ml-8 mb-0 p-2">
+          <UploadImage
+            imageData={imageData}
+            product={product}
+          />
+          <FileInput
+            setImageData={setImageData}
+            imageData={imageData}
+          />
+        </div>
+        <div className="w-2/3 md:w-1/3 h-full flex flex-col gap-4 pt-6 md:pt-12">
+          <h1 className="text-3xl text-accent px-4">{product.title}</h1>
+          <Variants
+            imageData={imageData}
+            product={product}
+          />
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Upload
+export default Upload;
