@@ -4,7 +4,6 @@ import { cn } from '../../utils/cn'
 import { smooch } from '@/lib/fonts'
 import imlogo from '../images/imlogo.jpg'
 import HeroCta from './hero-cta'
-import ProductTypesXs from '../header/product-types-xs'
 import './hero.css'
 
 function Hero() {
