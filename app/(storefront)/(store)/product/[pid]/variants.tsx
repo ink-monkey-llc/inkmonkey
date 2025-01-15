@@ -57,12 +57,14 @@ function Variants({ product, imageData }: { product: ShopifyProduct, imageData?:
   }
 
   useEffect(() => {
-    fetchedVariant(selectedOptions).then((variant) => setSelectedVariant(variant))
+    fetchedVariant(selectedOptions).then((variant) => setSelectedVariant(variant))    
   }, [selectedOptions])
 
   const handleSelect = async (variant: Record<string, string>) => {
     setSelectedOptions(variant)
   }
+
+  console.log('selectedVariant', selectedVariant)
 
   const isCustom = selectedOptions.Personalization !== 'None'
   return (
@@ -70,6 +72,7 @@ function Variants({ product, imageData }: { product: ShopifyProduct, imageData?:
       <Price
         quantity={quantity}
         price={selectedVariant?.price ? selectedVariant?.price.amount : '0'}
+        perUnit={selectedVariant?.metafield ? selectedVariant?.metafield?.value : ''}  
       />
       <div>
         {!isCard &&

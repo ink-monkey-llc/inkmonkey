@@ -40,6 +40,9 @@ const productFragment = /* GraphQL */ `
       name
       value
      }
+      metafield(key: "per_unit", namespace: "custom"){
+        value
+      }
      price {
       amount
       currencyCode

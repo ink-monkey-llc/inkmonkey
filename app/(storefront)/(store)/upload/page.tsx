@@ -19,6 +19,7 @@ function Upload() {
   }, [])
 
   if (!product) return null
+  // console.log('product', product)
 
   return (
     <div className="max-w-[1200px] mx-auto">

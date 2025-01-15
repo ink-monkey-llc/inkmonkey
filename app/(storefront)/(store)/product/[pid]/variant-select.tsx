@@ -17,8 +17,10 @@ type SelectOptionProps = {
  selectedOptions: Record<string, string>
 }
 
-function SelectOption({ value, option, setSelectedOptions, selectedOptions }: SelectOptionProps) {
+function SelectOption({ value, option, setSelectedOptions, selectedOptions  }: SelectOptionProps) {
  const handleClick = () => {
+  console.log('option', option)
+  console.log('value', value)
   setSelectedOptions({ ...selectedOptions, [option.name]: value })
  }
  const isSelected = selectedOptions[option.name] === value

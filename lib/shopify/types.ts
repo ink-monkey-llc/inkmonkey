@@ -87,6 +87,9 @@ export type ProductVariant = {
   value: string
  }[]
  price: Money
+ metafield: {
+  value: string
+ }
 }
 
 export type VariantById = {
@@ -135,6 +138,7 @@ export type SelectedOptionInput = {
 export type VariantByOptions = {
  id: string
  price: { amount: string }
+ metafield: { value: string }
 }
 
 export type ShopifyCollection = {
@@ -155,6 +159,7 @@ export type CollectionQueryResult = {
 }
 
 export type ShopifyProduct = {
+ metafield: any
  id: string
  collections: {
   nodes: {
