@@ -9,12 +9,14 @@ import FonzBanner from '../featured/fonz-banner/fonz-banner'
 import '@/app/globals.css'
 import CtBanner from '../featured/cybertruck/ct-banner'
 import SurveyBanner from '../featured/survey/survey-banner'
+import CustomBanner from '../featured/custom-upload/custom-banner'
 
 export default function Home() {
  return (
   <main className='relative flex min-h-screen flex-col items-center justify-between overflow-hidden '>
    {/* <SurveyBanner /> */}
    <Hero />
+   <CustomBanner />
    <FonzBanner />
    <CtBanner />
    <Featured
