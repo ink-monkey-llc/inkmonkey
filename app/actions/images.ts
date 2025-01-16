@@ -11,7 +11,6 @@ export const uploadLogo = async (imgData: { dataUrl: string; fileName: string; f
         return { error: 'File size is too large' }
     }
     const res = await uploadImage(dataUrl)
-    //  console.log('res:', res)
     if (res.error) {
         return { error: res.error }
     }
@@ -27,7 +26,6 @@ export const uploadImagePrompt = async (imgData: { dataUrl: string; fileName: st
         return { error: 'File size is too large' }
     }
     const res = await uploadImage(dataUrl)
-    //  console.log('res:', res)
     if (res.error) {
         return { error: res.error }
     }
@@ -43,7 +41,6 @@ export const uploadCustomDesign = async (imgData: { dataUrl: string; fileName: s
         return { error: 'File size is too large' }
     }
     const res = await uploadImage(dataUrl)
-     console.log('res:', res)
     if (res.error) {
         return { error: res.error }
     }

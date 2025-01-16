@@ -72,7 +72,6 @@ function FileInput({
         return { status: 'error' }
       }
       setImageData(res.imgData)
-      console.log('success:', res.imgData)
       setUploading(false)
       setSelected(true)
       return { status: 'success', imgData: res.imgData }

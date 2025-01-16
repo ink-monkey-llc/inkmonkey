@@ -8,41 +8,40 @@ import { createPortal } from 'react-dom'
 import '@/app/styles/modal.css'
 
 function Modal({ children }: { children: React.ReactNode }) {
- const [close, setClose] = useState(false)
- const router = useRouter()
- const modalRef = useRef<ElementRef<'dialog'>>(null)
- const containerRef = useRef<ElementRef<'div'>>(null)
- const pathname = usePathname()
- useOnClickOutside(containerRef, () => onDismiss())
- console.log('pathname:', pathname)
+    const [close, setClose] = useState(false)
+    const router = useRouter()
+    const modalRef = useRef<ElementRef<'dialog'>>(null)
+    const containerRef = useRef<ElementRef<'div'>>(null)
+    const pathname = usePathname()
+    useOnClickOutside(containerRef, () => onDismiss())
 
- useEffect(() => {
-  if (!modalRef.current?.open) {
-   modalRef.current?.showModal()
-  }
- }, [pathname])
+    useEffect(() => {
+        if (!modalRef.current?.open) {
+            modalRef.current?.showModal()
+        }
+    }, [pathname])
 
- const onDismiss = () => {
-  setClose(true)
-  setTimeout(() => {
-   modalRef.current?.close()
-   router.back()
-  }, 500)
- }
+    const onDismiss = () => {
+        setClose(true)
+        setTimeout(() => {
+            modalRef.current?.close()
+            router.back()
+        }, 500)
+    }
 
- return createPortal(
-  <dialog
-   ref={modalRef}
-   className={cn('modal z-50', close && 'close')}>
-   <div
-    className='w-full h-full'
-    ref={containerRef}>
-    {children}
-   </div>
-   <button onClick={onDismiss}>Close</button>
-  </dialog>,
-  document.getElementById('modal-root')!
- )
+    return createPortal(
+        <dialog
+            ref={modalRef}
+            className={cn('modal z-50', close && 'close')}>
+            <div
+                className='w-full h-full'
+                ref={containerRef}>
+                {children}
+            </div>
+            <button onClick={onDismiss}>Close</button>
+        </dialog>,
+        document.getElementById('modal-root')!
+    )
 }
 
 export default Modal

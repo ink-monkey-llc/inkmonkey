@@ -28,7 +28,6 @@ function Upload() {
   }, []);
 
   if (!product) return null;
-  // console.log('product', product)
 
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-[1400px] m-auto px-2">

@@ -4,15 +4,16 @@ import '@/app/globals.css'
 import Footer from '@/app/footer/footer'
 
 export default function StoreLayout({
- children,
+    children,
 }: Readonly<{
- children: React.ReactNode
+    children: React.ReactNode
 }>) {
- return (
-  <div>
-   <Header />
-   {children}
-   <Footer />
-  </div>
- )
+
+    return (
+        <div>
+            <Header />
+            {children}
+            <Footer />
+        </div>
+    )
 }

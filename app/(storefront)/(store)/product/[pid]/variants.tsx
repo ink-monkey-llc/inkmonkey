@@ -52,7 +52,6 @@ function Variants({ product, imageData }: { product: ShopifyProduct, imageData?:
       ErrorToast({ msg: 'Please upload an image before adding to cart' })
       return
     }
-    console.log('addAndOpenCart', { selectedVariant, quantity, attributes: makeAttrs() })
     addToCart({
       selectedVariant,
       quantity,
@@ -62,14 +61,13 @@ function Variants({ product, imageData }: { product: ShopifyProduct, imageData?:
   }
 
   useEffect(() => {
-    fetchedVariant(selectedOptions).then((variant) => setSelectedVariant(variant))    
+    fetchedVariant(selectedOptions).then((variant) => setSelectedVariant(variant))
   }, [selectedOptions])
 
   const handleSelect = async (variant: Record<string, string>) => {
     setSelectedOptions(variant)
   }
 
-  // console.log('selectedVariant', selectedVariant)
 
   const isCustom = selectedOptions.Personalization !== 'None'
   return (
@@ -77,7 +75,7 @@ function Variants({ product, imageData }: { product: ShopifyProduct, imageData?:
       <Price
         quantity={quantity}
         price={selectedVariant?.price ? selectedVariant?.price.amount : '0'}
-        perUnit={selectedVariant?.metafield ? selectedVariant?.metafield?.value : ''}  
+        perUnit={selectedVariant?.metafield ? selectedVariant?.metafield?.value : ''}
       />
       <div>
         {!isCard &&
