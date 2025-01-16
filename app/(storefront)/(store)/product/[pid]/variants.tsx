@@ -12,6 +12,7 @@ import Quantity from './quantity'
 import Customization from './customization'
 import Atc from '@/app/atc'
 import EyebrowCustom from './eyebrow/eyebrow-custom'
+import { ErrorToast } from '@/app/toast/error'
 
 function Variants({ product, imageData }: { product: ShopifyProduct, imageData?: Record<string, string> }) {
   const initialOptions = extractFirstValues(product.options)
@@ -47,6 +48,10 @@ function Variants({ product, imageData }: { product: ShopifyProduct, imageData?:
   }
 
   const addAndOpenCart = () => {
+    if (isUpload && !imageData?.secure_url) {
+      ErrorToast({ msg: 'Please upload an image before adding to cart' })
+      return
+    }
     console.log('addAndOpenCart', { selectedVariant, quantity, attributes: makeAttrs() })
     addToCart({
       selectedVariant,
