@@ -27,7 +27,7 @@ function Header() {
                 <NavDropdown />
                 <Link
                     href='/fonzai'
-                    className='bg-black cursor-pointer border-2 hover:bg-bg-secondary text-center border-bg-tertiary px-4 py-2 h-16 flex items-center justify-center min-[768px]:h-auto transition-all w-full min-[768px]:w-[250px]'>
+                    className='bg-black cursor-pointer border-2 hover:bg-bg-secondary text-center border-bg-tertiary px-4 py-2 h-16 flex items-center justify-center min-[768px]:h-auto transition-all w-full min-[768px]:w-[250px] pr-12'>
                     FONZAI AI design playground
                 </Link>
             </div>
