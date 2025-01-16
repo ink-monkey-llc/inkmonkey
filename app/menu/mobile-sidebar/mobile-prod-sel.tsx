@@ -12,13 +12,12 @@ function MobileProdSel() {
  const handleClick = () => {
   setOpen(!open)
  }
- 
-let currentOption
-if (!slug || slug[0] === 'all') {
-  currentOption = productTypes[0]
-} else {
-  currentOption = productTypes.find((type) => type.url.includes(slug[0]))
-}
+
+//  const productTypes = [
+//   { id: 'dec', label: 'Stickers & Decals', queryHandle: 'Vinyl Decal', url: '/list/Vinyl-Decal' },
+//   { id: 'win', label: 'Truck Back Window Graphics', queryHandle: 'Truck Back Window Graphics', url: '/list/Truck-Back-Window-Graphics' },
+//  ]
+ const currentOption = productTypes.find((type) => type.url.includes(slug[0]))
 
  return (
   <div

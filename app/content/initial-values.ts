@@ -12,6 +12,7 @@ export const initialSelectedVariant = {
   amount: '58.95',
   currencyCode: 'USD',
  },
+ metafield: { value: '' },
 }
 
 export const initialBusinessLogoData = { publicId: '', url: '', secure_url: '' }

@@ -105,6 +105,9 @@ export const variantByOptionsQuery = /* GraphQL */ `
     price {
      amount
     }
+    metafield(key: "per_unit", namespace: "custom"){
+      value
+    }
    }
   }
  }

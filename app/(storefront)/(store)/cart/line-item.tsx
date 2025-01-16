@@ -37,7 +37,7 @@ function LineItem({ lineItem, cartId }: { lineItem: CartItem; cartId: string }) 
   product.handle === 'ai-truck-back-window-graphics'
    ? attributes.find((attr) => attr.newKey === 'FonzImageUrl')?.value
    : product.handle.includes('ai-')
-   ? attributes.find((attr) => attr.newKey === 'imageUrl')?.value
+   ? attributes.find((attr) => attr.newKey === 'imageUrl')?.value 
    : product.featuredImage.url
 
  const imgAlt = product.handle.includes('ai-') ? 'Custom AI Designed Image' : product.featuredImage.altText
@@ -69,7 +69,7 @@ function LineItem({ lineItem, cartId }: { lineItem: CartItem; cartId: string }) 
    {hasAttributes && (
     <div>
      {isOpen && (
-      <div className='flex flex-col'>
+      <div className='flex flex-col mt-2'>
        {attributes.map((attr, i) => {
         if (attr.newKey === 'doors' || attr.newKey === 'vehicleYear' || attr.newKey === 'make' || attr.newKey === 'model') {
          return null
@@ -87,6 +87,17 @@ function LineItem({ lineItem, cartId }: { lineItem: CartItem; cartId: string }) 
             width={50}
             height={50}
            />
+          ): attr.newKey === 'Image' ? (
+            <div>
+            <Image
+            className='border border-border'
+            src={attr.value}
+            alt='uploaded image'
+            width={150}
+            height={150}
+           />
+           <p className='w-max text-txt-secondary text-xs'>{attr.value}</p>
+           </div>
           ) : (
            <p className='w-max text-txt-secondary'>{attr.value}</p>
           )}

@@ -37,6 +37,11 @@ async function ProductPage({ params }: { params: { pid: string } }) {
  const product: ShopifyProduct = await storeApi.getProductByHandle({ handle: pid })
  const isWindow = product.productType === 'Truck Back Window Graphics'
  const isEyebrow = product.handle === 'truck-windshield-eyebrow'
+ const isUpload = product.handle === 'custom-sticker-design'
+
+ if (isUpload) {
+  return permanentRedirect(`/upload`)
+ }
 
  if (isWindow) {
   return permanentRedirect(`/window/${pid}`)
