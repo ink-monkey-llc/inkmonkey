@@ -11,13 +11,13 @@ export default function UploadImage({
 }) {
   return (
     <div className='w-full'>
-    {imageData.secure_url &&  <Image
-    className='max-h-[50vh] object-contain'
+      {imageData.secure_url && <Image
+        className='max-h-[49vh] object-contain'
         src={imageData.secure_url}
         alt="uploaded image"
         width={900}
         height={900}
-      /> }
+      />}
     </div>
   );
 }
