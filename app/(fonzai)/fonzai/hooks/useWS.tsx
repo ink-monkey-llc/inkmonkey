@@ -27,7 +27,7 @@ export function useWS() {
   const [, setSelectedImage] = useAtom(selectedImageAtom)
   const [, setIsUpscaling] = useAtom(isUpscalingAtom)
   const [upscaleAndAdd, setUpscaleAndAdd] = useAtom(upscaleAndAddAtom)
-  const { sendJsonMessage, sendMessage, lastJsonMessage, readyState } = useWebSocket(WS_URL, {
+  const { sendJsonMessage, sendMessage, lastJsonMessage, readyState } = useWebSocket('ws://localhost:8888/', {
     share: true,
     shouldReconnect: () => true,
     heartbeat: {
