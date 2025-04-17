@@ -15,7 +15,6 @@ import {
   isUpscalingAtom,
   upscaleAndAddAtom,
 } from '@/app/providers/fonz-atoms';
-import { read } from 'fs';
 
 export function useWS() {
   const [wsId, setWsId] = useAtom(wsIdAtom);
@@ -31,6 +30,16 @@ export function useWS() {
     useWebSocket(WS_URL, {
       share: true,
       shouldReconnect: () => true,
+      onError: (event: Event) => {
+        console.error('WebSocket Error:', event);
+        if (event instanceof CloseEvent) {
+          console.error(
+            `WebSocket Closed: Code=${event.code}, Reason=${event.reason}, WasClean=${event.wasClean}`
+          );
+        } else {
+          console.error('Received generic WebSocket error event:', event);
+        }
+      },
       heartbeat: {
         returnMessage: 'pong',
         timeout: 60000, // 1 minute

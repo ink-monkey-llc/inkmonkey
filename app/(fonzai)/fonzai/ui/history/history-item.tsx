@@ -43,7 +43,7 @@ function HistoryItem({ item }: HistoryItemProps) {
     setSelectedImage(selectedImageDefault);
     setHistoryIsOpen(false);
   };
-  console.log(item);
+  // console.log(item);
 
   return (
     <div
