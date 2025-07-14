@@ -112,6 +112,7 @@ export function useWS() {
   };
 
   useEffect(() => {
+    console.log('wsMessage', wsMessage);
     if (wsMessage.event === '') return;
     if (connectionStatus === 'Open') {
       switch (wsMessage.event) {
