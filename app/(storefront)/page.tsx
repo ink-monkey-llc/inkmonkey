@@ -7,7 +7,7 @@ import Carousel from '../carousel/carousel-nossr'
 import Footer from '../footer/footer'
 import FonzBanner from '../featured/fonz-banner/fonz-banner'
 import '@/app/globals.css'
-import CtBanner from '../featured/cybertruck/ct-banner'
+// import CtBanner from '../featured/cybertruck/ct-banner'
 import SurveyBanner from '../featured/survey/survey-banner'
 import CustomBanner from '../featured/custom-upload/custom-banner'
 
@@ -18,7 +18,7 @@ export default function Home() {
    <Hero />
    <CustomBanner />
    <FonzBanner />
-   <CtBanner />
+   {/* <CtBanner /> */}
    <Featured
     type='decals'
     productsAmount={36}
